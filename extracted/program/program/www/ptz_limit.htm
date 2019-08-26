@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <link href="css/globe.css" type="text/css" rel="stylesheet">
+    <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+    <link href="css/ptz_limit.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.json.min.js"></script>
+    <script type="text/javascript" src="js/ComScript.js"></script>
+    <script type="text/javascript" src="js/utils.js"></script>
+    <script type="text/javascript" >
+        //加载语言文件
+        loadlanguageFile(top.language);
+    </script>
+    <script type="text/javascript" src="js/ptz_limit.js"></script>
+</head>
+<body class="body" onbeforeunload="release();">
+<div class="pageDiv">
+    <div id="blockDiv" class="blockDiv"></div>
+    <div class="left_Content">
+        <div class="sectionDiv">
+                    <span class="button_green" id="Enable">
+                        <button id="startEA" class="iva_longBtn" name="Enable"></button>
+                    </span>
+        </div>
+        <div id="recordManager_div_activeX">
+        </div>
+    </div>
+    <div class="right_Content" >
+        <form name="frmSetup" id="frmSetup">
+            <div id="contentLimit" >
+                <div id="contentButton">
+                    <span class="button" id = "LimitTop" >
+                        <img name="pin" id="UpPin" class="hander" src="images/default.png" />
+                        <div name="move" id="UpMove" class='icon call-preset-disable'></div>
+                        <div name="delete" id="UpDelete" class='icon del-disable'></div>
+                    </span>
+                    <div class="LineMiddle">
+                    <span class="button" id = "LimitLeft" >
+                        <img name="pin" id="LeftPin" class="hander" src="images/default.png" />
+                        <div name="move" id="LeftMove" class='icon call-preset-disable'></div>
+                        <div name="delete" id="LeftDelete" class='icon del-disable'></div>
+                    </span>
+                        <div id = "LimitArea" ></div>
+                    <span class="button" id = "LimitRight" >
+                        <img name="pin" id="RightPin" class="hander" src="images/default.png" />
+                        <div name="move" id="RightMove" class='icon call-preset-disable'></div>
+                        <div name="delete" id="RightDelete" class='icon del-disable'></div>
+                    </span>
+                    </div>
+                    <span class="button"  id = "LimitBottom">
+                        <img name="pin" id="DownPin" class="hander" src="images/default.png" />
+                        <div name="move" id="DownMove" class='icon call-preset-disable'></div>
+                        <div name="delete" id="DownDelete" class='icon del-disable'></div>
+                    </span>
+                </div>
+            </div>
+            <span class="button_green">
+                    <input type="button" class="submit_btn" id="submit_btn" onclick="submitF()" lang="saveData"/>
+            </span>
+        </form>
+    </div>
+</div>
+</body>
+</html>

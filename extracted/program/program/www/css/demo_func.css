@@ -1,0 +1,14 @@
+@charset "utf-8";
+/* CSS Document */
+ form {
+width: 650px;
+}
+label {width: 100px;display: inline-block;zoom: 1;}
+label.notice {width: auto; font-weight: bolder;}
+.lineContent{height: 24px;}
+.textLabel{width: 166px;}
+select {width: 160px;}
+#IVADebugDiv{margin-top: 15px;}
+.shortTxt {width: 40px;}
+.middleTxt {width: 100px;}
+.shortLabel {width: 40px;}

@@ -1,0 +1,10 @@
+@charset "utf-8";
+/* CSS Document */
+.contentLine label {
+display: inline-block;
+width: 80px;
+zoom: 1;
+}
+.contentLine .middleLabel{
+    width: auto;
+}

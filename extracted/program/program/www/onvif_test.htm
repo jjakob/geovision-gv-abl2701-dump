@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="Copyright"
+            content="Copyright (c) 2011 *** Corporation. All Rights Reserved.">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <title></title>
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.json.min.js"></script>
+        <script type="text/javascript" src="js/ComScript.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/onvif_test.js"></script>
+    </head>
+    <body class="body">
+        <div class="pageDiv">
+            <form class="sectionDiv" method="post" name="frmSetup" id="frmSetup">
+                <div class="contentLine">
+                    <span class="labelSpan strLimit">Onvif</span>
+                    <span class="contentSpan">
+                        <input type="radio" name="OnvifEnable" id="OnvifOpen" value="1" checked="checked">
+                        <label for="OnvifOpen" data-lang="open"></label>
+                        <input type="radio" name="OnvifEnable" id="OnvifClose" value="0">
+                        <label for="OnvifClose" data-lang="close"></label>
+                    </span>
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" data-lang="authentification"></span>
+                    <span class="contentSpan">
+                        <input type="radio" name="AuthEnable" id="AuthOpen" value="1" checked="checked">
+                        <label for="AuthOpen" data-lang="open"></label>
+                        <input type="radio" name="AuthEnable" id="AuthClose" value="0">
+                        <label for="AuthClose" data-lang="close"></label>
+                    </span>
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" data-lang="discoveDevice"></span>
+                    <span class="contentSpan">
+                        <input type="radio" name="DiscoveryEnbalbe" id="DiscoveryOpen" value="1" checked="checked">
+                        <label for="DiscoveryOpen" data-lang="open"></label>
+                        <input type="radio" name="DiscoveryEnbalbe" id="DiscoveryClose" value="0">
+                        <label for="DiscoveryClose" data-lang="close"></label>
+                    </span>
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" data-lang="OnvifTest"></span>
+                    <span class="contentSpan">
+                        <input type="radio" name="OnvifTestEnable" id="OnvifTestOpen" value="1" checked="checked">
+                        <label for="OnvifTestOpen" data-lang="open"></label>
+                        <input type="radio" name="OnvifTestEnable" id="OnvifTestClose" value="0">
+                        <label for="OnvifTestClose" data-lang="close"></label>
+                    </span>
+                </div>
+            </form>
+            <span class="button_green" onclick="submitF()">
+                <input type="button" id="submitBtn" class="submit_btn" lang="saveData"/>
+            </span>
+        </div>
+    </body>
+</html>

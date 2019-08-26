@@ -1,0 +1,56 @@
+@CHARSET "UTF-8";
+.dataView {
+    border: 0px;
+}
+.dataViewTbl {
+    background-color: transparent;
+}
+
+.dataViewThead{
+    border: 0px;
+    background: url("images/tab_bg1.gif");
+}
+.dataViewTbody{
+    background: url("images/tab_bg2.gif");
+    overflow-x: hidden; 
+    overflow-y: auto;
+    border-top: 0px;
+}
+
+table.dataViewTbl THEAD{
+    height: 27px;
+    line-height: 27px;
+    border: 0;
+    color: #fff;
+    background: transparent;
+}
+
+table.dataViewTbl THEAD TD {
+    border: 0px;
+    padding-left: 5px;
+    background: url("images/tab_bg4.gif") repeat-y right;
+}
+
+table.dataViewTbl THEAD TD.lastTD{
+    background: transparent;
+}
+
+table.dataViewTbl TBODY TD {
+    border: 0px;
+    height: 27px;
+    vertical-align: middle;
+    padding-left: 5px;
+    background: url("images/tab_bg3.gif") repeat-x bottom;
+}
+
+.selectedTR {
+    background: url("images/tab_bg2_1.gif");
+}
+
+table.dataViewTbody TR.selectedTR TD {
+    background-color: transparent;
+}
+
+.textCell {
+    COLOR: #fff;
+}

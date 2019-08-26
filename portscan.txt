@@ -1,0 +1,19 @@
+PORT      STATE    SERVICE        REASON         VERSION
+80/tcp    open     http           syn-ack ttl 64
+81/tcp    open     soap           syn-ack ttl 64 gSOAP 2.7
+85/tcp    open     mit-ml-dev?    syn-ack ttl 64
+554/tcp   open     rtsp?          syn-ack ttl 64
+4263/tcp  filtered vrml-multi-use no-response
+6051/tcp  filtered x11            no-response
+21482/tcp filtered unknown        no-response
+26517/tcp filtered unknown        no-response
+34574/tcp filtered unknown        no-response
+48568/tcp filtered unknown        no-response
+49152/tcp open     upnp           syn-ack ttl 64 Portable SDK for UPnP devices 1.6.19 (Linux 3.18.20; UPnP 1.0)
+50025/tcp filtered unknown        no-response
+54553/tcp filtered unknown        no-response
+55723/tcp filtered unknown        no-response
+59232/tcp filtered unknown        no-response
+59735/tcp filtered unknown        no-response
+61746/tcp filtered unknown        no-response
+

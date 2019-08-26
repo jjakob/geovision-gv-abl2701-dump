@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>stream_edit.htm</title>
+        <meta name="Copyright" content="Copyright (c) 2012 *** Corporation. All Rights Reserved.">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="Pragma" content="no-cache">
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+        <link href="css/validate.css" type="text/css" rel="stylesheet">
+		<link href="css/stream_edit.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.json.min.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/ComScript.js"></script>
+        <script type="text/javascript">
+    var channelId = parent.channelId;
+    
+    //加载语言文件
+    loadlanguageFile(top.language);
+    </script>
+        <script type="text/javascript" src="js/jquery.validate.js"></script>
+        <script type="text/javascript" src="js/stream_edit.js"></script>
+    </head>
+
+    <body>
+        <div class="pageDiv">
+            <form name="frmSetup" id="frmSetup">
+                <div class="contentLine">
+                    <span class="labelSpan strLimit"><lang name="streamout"></lang></span>
+                    <select name="StreamID" id="StreamID"></select>
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit"><lang name="ipAddr"></lang></span>
+                    <input name="IPAddr" id="IPAddr" class="nomarText" maxlength="15">
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit"><lang name="port"></lang></span>
+                    <input name="Port" id="Port" class="shortText" maxlength="5"">
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit"><lang name="transProtocol"></lang></span>
+                    <select name="TransMode" id="TransMode" >
+                        <option value="4" selected="selected">
+                            TS/UDP
+                        </option>
+                        <option value="11" >
+                            ES/UDP
+                        </option>
+                    </select>
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit"><lang name="reservedStream"></lang></span>
+                    <input type="radio" name="Reserved" value="1"><lang name="yes"></lang>
+                    <input type="radio" name="Reserved" value="0" checked="checked"><lang name="no"></lang>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

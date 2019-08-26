@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MWare>
+	<ReservedAloneCfg>
+		<SNMP>MWare/Service/LocalCfg/SNMP</SNMP>
+		<Scene>MWare/SceneCfg/Scene</Scene>
+		<OSDStyle>MWare/Service/OSDStyle</OSDStyle>
+		<OSDExStyle>MWare/Service/OSDExStyle</OSDExStyle>
+		<InfoOSD>MWare/Service/InfoOSD</InfoOSD>
+		<CoverOSD>MWare/Service/CoverOSD</CoverOSD>
+		<Server>MWare/Basic/Server</Server>
+		<DeviceID>MWare/Basic/LocalCfg/DeviceID</DeviceID>
+		<ServerID>MWare/Basic/LocalCfg/ServerID</ServerID>
+		<ROI>MWare/Service/ROI</ROI>
+		<User>MWare/Basic/User</User>
+		<SNMPVersionThree>MWare/Service/SNMPVersionThree</SNMPVersionThree>
+		<NeedActivate>/MWare/Basic/NeedActivate</NeedActivate>
+		<IEEE8021x>/MWare/Security/IEEE8021x</IEEE8021x>
+	</ReservedAloneCfg>
+	<ReservedBaseCfg>
+		<Network>MWare/Basic/LocalCfg/Network</Network>
+		<PPPOE>MWare/Basic/LocalCfg/PPPOE</PPPOE>
+		<UNP>MWare/Basic/LocalCfg/UNP</UNP>
+		<WebLoginPasswd>MWare/Basic/Device/WebLoginPasswd</WebLoginPasswd>
+		<WebLoginPasswd20>MWare/Basic/Device/WebLoginPasswd20</WebLoginPasswd20>
+		<EthMode>MWare/Basic/LocalCfg/EthMode</EthMode>
+		<InstallInfo>MWare/Demo/InstallInfo</InstallInfo>
+		<ViewMode>MWare/Demo/ViewMode</ViewMode>
+		<Dns>MWare/Basic/Dns</Dns>
+		<WiFiSoapAP>MWare/Basic/LocalCfg/WiFiSoapAP</WiFiSoapAP>
+		<AbsPtzCompass>MWare/Service/PtzCompass/AbsPtzCompass</AbsPtzCompass>
+		<LocalUsbStor>MWare/Service/LocalUsbStor</LocalUsbStor>
+	</ReservedBaseCfg>
+</MWare>

@@ -1,0 +1,143 @@
+@CHARSET "UTF-8";
+.text {
+    background-image: URL("../images/text-bg.gif");
+    color: #FFF;
+    border: #9698a2 1px solid;
+}
+
+input{
+    zoom: expression(function(ele){(ele.className)?ele.className+=" "+ele.type:ele.className=ele.type; ele.style.zoom = "1";}(this));
+}
+
+FIELDSET{
+    border: #6c6b6b 1px solid;
+    padding: 5px;
+}
+
+BUTTON {
+    background-image: URL("../images/btn-sprite.gif");
+    background-repeat: repeat-x;
+    background-position: 0 -42px;
+    color: #FFF;
+    border: 0px;
+    float: left;
+    cursor: pointer;
+}
+
+.btnLeft {
+    width: 3px;
+    height: 21px;
+    background-image: URL("../images/btn-sprite.gif");
+    background-repeat: no-repeat;
+    background-position: 0 0px;
+    float: left;
+    cursor: pointer;
+}
+.btnRight {
+    width: 3px;
+    height: 21px;
+    background-image: URL("../images/btn-sprite.gif");
+    background-repeat: no-repeat;
+    background-position: 0 -21px;
+    float: left;
+    cursor: pointer;
+}
+
+select {
+    background: #61636c;
+    color: #FFF;
+    border: 0;
+}
+
+option:hover {
+    background: #FFF;
+    color: #000;
+}
+
+DIV.slider3 {
+    width: 110px;
+}
+
+DIV.slider4 {
+    width: 110px;
+}
+
+.textCell {
+    background-color: transparent;
+    COLOR: #bab9b9;
+    FONT-FAMILY: verdana, arial, sans-serif;
+    FONT-SIZE: 12px;
+    TEXT-ALIGN: left
+}
+
+body,ul,li,form,table,th,td,div,label{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+ul,ol,li {
+    list-style: none;
+}
+
+body {
+    font-size: smaller;
+    font-family: verdana, arial, sans-serif;
+    background: URL("../images/ipc_bg.jpg");
+}
+
+#container {
+    width: 100%;
+    text-align: left;
+    margin: 0 auto;
+}
+
+DIV.selectbox-wrapper {
+    BORDER-RIGHT: #838386 1px solid;
+    BORDER-TOP: #838386 0px solid;
+    MARGIN-TOP: -1px;
+    BORDER-LEFT: #838386 1px solid;
+    BORDER-BOTTOM: #838386 1px solid;
+    POSITION: absolute;
+    BACKGROUND-COLOR:  #61636c;
+    color: #FFF;
+    TEXT-ALIGN: left;
+    clear: both;
+    z-index: 10;
+}
+
+DIV.selectbox-wrapper UL LI.selected, LI.current {
+    COLOR: #000;
+    BACKGROUND-COLOR: #FFF;
+}
+
+DIV.selectbox-wrapper UL LI {
+    WIDTH: 100%;
+    CURSOR: pointer;
+    LINE-HEIGHT: 20px;
+}
+
+.selectbox {
+    CURSOR: pointer;
+    background-image: URL("../images/text-bg.gif");
+    color: #FFF;
+    border: #9698a2 1px solid;
+    float: left;
+}
+
+.selectImg {
+    width: 17px;
+    height: 20px;
+    cursor: pointer;
+    background-image: URL("../images/trigger.gif");
+    background-position: 17 0;
+    margin-left: -17px;
+    float: left;
+}
+
+a.selectImg:HOVER {
+    background-position: 0 0;
+}
+a.selectImg:ACTIVE {
+    background-position: 34 0;
+}

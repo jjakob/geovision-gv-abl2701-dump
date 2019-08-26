@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta name="Copyright"
+            content="Copyright (c) 2013 *** Corporation. All Rights Reserved.">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+        <link href="css/dataview.css" type="text/css" rel="stylesheet">
+        <link href="css/validate.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.json.min.js"></script>
+        <script type="text/javascript" src="js/ComScript.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/dataview.js"></script>
+        <script type="text/javascript" src="js/iva_park_server.js"></script>
+        <script type="text/javascript">
+            //加载语言文件
+            loadlanguageFile(top.language);
+        </script>
+        <script type="text/javascript" src="js/jquery.validate.js"></script>
+    </head>
+    <body class="body">
+        <div class="pageDiv">
+            <form name="frmSetup" id="frmSetup" class="clearfix">
+                <div class="dataView sectionDiv left" >
+                        <div class="dataViewThead">
+                            <table class="dataViewTbl textCell" cellspacing="0" width="610px">
+                                <col width="40px">
+                                <col width="40px">
+                                <col width="150px">
+                                <col width="100px">
+                                <col width="80px">
+                                <col width="100px">
+                                <col width="100px">
+                                <thead>
+                                    <tr>
+                                        <td>
+                                            <lang name="sequenseNum"></lang>
+                                        </td>
+                                        <td>
+                                            <lang name="enable"></lang>
+                                        </td>
+                                        <td>
+                                            <lang name="serialNum"></lang>
+                                        </td>
+                                        <td>
+                                            <lang name="VMServerAddr"></lang>
+                                        </td>
+                                        <td>
+                                            <lang name="VMServerPort"></lang>
+                                        </td>
+                                        <td>
+                                            <lang name="firstDNSServer"></lang>
+                                        </td>
+                                        <td>
+                                            <lang name="secondDNSCfg"></lang>
+                                        </td>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        <div class="dataViewTbody">
+                            <table class="dataViewTbl textCell" cellspacing="0">
+                                <col width="40px">
+                                <col width="40px">
+                                <col width="150px">
+                                <col width="100px">
+                                <col width="80px">
+                                <col width="100px">
+                                <col width="100px">
+                                <tbody id="dataview_tbody">
+                                <tr>
+                                    <td>1</td>
+                                    <td><input type="text" name="" id="" /></td>
+                                    <td><input type="text" name="" id="" /></td>
+                                    <td><input type="text" name="" id="" /></td>
+                                    <td><input type="text" name="" id="" /></td>
+                                    <td><input type="text" name="" id="" /></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                </div>
+            </form>
+            <span class="button_green">
+                <input type="button" id="submitBtn" class="submit_btn" onclick="submitF()" lang="saveData"/>
+            </span>
+        </div>
+    </body>
+</html>

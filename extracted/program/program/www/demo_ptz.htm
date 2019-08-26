@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="Copyright"
+            content="Copyright (c) 2011 *** Corporation. All Rights Reserved.">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <title></title>
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+        <link href="css/validate.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.json.min.js"></script>
+        <script type="text/javascript" src="js/ComScript.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/demo_ptz.js"></script>
+        <script type="text/javascript">
+            //加载语言文件
+            loadlanguageFile(top.language);
+        </script>
+        <script type="text/javascript" src="js/jquery.validate.js"></script>
+    </head>
+    <body class="body">
+        <div class="pageDiv">
+            <form class="sectionDiv" method="post" name="frmSetup" id="frmSetup">
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" data-lang="demoPtzMaxSpeed"></span>
+                    <span class="contentSpan">
+                        <input type="text" name="DemoPtzMaxSpeedText" id="DemoPtzMaxSpeedText" />
+                    </span>
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" data-lang="demoPtzMinSpeed"></span>
+                    <span class="contentSpan">
+                        <input type="text" name="DemoPtzMinSpeedText" id="DemoPtzMinSpeedText" />
+                    </span>
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" data-lang="ptzHorLockForce"></span>
+                    <span class="contentSpan">
+                        <input type="text" name="PtzHorLockForce" id="PtzHorLockForce" />
+                    </span>
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" data-lang="ptzVerLockForce"></span>
+                    <span class="contentSpan">
+                        <input type="text" name="PtzVerLockForce" id="PtzVerLockForce" />
+                    </span>
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" data-lang="ptzMaxAngle"></span>
+                    <span class="contentSpan">
+                        <input type="text" name="PtzMaxAngleText" id="PtzMaxAngleText" />
+                    </span>
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" data-lang="ptzStartModeTxt"></span>
+                    <span class="contentSpan">
+                        <select id="PtzStartMode" name="PtzStartMode">
+                            <option data-lang="ptzStartQuick" value="1"></option>
+                            <option data-lang="ptzStartNormal" value="0"></option>
+                        </select>
+                    </span>
+                </div>
+                <div class="contentLine">
+                    <span class="button contentSpan">
+                        <input type="button" name="PtzResetPos" id="PtzResetPos" class="submit_btn" lang="ptzCheckPos"/>
+                    </span>
+                </div>
+            </form>
+            <span class="button_green">
+                <input type="button" name="PtzResetCfg" id="PtzResetCfg" class="submit_btn" lang="recoverDefaultCfg"/>
+            </span>
+            <span class="button_green" onclick="submitF()">
+                <input type="button" id="submitBtn" class="submit_btn" lang="saveData"/>
+            </span>
+        </div>
+    </body>
+</html>

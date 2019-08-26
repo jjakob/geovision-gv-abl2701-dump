@@ -1,0 +1,23 @@
+@charset "utf-8";
+/* CSS Document */
+.shortLabel {
+display: inline-block;
+width: 110px;
+zoom: 1;
+}
+
+.labelSpan_short {
+display: inline-block;
+width: 123px;
+zoom: 1;
+}
+.leftSpan{width:100px;display:inline-block;}
+.filterSpan{margin:5px;}
+#paramSettingDiv select{width:150px;}
+#filterObjSetting .shortText{width: 90px;}
+#ivaPersonCountConfig .shortText{width: 160px;}
+#PCSceneName {width: 160px;}
+#DetecMode	{width:152px;}
+.buttonMargin {margin-bottom: 5px}
+
+

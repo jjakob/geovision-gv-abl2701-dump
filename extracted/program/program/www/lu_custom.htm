@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <META NAME="Copyright"
+          CONTENT="Copyright (c) **** Corporation. All Rights Reserved.">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link href="css/globe.css" type="text/css" rel="stylesheet">
+    <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+    <link href="css/validate.css" type="text/css" rel="stylesheet">
+    <link href="css/dataview.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.json.min.js"></script>
+    <script type="text/javascript" src="js/ComScript.js"></script>
+    <script type="text/javascript" src="js/utils.js"></script>
+    <script type="text/javascript" src="js/dataview.js"></script>
+    <script type="text/javascript" src="js/lu_custom.js"></script>
+</head>
+<body class="body">
+<div class="pageDiv">
+    <div class="sectionDiv">
+                <span class="button" id="add">
+                    <button type="button" class="submit_btn" data-lang="add"></button>
+                </span>
+                <span class="button" id="modify">
+                    <button type="button" class="submit_btn" data-lang="modify"></button>
+                </span>
+                <span class="button" id="del">
+                    <button type="button" class="submit_btn" data-lang="del"></button>
+                </span>
+    </div>
+    <div class="dataView normalTbl_w">
+        <div class="dataViewThead">
+            <table cellpadding="2" cellspacing="0" class="dataViewTbl textCell full_width">
+                <col width="50px">
+                <col>
+                <col>
+                <col>
+                <thead>
+                <tr>
+                    <td>
+                        <lang name="rowNum"></lang>
+                    </td>
+                    <td>
+                        <lang name="netIPPart"></lang>
+                    </td>
+                    <td>
+                        <lang name="netMark"></lang>
+                    </td>
+                    <td>
+                        <lang name="gateWay"></lang>
+                    </td>
+                </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="dataViewTbody normalTbl_h">
+            <table cellpadding="2" cellspacing="0" class="dataViewTbl textCell full_width">
+                <col width="50px">
+                <col>
+                <col>
+                <col>
+                <tbody id="dataview_tbody"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

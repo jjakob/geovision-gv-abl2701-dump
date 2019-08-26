@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta name="Copyright" content="Copyright (c) 2012 *** Corporation. All Rights Reserved.">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+        <link href="css/validate.css" type="text/css" rel="stylesheet">
+         <link href="css/operate_sound.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.json.min.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/ComScript.js"></script>
+        <script type="text/javascript" src="js/charlib.js"></script>
+        <script type="text/javascript">
+            //加载语言文件
+            loadlanguageFile(top.language);
+        </script>
+        <script type="text/javascript" src="js/jquery.validate.js"></script>
+        <script type="text/javascript" src="js/operate_sound.js"></script>
+    </head>
+    <body class="body">
+        <div class="pageDiv">
+            <form name="frmSetup" id="frmSetup">
+                <fieldset>
+                    <legend>
+                        <span data-lang="AudioInCfg"></span>
+                    </legend>
+                    <div class="contentLine">
+                        <span class="labelSpan strLimit" ><lang name="audioValIsMute"></lang></span>
+                        <span class="contentSpan">
+                            <input type="radio" name="Mute" id="MuteOn" value="0" checked="checked">
+                            <label for="MuteOn"><lang name="open"></lang></label>
+                        </span>
+                        <span class="contentSpan">
+                            <input type="radio" name="Mute" id="MuteOff" value="1">
+                            <label for="MuteOff"><lang name="close"></lang></label>
+                        </span>
+                    </div>
+                    <div id="AudioInCfg" class="contentLine">
+                        <span class="labelSpan strLimit"><lang name="AudioInType"></lang></span>
+                        <span class="contentSpan">
+                            <select name="audioInMode" id="audioInMode">
+                                <option data-lang="audioInCapture" value="0"></option>
+                            </select>
+                        </span>
+                        <span id="inputTip" style="display:none;"><lang name="inputTip"></lang></span>
+                    </div>
+                    <div id="SerialInputs" class="contentLine hidden">
+                        <span class="labelSpan strLimit"><lang name="Microphone"></lang></span>
+                        <span class="contentSpan">
+                            <select name="MicrophoneType" id="MicrophoneType">
+                            </select>
+                        </span>
+                    </div>
+                    <div class="contentLine">
+                        <span class="labelSpan strLimit"><lang name="audioInputPlus"></lang></span>
+                            <input type="text" class="shortText60" name="InputPlus" id="InputPlus" value="240" maxlength="3"
+                                onkeydown="var event = getEvent();if(event.keyCode == KEY_CODE.keyEnter)return false;">[0~255]
+                    </div>
+                    <div class="contentLine">
+                        <span class="labelSpan strLimit"><lang name="audioEncodeFmt"></lang></span>
+                        <span class="contentSpan">
+                            <select name="EncFormat" id="EncFormat">
+                            </select>
+                        </span>
+                    </div>
+                    <div class="contentLine">
+                        <span class="labelSpan strLimit"><lang name="audioSampling"></lang>(KHz)</span>
+                        <span class="contentSpan">
+                            <select name="Sampling" id="Sampling">
+                            </select>
+                        </span>
+                    </div>
+                    <div class="contentLine hidden" id = "audioEchoCancellation">
+                        <span class="labelSpan strLimit" data-lang="noiseRestrain"></span>
+                        <span class="contentSpan">
+                            <input type="radio" name="NoiseReduction" id="NoiseReductionOn" value="1" checked="checked">
+                            <label for="NoiseReductionOn" data-lang="open"></label>
+                        </span>
+                        <span class="contentSpan">
+                            <input type="radio" name="NoiseReduction" id="NoiseReductionOff" value="0">
+                            <label for="NoiseReductionOff" data-lang="close"></label>
+                        </span>
+                    </div>
+                    <div class="contentLine" id="AudioInDevice1">
+                        <span class="labelSpan strLimit" data-lang="AudioDevice1"></span>
+                        <span class="contentSpan">
+                            <select name="AudioDevice1" id="AudioDevice1">
+                                <option value="0" data-cap="0">Line</option>
+                                <option value="1" data-cap="1">Mic</option>
+                            </select>
+                        </span>
+                        <span>
+                            <input type="checkbox" name="AudioOut1" id="AudioOut1"/>
+                            <label for="AudioOut1" data-lang="enable"></label>
+                        </span>
+                    </div>
+                    <div class="contentLine hidden" id="AudioInDevice2">
+                        <span class="labelSpan strLimit" data-lang="AudioDevice2"></span>
+                        <span class="contentSpan">
+                            <select name="AudioDevice2" id="AudioDevice2">
+                                <option value="0" data-cap="0">Line</option>
+                                <option value="1" data-cap="1">Mic</option>
+                            </select>
+                        </span>
+                        <span>
+                            <input type="checkbox" name="AudioOut2" id="AudioOut2"/>
+                            <label for="AudioOut2" data-lang="enable"></label>
+                        </span>
+                    </div>
+                </fieldset>
+                <fieldset id="AudioOutCfg" class="hidden">
+                    <legend>
+                        <span data-lang="AudioOutCfg"></span>
+                    </legend>
+                    <div class="contentLine">
+                        <span class="labelSpan strLimit" data-lang="AudioOut">
+                        </span>
+                        <select name="AudioOutMode" id="AudioOutMode">                                                
+                        </select>
+                    </div>
+                </fieldset>
+                <span class="button_green" onclick="submitF()" >
+                    <input type="button" class="submit_btn" lang="saveData"/>
+                </span>
+            </form>
+        </div>
+    </body>
+</html>

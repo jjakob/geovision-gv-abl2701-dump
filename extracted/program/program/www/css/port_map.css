@@ -1,0 +1,7 @@
+@charset "utf-8";
+/* CSS Document */
+.dataView{width:480px;margin:10px 0px;}
+label {min-width: 50px;display: inline-block;zoom: 1;}
+.lineContent{height: 24px;}
+.textLabel{width: 160px;}
+.shortInput{width:100px;}

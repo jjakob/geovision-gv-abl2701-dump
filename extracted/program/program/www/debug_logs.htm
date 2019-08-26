@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="Copyright"
+          content="Copyright (c) 2011 *** Corporation. All Rights Reserved.">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title></title>
+    <link href="css/globe.css" type="text/css" rel="stylesheet">
+    <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+    <link href="css/debug_logs.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.json.min.js"></script>
+    <script type="text/javascript" src="js/utils.js"></script>
+    <script type="text/javascript" src="js/ComScript.js"></script>
+    <script type="text/javascript">
+        //加载语言文件
+        loadlanguageFile(top.language);
+    </script>
+    <script type="text/javascript" src="js/jquery.validate.js"></script>
+    <script type="text/javascript" src="js/debug_logs.js"></script>
+
+</head>
+<body class="body">
+<div class="pageDiv">
+        <div class="contentLine">
+            <label class="textLabel strRebootLimit">
+                <lang name="IsValidAfterReboot"></lang>
+            </label>
+            <input type="radio" name="IsValidAfterReboot" id="IsValidAfterReboot_enable" value="1"/>
+            <label for="IsValidAfterReboot_enable" data-lang="yes"></label>
+            <input type="radio" name="IsValidAfterReboot" id="IsValidAfterReboot_close" value="0" checked="checked"/>
+            <label for="IsValidAfterReboot_close" data-lang="no"></label>
+        </div>
+        <div class="contentLine" id="debugLogList">
+        </div>
+        <span class="button_green" onClick="DebugLogSubmitF()">
+            <input type="button" class="submit_btn" lang="saveData"/>
+        </span>
+</div>
+</body>
+</html>

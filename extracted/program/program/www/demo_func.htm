@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="Copyright"
+            content="Copyright (c) 2011 *** Corporation. All Rights Reserved.">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <title></title>
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+        <link href="css/validate.css" type="text/css" rel="stylesheet">
+        <link href="css/demo_func.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.json.min.js"></script>
+        <script type="text/javascript" src="js/slider.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/ComScript.js"></script>
+        <script type="text/javascript" src="js/charlib.js"></script>
+        <script type="text/javascript" src="js/device_type.js"></script>
+        <script type="text/javascript">
+            //加载语言文件
+            loadlanguageFile(top.language);
+        </script>
+        <script type="text/javascript" src="js/jquery.validate.js"></script>
+        <script type="text/javascript" src="js/demo_func.js"></script>
+
+    </head>
+    <body class="body">
+        <div class="pageDiv">
+            <form method="post" name="frmSetup" id="frmSetup">
+                <div class="contentLine">
+                    <label class="textLabel strLimit"><lang name="reviseTimeDifference"></lang>(h)</label>
+                    <select name="ClientSyncTimeHour" id="ClientSyncTimeHour">
+                    </select>
+                </div>
+                <div id="detectionEnable" class="contentLine">
+                    <label class="textLabel strLimit"><lang name="daemobDetection"></lang></label>
+                    <input type="radio" name="daemobDetectionEnable" id="EnableDaemobDetection_enable" value="1" />
+                    <label for="EnableDaemobDetection_enable"><lang name="open"></lang></label>
+                    <input type="radio" name="daemobDetectionEnable" id="EnableDaemobDetection_close" value="0" />
+                    <label for="EnableDaemobDetection_close"><lang name="close"></lang></label>
+                </div>
+                <div id="viewModeDiv" class="contentLine hidden">
+                    <label class="textLabel strLimit"><lang name="ViewMode"></lang></label>
+                    <input type="radio" name="ViewMode" id="ViewMode_norm" value="0" />
+                    <label for="ViewMode_norm"><lang name="ViewMode_norm"></lang></label>
+                    <input type="radio" name="ViewMode" id="ViewMode_high" value="1" />
+                    <label for="ViewMode_high"><lang name="ViewMode_high"></lang></label>
+                </div>
+                <div id="lowDelayDiv" class="contentLine hidden">
+                    <label class="textLabel strLimit"><lang name="lowDelayMode"></lang></label>
+                    <input type="radio" name="EnableLowDelay" id="EnableLowDelay_enable" value="1" />
+                    <label for="EnableLowDelay_enable"><lang name="open"></lang></label>
+                    <input type="radio" name="EnableLowDelay" id="EnableLowDelay_close" value="0" />
+                    <label for="EnableLowDelay_close"><lang name="demoDisable"></lang></label>
+                </div>
+                <div id="StoreType" class="contentLine hidden">
+                    <label class="textLabel strLimit"><lang name="storeType"></lang></label>
+                    <input type="radio" name="StoreType" id="AutoStoreType_enable" value="0" checked="checked" />
+                    <label for="AutoStoreType_enable"><lang name="storeType_auto"></lang></label>
+                    <input type="radio" name="StoreType" id="ForeverStoreType_enable" value="1" />
+                    <label for="ForeverStoreType_enable"><lang name="storeType_forever"></lang></label>
+                    <input type="radio" name="StoreType" id="SaveStoreType_enable" value="2" />
+                    <label for="SaveStoreType_enable"><lang name="storeType_save"></lang></label>
+                </div>
+                <div class="contentLine">
+                    <label class="textLabel strLimit"><lang name="imgCustomParam"></lang></label>
+                    <input type="radio" name="ImgCustomParam" id="ImgCustomParam_enable" value="1" />
+                    <label for="ImgCustomParam_enable"><lang name="open"></lang></label>
+                    <input type="radio" name="ImgCustomParam" id="ImgCustomParam_close" value="0" />
+                    <label for="ImgCustomParam_close"><lang name="close"></lang></label>
+                </div>
+                <div class="contentLine">
+                    <label class="textLabel strLimit" data-lang="EnginnerAcceptanceMode"></label>
+                    <input type="checkbox" name="Mode" id="EnginnerAcceptanceMode_enable" />
+                    <label for="EnginnerAcceptanceMode_enable" class="shortLabel strLimit"><lang name="open"></lang></label>
+                    <input class="middleTxt" type="text" name="MinBiteRate" id="MinBiteRate" maxlength="5"/>
+                    (kbps)
+                </div>
+                <div id="sendMode" class = "contentLine hidden">
+                    <label class="textLabel strLimit"><lang name="dataSendMethod"></lang></label>
+                    <input type="radio" name="SendMode" id="dataSendMethod_enable" value="0" />
+                    <label for="dataSendMethod_enable"><lang name="singlePackage"></lang></label>
+                    <input type="radio" name="SendMode" id="dataSendMethod_close" value="1" />
+                    <label for="dataSendMethod_close"><lang name="multiplePackage"></lang></label>
+                </div>
+                <div id="HCMLowDelayDiv" class="contentLine hidden">
+                    <label class="textLabel strLimit"><lang name="HCMLowDelayMode"></lang></label>
+                    <input type="radio" name="EnableHCMLowDelay" id="EnableHCMLowDelay_enable" value="1" />
+                    <label for="EnableHCMLowDelay_enable"><lang name="enable"></lang></label>
+                    <input type="radio" name="EnableHCMLowDelay" id="EnableHCMLowDelay_close" value="0" />
+                    <label for="EnableHCMLowDelay_close"><lang name="demoDisable"></lang></label>
+                </div>
+                <div id="ZoomLimitSwitchDiv" class="contentLine hidden">
+                    <label class="textLabel strLimit"><lang name="ZoomLimitSwitch"></lang></label>
+                    <input type="radio" name="ZoomLimitSwitch" id="ZoomLimitSwitch_enable" value="1" />
+                    <label for="ZoomLimitSwitch_enable"><lang name="open"></lang></label>
+                    <input type="radio" name="ZoomLimitSwitch" id="ZoomLimitSwitch_close" value="0" checked="true"/>
+                    <label for="ZoomLimitSwitch_close"><lang name="close"></lang></label>
+                </div>
+                <div id="ZoomLimitSwitchDiv_telecut" class="contentLine hidden">
+                    <label class="textLabel strLimit" for="ZoomLimitSwitch_telecut"><lang name="telecut"></lang></label>
+                    <input class="middleTxt" type="text" name="ZoomLimitSwitch_telecut" id="ZoomLimitSwitch_telecut" maxlength="3" defaultValue="0"/>
+                </div>
+                <div id="ZoomLimitSwitchDiv_widecut" class="contentLine hidden">
+                    <label class="textLabel strLimit" for="ZoomLimitSwitch_widecut"><lang name="widecut"></lang></label>
+                    <input class="middleTxt" type="text" name="ZoomLimitSwitch_widecut" id="ZoomLimitSwitch_widecut" maxlength="3" defaultValue="0" />
+                </div>
+                <div>
+                    <label class="textLabel strLimit"><lang name="PTZCapReportLimit"></lang></label>
+                    <input type="radio" name="PTZCapReportLimitEnable" id="PTZCapReportLimit_enable" value="1" />
+                    <label for="PTZCapReportLimit_enable"><lang name="open"></lang></label>
+                    <input type="radio" name="PTZCapReportLimitEnable" id="PTZCapReportLimit_close" value="0" />
+                    <label for="PTZCapReportLimit_close"><lang name="close"></lang></label>
+                </div>
+                <div id="IVALPCheckDiv" class="contentLine hidden">
+                    <label class="textLabel strLimit"><lang name="IVALPCheck"></lang></label>
+                    <input type="radio" name="IVALPCheck" id="IVALPCheck_enable" value="1" />
+                    <label for="IVALPCheck_enable"><lang name="enable"></lang></label>
+                    <input type="radio" name="IVALPCheck" id="IVALPCheck_close" value="0" />
+                    <label for="IVALPCheck_close"><lang name="demoDisable"></lang></label>
+                </div>
+                <fieldset id="IVADebugDiv" class="hidden">
+                    <legend><lang name="picOsdParam"></lang></legend>
+                    <div class="contentLine">
+                        <label class="textLabel strLimit"><lang name="violationTimeSrc"></lang></label>
+                        <select name="SnapPicID" id="SnapPicID">
+                            <option value="0" lang="evidenceChainPhoto1"></option>
+                            <option value="1" lang="evidenceChainPhoto2"></option>
+                            <option value="2" lang="evidenceChainPhoto3"></option>
+                            <option value="3" lang="evidenceChainPhoto4"></option>
+                            <option value="4" lang="evidenceChainPhoto5"></option>
+                            <option value="5" lang="evidenceChainPhoto6"></option>
+                        </select>
+                    </div>
+                </fieldset>
+                <div id="audioEchoCancellation" class="contentLine hidden">
+                    <label class="textLabel strLimit"><lang name="audioEchoCancellation"></lang></label>
+                    <input type="radio" name="AudioEchoCancellation" id="audioEchoCancellation_yes" value="1" />
+                    <label for="audioEchoCancellation_yes"><lang name="enable"></lang></label>
+                    <input type="radio" name="AudioEchoCancellation" id="audioEchoCancellation_no" value="0" checked="checked" />
+                    <label for="audioEchoCancellation_no"><lang name="demoDisable"></lang></label>
+                 </div>
+                <div id="ResetMotorFocusZoom" class="contentLine hidden">
+                    <label class="textLabel strLimit"><lang name="resetMotorFocusZoom"></lang></label>
+                    <span class="button">
+                        <Button id="ResetMotorFocusZoomBtn">
+                            <lang name="resetMotorFocus"></lang>
+                        </Button>
+                    </span>
+                </div>
+               <div class="contentLine">
+                    <label class="textLabel strLimit"><lang name="profileMode"></lang></label>
+                    <input type="radio" name="ProfileMode" id="High_Profile" value="0" checked="checked" />
+                    <label for="High_Profile"><lang name="highProfile"></lang></label>
+                    <input type="radio" name="ProfileMode" id="Main_Profile" value="1" />
+                    <label for="Main_Profile"><lang name="mainProfile"></lang></label>
+                    <input type="radio" name="ProfileMode" id="BaseLine_Profile" value="2" />
+                    <label for="BaseLine_Profile"><lang name="baselinefile"></lang></label>
+              </div>
+              <div class="contentLine" id="sansuoDiv">
+                    <label class="textLabel strLimit"><lang name="enhanceMode"></lang></label>
+                    <input type="radio" name="EnhanceMode" id="EnhanceMode_enable" value="1" />
+                    <label for="EnhanceMode_enable"><lang name="open"></lang></label>
+                    <input type="radio" name="EnhanceMode" id="EnhanceMode_close" value="0" checked="true"/>
+                    <label for="EnhanceMode_close"><lang name="close"></lang></label>
+              </div>
+              <div id="SpecialLensTypeDiv" class="contentLine hidden">
+                    <label class="textLabel strLimit"><lang name="SpecialLensType"></lang></label>
+                    <select name="SpecialLensType" id="SpecialLensType">
+                    <option value="0" selected="selected" lang="SpecialLensTypeDefault"></option>
+                    <option value="1" lang="SpecialLensTypeFOCTEK"></option>
+                        <option value="2" >FOCTEK 8mm</option>
+                        <option value="3" >FOCTEK 12mm</option>
+                        <option value="4" >FOCTEK 16mm</option>
+                        <option value="5" >FOCTEK 20mm</option>
+                        <option value="6" >FOCTEK 25mm</option>
+                        <option value="7" >FOCTEK 35mm</option>
+                        <option value="8" >FOCTEK 50mm</option>
+                        <option value="10" >KOWA 10 ~360 mm</option>
+                        <option value="11" >KOWA 12 ~360 mm</option>
+                        <option value="12" >KOWA 20 ~550 mm</option>
+                        <option value="13" >KOWA 20 ~750 mm</option>
+                        <option value="14" >KOWA 20 ~1000 mm</option>
+                        <option value="15" >KOWA 50 ~1500 mm</option>
+                        <option value="20" >CBC 15 ~360 mm</option>
+                        <option value="21" >CBC 21 ~500 mm</option>
+                        <option value="22" >CBC 12.5 ~775 mm</option>
+                        <option value="30" >FUJINON 10 ~320mm</option>
+                        <option value="40" >UTRON 10 ~360mm</option>
+                    </select>
+              </div>
+              <div id="ImageReverseEnableDiv" class="contentLine hidden">
+                    <label class="textLabel strLimit"><lang name="ImageReverseEnable"></lang></label>
+                    <input type="radio" name="ImageReverseEnable" id="ImageReverseOpen" value="1" />
+                    <label for="ImageReverseOpen"><lang name="open"></lang></label>
+                    <input type="radio" name="ImageReverseEnable" id="ImageReverseClose" value="0" checked="checked" />
+                    <label for="ImageReverseClose"><lang name="close"></lang></label>
+              </div>
+              <div id="FramePeriodDebugEnableDiv" class="contentLine hidden">
+                    <label class="textLabel strLimit"><lang name="framePeriod"></lang></label>
+                    <input type="checkbox" name="FramePeriodDebugEnable" id="FramePeriodDebugEnable" />
+                    <label for="FramePeriodDebugEnable" class="shortLabel"><lang name="open"></lang></label>
+                    <input type="text" class="middleTxt" name="FramePeriodDebugInterval" id="FramePeriodDebugInterval" value="120" maxlength="4"/>
+                    (s)                    
+              </div>
+              <div id="SmilarLPFilterEnableDiv" class="contentLine hidden">
+                    <label class="textLabel strLimit"><lang name="SmilarLPFilterEnable"></lang></label>
+                    <input type="radio" name="SmilarLPFilterEnable" id="SmilarLPFilterEnableOpen" value="1" />
+                    <label for="SmilarLPFilterEnableOpen"><lang name="open"></lang></label>
+                    <input type="radio" name="SmilarLPFilterEnable" id="SmilarLPFilterEnableClose" value="0" checked="checked" />
+                    <label for="SmilarLPFilterEnableClose"><lang name="close"></lang></label>
+              </div>
+              <div id="AGCModeEnableDiv" class="contentLine hidden">
+                    <label class="textLabel strLimit"><lang name="AGCModeEnable"></lang></label>
+                    <input type="radio" name="AGCModeEnable" id="AGCModeEnableOpen" value="1" />
+                    <label for="AGCModeEnableOpen"><lang name="open"></lang></label>
+                    <input type="radio" name="AGCModeEnable" id="AGCModeEnableClose" value="0" checked="checked" />
+                    <label for="AGCModeEnableClose"><lang name="close"></lang></label>
+              </div>
+              <div id="PayloadTypeDiv" class="contentLine hidden">
+                    <label class="textLabel strLimit"><lang name="payloadType"></lang></label>
+                    <input type="text" class="middleTxt" name="PayloadType" id="PayloadType" value="105" maxlength="3"/>
+              </div>
+              <fieldset id="netBrokenDetect_fd">
+                    <legend><lang name="netBrokenDetect"></lang></legend>
+              <div class="contentLine">
+                    <label class="textLabel strLimit"><lang name="netBrokenDetect"></lang></label>
+                    <input type="radio" name="NetworkDetectEnable" id="NetBrokenDetect_enable" value="1" checked="true"/>
+                    <label for="NetBrokenDetect_enable"><lang name="open"></lang></label>
+                    <input type="radio" name="NetworkDetectEnable" id="NetBrokenDetect_close" value="0" />
+                    <label for="NetBrokenDetect_close"><lang name="close"></lang></label>
+              </div>
+              <div class="contentLine">
+                    <label class="textLabel strLimit"><lang name="netBrokenReboot"></lang></label>
+                    <input type="radio" name="NetworkReboot" id="NetBrokenReboot_enable" value="1" checked="true"/>
+                    <label for="NetBrokenReboot_enable"><lang name="open"></lang></label>
+                    <input type="radio" name="NetworkReboot" id="NetBrokenReboot_close" value="0" />
+                    <label for="NetBrokenReboot_close"><lang name="close"></lang></label>
+              </div>
+              </fieldset>
+              <fieldset id="GB_protocol_fd" >
+                    <legend><lang name="GB_protocol"></lang></legend>
+              <div id="TcpWithRtpDiv" class="contentLine">
+                    <label class="textLabel strLimit"><lang name="TcpWithRtp"></lang></label>
+                    <input type="radio" name="HasRTPHead" id="HasRTPHead_enable" value="1" />
+                    <label for="HasRTPHead_enable"><lang name="open"></lang></label>
+                    <input type="radio" name="HasRTPHead" id="HasRTPHead_close" value="0" checked="checked" />
+                    <label for="HasRTPHead_close"><lang name="close"></lang></label>
+              </div>
+              <div id="TcpConnectMethodDiv" class="contentLine">
+                    <label class="textLabel strLimit"><lang name="TcpConnectMethod"></lang></label>
+                    <input type="radio" name="ConnectMode" id="ConnectMode_enable" value="0" />
+                    <label for="ConnectMode_enable"><lang name="ActiveConnection"></lang></label>
+                    <input type="radio" name="ConnectMode" id="ConnectMode_close" value="1" checked="checked" />
+                    <label for="ConnectMode_close"><lang name="PassiveConnection"></lang></label>
+              </div>
+              </fieldset>
+                <fieldset id="sweepDeFog_fd" class="hidden">
+                    <legend><lang name="sweepDeFog"></lang></legend>
+                    <div class="contentLine">
+                        <label class="textLabel strLimit"><lang name="sweepFog"></lang></label>
+                        <input type="radio" name="DefogMode" id="DefogMode_enable" value="1" />
+                        <label for="DefogMode_enable" data-lang="open"></label>
+                        <input type="radio" name="DefogMode" id="DefogMode_close" value="0" checked="checked" />
+                        <label for="DefogMode_close" data-lang="close"></label>
+                    </div>
+                    <div class="contentLine">
+                        <label class="textLabel strLimit" data-lang="heaterType"></label>
+                        <label id="defogType"></label>
+                    </div>
+                    <div class="contentLine">
+                        <label class="textLabel strLimit" data-lang="osdStatus"></label>
+                        <label id="defogStatus"></label>
+                    </div>
+                </fieldset>
+                <div id="FanEnableDiv" class="contentLine hidden">
+                    <label class="textLabel strLimit" data-lang="FanSwith"></label>
+                    <input type="radio" name="Enable" id="Fan_Enable" value="1" />
+                    <label for="Fan_Enable" data-lang="open"></label>
+                    <input type="radio" name="Enable" id="Fan_Close" value="0" checked="checked" />
+                    <label for="Fan_Close" data-lang="close"></label>
+                </div>
+                <div id="presetEnableDiv" class="contentLine hidden">
+                    <span class="textLabel strLimit" data-lang="OutPtzExFunc"></span>
+                    <input type="radio" name="OutPtzEnable" id="OutPtzOpen" value="1" >
+                    <label for="OutPtzOpen" data-lang="open"></label>
+                    <input type="radio" name="OutPtzEnable" id="OutPtzClose" value="0" checked="checked">
+                    <label for="OutPtzClose" data-lang="close"></label>
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" data-lang="CustomDeviceModel"></span>
+                    <input type="text" name="CustomDeviceModel" id="CustomDeviceModel" maxlength="32"/>
+                    <span class="button" >
+                        <Button id="CustomDeviceEnable" name="CustomDeviceEnable"  data-lang="reset"></Button>
+                    </span>
+                </div>
+                <div id="SecureAccessDiv" class="contentLine hidden">
+                    <label class="textLabel strLimit" data-lang="secureAccess"></label>
+                    <input type="radio" name="SecureAccess" id="SecureAccess_Enable" value="1" />
+                    <label for="SecureAccess_Enable" data-lang="open"></label>
+                    <input type="radio" name="SecureAccess" id="SecureAccess_Close" value="0" checked="checked" />
+                    <label for="SecureAccess_Close" data-lang="close"></label>
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan" data-lang="HttpAuthentication"></span>
+                    <select class="textLabel" name="authenticationMode" id="authenticationMode">
+                        <option value="0" data-lang="none"></option>
+                        <option value="1">basic</option>
+                        <!--<option value="2">digest</option>-->
+                    </select>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

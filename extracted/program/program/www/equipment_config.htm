@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="pragma" content="no-cache">
+        <meta http-equiv="cache-control" content="no-cache">
+        <meta http-equiv="expires" content="0">    
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/validate.css" type="text/css" rel="stylesheet">
+        <link href="css/equipment_config.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.json.min.js"></script>
+        <script type="text/javascript" src="js/ComScript.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/equipment_config.js"></script>
+    </head>
+    <body class="body">
+        <div class="pageDiv">
+            <form name="frmSetup" id="frmSetup">
+                 <fieldset class="hidden" id="PtzBrushField" >
+                        <legend>
+                            <lang name="ptzBrushParam"></lang>
+                        </legend>
+                        <div >
+                            <ul >
+                                <li class="firstCol strLimit">
+                                    <lang name="ptzBrushMode"></lang>
+                                </li>
+                                <li>                                    
+                                    <select name="PtzBrushMode" id="PtzBrushMode" >
+                                        <option value="0" data-lang="ptzBrushSerialMode" data-cap="0" ></option>
+                                        <option value="1" data-lang="ptzBrushSwitchMode" data-cap="1" ></option>
+                                    </select>                                   
+                                </li>
+                            </ul>
+                        </div>    
+                        <div id="PtzBrush">
+                            <ul>
+                                <li class="firstCol strLimit">
+                                    <lang name="ptzBrushSwitch"></lang>
+                                </li>
+                                <li>                                    
+                                    <select name="PtzBrushSwitch" id="PtzBrushSwitch" >
+                                        <option value="0" data-lang="ptzBrushSwitchOn"  ></option>
+                                        <option value="1" data-lang="ptzBrushSwitchOff"  ></option>
+                                    </select>                     
+                                </li>
+                            </ul>      
+                        </div>
+                 </fieldset>               
+            </form>
+        </div>
+    </body>
+</html>

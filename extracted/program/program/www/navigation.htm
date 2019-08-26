@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <META NAME="Copyright"
+            CONTENT="Copyright (c) **** Corporation. All Rights Reserved.">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+        <link href="css/navigation.css" type="text/css" rel="stylesheet">
+        <link href="css/navigation_ex.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.json.min.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/ComScript.js"></script>
+        <script type="text/javascript" src="js/navigation.js"></script>
+    </head>
+    <body class="body">
+        <div class="cotent_fixleft">
+            <div class="custom-thead" data-lang="basicInfo"></div>
+            <form class="config-form ">
+                <div class="custom-tr custom-tr-top-border">
+                    <label class="config-label strLimit" data-lang="deviceType"></label>
+                    <label id="deviceType"></label>
+                </div>
+                <div class="custom-tr hidden">
+                    <label class="config-label strLimit" data-lang="deviceCfg"></label>
+                    <label id="deviceCfg"></label>
+                </div>
+                <div class="custom-tr">
+                    <label class="config-label strLimit" data-lang="softwareVer"></label>
+                    <label id="FirmwareVersion"></label>
+                </div>
+                <div class="custom-tr hidden">
+                    <label class="config-label strLimit" data-lang="cameraVersion"></label>
+                    <label id="CameraVersion"></label>
+                </div>
+                <div class="custom-tr">
+                    <label class="config-label strLimit" data-lang="hardwareVer"></label>
+                    <label id="HardwareID"></label>
+                </div>
+                <div class="custom-tr">
+                    <label class="config-label strLimit" data-lang="ubootVer"></label>
+                    <label id="UbootVersion"></label>
+                </div>
+                <div class="custom-tr">
+                    <label class="config-label strLimit" data-lang="productCode"></label>
+                    <label id="SerialNumber"></label>
+                </div>
+                <div class="custom-tr">
+                    <label class="config-label strLimit" data-lang="networkState"></label>
+                    <label id="networkState"></label>
+                </div>
+                <div class="custom-tr hidden" id="netWorkMac_Div">
+                    <label class="config-label strLimit" data-lang="networkMac"></label>
+                    <label id="networkMac"></label>
+                </div>
+           </form>
+            <div class="custom-thead" data-lang="runState"></div>
+            <form class="config-form ">
+                <div class="custom-tr custom-tr-top-border">
+                    <label class="config-label strLimit" data-lang="sysTime"></label>
+                    <label id="SystemTime"></label>
+                </div>
+                <div class="custom-tr">
+                    <label class="config-label strLimit" data-lang="runTime"></label>
+                    <label id="RunTime"></label>
+                </div>
+                <div class="custom-tr hidden" id="boardTempTR">
+                    <label class="config-label strLimit" data-lang="boardTemp"></label>
+                    <label id="DeviceTemperature"></label>℃
+                </div>
+                <div class="custom-tr hidden" id="managementServerDiv">
+                    <label class="config-label strLimit" data-lang="managementServer"></label>
+                    <label id="manaServer"></label>
+                </div>
+                <div class="custom-tr hidden" id="photoServerDiv">
+                    <label class="config-label strLimit" data-lang="photoServer"></label>
+                    <label id="photoServer"></label>
+                </div>
+                <div class="custom-tr hidden" id="sdStatusDiv">
+                    <label class="config-label strLimit" data-lang="enableStreamStor"></label>
+                    <label id="SDStatus"></label>
+                </div>
+                <div class="custom-tr hidden" id="batteryStatusDiv">
+                    <label class="config-label strLimit" data-lang="batteryStatus"></label>
+                    <label id="BatteryStatus"></label>
+                </div>
+            </form>
+            <span class="button" id="submitBtn" onClick="getStatusInfo()">
+                <input class="submit_btn" type="button" lang="refresh" />
+            </span>
+        </div>
+        <div class="cotent_right hidden" id="commonCfgDiv">
+            <div class="custom-thead"><lang name="commonCfg"></lang></div>
+            <div class="panelDiv">
+                <div class="menu-item" data-link="Com_networkConfigLink">
+                    <div class="menu-item-img tcpip" hidefocus="true"></div>
+                    <label data-lang="wired"></label>
+                </div>
+                <div class="menu-item" data-link="Com_timeCfgLink" id="timeLinkDiv">
+                    <div class="menu-item-img time" hidefocus="true"></div>
+                    <label data-lang="time"></label>
+                </div>
+                <div class="menu-item hidden" data-link="Com_serverLink" id="serverLinkDiv">
+                    <div class="menu-item-img server" hidefocus="true"></div>
+                    <label data-lang="serverCfgTitle"></label>
+                </div>
+                <div class="menu-item" data-link="Com_osdLink">
+                    <div class="menu-item-img osd" hidefocus="true"></div>
+                    <label data-lang="osdTitle"></label>
+                </div>
+                <div class="menu-item" data-link="Com_userCfgLink">
+                    <div class="menu-item-img user" hidefocus="true"></div>
+                    <label data-lang="userCfgTitle"></label>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

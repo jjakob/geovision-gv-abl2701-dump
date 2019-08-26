@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Management</title>
+<meta name="Copyright" content="Copyright (c) 2013 *** Corporation. All Rights Reserved.">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Pragma" content="no-cache">
+<link href="css/globe.css" type="text/css" rel="stylesheet">
+<link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+<link href="css/dataview.css" type="text/css" rel="stylesheet">
+<link href="css/live.css" type="text/css" rel="stylesheet">
+<link href="css/live_ex.css" type="text/css" rel="stylesheet">
+    <link href="css/frame.css" type="text/css" rel="stylesheet">
+</head>
+<body id = "newPlugin" onbeforeunload="release();">
+    <div id="blockDiv" class="blockDiv"></div>
+    
+    <div class="control-container hidden" id="ctrlPanel_fisheye" style="float:left">
+        <div class="control-body" id="fishEyeStream">
+            <div id="dvPreviewModeTitle">
+                <span class="textOverLengthHide"><label data-lang="laPreviewModeName"></label></span>
+            </div>
+            <div id="fishEyeStreamType" class="menu-content hide" style="display: block;">
+                <ul>
+                    <li class="mousepointer hidden" id="fishEyeMode0" data-value="10"><span><label data-lang="fishEyeMode0"></label></span></li>
+                    <li class="mousepointer hidden" id="fishEyeMode1" data-value="11"><span><label data-lang="fishEyeMode1"></label></span></li>
+                    <li class="mousepointer hidden" id="fishEyeMode2" data-value="12,13,14,15" data-runMode="12"><span><label data-lang="fishEyeMode2"></label></span></li>
+                    <li class="mousepointer hidden" id="fishEyeMode3" data-value="10,12,13,14" data-runMode="12"><span><label data-lang="fishEyeMode3"></label></span></li>
+                </ul>
+            </div>
+        </div>   
+    </div>
+    <div class="control-container hidden" id="ctrlPanel">
+
+        <div id="ctrlFishBody" class="ctrlFishBody hidden" >
+            <div class="menu-title-text" id = "FishIpcTitle">
+                <a data-lang="fishEyeMode"></a>
+            </div>
+            <div>
+                <fieldset  class="fieldFishIpc">
+                    <legend  class="" data-lang="InstallMode"></legend>
+                    <div>
+                        <button class="icon-fish player-top-installation-open selected installMode" id="player-top-installation" hidefocus="true" data-title="Ceiling" value="0"></button>
+                        <button class="icon-fish player-side-installation installMode" id="player-side-installation" hidefocus="true" data-title="Wall" value="2"></button>
+                        <button class="icon-fish player-bottom-installation installMode" id="player-bottom-installation" hidefocus="true" data-title="bottom" value="1"></button>
+                    </div>
+                </fieldset>
+            </div>
+            <div>
+                <fieldset class="fieldFishIpc">
+                    <legend  class="" data-lang="DisplayMode"></legend>
+                    <div>
+                        <button class="icon-fish player-original-open selected playMode" id="player-original" hidefocus="true" data-title="ImgOriginal" value="0"></button>
+                        <button class="icon-fish player-360-1ptz button-7 playMode" id="player-360-1ptz" hidefocus="true" data-title="360Plus1ptz" value="2"></button>
+                        <button class="icon-fish player-180 button-7 playMode" id="player-180" hidefocus="true" data-title="WholeViewTwo" value="1"></button>
+                        <button class="icon-fish player-fish-3ptz button-7 playMode" id="player-fish-3ptz" hidefocus="true" data-title="FishEyePlus3ptz" value="4"></button>
+                        <button class="icon-fish player-fish-left-4ptz button-7 playMode" id="player-fish-left-4ptz" hidefocus="true" data-title="FishEyePlus4ptz" value="7"></button>
+                        <button class="icon-fish player-360-6ptz button-7 playMode" id="player-360-6ptz" hidefocus="true" data-title="360Plus6ptz" value="3"></button>
+                        <button class="icon-fish player-fish-8ptz button-7 playMode" id="player-fish-8ptz" hidefocus="true" data-title="FishEyePlus8ptz" value="8"></button>
+                        <button class="icon-fish player-panorama button-5 hidden playMode" id="player-panorama" hidefocus="true" data-title="WholeView" value="9"></button>
+                        <button class="icon-fish player-pr-3ptz button-5 hidden playMode" id="player-pr-3ptz" hidefocus="true" data-title="WholeViewPlus3ptz" value="10"></button>
+                        <button class="icon-fish player-pr-4ptz button-5 hidden playMode" id="player-pr-4ptz" hidefocus="true" data-title="WholeViewPlus4ptz" value="11"></button>
+                        <button class="icon-fish player-pr-8ptz button-5 hidden playMode" id="player-pr-8ptz" hidefocus="true" data-title="WholeViewPlus8ptz" value="12"></button>
+                    </div>
+                </fieldset>
+            </div>
+
+        </div>
+        <div id="ctrlBody" class="control-body hidden">
+            <div class="ptz-panel first-section-margintop hidden" id="derectionBtns">
+                <span class="ptz-panel-control">
+                    <img src="images/ptz.png" class="ptz-map" alt="" useMap="#ptzMap" />
+                    <map name="ptzMap" id="ptzMap">
+                        <area id="goUp" shape="poly" coords="38,5,49,2,61,0,74,2,84,5,72,36,67,34,61,33,56,34,51,35" data-title="up">
+                        <area id="rightUp" shape="poly" coords="84,5,72,36,77,38,82,42,85,46,87,51,118,38,113,28,105,18,95,11" data-title="rightUp">
+                        <area id="goRight" shape="poly" coords="87,51,118,38,121,49,123,61,121,74,118,85,87,72,89,67,90,61,89,56" data-title="right">
+                        <area id="rightDown" shape="poly" coords="118,85,87,72,85,77,82,81,77,85,72,87,85,118,94,113,104,105,112,96" data-title="rightDown">
+                        <area id="goDown" shape="poly" coords="72,87,85,118,75,121,61,123,48,121,38,118,51,87,56,89,61,90,67,89" data-title="down">
+                        <area id="leftDown" shape="poly" coords="38,118,51,87,46,85,42,82,38,77,36,72,5,85,10,94,19,105,29,113" data-title="leftDown">
+                        <area id="goLeft" shape="poly" coords="36,72,5,85,2,74,0,61,2,49,5,38,36,51,34,55,33,61,34,68" data-title="left">
+                        <area id="leftUp" shape="poly" coords="5,38,36,51,38,46,41,42,46,38,51,35,38,5,28,10,,18,18,11,27" data-title="leftUp">
+                        <area id="centerBtn" shape="circle" coords="61,61,28" data-title="stop" id="ptzStop">
+                    </map>
+                </span>
+                <span class="ptz-panel-speed" id="ptzPanelSpeed">
+                    <div class="text-center">+</div>
+                    <div class="slider3 slider-vertical ptz-speed" id="rotateSpeedSld">
+                        <div class="bar3 bar-vertical" id="rotateSpeedBar"></div>
+                    </div>
+                    <div class="text-center">-</div>
+                </span>
+            </div>
+            
+            <div id="LENSDiv" class="ptz-extend-len hidden">
+                <div class="ptz-extend-line hidden" id="becomeBtns">
+                    <button type="button" id="BecomeSub1" class="ptz-extend-item zoom-in" hidefocus="true" 
+                     data-title="zoomTele"></button><button type="button" id="BecomeAdd1" class="ptz-extend-item zoom-out" 
+                     hidefocus="true" data-title="zoomWide"></button>
+                </div>
+                <div class="ptz-extend-line hidden" id="focusBtns">
+                    <button type="button" id="FocusSub1" class="ptz-extend-item focus-far" hidefocus="true"
+                    data-title="focusFar"></button><button type="button" id="FocusAdd1" class="ptz-extend-item focus-near" 
+                    hidefocus="true" data-title="focusNear"></button>
+                </div>
+                <div class="ptz-extend-line hidden" id="apertureBtns">
+                    <button type="button" id="ApertureSub1" class="ptz-extend-item aperture-more" data-title="apertureMore"
+                    ></button><button type="button" id="ApertureAdd1" class="ptz-extend-item aperture-less" 
+                     data-title="apertureLess"></button>
+                </div>
+                <div class="ptz-extend-line hidden" id="manualbackfocusBtns">
+                    <button type="button" id="manualbackfocusNear" class="ptz-extend-item focus-far" hidefocus="true"
+                    data-title="MBFFar"></button><button type="button" id="manualbackfocusFar" class="ptz-extend-item focus-near" 
+                    hidefocus="true" data-title="MBFNear"></button>
+                </div>
+                <div class="ptz-extend-line hidden" id="autobackfocusBtns">
+                    <button type="button" id="autobackfocusStart" class="ptz-extend-item assistant-focus" hidefocus="true"
+                    data-title="ABFStart"></button><button type="button" id="autobackfocusPosition" class="ptz-extend-item assistant-focus-back" 
+                    hidefocus="true" data-title="ABFPosition"></button>
+                </div>
+            </div>
+            <div class="ptz-extend-len hidden" id="ptzExtend">
+                <div class="ptz-extend-line hidden" id="infrareBtns">
+                    <button class="ptz-extend-item infrae-open" hidefocus="true" data-cmd="0x0D01" data-title="infrareOn"></button><button 
+                     class="ptz-extend-item infrae-close" hidefocus="true" data-cmd="0x0D02" data-title="infrareOff"></button>
+                </div>
+                <div class="ptz-extend-line hidden" id="heatupBtns">
+                    <button class="ptz-extend-item heatup-open" hidefocus="true" data-cmd="0x0C01" data-title="heatupOn"></button><button 
+                    class="ptz-extend-item heatup-close" hidefocus="true" data-cmd="0x0C02" data-title="heatupOff"></button>
+                </div>
+                <div class="ptz-extend-line hidden" id="rainbrushBtns">
+                    <button class="ptz-extend-item rainbrush-open" hidefocus="true" data-cmd="0x0A01" data-title="rainbrushOn"></button><button 
+                    class="ptz-extend-item rainbrush-close" hidefocus="true" data-cmd="0x0A02" data-title="rainbrushOff"></button>
+                </div>
+                <div class="ptz-extend-line hidden" id="illuminateBtns">
+                    <button class="ptz-extend-item illuminate-open" hidefocus="true" data-cmd="0x0B01" data-title="illuminateOn"></button><button 
+                    class="ptz-extend-item illuminate-close" hidefocus="true" data-cmd="0x0B02" data-title="illuminateOff"></button>
+                </div>
+            </div>
+            <div class="ptz-extend">
+                 <div class="ptz-extend-line hidden" id="clearsnowBtns">
+                    <button class="ptz-extend-item clearsnow-open" hidefocus="true" id="clearsnowOpen" data-cmd="0x1301" data-title="sweepSnowOn"></button><button 
+                    class="ptz-extend-item clearsnow-close" hidefocus="true" id="clearsnowClose" data-cmd="0x1302" data-title="sweepSnowOff"></button>
+                </div>
+            </div>
+            <div id="ptzAccordion" class="ptz-accordion hidden">
+                <div class="ptz-acc-header clearfix">
+                    <a id="cmdTab" class="ptz-acc-header-tab left hidden strLimit" href="#" hidefocus="true" data-lang="cmdTitle"></a>
+                    <a id="presetTab" class="ptz-acc-header-tab ptz-acc-header-tab-selected left strLimit" href="#" hidefocus="true" data-lang="cruisePresetPos"></a>
+                    <a id="cruiseTab" class="ptz-acc-header-tab ptz-acc-header-tab-last left strLimit" href="#" hidefocus="true" data-lang="cruiseTitle"></a>
+                </div>
+                <div class="ptz-acc-body hidden" id="ptzCmdBody">
+                </div>
+                <div class="ptz-acc-body" id="ptzPresetBody">
+                </div>
+                <div class="ptz-acc-body hidden" id="ptzCruiseBody">
+                </div>
+                <div class="ptz-acc-foot hidden" id="ptzPresetFoot">
+                    <span class="icon add right" hidefocus="true" id="addPreset" data-title="add"></span>
+                    <span class="icon record-start right hidden" hidefocus="true" id="record" data-title="record"></span>
+                    <span class="icon plan right hidden" hidefocus="true" id="plan" data-title="trackPlan"></span>
+                </div>
+            </div>
+            <div id="linkBtnDiv" class="live_linkBtn hidden">
+                <span id="" class="button">
+                    <input type="button" lang="homePosition"/>
+                </span>
+            </div>
+            <div id="blockDiv_1" class="blockDiv"></div>
+        </div>
+    </div>
+    
+    <!-- 实况代码 -->
+    <div class="plugin-container" id="plugin-container">
+        <div class="control-head plugin-bar-head" id="controlhead">
+            <div class="right margin_15">
+                <span class="button_large hidden">
+                    <span class="btn_l_large"></span><button type="button" class="longBtn" id="intelligentLink" data-lang="intelligentCfg">
+                    </button><span class="btn_r_large"></span>
+                </span>
+                <span class="button_large hidden" id="imgConfigSpn">
+                    <span class="btn_l_large"></span><button type="button" class="longBtn" id="imgConfigLink" data-lang="imgConfigTitle">
+                    </button><span class="btn_r_large"></span>
+                </span>
+
+            </div>
+            <div class="padding_left_10">
+                <div id="changeRenderScale">
+                    <label data-lang="renderScale"></label>
+                    <select name="renderScale" id="renderScale" onChange="changeRenderScale()">
+                    </select>
+                </div>
+                <div id="ScreenNumSwitch" class="hidden">
+                    <label data-lang="fisheyeScreen"></label>
+                    <select name="screenNum" id="screenNum" onChange="changeScreenNum()">
+                        <option value="1" lang="onescreen"></option>
+                        <option value="6" lang="sixscreen"></option>
+                    </select>
+                </div>
+                <div id="streamIDDiv" class="button-combined vertical hidden">
+                    <div class="btn_l streamBtn"></div>
+                    <button type="button" id="mainStream" data-value="0" data-lang="mainVideoStream" class="streamBtn">
+                    </button><div class="line hidden"></div><button type="button" id="auxStream" class="hidden streamBtn" data-value="1" data-lang="roleVideoStream">
+                    </button><div class="line hidden"></div><button type="button" id="thirdStream" class="hidden streamBtn" data-value="2" data-lang="thirdVideoStream">
+                    </button><div class="btn_r streamBtn"></div>
+                </div>
+            </div>
+        </div>
+        <div class="live-plugins video_full_w" id="videoTD">
+        </div>
+        <div class="plugin-bar video_full_w hidden" id="videoBar">
+            <div id="pluginBar" class="right">
+                <div class="margin_15">
+                   <span class="hidden" id="IVAManualSnapInfo"></span>
+                    <button id="btn_fishIpc" class="openFishIpc hidden"   onMouseOut="this.blur();" data-title="closeFishIpc"></button>
+                   <button id="btn_prScrn" class="noSnapshot"  onclick="video.snatchPic();this.blur();" onMouseOut="this.blur();" data-title="prScrn"></button>
+                   <button id="btn_record" class="noRecord" onClick="startStopRecord();this.blur();" onMouseOut="this.blur();" data-title="startRecord"></button>
+                   <button id="btn_talk" class="startTalk hidden" onClick="startstopTalk();this.blur();" onMouseOut="this.blur();" data-title="openVoiceTalk"></button>
+                   <button id="btn_digitalZoom" class="openDigitalZoom" onClick="ditigalZoom();this.blur();" onMouseOut="this.blur();" data-title="startDigitalZoom"></button>
+                   <button id="btn_areaFocus" class="openAreaFocus hidden" onClick="areaFocus();this.blur();" onMouseOut="this.blur();" data-title="startAreaFocus" ></button>
+                   <button id="btn_opticsZoom" class="openOpticsZoom hidden" onClick="opticsZoom();this.blur();" onMouseOut="this.blur();" data-title="startOpticsZoom"></button>
+                   <button id="btn_manualSnap" class="openManualSnap hidden" onClick="manualSnap();this.blur();" onMouseOut="this.blur();" data-title="startManualSnap"></button>
+                   <button id="btn_liveSwitch_pic" class="liveSwitch_picture hidden" onClick="liveSwitch();this.blur();" onMouseOut="this.blur();" data-title="photo"></button>
+                    <button id= "btn_fullScreen" class="fullscreen_black" onClick="video.fullscreen(1);this.blur();" onMouseOut="this.blur();" data-title="fullscreen"></button>
+                   <button id="ctrlPanelBtn" class="close-ptz hidden" onMouseOut="this.blur();" data-title="controlPanel"></button>
+                </div>
+            </div>
+            <div class="margin_15" id="LiveDiv">
+              <a id="btn_stop" class="startPlay" onClick="startstopVideo();this.blur();" onMouseOut="this.blur();" data-title="play"></a>
+              <div  id="audioBar" class="hidden">
+                  <a id="btn_mute" name="voice" class="openAdjustVoice" onClick="muteVoice(this.form)" data-title="audioOff"></a>
+                  -<div id="sliderVolume" class="slider4">
+                      <div id="barVolume" class="bar3 bar4"></div>
+                  </div>+
+                  <div id="voiceTalk">
+                  <a id="btn_mic_mute" name="mic" class="noMicVoice hidden" onClick="muteMic(this.form)" data-title="audioOff"></a>
+                 -<div id="sliderMic" class="slider3 hidden">
+                     <div id="barMic" class="bar3">
+                     </div>
+                  </div>+
+                  </div>
+              </div>
+            </div>
+        </div>
+        <div class="hidden clearfix" id="videoBar_traffic">
+            <div class="plugin-bar plugin-bar-traffic liveBtnBar left" id="liveBtnBarDiv">
+                <div class="margin_15">
+                    <button id="btn_stop" class="startPlay" onClick="startstopVideo();this.blur();" onMouseOut="this.blur();" data-title="play"></button>
+                    <button id="btn_prScrn" class="noSnapshot"  onclick="video.snatchPic();this.blur();" onMouseOut="this.blur();" data-title="prScrn"></button>
+                    <button id="btn_record" class="noRecord" onClick="startStopRecord();this.blur();" onMouseOut="this.blur();" data-title="startRecord"></button>
+                    <button id="btn_digitalZoom" class="openDigitalZoom" onClick="ditigalZoom();this.blur();" onMouseOut="this.blur();" data-title="startDigitalZoom"></button>
+                    <button id="btn_liveSwitch_live" class="liveSwitch_live hidden" onClick="liveSwitch();this.blur();" onMouseOut="this.blur();" data-title="live"></button>
+                    <button class="fullscreen_black hidden" onClick="video.fullscreen(1);this.blur();" onMouseOut="this.blur();" data-title="fullscreen"></button>
+                </div>
+            </div>
+            <div class="plugin-bar plugin-bar-traffic photoBtnBar" id="photoBtnBarDiv">
+                <div class="margin_15 right">
+                    <span class="button_black capturePhoto hidden">
+                        <span class="btn_l_black"></span><button type="button" id="capturePhoto" data-lang="capturePhoto">
+                        </button><span class="btn_r_black"></span>
+                    </span>
+                    <span class="button_black TrafficStatisticPe hidden" id="TrafficStatisticPeSpan">
+                        <span class="btn_l_black"></span><button type="button" id="TrafficStatisticPe" data-lang="TrafficStatisticPe">
+                        </button><span class="btn_r_black"></span>
+                    </span>
+                    <span class="button_black" id="openPicPathSpan">
+                        <span class="btn_l_black"></span><button type="button" id="openPicPath" data-lang="openPicPath">
+                        </button><span class="btn_r_black"></span>
+                    </span>
+                    <span class="button_black">
+                        <span class="btn_l_black"></span><button type="button" id="clearCarInfo" data-lang="clearRecord">
+                        </button><span class="btn_r_black"></span>
+                    </span>
+                </div>
+                <div class="margin_15" id="GrabImgDiv">
+                    <a id="btn_grabImg" class="grabImg" onClick="video.grabImg();this.blur();" onMouseOut="this.blur();" data-title="grabImg"></a>
+                    <a id="trafficlight" class="openTrafficlight hidden"  onMouseOut="this.blur();" data-title="ignoreTrafficLight"></a>
+                    <a class="fullscreen_black hidden" onClick="video.fullscreen(1);this.blur();" onMouseOut="this.blur();" data-title="fullscreen"></a>
+                </div>
+            </div>
+        </div>
+        <div id="trafficInfoDiv" class="trafficInfoDiv hidden">
+            <div id="realStatusDiv" class="realStatusPanel">
+                <div id="tlStatusDiv" class="traffic_light_div hidden">
+                    <div class="lineDiv_traffic">
+                        <div id="LeftLight" class="traffic_light left_black"></div>
+                    </div>
+                    <div class="lineDiv_traffic">
+                        <div id="StraightLight" class="traffic_light straight_black"></div>
+                    </div>
+                    <div class="lineDiv_traffic">
+                        <div id="RightLight" class="traffic_light right_black"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="dataView dataViewold" id="dataViewold">
+            <div id="dataViewThead" class="dataViewThead">
+                <table cellpadding="2" cellspacing="0" class="dataViewTbl textCell">
+                    <col width="50px">
+                    <col width="150px">
+                    <col class="hidden" id="drivewayTheadCol" width="70px">
+                    <col class="hidden" id="carColorTheadCol" width="100px">
+                    <col width="100px">
+                    <col width="100px">
+                    <col class="hidden" id="peccancyTheadCol" width="150px">
+                    <col class="hidden" id="speedTheadCol" width="100px">
+                    <thead>
+                        <tr>
+                            <td data-lang="rowNum"></td>
+                            <td data-lang="captureTime"></td>
+                            <td class="hidden" id="drivewayIDHead" data-lang="drivewayID"></td>
+                            <td class="hidden" id="carColorHead" data-lang="carColor"></td>
+                            <td data-lang="NeedPlateColor"></td>
+                            <td data-lang="NeedCarPlate"></td>
+                            <td class="hidden" id="peccancyHead" data-lang="peccancy"></td>
+                            <td class="hidden" id="speedHead" data-lang="speed">(km/h)</td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div id="dataViewTbody" class="dataViewTbody">
+                <table cellpadding="2" cellspacing="0" class="dataViewTbl textCell" >
+                    <col width="50px">
+                    <col width="150px">
+                    <col class="hidden" id="drivewayTbodyCol" width="70px">
+                    <col class="hidden" id="carColorTbodyCol" width="100px">
+                    <col width="100px">
+                    <col width="100px">
+                    <col class="hidden" id="peccancyTbodyCol" width="150px">
+                    <col class="hidden" id="speedTbodyCol" width="100px">
+                    <tbody id="dataview_tbody"></tbody>
+                </table>
+            </div>
+            </div>
+            
+            <!--div><input type="text" class="hidden" name="DriveWayNum" id="DriveWayNum"></div-->
+            <div class="dataView dataViewnew hidden" id="dataViewnew">
+            <div id="dataViewTheadT" class="dataViewThead">
+                <table cellpadding="2" cellspacing="0" class="dataViewTbl textCell" >
+                    <col width="140px">
+                    <col width="45px">
+                    <col width="55px">
+                    <col width="75px"> 
+                    <col width="75px">
+                    <col width="75px">
+                    <col width="110px">
+                    <col width="110px">
+                    <col width="45px">
+                    <col width="45px">
+                    <col width="45px">
+                    <col width="45px">
+                    <col width="45px">
+                    <col width="45px">
+                    <col width="45px">
+                    <col width="45px">
+                    <col width="45px">
+                    <col width="45px">
+                    <col>
+                    <thead>
+                        <tr>
+                            <td data-lang="startTime" name="StartTime"></td>
+                            <td data-lang="drivewayID" name="DrivewayID"></td>
+                            <td data-lang="carFlow" name="CarFlow"></td>
+                            <td data-lang="aveSpeed" name="AveSpeed">(km/h)</td>
+                            <td data-lang="aveHeadTime" name="AveHeadTime"></td>
+                            <td data-lang="aveHeadGap" name="aveHeadGap" id="aveHeadGap" class="hidden">(m)</td>
+                            <td data-lang="aveTimeOcupyRat" name="AveTimeOcupyRat">(%)</td>
+                            <td data-lang="aveSpaceOcupyRat" name="AveSpaceOcupyRat" id="AveSpaceOcupyRat" class="hidden">(%)</td>
+                            <td data-lang="smallCarFlow" name="smallCarFlow" id="smallCarFlow" class="hidden"></td>
+                            <td data-lang="SUVFlow" name="SUVFlow" id="SUVFlow" class="hidden"></td>
+                            <td data-lang="VanFlow" name="VanFlow" id="VanFlow" class="hidden"></td>
+                            <td data-lang="SmallTruckFlow" name="SmallTruckFlow" id="SmallTruckFlow" class="hidden"></td>
+                            <td data-lang="MidiBusFlow" name="MidiBusFlow" id="MidiBusFlow" class="hidden"></td>
+                            <td data-lang="LargeBusFlow" name="LargeBusFlow" id="LargeBusFlow" class="hidden"></td>
+                            <td data-lang="BigTruckFlow" name="BigTruckFlow" id="BigTruckFlow" class="hidden"></td>
+                            <td data-lang="largeCar" name="OversizeVehicleFlow" id="OversizeVehicleFlow" class="hidden"></td>
+                            <td data-lang="midCar" name="MidsizeSedanFlow" id="MidsizeSedanFlow" class="hidden"></td>
+                            <td data-lang="smallCar" name="EconomysizeSedanFlow" id="EconomysizeSedanFlow" class="hidden"></td>
+                            <td data-lang="driveWayNum" name="DriveWayNum" id="DriveWayNum" class="hidden"></td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div id="dataViewTbodyT" class="dataViewTbody">
+                <table cellpadding="2" cellspacing="0" class="dataViewTbl textCell">
+                    <col width="140px">
+                    <col width="45px">
+                    <col width="55px">
+                    <col width="75px"> 
+                    <col width="75px">
+                    <col width="75px">
+                    <col width="110px">
+                    <col width="110px">
+                    <col width="45px">
+                    <col width="45px">
+                    <col width="45px">
+                    <col width="45px">
+                    <col width="45px">
+                    <col width="45px">
+                    <col width="45px">
+                    <col width="45px">
+                    <col width="45px">
+                    <col width="45px">
+                    <col>
+                    <tbody id="dataview_tbodyT"></tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.json.min.js"></script>
+<script type="text/javascript" src="js/slider.js"></script>
+<script type="text/javascript" src="js/ComScript.js"></script>
+<script type="text/javascript" src="js/utils.js"></script>
+<script type="text/javascript" src="js/dataview.js"></script>
+<script type="text/javascript" src="js/cruise.js"></script>
+<script type="text/javascript" src="js/live_video.js"></script>
+</html>

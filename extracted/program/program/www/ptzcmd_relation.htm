@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="pragma" content="no-cache">
+        <meta http-equiv="cache-control" content="no-cache">
+        <meta http-equiv="expires" content="0">    
+        <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+        <meta http-equiv="description" content="This is my page">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+        <link href="css/dataview.css" type="text/css" rel="stylesheet">
+        <link href="css/validate.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/ComScript.js"></script>
+        <script type="text/javascript" src="js/dataview.js"></script>
+        <script type="text/javascript">
+            loadlanguageFile(top.language);
+        </script>
+        <script type="text/javascript" src="js/jquery.validate.js"></script>
+        <script type="text/javascript" src="js/ptzcmd_relation.js"></script>
+    </head>
+    <body class="body">
+        <div class="pageDiv">
+            <form name="frmSetup" id="frmSetup">
+                <div class="clearfix sectionDiv">
+                <div class="dataView left">
+                    <div class="dataViewThead">
+                        <table class="dataViewTbl textCell" cellspacing="0" width="550px">
+                            <col width="150px">
+                            <col width="200px">
+                            <col width="200px">
+                            <thead>
+                                <tr>
+                                    <td data-lang="cmdTitle">
+                                    </td>
+                                    <td data-lang="presetNo">(1-255)
+                                    </td>
+                                    <td data-lang="optionTitle">
+                                    </td>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="dataViewTbody">
+                        <table class="dataViewTbl textCell" cellspacing="0">
+                            <col width="150px">
+                            <col width="200px">
+                            <col width="200px">
+                            <tbody id="dataview_tbody">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                </div>
+                <span class="button_green" onclick="submitF()" >
+                    <input type="button" class="submit_btn" lang="saveData"/>
+                </span>
+            </form>
+        </div>
+    </body>
+</html>

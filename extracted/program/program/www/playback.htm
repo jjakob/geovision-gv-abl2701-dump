@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Management</title>
+<meta name="Copyright" content="Copyright (c) 2013 *** Corporation. All Rights Reserved.">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Pragma" content="no-cache">
+<link href="css/globe.css" type="text/css" rel="stylesheet">
+<link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+<link href="css/dataview.css" type="text/css" rel="stylesheet">
+<link href="css/playback.css" type="text/css" rel="stylesheet">
+    <link href="css/frame.css" type="text/css" rel="stylesheet">
+
+</head>
+<body onbeforeunload="release();">
+    <div id="blockDiv" class="blockDiv"></div>
+    <div class="control-container" id="ctrlPanel">
+        <div id="ctrlBody" class="control-body">
+            <input type="hidden" id="year" />
+            <input type="hidden" id="month" />
+            <input type="hidden" id="day" />
+            <div id="datePicker" class="section_first center"></div>
+            <div class="live_linkBtn section">
+                <span id="loadBtn" class="button">
+                    <input type="button" lang="recordCfg" />
+                </span>
+            </div>
+            <div id="linkBtnDiv" class="live_linkBtn section">
+                <span id="queryBtn" class="button">
+                    <input type="button" lang="search" />
+                </span>
+            </div>
+            <div id="ptzAccordion" class="ptz-accordion hidden">
+                <div class="ptz-acc-header strLimit" style="width: 197px">
+                    <lang name="result"></lang>
+                </div>
+                <div class="ptz-acc-body dataViewTbody" id="ptzPresetBody">
+                    <table cellpadding="2" cellspacing="0" class="dataViewTbl textCell" >
+                        <col width="20px">
+                        <tbody id="dataview_tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="ctrlFishBody" class="control-body hidden" >
+            <div class="menu-title-text" id = "FishIpcTitle">
+                <a data-lang="fishEyeMode"></a>
+            </div>
+            <div>
+                <fieldset class="fieldFishIpc">
+                    <legend  class="" data-lang="InstallMode"></legend>
+                    <div>
+                        <button class="icon-fish player-top-installation-open selected installMode" id="player-top-installation" hidefocus="true" data-title="Ceiling" value="0"></button>
+                        <button class="icon-fish player-side-installation installMode" id="player-side-installation" hidefocus="true" data-title="Wall" value="2"></button>
+                        <button class="icon-fish player-bottom-installation installMode" id="player-bottom-installation" hidefocus="true" data-title="bottom" value="1"></button>
+                    </div>
+                </fieldset>
+            </div>
+            <div>
+                <fieldset class="fieldFishIpc">
+                    <legend  class="" data-lang="DisplayMode"></legend>
+                    <div>
+                        <button class="icon-fish player-original-open selected playMode" id="player-original" hidefocus="true" data-title="ImgOriginal" value="0"></button>
+                        <button class="icon-fish player-360-1ptz button-7 playMode" id="player-360-1ptz" hidefocus="true" data-title="360Plus1ptz" value="2"></button>
+                        <button class="icon-fish player-180 button-7 playMode" id="player-180" hidefocus="true" data-title="WholeViewTwo" value="1"></button>
+                        <button class="icon-fish player-fish-3ptz button-7 playMode" id="player-fish-3ptz" hidefocus="true" data-title="FishEyePlus3ptz" value="4"></button>
+                        <button class="icon-fish player-fish-left-4ptz button-7 playMode" id="player-fish-left-4ptz" hidefocus="true" data-title="FishEyePlus4ptz" value="7"></button>
+                        <button class="icon-fish player-360-6ptz button-7 playMode" id="player-360-6ptz" hidefocus="true" data-title="360Plus6ptz" value="3"></button>
+                        <button class="icon-fish player-fish-8ptz button-7 playMode" id="player-fish-8ptz" hidefocus="true" data-title="FishEyePlus8ptz" value="8"></button>
+                        <button class="icon-fish player-panorama button-5 hidden playMode" id="player-panorama" hidefocus="true" data-title="WholeView" value="9"></button>
+                        <button class="icon-fish player-pr-3ptz button-5 hidden playMode" id="player-pr-3ptz" hidefocus="true" data-title="WholeViewPlus3ptz" value="10"></button>
+                        <button class="icon-fish player-pr-4ptz button-5 hidden playMode" id="player-pr-4ptz" hidefocus="true" data-title="WholeViewPlus4ptz" value="11"></button>
+                        <button class="icon-fish player-pr-8ptz button-5 hidden playMode" id="player-pr-8ptz" hidefocus="true" data-title="WholeViewPlus8ptz" value="12"></button>
+                    </div>
+                </fieldset>
+            </div>
+            <span  style="margin-right: 35px"></span>
+            <span class="button">
+                <input type="button" class="longBtn" id="backToTime" lang="return" style="width: 100px"/>
+            </span>
+        </div>
+    </div>
+    
+    <!-- 实况代码 -->
+    <div class="plugin-container" id="plugin-container">
+        <div class="live-plugins" id="videoTD">
+        </div>
+        <div class="plugin-bar" id="videoBar">
+            <div id="sliderPlay" class="slider3">
+                <div id="barPlay" class="slider-range"></div>
+            </div>
+             <div id="pluginBar" class="left">
+               <a id="btn_play" class="startPlay" onClick="startOrPauseVideoBack_click();this.blur();" onMouseOut="this.blur();" data-title="play"></a>
+               <a id="btn_stop" class="stopPlay_disable" disabled="disabled" onclick="stopVideoBack_click();this.blur();" onmouseout="this.blur();" data-title="stop"></a>
+               <a id="btn_prScrn" class="noSnapshot" disabled="disabled" onclick="video.snatchPic();this.blur();" onmouseout="this.blur();" data-title="prScrn"></a>
+               <a id="btn_digitalZoom" class="noDigitalZoom" disabled="disabled" onclick="ditigalZoom();this.blur();" onmouseout="this.blur();" data-title="startDigitalZoom"></a>
+            </div>
+            <div id="buttunBar" class="right hidden">
+                <a id="btn_fishIpc"  class="closeFishIpc" onmouseout="this.blur();" data-title="openFishIpc"></a>
+            </div>
+            <div id="audioBar" class="right hidden">
+               <a id="btn_mute" name="voice" class="openAdjustVoice" onClick="muteVoice(this.form)" data-title="audioOff"></a>
+              -<div id="sliderVolume" class="slider4">
+                  <div id="barVolume" class="bar3 bar4"></div>
+              </div>+
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/ComScript.js"></script>
+<script type="text/javascript" src="js/utils.js"></script>
+<script type="text/javascript" src="js/dataview.js"></script>
+<script type="text/javascript" src="js/slider.js"></script>
+<script type="text/javascript" src="datepicker/WdatePicker.js"></script>
+<script type="text/javascript" src="js/playback.js"></script>
+</html>

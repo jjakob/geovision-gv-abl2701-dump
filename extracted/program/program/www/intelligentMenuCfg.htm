@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <link href="css/globe.css" type="text/css" rel="stylesheet">
+    <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+    <link href="css/validate.css" type="text/css" rel="stylesheet">
+    <link href="css/intelligentMenuCfg.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.json.min.js"></script>
+    <script type="text/javascript" src="js/ComScript.js"></script>
+    <script type="text/javascript" src="js/utils.js"></script>
+    <script type="text/javascript">
+        //加载语言文件
+        loadlanguageFile(top.language);
+    </script>
+    <script type="text/javascript" src="js/jquery.validate.js"></script>
+    <script type="text/javascript" src="js/intelligentMenuCfg.js"></script>
+</head>
+<body class="body">
+<div id="mainMenu">
+    <div class="custom-thead" data-lang="alarmMenu" id ="smart1"></div>
+    <div class = "menuStyle crossBorder hidden">
+        <input type="checkbox" id="crossBorder" class="smart_100 smartType smart1" name="crossBorder" />
+        <span class="imgType close_100"></span>
+        <span  class="labelSpan strLimit"><lang name="crossBorderTitle"></lang></span>
+        <button  class="setupImage" onClick="this.blur();jumpToPage(0,0)" onMouseOut="this.blur();" data-title="crossBorderTitle"></button>
+    </div>
+    <div class="hrDiv crossBorder hidden"></div>
+    <div class = "menuStyle enterArea hidden">
+        <input type="checkbox" id="enterArea" class="smart_102 smartType smart1" name="enterArea" />
+        <span class="imgType close_102"></span>
+        <span  class="labelSpan strLimit"><lang name="enterArea"></lang></span>
+        <button  class="setupImage" onClick="this.blur();jumpToPage(0,2)" onMouseOut="this.blur();" data-title="enterArea"></button>
+    </div>
+    <div class="hrDiv enterArea hidden"></div>
+    <div class = "menuStyle leaveArea hidden">
+        <input type="checkbox" id="leaveArea" class="smart_103 smartType smart1" name="leaveArea" />
+        <span class="close_103 imgType" ></span>
+        <span  class="labelSpan strLimit"><lang name="leaveArea"></lang></span>
+        <button  class="setupImage" onClick="this.blur();jumpToPage(0,3)" onMouseOut="this.blur();" data-title="leaveArea"></button>
+    </div>
+    <div class = "hrDiv leaveArea hidden "></div>
+    <div class = "menuStyle wanderDetect hidden">
+        <input type="checkbox" id="wanderDetect" class="smart_104 smartType smart1" name="wanderDetect" />
+        <span class="close_104 imgType" ></span>
+        <span  class="labelSpan strLimit"><lang name="wanderDetect"></lang></span>
+        <button  class="setupImage" onClick="this.blur();jumpToPage(0,4)" onMouseOut="this.blur();" data-title="wanderDetect"></button>
+    </div>
+    <div class = "hrDiv wanderDetect hidden "></div>
+    <div class = "menuStyle ruleType_stay hidden">
+        <input type="checkbox" id="ruleType_stay" class="smart_101 smartType smart1" name="ruleType_stay" />
+        <span class="close_101 imgType" ></span>
+        <span  class="labelSpan strLimit"><lang name="ruleType_stay"></lang></span>
+        <button  class="setupImage" onClick="this.blur();jumpToPage(0,1)" onMouseOut="this.blur();" data-title="ruleType_stay"></button>
+    </div>
+    <div class = "hrDiv ruleType_stay hidden "></div>
+    <div class = "menuStyle fastMove hidden">
+        <input type="checkbox" id="fastMove" class="smart_105 smartType smart1" name="fastMove" />
+        <span class="close_105 imgType" ></span>
+        <span  class="labelSpan strLimit"><lang name="fastMove"></lang></span>
+        <button  class="setupImage" onClick="this.blur();jumpToPage(0,6)" onMouseOut="this.blur();" data-title="fastMove"></button>
+    </div>
+    <div class = "hrDiv fastMove hidden "></div>
+    <div class="custom-thead" id ="smart2" data-lang="alarmAbnorMenu" style="clear: left"></div>
+    <div class = "menuStyle peopleGather hidden">
+        <input type="checkbox" id="peopleGather" class="smart_200 smartType smart2" name="peopleGather" />
+        <span class="close_200 imgType" ></span>
+        <span  class="labelSpan strLimit"><lang name="peopleGather"></lang></span>
+        <button  class="setupImage" onClick="this.blur();jumpToPage(0,5)" onMouseOut="this.blur();" data-title="peopleGather"></button>
+    </div>
+    <div class = "hrDiv peopleGather hidden "></div>
+    <div class = "menuStyle parkDetect hidden">
+        <input type="checkbox" id="parkDetect" class="smart_201 smartType smart2" name="parkDetect" />
+        <span class="close_201 imgType" ></span>
+        <span  class="labelSpan strLimit"><lang name="parkDetect"></lang></span>
+        <button  class="setupImage" onClick="this.blur();jumpToPage(0,7)" onMouseOut="this.blur();" data-title="parkDetect"></button>
+    </div>
+    <div class = "hrDiv parkDetect hidden "></div>
+    <div class = "menuStyle handleGood hidden">
+        <input type="checkbox" id="handleGood" class="smart_203 smartType smart2" name="handleGood" />
+        <span class="close_203 imgType" ></span>
+        <span  class="labelSpan strLimit"><lang name="handleGood"></lang></span>
+        <button  class="setupImage" onClick="this.blur();jumpToPage(0,9)" onMouseOut="this.blur();" data-title="handleGood"></button>
+    </div>
+    <div class = "hrDiv handleGood hidden "></div>
+    <div class = "menuStyle leftGood hidden">
+        <input type="checkbox" id="leftGood" class="smart_202 smartType smart2" name="leftGood" />
+        <span class="close_202 imgType" ></span>
+        <span  class="labelSpan strLimit"><lang name="leftGood"></lang></span>
+        <button  class="setupImage" onClick="this.blur();jumpToPage(0,8)" onMouseOut="this.blur();" data-title="leftGood"></button>
+    </div>
+    <div class = "hrDiv leftGood hidden "></div>
+    <div class = "menuStyle virtualFocusTitle hidden">
+        <input type="checkbox" id="virtualFocusTitle" class="smart_204 smartType smart2" name="virtualFocusTitle" />
+        <span class="close_204 imgType" ></span>
+        <span  class="labelSpan strLimit"><lang name="virtualFocusTitle"></lang></span>
+        <button  class="setupImage" onClick="this.blur();jumpToPage(1,0)" onMouseOut="this.blur();" data-title="virtualFocusTitle"></button>
+    </div>
+    <div class = "hrDiv virtualFocusTitle hidden "></div>
+    <div class = "menuStyle sceneChangeTitle hidden">
+        <input type="checkbox" id="sceneChangeTitle" class="smart_205 smartType smart2" name="sceneChangeTitle" />
+        <span class="close_205 imgType" ></span>
+        <span  class="labelSpan strLimit"><lang name="sceneChangeTitle"></lang></span>
+        <button  class="setupImage" onClick="this.blur();jumpToPage(1,1)" onMouseOut="this.blur();" data-title="sceneChangeTitle"></button>
+    </div>
+    <div class = "hrDiv sceneChangeTitle hidden "></div>
+    <div class = "menuStyle heatMap hidden">
+        <input type="checkbox" id="heatMap" class="smart_206 smartType smart2" name="heatMap" />
+        <span class="close_206 imgType" ></span>
+        <span  class="labelSpan strLimit"><lang name="heatMap"></lang></span>
+        <button  class="setupImage" onClick="this.blur();jumpToPage(2,0)" onMouseOut="this.blur();" data-title="heatMap"></button>
+
+    </div>
+    <div class = "hrDiv heatMap hidden "></div>
+    <div class="custom-thead faceDetectTitle hidden" data-lang="faceDetectTitle" style="clear: left"></div>
+    <div class = "menuStyle faceDetectTitle hidden">
+        <input type="checkbox" id="faceDetectTitle" class="smart_0 smartType" name="faceDetectTitle" />
+        <span class="close_0 imgType" ></span>
+        <span  class="labelSpan strLimit"><lang name="faceDetectTitle"></lang></span>
+        <button  class="setupImage" onClick="this.blur();jumpToPage(3,0)" onMouseOut="this.blur();" data-title="faceDetectTitle"></button>
+
+    </div>
+    <div class = "hrDiv faceDetectTitle hidden "></div>
+    <div class="custom-thead peopleCountMenu hidden" data-lang="peopleCountMenu" style="clear: left"></div>
+    <div class = "menuStyle peopleCountMenu hidden">
+        <input type="checkbox" id="peopleCountMenu" class="smart_1 smartType" name="peopleCountMenu" />
+        <span class="close_1 imgType" ></span>
+        <span  class="labelSpan strLimit"><lang name="peopleCountMenu"></lang></span>
+        <button  class="setupImage" onClick="this.blur();jumpToPage(4,0)" onMouseOut="this.blur();" data-title="peopleCountMenu"></button>
+
+    </div>
+    <div class = "hrDiv peopleCountMenu hidden "></div>
+    <!--<div class="custom-thead twCaptureContent hidden" data-lang="twCapture" style="clear: left"></div>
+    <div class = "menuStyle twCaptureContent hidden">
+        <input type="checkbox" id="twCapture" class="smart_2 smartType" name="twCapture" />
+        <span class="close_2 imgType" ></span>
+        <span  class="labelSpan strLimit"><lang name="twCapture"></lang></span>
+        <button  class="setupImage" id ="twCaptureButton" onClick="this.blur();jumpToPage(5,0)" onMouseOut="this.blur();" data-title="twCapture"></button>
+
+    </div>
+    <div class = "hrDiv twCaptureContent hidden "></div>-->
+    <div class="custom-thead smartTrackLink hidden" data-lang="smartTrackLink" style="clear: left"></div>
+    <div class = "menuStyle smartTrackLink hidden">
+        <input type="checkbox" id="smartTrackLink" class="smart_3 smartType" name="smartTrackLink" />
+        <span class="close_3 imgType" ></span>
+        <span  class="labelSpan strLimit"><lang name="smartTrackLink"></lang></span>
+        <button  class="setupImage" onClick="this.blur();jumpToPage(6,0)" onMouseOut="this.blur();" data-title="smartTrackLink"></button>
+
+    </div>
+    <div class = "hrDiv smartTrackLink hidden "></div>
+    <div class="custom-thead Chain_Calculation hidden" data-lang="Chain_Calculation" style="clear: left"></div>
+    <div class = "menuStyle Chain_Calculation hidden">
+        <input type="checkbox" id="Chain_Calculation" class="smart_4 smartType" name="Chain_Calculation" />
+        <span class="close_4 imgType" ></span>
+        <span  class="labelSpan strLimit"><lang name="Chain_Calculation"></lang></span>
+        <button  class="setupImage" onClick="this.blur();jumpToPage(7,0)" onMouseOut="this.blur();" data-title="Chain_Calculation"></button>
+    </div>
+    <div class = "hrDiv Chain_Calculation hidden "></div>
+</div>
+</body>
+</html>

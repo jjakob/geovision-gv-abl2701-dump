@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>wifi_info.htm</title>
+    
+    <meta name="Copyright" content="Copyright (c) 2013 *** Corporation. All Rights Reserved.">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="Pragma" content="no-cache">
+    <link href="css/globe.css" type="text/css" rel="stylesheet">
+    <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+    <link href="css/validate.css" type="text/css" rel="stylesheet">
+	<link href="css/wifi_info.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/utils.js"></script>
+    <script type="text/javascript" src="js/ComScript.js"></script>
+  <script type="text/javascript">
+   
+    var type = getparastr("type");
+    var channelId = parent.channelId;
+    
+    //加载语言文件
+    loadlanguageFile(top.language);
+    </script>
+    <script type="text/javascript" src="js/jquery.validate.js"></script>
+    <script type="text/javascript" src="js/wifi_info.js"></script>
+    </head>
+
+    <body class="body">
+        <div class="pageDiv">
+            <form name="frmSetup" id="frmSetup">
+                <input type="hidden" name="AuthMode" id="AuthMode" value="0"/>
+                <input type="hidden" name="EncrypType" id="EncrypType" value="0"/>
+                <dl id="baseDL">
+                    <dt>
+                        <lang name="SSID"></lang>
+                    </dt>
+                    <dd>
+                        <input type="text" name="SSID" id="SSID" maxlength="32" class="longText">
+                    </dd>
+                    <dt>
+                        <lang name="SafeType"></lang>
+                    </dt>
+                    <dd>
+                        <select name="safeType" id="safeType">
+                            <option value="0,0" lang="openWifi" selected="selected">
+                            </option>
+                            <option value="1,1">
+                                SHARED/WEP
+                            </option>
+                            <option value="4,2">
+                                WPAPSK/TKIP
+                            </option>
+                            <option value="4,3">
+                                WPAPSK/AES
+                            </option>
+                            <option value="7,2">
+                                WPA2PSK/TKIP
+                            </option>
+                            <option value="7,3">
+                                WPA2PSK/AES
+                            </option>
+                        </select>
+                    </dd>
+                </dl>
+                <dl id="passwordDL" class="hidden">
+                    <dt>
+                        <lang name="password"></lang>
+                    </dt>
+                    <dd>
+                        <input type="password" autocomplete="off"  name="Key" id="Key" class="longText" maxlength="32"><br/>
+                        <span id="errInfo" class="errinfo hidden"><lang name="tipPasswordErr"></lang></span>
+                    </dd>
+                </dl>
+            </form>
+        </div>
+  </body>
+</html>

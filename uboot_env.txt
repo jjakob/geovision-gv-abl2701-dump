@@ -1,0 +1,3 @@
+bootargs=mem=61M console=ttyAMA0,115200 mtdparts=hi_sfc:320K(boot),1856K(kernel),12736K(program),64K(cliinfo),64K(mtd_runtime),1M(config),-(calibration) root=/dev/mtdblock2 rootfstype=squashfs
+bootcmd=sf probe 0;sf read 0x82000000 0x50000 0x1d0000;bootm 0x82000000
+

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="Copyright"
+            content="Copyright (c) 2013 *** Corporation. All Rights Reserved.">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title></title>
+<link href="css/globe.css" type="text/css" rel="stylesheet">
+<link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+<link href="css/validate.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/utils.js"></script>
+<script type="text/javascript" src="js/ComScript.js"></script>
+<script type="text/javascript">
+    //加载语言文件
+    loadlanguageFile(top.language);
+</script>
+<script type="text/javascript" src="js/jquery.validate.js"></script>
+<script type="text/javascript" src="js/client_settings.js"></script>
+</head>
+<body class="body">
+    <div class="pageDiv">
+        <form name="frmSetup" id="frmSetup">
+            <fieldset id="IntelligentMark" class="hidden">
+                <legend>
+                    <span data-lang="intelligentMark"></span>
+                </legend>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" data-lang="UntriggeredTarget">
+                    </span>
+                    <select name="UntriggeredTarget" id="UntriggeredTarget" class="labelSpan"> 
+                        <option value="0" data-lang="disable">
+                        </option>
+                        <option value="1" data-lang="enable">
+                        </option>  
+                    </select>
+                </div>
+            </fieldset>
+            <fieldset id="videoParamFst" class="hidden">
+                <legend>
+                    <span data-lang="videoparameter"></span>
+                </legend>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" data-lang="processmode">
+                    </span>
+                    <select name="Fluency" id="Fluency" class="labelSpan">
+                        <option value="0" data-lang="real-time">
+                        </option>
+                        <option value="1" data-lang="fluent" selected="selected">
+                        </option>     
+                        <option value="2" data-lang="ultra-low">
+                        </option>             
+                   </select>
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" data-lang="transmission">
+                    </span>
+                    <select name="VideoTransProto" id="VideoTransProto" class="labelSpan">           
+                        <option value="0" selected="selected">
+                           UDP
+                        </option>
+                        <option value="1">
+                           TCP
+                        </option> 
+                    </select>
+                </div>
+            </fieldset>
+            <fieldset id="audiocfg" class="hidden">
+                <legend>
+                    <span data-lang="audioparameter"></span>
+                </legend>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" data-lang="audio-encode">
+                    </span>
+                    <select name="AudioCodeFmt" id="AudioCodeFmt" class="labelSpan">
+                    </select>
+                </div>
+                <div class="contentLine hidden">
+                    <span class="labelSpan strLimit" data-lang="audio-sample">(KHz)
+                    </span>
+                    <select name="AudioCodeRate" id="AudioCodeRate" class="labelSpan" disabled="disabled">
+                        <option value="0" selected="selected">
+                            8
+                        </option>
+                        <option value="1">
+                            16
+                        </option>
+                   </select>
+                </div>
+            </fieldset>
+            <fieldset id="recordParamFst" class="hidden" >
+                <legend>
+                    <span data-lang="record-snap"></span>
+                </legend>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" data-lang="recordtype">
+                    </span>                    
+                    <select name="RecordSectType" id="RecordSectType" class="labelSpan">
+                        <option value="1" data-lang="recordbytime">
+                        </option>
+                        <option value="2" data-lang="recordbysize">
+                        </option>
+                    </select>
+                </div>
+                <div class="contentLine">
+                    <span id="RecordSubName" class="labelSpan strLimit" data-lang="recordsecsize">
+                    </span>
+                    <input type="text" name="RecordSectValue" id="RecordSectValue" class="labelSpan" value="30"/>
+                    <span id="InputRange">[10~1024]</span>
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" data-lang="recordover">
+                    </span>
+                    <input type="radio" name="RecordOverwrite" id="overwrite" value="0" checked="checked">
+                    <label for="overwrite" data-lang="overwrite"></label>
+                    <input type="radio" name="RecordOverwrite" id="fullundo" value="1">
+                    <label for="fullundo" data-lang="fullundo"></label>
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" data-lang="totalcapacity">(GB)
+                    </span>
+                    <input type="text" name="RcdTotalCap" id="RcdTotalCap" value="10" class="labelSpan" maxlength="4"/> [1~1024]
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" data-lang="localrecordtype">
+                    </span>
+                    <select name="VideoFormat" id="VideoFormat" disabled="disabled" class="labelSpan">
+                        <option value="0" selected="selected">
+                            TS
+                        </option>
+                    </select>
+                </div>
+            <div class="contentLine" id="defaultFilePath">
+                <span class="labelSpan strLimit" data-lang="fileStoreRoute">
+                </span>
+                <input name="DefaultPath" id="DefaultPath" type="text" size="35" maxlength="200" onKeyDown="this.readOnly=1"
+                    onMouseDown="this.readOnly=1" class="longTxt"
+                />
+                <span class="button">
+                    <input type="button" lang="browser" name="browse" class="buttonLocal" onClick="chooseDir('DefaultPath');"/>
+                </span>
+                <span class="button" id="openDefaultPath">
+                    <input type="button" lang="openFolder" name="openFolder"/>
+                </span>
+            </div>
+            </fieldset>
+            <div>
+                <span class="button_green" onClick="submitF()" >
+                <input type="button" class="submit_btn" lang="saveData"/>
+                </span>
+                <span id = "unInstallTip" class ="hidden" data-lang="unInstallTip"></span>
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>

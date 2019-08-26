@@ -1,0 +1,18 @@
+@charset "utf-8";
+/* CSS Document */
+dt{width: 95px;margin-right: 40px;float: left;clear: left;}
+
+table.dataViewTbl {table-layout: auto;}
+
+table.dataViewTbl a{width: auto;}
+
+#SSIDText{margin-left: 10px;}
+
+div.dataView{margin-top: 10px;}
+
+.signal_0{background-position:0px -64px;}
+.signal_1{background-position:-19px -64px;}
+.signal_2{background-position:-38px -64px;}
+.signal_3{background-position:-57px -64px;}
+.signal_4{background-position:-76px -64px;}
+.signal_5{background-position:-95px -64px;}

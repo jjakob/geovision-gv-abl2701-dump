@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="pragma" content="no-cache">
+        <meta http-equiv="cache-control" content="no-cache">
+        <meta http-equiv="expires" content="0">    
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/validate.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.json.min.js"></script>
+        <script type="text/javascript" src="js/ComScript.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/cruise_config.js"></script>
+        <script type="text/javascript" src="js/jquery.validate.js"></script>
+    </head>
+    <body class="body">
+        <div class="pageDiv">
+            <form name="frmSetup" id="frmSetup">
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" data-lang="presetLinkCapture"></span>
+                    <span class="contentSpan">
+                        <input type="radio" name="PresetLinkCapture" id="PresetLinkOpen" value="1" >
+                        <label for="PresetLinkOpen" data-lang="open"></label>
+                        <input type="radio" name="PresetLinkCapture" id="PresetLinkClose" value="0" checked="checked">
+                        <label for="PresetLinkClose" data-lang="close"></label>
+                    </span>
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" data-lang="cruiseResTime"></span>
+                    <input type="text" name="Time" id="Time" defalutValue="60" value="60" maxlength="4">
+                </div>
+                <span class="button_green" onclick="submitF()" >
+                    <input type="button" class="submit_btn" lang="saveData"/>
+                </span>
+            </form>
+        </div>
+    </body>
+</html>

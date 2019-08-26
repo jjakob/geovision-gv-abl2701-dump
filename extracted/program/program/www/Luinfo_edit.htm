@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <META NAME="Copyright"
+          CONTENT="Copyright (c) **** Corporation. All Rights Reserved.">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link href="css/globe.css" type="text/css" rel="stylesheet">
+    <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+    <link href="css/validate.css" type="text/css" rel="stylesheet">
+    <link href="css/Luinfo_edit.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.json.min.js"></script>
+    <script type="text/javascript" src="js/ComScript.js"></script>
+    <script type="text/javascript" src="js/utils.js"></script>
+    <script type="text/javascript">
+        // 加载语言文件
+        loadlanguageFile(top.language);
+    </script>
+    <script type="text/javascript" src="js/jquery.validate.js"></script>
+    <script type="text/javascript" src="js/Luinfo_edit.js"></script>
+</head>
+<body class="body">
+<div class="pageDiv">
+    <form name="frmSetup" id="frmSetup">
+        <div class="contentLine">
+            <span class="labelSpan" data-lang="netIPPart"></span>
+            <span class="contentSpan">
+            <input name="Destination" id="Destination" type="text"  value="1.1.1.0"  class="defaultWidth" />
+            </span>
+        </div>
+        <div class="contentLine">
+            <span class="labelSpan" data-lang="netMark"></span>
+            <span class="contentSpan">
+                <input name="Netmask" id="Netmask" type="text"  value="255.255.255.0"  class="defaultWidth" />
+            </span>
+        </div>
+        <div class="contentLine">
+            <span class="labelSpan" data-lang="gateWay"></span>
+            <span class="contentSpan">
+                <input name="Gateway" id="Gateway" type="text"  value="1.1.1.1"  class="defaultWidth" />
+            </span>
+        </div>
+    </form>
+</div>
+</body>
+</html>

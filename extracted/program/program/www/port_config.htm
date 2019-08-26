@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>port_config.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Pragma" content="no-cache">
+    <link href="css/globe.css" type="text/css" rel="stylesheet">
+    <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+    <link href="css/validate.css" type="text/css" rel="stylesheet">
+   <script type="text/javascript" src="js/jquery.min.js"></script>
+   <script type="text/javascript" src="js/jquery.json.min.js"></script>
+    <script type="text/javascript" src="js/utils.js"></script>
+    <script type="text/javascript" src="js/ComScript.js"></script>
+    <script type="text/javascript">
+            var channelId = 0;
+            var dataMap = {};
+            //加载语言文件
+            loadlanguageFile(top.language);
+    </script>
+    <script type="text/javascript" src="js/jquery.validate.js"></script>
+    <script type="text/javascript" src="js/port_config.js"></script>
+  </head>
+  
+  <body class="body">
+    <div class="pageDiv">
+            <form name="frmSetup" id="frmSetup">
+                <div class="contentLine">
+                    <span class="labelSpan strLimit"><lang name="HttpPort"></lang></span>
+                    <input type="text"  name="HttpPort" id="HttpPort" defalutValue="80" value="80" maxlength="5"/>
+                </div>
+                <div class="contentLine hidden" id="HttpsDiv">
+                    <span class="labelSpan strLimit"><lang name="HttpsPort"></lang></span>
+                    <input type="text" name="HttpsPort" id="HttpsPort" defalutValue="443" value="443" maxlength="5"/>
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit"><lang name="rtspPort"></lang></span>
+                    <input type="text" name="RtspPort" id="RtspPort" defalutValue="554" value="554" maxlength="5"/>
+                </div>
+                <hr id="noticeHR"/>
+                <table border="0" width="100%">
+                    <tr class="textCell">
+                        <td width="40">
+                            <b><lang name="noticeInfo"></lang></b>
+                        </td>
+                        <td>
+                            <lang name="ModifyPortInfo"></lang>
+                        </td>
+                    </tr>
+                </table>
+                <span class="button_green" onClick="submitF()" >
+                    <input type="button" class="submit_btn" lang="saveData"/>
+                </span>
+            </form>
+        </div>
+  </body>
+</html>

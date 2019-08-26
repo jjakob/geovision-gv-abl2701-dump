@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta name="Copyright" content="Copyright (c) 2012 *** Corporation. All Rights Reserved.">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+        <link href="css/zTreeStyle.css" type="text/css" rel="stylesheet">
+        <link href="css/storage_status.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.json.min.js"></script>
+        <script type="text/javascript" src="js/jquery.ztree.all.min.js"></script>
+        <script type="text/javascript" src="js/ComScript.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/storage_status.js"></script>
+    </head>
+    <body class="body" onbeforeunload="release();">
+        <div class="pageDiv">
+        <form id="frmSetup" name="frmSetup">
+            <div class="sectionDiv">
+                <lang name="PicTotalMemory"></lang>
+                <label id="PicAllocMem" class="storage_big">
+                    2000
+                </label>
+                MB<lang name="comma"></lang>
+                <lang name="spareMemory"></lang>
+                <label id="PicSpareMemory" class="storage_big">
+                    200
+                </label>
+                MB<lang name="fullstop"></lang>
+            </div>
+        </form>
+        <div class="custom-thead" data-lang="picList"></div>
+        <ul id="tree" class="ztree"></ul>
+        <div id="object" class="treeRight"></div>
+        <div class="storage_btnDiv">
+            <span class="button">
+                <button type="button" id="submitBtn" class="shortBtn" data-lang="refresh"></button>
+            </span>
+            <span class="button">
+                <button type="button" id="exportRecord" class="longBtn" data-cmd="4" data-lang="exportRecord"></button>
+            </span>
+            <span class="button">
+                <button type="button" id="export" class="shortBtn" data-cmd="1" data-lang="export"></button>
+            </span>
+            <span class="button">
+                <button type="button" class="shortBtn" data-cmd="2" data-lang="del"></button>
+            </span>
+            <span class="button">
+                <button type="button" id="exportAndDel" class="longBtn" data-cmd="3" data-lang="exportAndDel"></button>
+            </span>
+        </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,10 @@
+# Aliases extracted from modules themselves.
+alias fs-configfs configfs
+alias xfrm-mode-10-0 xfrm6_mode_transport
+alias xfrm-mode-10-1 xfrm6_mode_tunnel
+alias xfrm-mode-10-4 xfrm6_mode_beet
+alias netdev-sit0 sit
+alias rtnl-link-sit sit
+alias i2c:lpc1754 kmotorpt
+alias i2c:ecompass1 kecompass
+alias i2c:ecompass0 kecompass

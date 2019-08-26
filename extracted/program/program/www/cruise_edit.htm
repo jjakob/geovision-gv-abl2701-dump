@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="Copyright"
+            content="Copyright (c) **** Corporation. All Rights Reserved.">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <title></title>
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+        <link href="css/dataview.css" type="text/css" rel="stylesheet">
+        <link href="css/validate.css" type="text/css" rel="stylesheet">
+        <link href="css/cruise_edit.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.json.min.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/ComScript.js"></script>
+        <script type="text/javascript">
+            
+            //加载语言文件
+            loadlanguageFile(top.language);
+        </script>
+        <script type="text/javascript" src="js/jquery.validate.js"></script>
+        <script type="text/javascript" src="js/cruise_edit.js"></script>
+    </head>
+    <body class="body auto_height" onbeforeunload='release();'>
+        <select id="rootPreset" class="hidden" ></select>
+        <form name="frmSetup" id="frmSetup">
+            <input type="hidden" name="PresetList" disabled="disabled" value="">
+            <input type="hidden" name="TrackPointList" value="">
+                <table class="contentLine textCell">
+                <col width="120px">
+                <col>
+                <tr>
+                    <td><lang name="trackID"></lang></td>
+                    <td>
+                        <input type="text" name="TrackId" id="TrackId" maxlength="2">
+                    </td>
+                </tr>
+                <tr>
+                    <td><lang name="trackName"></lang></td>
+                    <td>
+                        <input type="text" name="TrackName" maxlength="20" id="TrackName">
+                    </td>
+                </tr>
+                </table>
+                <div class="contentLine">
+                <span class="button">
+                    <button type="button" id="addAction" data-lang="add" ></button>
+                </span>
+                <span class="button">
+                    <button type="button" id="delAction" data-lang="del" ></button>
+                </span>
+                </div>
+                <div class="dataView left">
+                    <div class="dataViewThead">
+                    <table class="dataViewTbl textCell" cellspacing="0" width="605px">
+                        <col width="30px">
+                        <col width="120px">
+                        <col width="60px">
+                        <col width="100px">
+                        <col width="120px">
+                        <col width="85px">
+                        <col width="90px">
+                        <thead>
+                            <tr>
+                                <td>
+                                    <label></label>
+                                </td>
+                                <td>
+                                    <lang name="Action"></lang>
+                                </td>
+                                <td>
+                                    <lang name="Speed"></lang>
+                                </td>
+                                <td>
+                                    <lang name="IsTurning"></lang>
+                                </td>
+                                <td>
+                                    <lang name="Duration"></lang>
+                                </td>
+                                <td>
+                                    <lang name="cruisePresetPos"></lang>
+                                </td>
+                                <td>
+                                    <lang name="StayTime"></lang>(ms)
+                                </td>
+                            </tr>
+                        </thead>
+                    </table>
+                    </div>
+                    <div class="dataViewTbody" style="height: 250px">
+                        <table class="dataViewTbl textCell" cellspacing="0">
+                            <col width="30px">
+                            <col width="120px">
+                            <col width="60px">
+                            <col width="100px">
+                            <col width="120px">
+                            <col width="85px">
+                            <col width="90px">
+                            <tbody id="trackTbl"></tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="moveBtnDiv left">
+                    <span class="button">
+                        <button type="button" id="moveTop"><div class="moveBtn moveTop"></div></button>
+                    </span>
+                    <span class="button">
+                        <button type="button" id="moveUp" class=""><div class="moveBtn moveUp"></div></button>
+                    </span>
+                    <span class="button">
+                        <button type="button" id="moveDown" class=""><div class="moveBtn moveDown"></div></button>
+                    </span>
+                    <span class="button">
+                        <button type="button" id="moveBottom" class=""><div class="moveBtn moveBottom"></div></button>
+                    </span>
+                </div>
+            <div><span class="clear"></span></div>
+        </form>
+    </body>
+</html>

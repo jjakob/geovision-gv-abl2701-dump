@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="Copyright"
+            content="Copyright (c) **** Corporation. All Rights Reserved.">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <title></title>
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+        <link href="css/dataview.css" type="text/css" rel="stylesheet">
+        <link href="css/config.css" type="text/css" rel="stylesheet">
+        <link href="css/config_ex.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.json.min.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/ComScript.js"></script>
+        <script type="text/javascript" src="datepicker/WdatePicker.js"></script>
+        <script type="text/javascript">
+            
+            //加载语言文件
+            loadlanguageFile(top.language);
+        </script>
+        <script type="text/javascript" src="js/jquery.validate.js"></script>
+        <script type="text/javascript" src="js/cruise_plan.js"></script>
+    </head>
+    <body class="body auto_height">
+        <form name="frmSetup" id="frmSetup" style="margin: 10px;">
+            <div id="hiddenInputsDiv" class="hidden"></div>
+            <fieldset>
+            <legend class="textCell"><input type="checkbox" id="PlanEnable" name="PlanEnable" />
+             <label for="PlanEnable"><lang name="enableCruisePlan"></lang></label>
+            </legend>
+            <div class="plan-dialog-tab">
+                <ul class="plan-dialog-ul">
+                    <li onclick="toggle(this, 1)" class="plan-dialog-li selected strLimit">
+                        <lang name="monday"></lang>
+                    </li>
+                    <li onclick="toggle(this, 2)" class="plan-dialog-li strLimit">
+                        <lang name="tuesday"></lang>
+                    </li>
+                    <li onclick="toggle(this, 3)" class="plan-dialog-li strLimit">
+                        <lang name="wednesday"></lang>
+                    </li>
+                    <li onclick="toggle(this, 4)" class="plan-dialog-li strLimit">
+                        <lang name="thursday"></lang>
+                    </li>
+                    <li onclick="toggle(this, 5)" class="plan-dialog-li strLimit">
+                        <lang name="friday"></lang>
+                    </li>
+                    <li onclick="toggle(this, 6)" class="plan-dialog-li plan-dialog-red strLimit">
+                        <lang name="saturday"></lang>
+                    </li>
+                    <li onclick="toggle(this, 7)" class="plan-dialog-red strLimit">
+                        <lang name="sunday"></lang>
+                    </li>
+                </ul>
+                <div id="contentDiv" class="plan-dialog-content">
+                    <input name="StartTime1" id="StartTime1" type="text" value="" class="Wdate" />
+                    <label style='margin: 0 15'>~</label> 
+                    <input name="EndTime1" id="EndTime1" type="text" value="" class="Wdate"/>
+                    <label style='margin: 0 15'></label> 
+                    <select name="Track1" id="Track1" style="width: 120px"></select>
+                    <br>
+                    <input name="StartTime2" id="StartTime2" type="text" value="" class="Wdate"/>
+                    <label style='margin: 0 15'>~</label> 
+                    <input name="EndTime2" id="EndTime2" type="text" value="" class="Wdate" />
+                    <label style='margin: 0 15'></label> 
+                    <select name="Track2" id="Track2" style="width: 120px"></select>
+                    <br>
+                    <input name="StartTime3" id="StartTime3" type="text" value="" class="Wdate"/>
+                    <label style='margin: 0 15'>~</label> 
+                    <input name="EndTime3" id="EndTime3" type="text" value="" class="Wdate" />
+                    <label style='margin: 0 15'></label> 
+                    <select name="Track3" id="Track3" style="width: 120px"></select>
+                    <br>
+                    <input name="StartTime4" id="StartTime4" type="text" value="" class="Wdate" />
+                    <label style='margin: 0 15'>~</label> 
+                    <input name="EndTime4" id="EndTime4" type="text" value="" class="Wdate" />
+                    <label style='margin: 0 15'></label> 
+                    <select name="Track4" id="Track4" style="width: 120px"></select>
+                    <br>
+                    <input name="StartTime5" id="StartTime5" type="text" value="" class="Wdate" />
+                    <label style='margin: 0 15'>~</label>
+                    <input name="EndTime5" id="EndTime5" type="text" value="" class="Wdate" />
+                    <label style='margin: 0 15'></label>
+                    <select name="Track5" id="Track5" style="width: 120px"></select>
+                    <br>
+                    <input name="StartTime6" id="StartTime6" type="text" value="" class="Wdate" />
+                    <label style='margin: 0 15'>~</label>
+                    <input name="EndTime6" id="EndTime6" type="text" value="" class="Wdate" />
+                    <label style='margin: 0 15'></label>
+                    <select name="Track6" id="Track6" style="width: 120px"></select>
+                    <br>
+                    <input name="StartTime7" id="StartTime7" type="text" value="" class="Wdate" />
+                    <label style='margin: 0 15'>~</label>
+                    <input name="EndTime7" id="EndTime7" type="text" value="" class="Wdate" />
+                    <label style='margin: 0 15'></label>
+                    <select name="Track7" id="Track7" style="width: 120px"></select>
+                    <br>
+                    <input name="StartTime8" id="StartTime8" type="text" value="" class="Wdate" />
+                    <label style='margin: 0 15'>~</label>
+                    <input name="EndTime8" id="EndTime8" type="text" value="" class="Wdate" />
+                    <label style='margin: 0 15'></label>
+                    <select name="Track8" id="Track8" style="width: 120px"></select>
+                    <label style='margin: 0 10'></label>
+                    <span class="button">
+                        <input name="CopyBtn" type="button" value="" lang="copy" onclick="DoCopy()"/>
+                    </span>
+                    <span class="button">
+                        <input name="PasteBtn" type="button" value="" lang="paste" onclick="DoPaste()">
+                    </span>
+                </div>
+            </div>
+            </fieldset>
+        </form>
+    </body>
+</html>

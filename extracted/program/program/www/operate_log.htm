@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta name="Copyright"
+            content="Copyright (c) 2013 *** Corporation. All Rights Reserved.">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+        <link href="css/validate.css" type="text/css" rel="stylesheet">
+        <link href="css/dataview.css" type="text/css" rel="stylesheet">        
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.json.min.js"></script>
+        <script type="text/javascript" src="js/jquery.blockUI.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/dataview.js"></script>
+        <script type="text/javascript" src="js/ComScript.js"></script>
+        <script type="text/javascript">
+        var channelId = parent.channelId;
+        
+        //加载语言文件
+        loadlanguageFile(top.language);
+        </script>
+        <script type="text/javascript" src="js/jquery.validate.js"></script>
+        <script type="text/javascript" src="js/operate_log.js"></script>
+    </head>
+    <body class="body">
+        <div class="pageDiv">
+        <form name="frmSetup" id="frmSetup">
+            <div class="dataView" style="width:860px ">
+            <div class="dataViewThead">
+                <table cellpadding="2" cellspacing="0" class="dataViewTbl textCell" width="860px">
+                    <col width="40px">
+                    <col width="100px">
+                    <col width="130px">
+                    <col width="130px">
+                    <col width="130px">
+                    <col width="130px">
+                    <col width="200px">
+                    <thead>
+                        <tr>
+                            <td>
+                                <lang name="rowNum"></lang>
+                            </td>
+                            <td>
+                                <lang name="logType"></lang>
+                            </td>
+                            <td>
+                                <lang name="logDate"></lang>
+                            </td>
+                            <td>
+                                <lang name="logTime"></lang>
+                            </td>
+                            <td>
+                                <lang name="logUserName"></lang>
+                            </td>
+                            <td>
+                                <lang name="logIPAddr"></lang>
+                            </td>
+                            <td>
+                                <lang name="logDesc"></lang>
+                            </td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="dataViewTbody">
+                <table cellpadding="2" cellspacing="0" class="dataViewTbl textCell" >
+                    <col width="45px">
+                    <col width="100px">
+                    <col width="130px">
+                    <col width="130px">
+                    <col width="130px">
+                    <col width="130px">
+                    <col width="200px">
+                    <tbody id="dataview_tbody"></tbody>
+                </table>
+            </div>
+            <div class="text-center">
+                <a id="prePage"><lang name="prePage"></lang></a>
+                <input class="shortText" type="text" name="currentPage" id="currentPage" value="1"></input>
+                /<label name="totalPage" id="totalPage"></label>
+                <a id="nextPage"><lang name="nextPage"></lang></a>
+            </div>            
+            </div>
+        </form>
+        </div>
+    </body>
+</html>

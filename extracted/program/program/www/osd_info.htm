@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta name="Copyright"
+        content="Copyright (c) 2011 *** Corporation. All Rights Reserved.">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link href="css/globe.css" type="text/css" rel="stylesheet">
+    <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+    <link href="css/validate.css" type="text/css" rel="stylesheet">
+    <link href="css/dataview.css" type="text/css" rel="stylesheet">
+    <link href="css/osd_info.css" type="text/css" rel="stylesheet">
+    <link href="css/osd_info_ex.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.json.min.js"></script>
+    <script type="text/javascript" src="js/iColorPicker.js"></script>
+    <script type="text/javascript" src="js/ComScript.js"></script>
+    <script type="text/javascript" src="js/utils.js"></script>
+    <script type="text/javascript">
+        //加载语言文件
+        loadlanguageFile(top.language);
+    </script>
+    <script type="text/javascript" src="js/jquery.validate.js"></script>
+    <script type="text/javascript" src="js/osd_info.js"></script>
+</head>
+<body class="body">
+<form name="frmSetup" id="frmSetup">
+    <div id="SubOSD1Color" class="contentLine hidden">
+        <span class="ColorWidth ColorSpan" data-lang="ivaSinglePic"></span>
+        <span class="ColorSpan">
+            <lang name="fontColor"></lang>
+            <input type="text" name="SubOSD1FontColor" id="SubOSD1FontColor" readonly="readonly" class="longText iColorPicker" />
+            <input type="hidden" name="SubOSD1fontColor" id="SubOSD1fontColor" />
+        </span>
+        <span class="ColorSpan">
+            <lang name="backgroundColor"></lang>
+            <input type="text" name="SubOSD1BackgroundColor" id="SubOSD1BackgroundColor" readonly="readonly" class="longText iColorPicker" />
+            <input type="hidden" name="SubOSD1backgroundColor" id="SubOSD1backgroundColor" />
+        </span>
+    </div>
+    <div id="SubOSD2Color" class="contentLine hidden">
+        <span class="ColorWidth ColorSpan" data-lang="ivaSinglePic"></span>
+        <span class="ColorSpan">
+            <lang name="fontColor"></lang>
+            <input type="text" name="SubOSD2FontColor" id="SubOSD2FontColor" readonly="readonly" class="longText iColorPicker" />
+            <input type="hidden" name="SubOSD2fontColor" id="SubOSD2fontColor" />
+        </span>
+        <span class="ColorSpan">
+            <lang name="backgroundColor"></lang>
+            <input type="text" name="SubOSD2BackgroundColor" id="SubOSD2BackgroundColor" readonly="readonly" class="longText iColorPicker" />
+            <input type="hidden" name="SubOSD2backgroundColor" id="SubOSD2backgroundColor" />
+        </span>
+    </div>
+    <div id="SubOSD3Color" class="contentLine hidden">
+        <span class="ColorWidth ColorSpan" data-lang="ivaSyntPic"></span>
+        <span class="ColorSpan">
+            <lang name="fontColor"></lang>
+            <input type="text" name="SubOSD3FontColor" id="SubOSD3FontColor" readonly="readonly" class="longText iColorPicker" />
+            <input type="hidden" name="SubOSD3fontColor" id="SubOSD3fontColor" />
+        </span>
+        <span class="ColorSpan">
+            <lang name="backgroundColor"></lang>
+            <input type="text" name="SubOSD3BackgroundColor" id="SubOSD3BackgroundColor" readonly="readonly" class="longText iColorPicker" />
+            <input type="hidden" name="SubOSD3backgroundColor" id="SubOSD3backgroundColor" />
+        </span>
+    </div>
+    <div id="SubOSD4Color" class="contentLine hidden">
+        <span data-lang="ivaSyntPic"></span>
+        <span class="ColorSpan">
+            <lang name="fontColor"></lang>
+            <input type="text" name="SubOSD4FontColor" id="SubOSD4FontColor" readonly="readonly" class="longText iColorPicker" />
+            <input type="hidden" name="SubOSD4fontColor" id="SubOSD4fontColor" />
+        </span>
+        <span class="ColorSpan">
+            <lang name="backgroundColor"></lang>
+            <input type="text" name="SubOSD4BackgroundColor" id="SubOSD4BackgroundColor" readonly="readonly" class="longText iColorPicker" />
+            <input type="hidden" name="SubOSD4backgroundColor" id="SubOSD4backgroundColor" />
+        </span>
+    </div>
+    <div class="tab_bar">
+        <button type="button" class="sectionTab hidden strLimit tab_selected" data-divID="picOsdDiv" data-lang="vehiclePassPic"></button>
+        <button type="button" class="sectionTab hidden strLimit" data-divID="TGSyntOsdDiv" data-lang="TGSyntPic"></button>
+        <button type="button" class="sectionTab hidden strLimit" data-divID="mjpegOsdDiv" data-lang="peccancyPic"></button>
+        <button type="button" class="sectionTab hidden strLimit" data-divID="illegalOsdDiv" data-lang="SyntPic"></button>
+        <button type="button" class="sectionTab hidden strLimit" data-divID="pictrueTypecloseUpDiv" data-lang="pictrueType_single_closeUp"></button>
+    </div>
+    <div class="tab_content sectionDiv section_padding">
+        <div id="picOsdDiv" class="hidden">
+            <fieldset>
+                <div class="contentLine">
+                    <span class="CommonSpan">
+                        <lang name="picOsdMode"></lang>
+                        <input type="radio" name="SubOSD1OSDMode" id="SubOSD1OSDMode_inside" value="0" class="leftInput"/>
+                        <label for="SubOSD1OSDMode_inside" data-lang="picOSDMode_inside"></label>
+                        <input type="radio" name="SubOSD1OSDMode" id="SubOSD1OSDMode_outside_top" value="1" />
+                        <label for="SubOSD1OSDMode_outside_top" data-lang="picOSDMode_outside_top"></label>
+                        <input type="radio" name="SubOSD1OSDMode" id="SubOSD1OSDMode_outside_bottom" value="2" />
+                        <label for="SubOSD1OSDMode_outside_bottom" data-lang="picOSDMode_outside_bottom"></label>
+                    </span>
+                </div>
+                <div class="contentLine">
+                    <span class="ColorSpan">
+                        <lang name="fontSize"></lang>
+                        <select name="SubOSD1FontSize" id="SubOSD1FontSize" class="leftInput">
+                            <option value="3" data-cap="3" lang="xlarge"></option>
+                            <option value="0" data-cap="0" lang="large"></option>
+                            <option value="1" data-cap="1" lang="middle"></option>
+                            <option value="2" data-cap="2" lang="small"></option>
+                        </select>
+                    </span>
+                    <span class="ColorSpan">
+                        <lang name="characterGap"></lang>
+                        <input type="text" class="shortText" name="SubOSD1CharacterGap" id="SubOSD1CharacterGap"/>px
+                    </span>
+                </div>
+                <div id="GlobalOSDDiv1" class="contentLine">
+                    <span class="ColorSpan hidden">
+                        <input type="text" id="SubOSD1OSDPrame"/>
+                    </span>
+                </div>
+                <div class="contentLine lineWidth">
+                    <span class="CommonSpan">
+                        <lang name="timeFormat"></lang>
+                        <select name="SubOSD1TimeFormat" id="SubOSD1TimeFormat" class="longText">
+                            <option value="0" lang="timeFormat0"></option>
+                            <option value="2" lang="timeFormat2"></option>
+                            <option value="5" lang="timeFormat5"></option>
+                            <option value="6" lang="timeFormat6"></option>
+                        </select>
+                        <span class="labelTxt auto_width remarkInfo">
+                            <lang name="timeFormatPicInfo"></lang>
+                        </span>
+                    </span>
+                </div>
+                <div class="contentLine lineWidth">
+                    <span class="CommonSpan">
+                        <lang name="dateFormat"></lang>
+                        <select name="SubOSD1DateFormat" id="SubOSD1DateFormat">
+                            <option value="0" lang="dateFormat0"></option>
+                            <option value="1" lang="dateFormat1"></option>
+                            <option value="2" lang="dateFormat2"></option>
+                            <option value="3" lang="dateFormat3"></option>
+                            <option value="4" lang="dateFormat4"></option>
+                            <option value="5" lang="dateFormat5"></option>
+                        </select>
+                        <span class="labelTxt auto_width remarkInfo">
+                            <lang name="dateFormatInfo"></lang>
+                        </span>
+                    </span>
+                </div>
+            </fieldset>
+            <ul id="vehicleOSD">
+            </ul>
+            <fieldset id="PicOSDareaPosField" class="hidden">
+                <legend id="PicOSDareaPos" data-lang="areaPos"></legend>
+                <div>
+                    <span class="ColorSpan">X <input type="text" name="PicOSDInfoLeft" id="PicOSDInfoLeft" class="shortText" maxlength="2"/></span>
+                    <span class="ColorSpan">Y <input type="text" name="PicOSDInfoTop" id="PicOSDInfoTop" class="shortText" maxlength="2"/></span>
+                </div>
+            </fieldset>
+            <div id="leftDiv">
+                <div class="dataView" id="infoOsd_3">
+                    <table class="dataViewTbl textCell" cellspacing="0" width="565px">
+                        <col width="80px">
+                        <col width="160px">
+                        <col width="140px">
+                        <col width="65px">
+                        <col width="50px">
+                        <col width="70px">
+                        <col>
+                        <thead>
+                            <tr>
+                                <td><label><lang name="heaterType"></lang></label></td>
+                                <td><label><lang name="customName"></lang></label></td>
+                                <td><label><lang name="picOsdFormat"></lang></label></td>
+                                <td><label><lang name="picOSDPlace"></lang></label></td>
+                                <td><label><lang name="spaceNum"></lang></label></td>
+                                <td><label><lang name="canWrap"></lang></label></td>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="dataViewTbody" style="height: 110px">
+                    <table class="dataViewTbl textCell" cellspacing="0">
+                        <col width="80px">
+                        <col width="160px">
+                        <col width="140px">
+                        <col width="65px">
+                        <col width="50px">
+                        <col width="70px">
+                        <tbody id="picOSDTbl">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="TGSyntOsdDiv" class="hidden">
+            <fieldset>
+                <div class="contentLine">
+                    <span class="CommonSpan">
+                        <lang name="picOsdMode"></lang>
+                        <input type="radio" name="SubOSD4OSDMode" id="SubOSD4OSDMode_outside_top" value="1"/>
+                        <label for="SubOSD4OSDMode_outside_top" data-lang="picOSDMode_outside_top"></label>
+                        <input type="radio" name="SubOSD4OSDMode" id="SubOSD4OSDMode_outside_bottom" value="2" />
+                        <label for="SubOSD4OSDMode_outside_bottom" data-lang="picOSDMode_outside_bottom"></label>
+                    </span>
+                </div>
+                <div class="contentLine">
+                    <span class="ColorSpan">
+                        <lang name="fontSize"></lang>
+                        <select name="SubOSD4FontSize" id="SubOSD4FontSize" class="leftInput">
+                            <option value="3" data-cap="3" lang="xlarge"></option>
+                            <option value="0" data-cap="0" lang="large"></option>
+                            <option value="1" data-cap="1" lang="middle"></option>
+                            <option value="2" data-cap="2" lang="small"></option>
+                        </select>
+                    </span>
+                    <span class="ColorSpan">
+                        <lang name="characterGap"></lang>
+                        <input type="text" class="shortText" name="SubOSD4CharacterGap" id="SubOSD4CharacterGap"/>px
+                    </span>
+                </div>
+                <div id="GlobalOSDDiv4" class="contentLine">
+                    <span class="ColorSpan hidden">
+                        <input type="text" id="SubOSD4OSDPrame"/>
+                    </span>
+                </div>
+                <div class="contentLine lineWidth">
+                    <span class="CommonSpan">
+                        <lang name="timeFormat"></lang>
+                        <select name="SubOSD4TimeFormat" id="SubOSD4TimeFormat" class="longText">
+                            <option value="0" lang="timeFormat0"></option>
+                            <option value="2" lang="timeFormat2"></option>
+                            <option value="5" lang="timeFormat5"></option>
+                            <option value="6" lang="timeFormat6"></option>
+                        </select>
+                        <span class="labelTxt auto_width remarkInfo">
+                            <lang name="timeFormatPicInfo"></lang>
+                        </span>
+                    </span>
+                </div>
+                <div class="contentLine lineWidth">
+                    <span class="CommonSpan">
+                        <lang name="dateFormat"></lang>
+                        <select name="SubOSD4DateFormat" id="SubOSD4DateFormat">
+                            <option value="0" lang="dateFormat0"></option>
+                            <option value="1" lang="dateFormat1"></option>
+                            <option value="2" lang="dateFormat2"></option>
+                            <option value="3" lang="dateFormat3"></option>
+                            <option value="4" lang="dateFormat4"></option>
+                            <option value="5" lang="dateFormat5"></option>
+                        </select>
+                        <span class="labelTxt auto_width remarkInfo">
+                            <lang name="dateFormatInfo"></lang>
+                        </span>
+                    </span>
+                </div>
+            </fieldset>
+            <ul id="TGSyntOSD">
+            </ul>
+            <fieldset id="TGSyntOSDareaPosField" class="hidden">
+                <legend id="TGSyntOSDareaPos" data-lang="areaPos"></legend>
+                <div>
+                    <span class="ColorSpan">X <input type="text" name="TGSyntOSDInfoLeft" id="TGSyntOSDInfoLeft" class="shortText" maxlength="2"/></span>
+                    <span class="ColorSpan">Y <input type="text" name="TGSyntOSDInfoTop" id="TGSyntOSDInfoTop" class="shortText" maxlength="2"/></span>
+                </div>
+            </fieldset>
+            <div id="leftDiv">
+                <div class="dataView" id="infoOsd_3">
+                    <table class="dataViewTbl textCell" cellspacing="0" width="500px">
+                        <col width="80px">
+                        <col width="160px">
+                        <col width="140px">
+                        <col width="50px">
+                        <col width="70px">
+                        <col width="">
+                        <thead>
+                            <tr>
+                                <td><label><lang name="heaterType"></lang></label></td>
+                                <td><label><lang name="customName"></lang></label></td>
+                                <td><label><lang name="picOsdFormat"></lang></label></td>
+                                <td><label><lang name="spaceNum"></lang></label></td>
+                                <td><label><lang name="canWrap"></lang></label></td>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="dataViewTbody" style="height: 110px">
+                    <table class="dataViewTbl textCell" cellspacing="0">
+                        <col width="80px">
+                        <col width="160px">
+                        <col width="140px">
+                        <col width="50px">
+                        <col width="70px">
+                        <tbody id="TGSyntOSDTbl">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="mjpegOsdDiv" class="hidden">
+            <fieldset>
+                <div class="contentLine">
+                    <span class="CommonSpan">
+                        <lang name="picOsdMode"></lang>
+                        <input type="radio" name="SubOSD2OSDMode" id="SubOSD2OSDMode_inside" value="0" class="leftInput"/>
+                        <label for="SubOSD2OSDMode_inside" data-lang="picOSDMode_inside"></label>
+                        <input type="radio" name="SubOSD2OSDMode" id="SubOSD2OSDMode_outside_top" value="1" />
+                        <label for="SubOSD2OSDMode_outside_top" data-lang="picOSDMode_outside_top"></label>
+                        <input type="radio" name="SubOSD2OSDMode" id="SubOSD2OSDMode_outside_bottom" value="2" />
+                        <label for="SubOSD2OSDMode_outside_bottom" data-lang="picOSDMode_outside_bottom"></label>
+                    </span>
+                </div>
+                <div class="contentLine">
+                    <span class="ColorSpan">
+                        <lang name="fontSize"></lang>
+                        <select name="SubOSD2FontSize" id="SubOSD2FontSize" class="leftInput">
+                            <option value="3" data-cap="3" lang="xlarge"></option>
+                            <option value="0" data-cap="0" lang="large"></option>
+                            <option value="1" data-cap="1" lang="middle"></option>
+                            <option value="2" data-cap="2" lang="small"></option>
+                        </select>
+                    </span>
+                    <span class="ColorSpan">
+                        <lang name="characterGap"></lang>
+                        <input type="text" class="shortText" name="SubOSD2CharacterGap" id="SubOSD2CharacterGap"/>px
+                    </span>
+                </div>
+                <div id="GlobalOSDDiv2" class="contentLine">
+                    <span class="ColorSpan hidden">
+                        <input type="text" id="SubOSD2OSDPrame"/>
+                    </span>
+                </div>
+                <div class="contentLine lineWidth">
+                    <span class="CommonSpan">
+                        <lang name="timeFormat"></lang>
+                        <select name="SubOSD2TimeFormat" id="SubOSD2TimeFormat" class="longText">
+                            <option value="0" lang="timeFormat0"></option>
+                            <option value="2" lang="timeFormat2"></option>
+                            <option value="5" lang="timeFormat5"></option>
+                            <option value="6" lang="timeFormat6"></option>
+                        </select>
+                        <span class="labelTxt auto_width remarkInfo">
+                            <lang name="timeFormatPicInfo"></lang>
+                        </span>
+                    </span>
+                </div>
+                <div class="contentLine lineWidth">
+                    <span class="CommonSpan">
+                        <lang name="dateFormat"></lang>
+                        <select name="SubOSD2DateFormat" id="SubOSD2DateFormat">
+                            <option value="0" lang="dateFormat0"></option>
+                            <option value="1" lang="dateFormat1"></option>
+                            <option value="2" lang="dateFormat2"></option>
+                            <option value="3" lang="dateFormat3"></option>
+                            <option value="4" lang="dateFormat4"></option>
+                            <option value="5" lang="dateFormat5"></option>
+                        </select>
+                        <span class="labelTxt auto_width remarkInfo">
+                            <lang name="dateFormatInfo"></lang>
+                        </span>
+                    </span>
+                </div>
+            </fieldset>
+            <ul id="peccancyOSD">
+            </ul>
+            <fieldset id="mjpegOSDareaPosField" class="hidden">
+                <legend id="mjpegOSDareaPos" data-lang="areaPos"></legend>
+                <div>
+                    <span class="ColorSpan">X<input type="text" name="mjpegOSDInfoLeft" id="mjpegOSDInfoLeft" class="shortText" maxlength="2"/></span>
+                    <span class="ColorSpan">Y<input type="text" name="mjpegOSDInfoTop" id="mjpegOSDInfoTop" class="shortText" maxlength="2"/></span>
+                </div>
+            </fieldset>
+            <div id="leftDiv">
+                <div class="dataView" id="infoOsd_3">
+                    <table class="dataViewTbl textCell" cellspacing="0" width="565px">
+                        <col width="80px">
+                        <col width="160px">
+                        <col width="140px">
+                        <col width="65px">
+                        <col width="50px">
+                        <col width="70px">
+                        <col width="">
+                        <thead>
+                            <tr>
+                                <td><label><lang name="heaterType"></lang></label></td>
+                                <td><label><lang name="customName"></lang></label></td>
+                                <td><label><lang name="picOsdFormat"></lang></label></td>
+                                <td><label><lang name="picOSDPlace"></lang></label></td>
+                                <td><label><lang name="spaceNum"></lang></label></td>
+                                <td><label><lang name="canWrap"></lang></label></td>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="dataViewTbody" style="height: 110px">
+                    <table class="dataViewTbl textCell" cellspacing="0">
+                        <col width="80px">
+                        <col width="160px">
+                        <col width="140px">
+                        <col width="65px">
+                        <col width="50px">
+                        <col width="70px">
+                        <tbody id="mjpegOSDTbl">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="illegalOsdDiv" class="hidden">
+            <fieldset>
+                <div class="contentLine">
+                    <span class="CommonSpan">
+                        <lang name="picOsdMode"></lang>
+                        <input type="radio" name="SubOSD3OSDMode" id="SubOSD3OSDMode_outside_top" value="1"/>
+                        <label for="SubOSD3OSDMode_outside_top" data-lang="picOSDMode_outside_top"></label>
+                        <input type="radio" name="SubOSD3OSDMode" id="SubOSD3OSDMode_outside_bottom" value="2" />
+                        <label for="SubOSD3OSDMode_outside_bottom" data-lang="picOSDMode_outside_bottom"></label>
+                    </span>
+                </div>
+                <div class="contentLine">
+                    <span class="ColorSpan">
+                        <lang name="fontSize"></lang>
+                        <select name="SubOSD3FontSize" id="SubOSD3FontSize" class="leftInput">
+                            <option value="3" data-cap="3" lang="xlarge"></option>
+                            <option value="0" data-cap="0" lang="large"></option>
+                            <option value="1" data-cap="1" lang="middle"></option>
+                            <option value="2" data-cap="2" lang="small"></option>
+                        </select>
+                    </span>
+                    <span class="ColorSpan">
+                        <lang name="characterGap"></lang>
+                        <input type="text" class="shortText" name="SubOSD3CharacterGap" id="SubOSD3CharacterGap"/>px
+                    </span>
+                </div>
+                <div id="GlobalOSDDiv3" class="contentLine">
+                    <span class="ColorSpan hidden">
+                        <input type="text" id="SubOSD3OSDPrame"/>
+                    </span>
+                </div>
+                <div class="contentLine lineWidth">
+                    <span class="CommonSpan">
+                        <lang name="timeFormat"></lang>
+                        <select name="SubOSD3TimeFormat" id="SubOSD3TimeFormat" class="longText">
+                            <option value="0" lang="timeFormat0"></option>
+                            <option value="2" lang="timeFormat2"></option>
+                            <option value="5" lang="timeFormat5"></option>
+                            <option value="6" lang="timeFormat6"></option>
+                        </select>
+                        <span class="labelTxt auto_width remarkInfo">
+                            <lang name="timeFormatPicInfo"></lang>
+                        </span>
+                    </span>
+                </div>
+                <div class="contentLine lineWidth">
+                    <span class="CommonSpan">
+                        <lang name="dateFormat"></lang>
+                        <select name="SubOSD3DateFormat" id="SubOSD3DateFormat">
+                            <option value="0" lang="dateFormat0"></option>
+                            <option value="1" lang="dateFormat1"></option>
+                            <option value="2" lang="dateFormat2"></option>
+                            <option value="3" lang="dateFormat3"></option>
+                            <option value="4" lang="dateFormat4"></option>
+                            <option value="5" lang="dateFormat5"></option>
+                        </select>
+                        <span class="labelTxt auto_width remarkInfo">
+                            <lang name="dateFormatInfo"></lang>
+                        </span>
+                    </span>
+                </div>
+            </fieldset>
+            <ul id="SyntPicOSD">
+            </ul>
+            <fieldset id="illegalOSDareaPosField" class="hidden">
+                <legend id="illegalOSDareaPos" data-lang="areaPos"></legend>
+                <div>
+                    <span class="ColorSpan">X<input type="text" name="illegalOSDInfoLeft" id="illegalOSDInfoLeft" class="shortText" maxlength="2"/></span>
+                    <span class="ColorSpan">Y<input type="text" name="illegalOSDInfoTop" id="illegalOSDInfoTop" class="shortText" maxlength="2"/></span>
+                </div>
+            </fieldset>
+            <div id="leftDiv">
+                <div class="dataView" id="infoOsd_3">
+                    <table class="dataViewTbl textCell" cellspacing="0" width="520px">
+                        <col width="100px">
+                        <col width="160px">
+                        <col width="140px">
+                        <col width="50px">
+                        <col width="70px">
+                        <col width="">
+                        <thead>
+                            <tr>
+                                <td><label><lang name="heaterType"></lang></label></td>
+                                <td><label><lang name="customName"></lang></label></td>
+                                <td><label><lang name="picOsdFormat"></lang></label></td>
+                                <td><label><lang name="spaceNum"></lang></label></td>
+                                <td><label><lang name="canWrap"></lang></label></td>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="dataViewTbody" style="height: 110px">
+                    <table class="dataViewTbl textCell" cellspacing="0">
+                        <col width="100px">
+                        <col width="160px">
+                        <col width="140px">
+                        <col width="50px">
+                        <col width="70px">
+                        <tbody id="illegalOSDTbl">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="pictrueTypecloseUpDiv" class="hidden">
+            <fieldset>
+                <div class="contentLine">
+                    <span class="ColorSpan">
+                        <lang name="fontSize"></lang>
+                        <select name="SubOSD5FontSize" id="SubOSD5FontSize" class="leftInput">
+                            <option value="3" data-cap="3" lang="xlarge"></option>
+                            <option value="0" data-cap="0" lang="large"></option>
+                            <option value="1" data-cap="1" lang="middle"></option>
+                            <option value="2" data-cap="2" lang="small"></option>
+                        </select>
+                    </span>
+                    <span class="ColorSpan">
+                        <lang name="characterGap"></lang>
+                        <input type="text" class="shortText" name="SubOSD5CharacterGap" id="SubOSD5CharacterGap"/>px
+                    </span>
+                </div>
+                <div id="GlobalOSDDiv5" class="contentLine">
+                    <span class="ColorSpan hidden">
+                        <input type="text" id="SubOSD5OSDPrame"/>
+                    </span>
+                </div>
+                <div class="contentLine lineWidth">
+                    <span class="CommonSpan">
+                        <lang name="timeFormat"></lang>
+                        <select name="SubOSD5TimeFormat" id="SubOSD5TimeFormat" class="longText">
+                            <option value="0" lang="timeFormat0"></option>
+                            <option value="2" lang="timeFormat2"></option>
+                            <option value="5" lang="timeFormat5"></option>
+                            <option value="6" lang="timeFormat6"></option>
+                        </select>
+                        <span class="labelTxt auto_width remarkInfo">
+                            <lang name="timeFormatPicInfo"></lang>
+                        </span>
+                    </span>
+                </div>
+                <div class="contentLine lineWidth">
+                    <span class="CommonSpan">
+                        <lang name="dateFormat"></lang>
+                        <select name="SubOSD5DateFormat" id="SubOSD5DateFormat">
+                            <option value="0" lang="dateFormat0"></option>
+                            <option value="1" lang="dateFormat1"></option>
+                            <option value="2" lang="dateFormat2"></option>
+                            <option value="3" lang="dateFormat3"></option>
+                            <option value="4" lang="dateFormat4"></option>
+                            <option value="5" lang="dateFormat5"></option>
+                        </select>
+                        <span class="labelTxt auto_width remarkInfo">
+                            <lang name="dateFormatInfo"></lang>
+                        </span>
+                    </span>
+                </div>
+            </fieldset>
+            <ul id="closeUpOSD">
+            </ul>
+            <fieldset id="closeupOSDareaPosField" class="hidden">
+                <legend id="closeupOSDareaPos" data-lang="areaPos"></legend>
+                <div>
+                    <span class="ColorSpan">X<input type="text" name="closeupOSDInfoLeft" id="closeupOSDInfoLeft" class="shortText" maxlength="2"/></span>
+                    <span class="ColorSpan">Y<input type="text" name="closeupOSDInfoTop" id="closeupOSDInfoTop" class="shortText" maxlength="2"/></span>
+                </div>
+            </fieldset>
+            <div id="leftDiv">
+                <div class="dataView" id="infoOsd_3">
+                    <table class="dataViewTbl textCell" cellspacing="0" width="565px">
+                        <col width="70px">
+                        <col width="160px">
+                        <col width="150px">
+                        <col width="65px">
+                        <col width="50px">
+                        <col width="70px">
+                        <col width="">
+                        <thead>
+                            <tr>
+                                <td><label><lang name="heaterType"></lang></label></td>
+                                <td><label><lang name="customName"></lang></label></td>
+                                <td><label><lang name="picOsdFormat"></lang></label></td>
+                                <td><label><lang name="picOSDPlace"></lang></label></td>
+                                <td><label><lang name="spaceNum"></lang></label></td>
+                                <td><label><lang name="canWrap"></lang></label></td>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="dataViewTbody" style="height: 110px">
+                    <table class="dataViewTbl textCell" cellspacing="0">
+                        <col width="70px">
+                        <col width="160px">
+                        <col width="150px">
+                        <col width="65px">
+                        <col width="50px">
+                        <col width="70px">
+                        <tbody id="closeupOSDTbl">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>

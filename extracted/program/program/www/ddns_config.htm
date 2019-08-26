@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="pragma" content="no-cache">
+        <meta http-equiv="cache-control" content="no-cache">
+        <meta http-equiv="expires" content="0">    
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+        <link href="css/validate.css" type="text/css" rel="stylesheet">
+        <link href="css/ddns_config.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.json.min.js"></script>
+        <script type="text/javascript" src="js/ComScript.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript">
+            //加载语言文件
+            loadlanguageFile(top.language);
+        </script>
+        <script type="text/javascript" src="js/jquery.validate.js"></script>
+        <script type="text/javascript" src="js/ddns_config.js"></script>
+    </head>
+    <body class="body">
+        <div class="pageDiv">
+            <form name="frmSetup" id="frmSetup">
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" id="myServerName"><lang name="ddnsServer"></lang></span>
+                    <span class="contentSpan">
+                        <input type="radio" name="Enable" id="ddnsOpen" value="1" >
+                        <label for="ddnsOpen" data-lang="open"></label>
+                        <input type="radio" name="Enable" id="ddnsClose" value="0" checked="checked">
+                        <label for="ddnsClose" data-lang="close"></label>
+                    </span>
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit"><lang name="ddnsType"></lang></span>
+                    <span class="contentSpan">
+                        <select type="text" class="labelSpan" name="UsedType" id="UsedType">
+                        </select>
+                    </span>
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" id="ddnsServerAddress" ><lang name="ddnsServerAddress"></lang></span>
+                     <span class="contentSpan"><input type="text" class="longTxt" name="DDNSServerName" id="DDNSServerName" disabled="disabled"/></span>       
+                </div> 
+                <div class="contentLine ">
+                    <span class="labelSpan strLimit" id="ddnsDomainName"><lang name="ddnsDomainName"></lang></span>
+                    <span class="contentSpan"><input type="text" class="longTxt" name="DDNSDomainName" id="DDNSDomainName"/></span>
+                    <span class="button hidden">
+                        <input type="button" id="CheckDomain" name="CheckDomain" lang="checkDomain">
+                    </span>
+                    <div id="testDomainDiv" class="tipDiv hidden">
+                        <a class="icon success"></a><span></span>
+                    </div>
+                </div>
+                <div class="contentLine hidden">
+                    <span class="labelSpan strLimit"  data-lang="deviceAddress"></span>
+                    <span class="contentSpan" id="deviceAddress"></span>
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" id="ddnsUserName" ><lang name="ddnsUserName"></lang></span>
+                     <span class="contentSpan"><input type="text" class="longTxt" name="DDNSUserName" id="DDNSUserName" /></span>       
+                </div> 
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" id="ddnsPassword" ><lang name="ddnsPassword"></lang></span>
+                     <span class="contentSpan"><input type="password" autocomplete="off"  class="longTxt" name="DDNSPassword" id="DDNSPassword" /></span>       
+                </div> 
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" id="ddnsPasswordConfirm" ><lang name="ddnsPasswordConfirm"></lang></span>
+                     <span class="contentSpan"><input type="password" autocomplete="off"  class="longTxt" name="DDNSPasswordConfirm" id="DDNSPasswordConfirm" /></span>       
+                </div>
+                <span class="button_green" onclick="submitF()" >
+                    <input type="button" class="submit_btn" lang="saveData"/>
+                </span>
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+select {
+width: 90px;
+}
+
+.longText{width: 240px;}
+
+.autoWidth{width: auto;}
+
+#NowTime{margin-right: 5px;}
+

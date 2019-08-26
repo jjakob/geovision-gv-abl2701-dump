@@ -1,0 +1,23 @@
+.selectedTR {
+    background-color: #00B8F8;
+}
+.areaList {
+    width: 160px;
+    height: 250px;
+}
+.unselectDiv{
+    width: 20px;
+    height: 20px;
+    border: 0px;
+}
+.selectedDiv {
+    border: 1px dashed;
+}
+.colorDiv {
+    width: 16px;
+    height: 16px;
+    margin: 2px;
+}
+td{
+    padding: 0px;
+}

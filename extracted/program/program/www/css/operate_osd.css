@@ -1,0 +1,131 @@
+@charset "utf-8";
+/* CSS Document */
+ .leftDiv {
+width: 445px;
+float: left;
+}
+
+#leftDiv {
+max-width: 650px;
+height:250px;
+margin-bottom: 10px;
+}
+.dataView {
+	margin-right: 50px;
+}
+.dataViewTbl {
+	width: 100%;
+}
+.dataViewTbody{
+	padding-right: 17px;
+}
+table.dataViewTbl TBODY TD {
+    line-height: 20px;
+}
+.osdTable{
+background-color: #D5DFE5;
+float: left;
+margin: 5px;
+width: 430px;
+}
+
+.btnDiv {
+width: 50px;
+padding-top: 70px;
+border: 0px;
+}
+
+div.btnDiv span.button{
+margin: 3px;
+}
+
+.unselectDiv{
+width: 20px;
+height: 20px;
+border: 0px;
+}
+
+tr.selectedTR td{
+background-color: #00B8F8;
+}
+
+.selectedDiv {
+border: 1px dashed;
+}
+
+fieldset {
+margin-bottom: 5px;
+}
+
+table.osdTable thead {
+text-align: center;
+background-color: #F2F5F7;
+}
+
+ul {
+list-style: none;
+margin-left: 12px;
+}
+
+ul li{
+width: 230px;
+float: left;
+}
+
+select, .shortText {
+width: 100px;
+}
+
+A{
+color: #0099CC;
+cursor: pointer;
+width: 20px;
+height: 20px;
+text-align: center;
+text-decoration: none;
+line-height: 20px;
+margin: 2px;
+display: inline-block;
+*display: inline;
+zoom: 1;
+}
+            
+a div, button div{margin: 0px auto;}
+
+img {
+border: 0;
+cursor: pointer;
+}
+
+#areaPosField {
+clear: both;
+}
+
+.flagSpan{
+width: 17px;
+height: 13px;
+}
+
+.checked{
+background: url("../images/checked.gif") no-repeat;
+}
+.infoText{width:45px;}
+.labelTxt{line-height: 24px;width: 88px;margin-right: 0px; display: inline-block;zoom: 1;}
+.lineWidth{width: 100%;}
+.autoWidth{width: auto;}
+input[type="checkbox"]{margin-right: 5px;}
+.inputMarquee{float: left;}
+.inputMarquee1{position: relative; left:0px;}
+.MarqueeTxtError{border:1px solid red;}
+#orientationField label {margin-left: 30px;}
+#orientationField select {margin-right: 20px;}
+#orient {min-width: 70px;}
+#contentStyleField span{margin-right: 16px;}
+#MarqueeContent{margin-top:5px;}
+#MarqueeTxt{width: 300px;height: 100px;margin-right: 24px;}
+#DateFormat{width: 180px;}
+#DateFormat, #TimeFormat{margin-right: 24px;}
+.remarkInfo{color: #5e5e5e;}
+.leftInput{margin-left:10px;}
+#osdInfoTable label{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.lineDiv{margin-bottom: 15px;}

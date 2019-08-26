@@ -1,0 +1,25 @@
+# Aliases for symbols, used by symbol_request().
+alias symbol:configfs_unregister_subsystem configfs
+alias symbol:GpioGetPrototypeName kgpio
+alias symbol:Adapter_GetIrledCtlMethod kgpio
+alias symbol:xfrm4_tunnel_register tunnel4
+alias symbol:config_group_init configfs
+alias symbol:config_item_init_type_name configfs
+alias symbol:gpiodev_get_motor_gpio kgpio
+alias symbol:xfrm4_tunnel_deregister tunnel4
+alias symbol:configfs_undepend_item configfs
+alias symbol:GpioGetBuildInfo kgpio
+alias symbol:switch_chip_type_get NetUserDrv
+alias symbol:config_group_init_type_name configfs
+alias symbol:GpioGetProductID kgpio
+alias symbol:CommGpioValueIsAvailible kgpio
+alias symbol:config_item_get configfs
+alias symbol:config_item_put configfs
+alias symbol:config_item_init configfs
+alias symbol:configfs_register_subsystem configfs
+alias symbol:Adapter_GetIrledChipType kgpio
+alias symbol:config_item_set_name configfs
+alias symbol:GpioGetProductClass kgpio
+alias symbol:net_broken_restore NetUserDrv
+alias symbol:configfs_depend_item configfs
+alias symbol:config_group_find_item configfs

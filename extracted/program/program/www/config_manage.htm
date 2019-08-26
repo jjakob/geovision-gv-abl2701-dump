@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="Copyright" content="Copyright (c) 2011 *** Corporation. All Rights Reserved.">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <title></title>
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+        <link href="css/validate.css" type="text/css" rel="stylesheet">
+         <link href="css/config_manage.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.json.min.js"></script>
+        <script type="text/javascript" src="js/ajaxfileupload.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/ComScript.js"></script>
+        <script type="text/javascript" src="datepicker/WdatePicker.js"></script>
+        <script type="text/javascript">
+        //加载语言文件
+            loadlanguageFile(top.language);
+        </script>
+        <script type="text/javascript" src="js/jquery.validate.js"></script>
+        <script type="text/javascript" src="js/jquery.blockUI.js"></script>
+        <script type="text/javascript" src="js/config_manage.js"></script>
+    </head>
+    <body class="body">
+        <div class="pageDiv">
+        <form name="frmSetup" id="frmSetup">
+                <fieldset>
+                    <legend>
+                        <span><lang name="sysUpgradeTitle"></lang> </span>
+                    </legend>
+                    <div class="contentLine ">
+                        <span class="firstCol strLimit"><lang name="sysUpdateFlie"></lang></span>
+                        <span class="secCol">
+                            <input name="uploadFile" type="text" id="uploadFile" maxlength="200" onKeyDown="this.readOnly=1"
+                                onpaste="return false" onMouseDown="this.readOnly=1" class="longTxt"
+                            />
+                        </span>
+                        <span>
+                            <input type="file" name="updateFileName"  id="updateFileName" class="fileUpload" accept=".zip" onchange="chooseFileText(this.id)">
+                            <span class="button"> <input type="button" lang="browser" name="browse"
+                                    class="buttonW" id="updateBrowser"/>
+                            </span>
+                            <span class="button"> <input name="update" type="button"
+                                    id="update" onclick="StartUpdate(this.form)" class="buttonW" disabled="disabled" lang="update"/>
+                            </span>
+                            <div id="updateStatusDiv" class="tipDiv hide">
+                                <a class="icon fail"></a><span></span>
+                            </div>
+                        </span>                       
+                        <span class="hidden"> 
+                            <input type="checkbox" id="updateWithUboot" name="updateWithUboot"/>
+                            <label for="updateWithUboot"><lang name="updateUboot"></lang></label>
+                        </span>
+                    </div>
+                    <div id="cloudUpdateDiv" class="contentLine hidden">
+                        <span class="firstCol strLimit"><lang name="cloudUpdate"></lang></span>
+                        <span class="secCol">
+                            <span class="button">
+                            <input name="cloudUpdateBtn" type="button" class="lbuttonW"
+                                   onclick="checkAndCloudUpdate();" lang="Detection"
+                            >
+                            </span>
+                            <div id="cloudUpdateStatus" class="tipDiv hide">
+                                <a class="icon success"></a><span></span>
+                            </div>
+                        </span>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>
+                        <span><lang name="sysRebootTitle"></lang> </span>
+                    </legend>
+                    <div class="contentLine clearfix">
+                        <span class="firstCol">
+                            <span class="button">
+                                <input name="rebootbtn" type="button" class="lbuttonW" onclick="makeSureReboot();" lang="rebootSys">
+                            </span>
+                            <div id="rebootStatusDiv" class="tipDiv hide">
+                                <a class="icon success"></a><span></span>
+                            </div> 
+                         </span>                   
+                        <span class="secCol"><label><lang name="sysRebootNoticeInfo1"></lang></label></span> 
+                    </div> 
+                                       
+                    <div id="AutoRebootUL" class="contentLine clearfix hidden">
+                        <span class="firstCol strLimit">
+                            &nbsp;&nbsp;<input type="checkbox" name="TaskEnable1" id="TaskEnable1"/>
+                            <label><lang name="enableAutoReboot"></lang></label>
+                        </span>      
+                        <span class="secCol">
+                            <select name="Frequency1" id="Frequency1">
+                                <option value="0" lang="rebootSysFreqDay"></option>
+                                <option value="1" lang="rebootSysFreqMonday"></option>
+                                <option value="2" lang="rebootSysFreqTuesday"></option>
+                                <option value="3" lang="rebootSysFreqWednesday"></option>
+                                <option value="4" lang="rebootSysFreqThursday"></option>
+                                <option value="5" lang="rebootSysFreqFriday"></option>
+                                <option value="6" lang="rebootSysFreqSaturday"></option>
+                                <option value="7" lang="rebootSysFreqSunday"></option>
+                            </select>
+                            <input type="text" class="Wdate" name="StartTime1" id="StartTime1" >
+                        </span>                       
+                        <span >
+                            <span class="button">
+                            <input name="timeTaskBtn" id="timeTaskBtn" type="button" class="buttonW"
+                                onclick="" lang="confirm"
+                            >
+                            </span>
+                        </span>      
+                    </div>                                              
+                </fieldset>
+                <fieldset>
+                    <legend>
+                        <span><lang name="cfgManageTitle"></lang> </span>
+                    </legend>
+                    <div class="contentLine clearfix">
+                        <span class="firstCol">
+                            <span class="button">
+                            <input name="loadbtn" id="loadbtn" type="button" onClick="makeSureRestore();"
+                                class="lbuttonW" lang="recoverDefaultCfg"
+                            >
+                            </span>
+                         </span>
+                        <span>
+                                <input type="checkbox" name="restoreStatusInput" id="restoreStatusInput"/>
+                                <label><lang name="sysResumeDefault"></lang></label>
+                        </span>
+                    </div>
+                    <div id="restoreStatusDiv" class="tipDiv hide">
+                        <a class="icon success"></a><span></span>
+                    </div>
+                                    
+                    <div class="contentLine"  id="sysCfgImport">
+                        <span class="firstCol strLimit"><lang name="sysCfgNoticeImport"></lang></span>
+                        <span class="secCol">
+                            <input name="importCfgFile" type="text" id="filenameTxt" maxlength="200" onKeyDown="this.readOnly=1"
+                                onpaste="return false" onMouseDown="this.readOnly=1" class="longTxt"
+                            />
+                        </span>
+                        <span style="display: inline-block;position: relative">
+                            <input type="file" name="FileName"  id="FileName" class="fileUpload" accept=".tgz" onchange="chooseFileText(this.id)">
+                            <span class="button">
+                               <input type="button" lang="browser" name="browse" id="CfgImportBtn" class="buttonW"/>
+                            </span>
+                            <span class="button">
+                           <input name="ImportBtn" type="button" class="buttonW" id="ImportBtn"
+                                   disabled="disabled" lang="sysCfgImport"/>
+                            </span>
+                            <div id="importStatusDiv" class="tipDiv hide">
+                                <a class="icon success"></a><span></span>
+                            </div>
+                        </span>                       
+                    </div>     
+                    
+                    <div class="contentLine clearfix">
+                        <span class="firstCol strLimit"><lang name="sysCfgNoticeExport"></lang></span>
+                        <span class="secCol">
+                            <span class="button">
+                            <input name="ExportBtn" type="button" class="lbuttonW" id="ExportBtn"
+                                   disabled="disabled" onClick="CfgExport()" lang="sysCfgExport"
+                            />
+                            </span>
+                            <div id="exportStatusDiv" class="tipDiv hide">
+                                <a class="icon success"></a><span></span>
+                            </div>
+                        </span>                       
+                    </div>                                                      
+                </fieldset>
+                <fieldset>
+                    <legend>
+                        <span><lang name="logMaintenanceTitle"></lang> </span>
+                    </legend>
+                    <div class="contentLine clearfix">
+                        <span class="firstCol strLimit">
+                            <span class="button">
+                                <!--<a name="btnOutput" href="#" class="lbuttonW" id="btnOutput"><lang name="download"></lang></a>-->
+                            <input name="btnOutput" type="button" class="lbuttonW" id="btnOutput"
+                                   disabled="disabled" onClick="ExportLog()" lang="export"
+                            />
+                            </span>
+                        </span>
+                        <div id="downloadStatusDiv" class="tipDiv hide">
+                            <a class="icon success"></a><span></span>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="IQDebugEnable" id="IQDebugEnable" />
+                            <label for="IQDebugEnable"><lang name="enableIQDebug"></lang></label>
+                        </div>                       
+                    </div>                  
+                </fieldset>
+                <fieldset class="hidden" id="deviceInstallInfo">
+                    <legend>
+                        <span><lang name="deviceInstallationTitle"></lang> </span>
+                    </legend>
+                    <div id="deviceInstallUL" class="contentLine clearfix hidden">
+                        <span class="firstCol strLimit"><lang name="deviceInstallationHeight"></lang></span>
+                        <span class="secCol">
+                            <input name="Height" id="Height" type="text" size="10" maxlength="5" value="100"/>
+                        </span>
+                        <span>
+                            <span class="button">
+                            <input id="submitFBtn" type="button" class="lbuttonW"
+                                lang="confirm" disabled="disabled"
+                            />
+                            </span>
+                        </span>
+                    </div>
+                    <div id="lensUL" class="contentLine clearfix hidden">
+                        <span class="firstCol strLimit"><lang name="lensType"></lang></span>
+                        <span class="secCol">
+                            <select name="LensType" id="LensType">
+                                <option value="0" lang="commonLens"></option>
+                                <option value="1" lang="IRLens" selected="selected"></option>
+                            </select>
+                        </span>
+                        <span>
+                            <span class="button">
+                            <input id="submitFLens" type="button" class="lbuttonW"
+                                lang="confirm" disabled="disabled"
+                            />
+                            </span>
+                        </span>
+                    </div>                                           
+                </fieldset>
+                <fieldset id="dcOutInfo" class="hidden">
+                    <legend>
+                        <span><lang name="DCInfoTitle"></lang> </span>
+                    </legend>
+                    <div class="contentLine">
+                        <span class="firstCol strLimit" ><lang name="dcOutEnable"></lang></span>
+                        <span class="secCol">
+                            <input type="radio" name="Enable" id="Enable_on" value="1">
+                            <label for="Enable_on"><lang name="open"></lang></label>
+                            <input type="radio" name="Enable" id="Enable_off" value="0" checked="checked">
+                            <label for="Enable_off"><lang name="close"></lang></label>
+                        </span>
+                    </div>
+                </fieldset>
+                <fieldset id="ptzReset" class="hidden">
+                    <legend>
+                        <span><lang name="ptzTitle"></lang> </span>
+                    </legend>
+                    <span class="firstCol strLimit">
+                            <span class="button">
+                            <input name="resetPtzbtn" type="button" class="lbuttonW"
+                                   onclick="makeSureResetPtz();" lang="ptzReset"
+                            >
+                            </span>
+                    </span>
+                </fieldset>
+                <fieldset id="FocusFields" class="hidden">
+                    <legend>
+                        <span><lang name="focusFields"></lang> </span>
+                    </legend>
+                    <div class="contentLine clearfix hidden" id="ManualFocusMinDistanceUl" >
+                        <span class="firstCol strLimit"><lang name="minDistance"></lang>(cm)</span>
+                        <span class="secCol">
+                            <select name="ManualFocusMinDistance" id="ManualFocusMinDistance" class="longTxt"></select>
+                        </span>
+                        <span>
+                            <span class="button">
+                                <input type="button" id="submitF_focus" class="lbuttonW" lang="confirm"/>
+                            </span>
+                        </span>
+                    </div>
+                    <div class="contentLine clearfix hidden" id="MaxDigitalZoomUl" >
+                        <span class="firstCol strLimit"><lang name="maxDigitalZoom"></lang></span>
+                        <span class="secCol">
+                            <select name="MaxDigitalZoom" id="MaxDigitalZoom" class="longTxt"></select>
+                        </span>
+                        <span>
+                            <span class="button">
+                                <input type="button" id="submitF_zoom" class="lbuttonW" lang="confirm"/>
+                            </span>
+                        </span>
+                    </div>       
+                </fieldset>
+                <fieldset id="DDRFrequency" class="hidden">
+                    <legend>
+                        <span data-lang="frequencyConfig"></span>
+                    </legend>
+                    <div id="FrequencyDiv" class="contentLine">
+                        <label class="textLabel strLimit"><lang name="FrequencyCfg"></lang></label>
+                        <input type="radio" name="FrequencyCfg" id="FrequencyLow" value="400" checked="checked" />
+                        <label for="FrequencyLow"><lang name="frequencyLow"></lang></label>
+                        <input type="radio" name="FrequencyCfg" id="FrequencyHigh" value="600"  />
+                        <label for="FrequencyHigh"><lang name="frequencyHigh"></lang></label>
+                    </div>
+                </fieldset>
+                <hr />
+                <ul>
+                    <li>
+                        <b><lang name="noticeInfo"></lang>
+                        </b>
+                    </li>
+                    <li>
+                        <p id="notice_p"><lang name="sysMaintenanceNoticeInfo1"></lang></p>
+                        <p><lang name="sysMaintenanceNoticeInfo2"></lang></p>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </body>
+</html>

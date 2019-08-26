@@ -1,0 +1,44 @@
+@charset "utf-8";
+/* CSS Document */
+fieldset {
+       width: 355px;
+}
+
+.closeFieldset {
+      border-left: 0px;
+      border-bottom: 0px;
+      border-right: 0px;
+      }
+            
+select{
+       width: 4.2cm;
+}
+            
+.VinModeTiltle{
+       display: inline-block;
+        *display: inline;
+       zoom: 1;
+       margin: 0px 36px 0px 2px; 
+       width: 137px;
+       }
+form{
+    float: left;
+    margin-right:10px;
+}
+            
+.lineDiv{margin-bottom: 15px;}
+
+td td{padding: 0px;}
+
+.slider3, .slider4 {
+    width: 4.2cm;
+}
+#JpegStreamQuaSlider,#syntQuaSlider,#procQuaSlider, #passVehicleQuaSlider {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    width: 116px;
+}
+.nomalTxt{width:70px;}
+.shortTxt{width:40px;}
+#JpegStream{width:360px;}

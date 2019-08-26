@@ -1,0 +1,52 @@
+#!/bin/sh
+#
+# Init hisi IPC...
+#
+
+#if [ -f /etc/ambarella.conf ]; then
+#	. /etc/ambarella.conf
+#fi
+
+start()
+{
+	#/program usr/local/bin --> program/bin
+	# lib/firmware --> program/firmware
+	if [ -e /usr/local/bin ]; then
+        	rm -rf /usr/local/bin
+	fi
+	mkdir -p /usr/local
+	ln -sf /program/bin /usr/local/bin
+
+	#/usr/sbin/pppd->/program/bin/pppd
+	ln -sf /program/bin/pppd /usr/sbin/pppd
+
+	if [ -e /lib/firmware ]; then
+        	rm -rf /lib/firmware
+	fi
+	ln -sf /program/firmware /lib/firmware
+
+	kernel_ver=$(uname -r)
+
+	# net modules
+	if [ -r /lib/modules/$kernel_ver/extra/NetUserDrv.ko ]; then
+		insmod /lib/modules/$kernel_ver/extra/NetUserDrv.ko
+	fi
+
+	if [ -r /lib/modules/$kernel_ver/extra/NetDbgDrv.ko ]; then
+		insmod /lib/modules/$kernel_ver/extra/NetDbgDrv.ko
+	fi
+}
+
+stop()
+{
+	kernel_ver=$(uname -r)
+}
+
+restart() {
+	stop
+	start
+}
+
+
+start
+

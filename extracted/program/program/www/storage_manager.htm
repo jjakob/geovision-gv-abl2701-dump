@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta name="Copyright" content="Copyright (c) 2013 *** Corporation. All Rights Reserved.">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+        <link href="css/dataview.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.json.min.js"></script>
+        <script type="text/javascript" src="js/ComScript.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/dataview.js"></script>
+        <style type="text/css">
+            .longBtn{width: 75px;}
+            #TotalMemory, #SpareMemory{margin: 0px 5px;}
+            .normalText,select { width: 120px;}
+            .pageDiv{width: 720px;}
+            .dataView{
+                margin: 3px 0px 15px 0px;
+            }
+            .dataView table{width: 100%;}
+            .dataViewTbody{height: 90px;}
+        </style>
+        <script type="text/javascript">
+            GlobalInvoke(window);
+            //加载语言文件
+            loadlanguageFile(top.language);
+
+            var jsonMap ={};
+            var mappingMap = {
+                PicAllocMem:["PhotoStorage","AllocMemory"],
+                PicSpareMemory:["PhotoStorage","SpareMemory"]
+            };
+            var channelId = 0;
+            var dataMap = {};
+            var dataView = null;
+            var headInfoList = [
+                {
+                    fieldId: "StorType",
+                    hidden: true
+                },
+                {
+                    fieldId: "rowNum",
+                    fieldType: "checkbox"
+                },
+                {
+                    fieldId: "rowNum",
+                    fieldType: "RowNum"
+                },
+                {
+                    fieldId: "TotalMemory"
+                },
+                {
+                    fieldId: "SpareMemory"
+                },
+                {
+                    fieldId: "Status"
+                }
+            ];
+
+            
+            //下发参数
+            function submitF() {
+                var flag = false;
+                
+                if ($("#RecAllocMem").val() == dataMap["RecAllocMem"])return false;
+                
+                if (!validPic_Num(this, 0, Number(dataMap["TotalMemory"]))) {
+                    $("#RecAllocMem").val(dataMap["RecAllocMem"]);
+                    return false;
+                }
+                
+                if(!confirm($.lang.tip["tipChangeUploadSpace"]))
+                {
+                    $("#RecAllocMem").val(dataMap["RecAllocMem"]);
+                    return false;
+                }
+                LAPI_FormToCfg("frmSetup", jsonMap, dataMap, mappingMap);
+                if (!LAPI_SetCfgData(LAPI_URL.Storage,jsonMap)){
+                    cfgToForm(dataMap, "frmSetup");
+                    return false;
+                }
+                top.banner.PageBlockType = BlockType.REBOOT
+                top.banner.updateBlock(true, $.lang.tip["tipRebooting"]);
+                return true;
+            }
+
+            function eventMemoryCardFormat(pcParam)
+            {
+                var msg = $.lang.tip["tipFormatSuccess"],
+                    pcParam = parseInt(pcParam),
+                    flag = (ResultCode.RESULT_CODE_SUCCEED == pcParam);
+                
+                
+                if (flag) {
+                    top.banner.PageBlockType = BlockType.REBOOT
+                    parent.$("#statusInfo").text($.lang.tip["tipRebooting"]);
+                } else {
+                    top.banner.updateBlock(false);
+                    msg = $.lang.tip["tipFormatFailed"];
+                }
+
+                top.banner.showMsg(flag, msg);
+            }
+            
+            //获取数据视图的数据
+            function getData() {
+                var dataList = [],
+                    map = {};
+                    
+                /*if (0 < Number(dataMap["TotalMemory"])) {*/
+                    map["StorType"] = 0;//dataMap["StorType"];
+                    map["TotalMemory"] = 1000;//dataMap["TotalMemory"];
+                    map["SpareMemory"] = 500;//dataMap["SpareMemory"];
+                    map["Status"] = $.lang.pub["available"];
+                    dataList.push(map);
+                //}
+                
+                return dataList;
+            }
+            
+            function release() {
+                //empty
+            }
+
+            function initPage() {
+                if (top.banner.isSupportJPEG) {
+                    $("#ManualStreamIDP").removeClass("hidden");
+                } 
+            }
+            
+            function initEvent() {
+                $("#formatBtn").bind("click", function(){
+                    if(0 == $("#rowNum0").length || !$("#rowNum0").is(":checked")) {
+                        alert($.lang.tip["tipPleaseSelectDisk"]);
+                        return;
+                    }
+                    if(!confirm($.lang.tip["tipConfirmFormat"]))return;
+                    var retCode = top.sdk_viewer.ViewerAxMemoryCardFormat();
+                    if(ResultCode.RESULT_CODE_SUCCEED == retCode){
+                        //遮盖界面
+                        top.banner.updateBlock(true);
+                    }
+                    else{
+                        alert($.lang.tip["tipFormatFailed"]);
+                    }
+                });
+                $("#RecAllocMem").bind("blur",submitF);
+            }
+            
+            function initData()
+            {
+                dataMap = {};
+                if (!LAPI_GetCfgData(LAPI_URL.Storage,jsonMap)) {
+                    disableAll();
+                    return;
+                }
+                changeMapToMapByMapping(jsonMap, mappingMap, dataMap, 0);
+                cfgToForm(dataMap, "frmSetup");
+                $("#RecAllocMem").attr("maxLength", dataMap["TotalMemory"].length);
+                $("#maxMemory").html(dataMap["TotalMemory"]);
+                
+                dataView = new DataView("dataview_tbody", getData, headInfoList);
+                dataView.setFields({
+                    TotalMemory: function(data){
+                        data = data + " MB";
+                        return data;
+                    },
+                    SpareMemory: function(data){
+                        data = data + " MB";
+                        return data;
+                    }
+                });
+                dataView.setTrEvnet({
+                    "onclick": function(){
+                        var event = getEvent(),
+                            node = event.srcElement? event.srcElement : event.target,
+                            rowNum;
+                            
+                        if (("TR" == node.tagName) || ("TD" == node.tagName)) {
+                            rowNum = $(node).attr("rowNum");
+                        } else {
+                            rowNum = $(node).parents("td").attr("rowNum");
+                        }
+                        //选中新行
+                        dataView.checkRow(rowNum);
+                        if (top.banner.isSupportJPEG) {
+                            $("#contentTitle").removeClass("hidden");
+                            $("#frmSetup").removeClass("hidden");
+                        }
+                    }
+                });
+                dataView.createDataView();
+            }
+
+            $(document).ready( function() {
+                parent.selectItem("storageManagerLink");//选中菜单
+                beforeDataLoad();
+                initPage();
+                //初始化语言标签
+                initLang();
+                initEvent();
+                initData();
+                afterDataLoad();
+            });
+        </script>
+    </head>
+
+    <body class="body" onbeforeunload="release();">
+        <div class="pageDiv">
+            <div class="custom-thead">
+                <label data-lang="deviceList"></label>
+                <span id="formatBtn" class="button right">
+                    <button type="button" class="longBtn"><lang name="format"></lang></button>
+                </span>
+            </div>
+            <div class="dataView">
+            <div class="dataViewThead">
+                <table cellpadding="2" cellspacing="0" class="dataViewTbl textCell">
+                    <col width="50px">
+                    <col width="100px">
+                    <col>
+                    <col>
+                    <col>
+                    <thead>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td data-lang="diskNumber"></td>
+                            <td data-lang="totalMemory"></td>
+                            <td data-lang="spareMemory"></td>
+                            <td data-lang="storageStatusTitle"></td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="dataViewTbody">
+                <table cellpadding="2" cellspacing="0" class="dataViewTbl textCell" >
+                    <col width="50px">
+                    <col width="100px">
+                    <col>
+                    <col>
+                    <col>
+                    <tbody id="dataview_tbody"></tbody>
+                </table>
+            </div>
+        </div>
+        <div id="contentTitle" class="custom-thead hidden" data-lang="prartition"></div>
+        <form id="frmSetup" name="frmSetup" class="config-form hidden">
+             <dl id="RecAllocMemP">
+                <div class="custom-tr custom-tr-top-border">
+                    <label class="config-label" data-lang="uploadSpace">(MB)</label>
+                    <input type="text" class="normalText" name="RecAllocMem" id="RecAllocMem" onKeyPress="onPicKeyPress(this);" />
+                     [0-<label id="maxMemory"></label>]
+                </div>
+             </dl>
+        </form>
+        </div>
+    </body>
+</html>

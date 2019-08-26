@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>port_map.html</title>
+    
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Pragma" content="no-cache">
+    <link href="css/globe.css" type="text/css" rel="stylesheet">
+    <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+    <link href="css/validate.css" type="text/css" rel="stylesheet">
+    <link href="css/port_map.css" type="text/css" rel="stylesheet">
+    <link href="css/dataview.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+      <script type="text/javascript" src="js/jquery.json.min.js"></script>
+    <script type="text/javascript" src="js/utils.js"></script>
+    <script type="text/javascript" src="js/ComScript.js"></script>
+    <script type="text/javascript">
+            loadlanguageFile(top.language);
+    </script>
+    <script type="text/javascript" src="js/jquery.validate.js"></script>
+    <script type="text/javascript" src="js/port_map.js"></script>
+    </head>
+    <body class="body">
+        <div class="pageDiv">
+            <form method="post" name="frmSetup" id="frmSetup">
+            
+            <div id="portMapDiv" class="contentLine">
+                <span class="labelSpan strLimit" ><lang name="portMapCfgTitle"></lang></span>
+                <span class="contentSpan">
+                    <input type="radio" name="PortMapEnable" id="PortMap_enable" value="1" checked/>
+                    <label for="PortMap_enable"><lang name="open"></lang></label>
+                </span>
+                <span class="contentSpan">
+                    <input type="radio" name="PortMapEnable" id="PortMap_close" value="0" />
+                    <label for="PortMap_close"><lang name="close"></lang></label>
+                </span>
+            </div>
+            
+            <div class="contentLine">
+                <span class="labelSpan strLimit"><lang name="portMapType"></lang></span>
+                <span class="contentSpan">
+                    <select id="PortMapType" name="PortMapType" class="shortInput">
+                        <option value="1" lang="automatic"></option>
+                        <option value="0" lang="manual"></option>
+                    </select>
+                </span>
+            </div>
+            
+            <div class="dataView">
+                <div class="dataViewThead">
+                    <table class="dataViewTbl textCell" cellspacing="0" width="100%">
+                        <col width="100px">
+                        <col width="130px">
+                        <col width="130px">
+                        <col width="100px">
+                        <thead>
+                            <tr>
+                                <td><lang name="portType"></lang></td>
+                                <td><lang name="outPort"></lang></td>
+                                <td><lang name="outIPAddress"></lang></td>
+                                <td><lang name="portStatus"></lang></td>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                
+                <div class="dataViewTbody">
+                    <table class="dataViewTbl textCell" cellspacing="0">
+                        <col width="100px">
+                        <col width="130px">
+                        <col width="130px">
+                        <col width="100px">
+                        <tbody id="portTable">
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+                <span class="button_green" onClick="submitF()" >
+                    <input type="button" class="submit_btn" lang="saveData"/>
+                </span>
+            </form>
+        </div>
+    </body>
+</html>

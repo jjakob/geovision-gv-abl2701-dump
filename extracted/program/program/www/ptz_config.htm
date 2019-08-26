@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ptz_config.htm</title>
+    
+<meta name="Copyright"
+            content="Copyright (c) 2013 *** Corporation. All Rights Reserved.">
+<meta http-equiv="description" content="this is my page">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title></title>
+<link href="css/globe.css" type="text/css" rel="stylesheet">
+<link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+<link href="css/validate.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.json.min.js"></script>
+<script type="text/javascript" src="js/jquery.blockUI.js"></script>
+<script type="text/javascript" src="js/utils.js"></script>
+<script type="text/javascript" src="js/ComScript.js"></script>
+<script type="text/javascript">
+//加载语言文件
+loadlanguageFile(top.language);
+</script>
+<script type="text/javascript" src="js/jquery.validate.js"></script>
+<script type="text/javascript" src="js/ptz_config.js"></script>
+ <body class="body">
+<div class="pageDiv">
+<form method="post" name="frmSetup" id="frmSetup">
+      <div class="contentLine">
+          <span class="labelSpan strLimit " data-lang="watchPosition"></span>
+          <span class="contentSpan">
+              <input type="radio" name="Enable" id="watchPositionOpen" value="1" >
+              <label for="watchPositionOpen" data-lang="open"></label>
+              <input type="radio" name="Enable" id="watchPositionClose" value="0" checked="checked">
+              <label for="watchPositionClose" data-lang="close"></label>
+          </span>
+      </div>
+    <div  class="contentLine">
+        <span class="labelSpan strLimit"><lang name="watchActionPattern"></lang></span>
+        <span class="contentSpan">
+            <select name="Action"  id="Action" class="labelSpan">
+                <option value="0" lang="watchToPrePosition"></option>
+                <option value="1" lang="watchToTrackCruise" ></option>
+            </select>
+        </span>
+    </div>
+
+    <div class="contentLine">
+        <span class="labelSpan strLimit"><lang name="watchActionID"></lang></span>
+        <span class="contentSpan">
+            <select name="ID" id="ID" class="labelSpan"></select>
+        </span>
+    </div>
+      <div class="contentLine">
+          <span class="labelSpan strLimit"><lang name="autoPosTime"></lang></span>
+          <input type="text" name="Time" id="Time" defalutValue="60" value="60" maxlength="4">
+      </div>
+      
+      <span class="button_green" onClick="submitF()" >
+          <input type="button" class="submit_btn" lang="saveData"/>
+      </span>
+ </form>
+</div>
+</body>
+</html>

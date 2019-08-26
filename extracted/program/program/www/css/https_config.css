@@ -1,0 +1,17 @@
+@charset "utf-8";
+/* CSS Document */
+
+.longText{width: 240px;}
+
+.autoWidth{width: auto;}
+
+.buttonW{width: 80px}
+.fileUpload {
+    position: absolute;
+    opacity: 0;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    width: 90px;
+    height: 23px;
+    cursor:pointer;
+
+}

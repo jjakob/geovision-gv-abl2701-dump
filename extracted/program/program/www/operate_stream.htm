@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+        <meta http-equiv="description" content="this is my page">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+        <link href="css/dataview.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.json.min.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/ComScript.js"></script>
+        <script type="text/javascript" src="js/dataview.js"></script>
+        <script type="text/javascript" src="js/operate_stream.js"></script>
+    </head>
+    <body class="body">
+        <div class="pageDiv">
+        <form name="frmSetup" id="frmSetup">
+            <div class="dataView" style="width: 750px;">
+            <div class="dataViewThead">
+                <table cellpadding="2" cellspacing="0" class="dataViewTbl textCell" width="100%">
+                    <col width="130px">
+                    <col width="170px">
+                    <col width="130px">
+                    <col width="130px">
+                    <col width="90px">
+                    <col width="90px">
+                    <thead>
+                        <tr>
+                            <td>
+                                <lang name="streamout"></lang>
+                            </td>
+                            <td>
+                                <lang name="ipAddr"></lang>
+                            </td>
+                            <td>
+                                <lang name="port"></lang>
+                            </td>
+                            <td>
+                                <lang name="transProtocol"></lang>
+                            </td>
+                            <td>
+                                <lang name="reservedStream"></lang>
+                            </td>
+                            <td>
+                                <a id="add" class="icon add" onClick="addStream();this.blur();" data-title="add"></a>
+                            </td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="dataViewTbody">
+                <table cellpadding="2" cellspacing="0" class="dataViewTbl textCell" >
+                    <col width="130px">
+                    <col width="170px">
+                    <col width="130px">
+                    <col width="130px">
+                    <col width="90px">
+                    <col width="90px">
+                    <tbody id="dataview_tbody"></tbody>
+                </table>
+            </div>
+            </div>
+        </form>
+        </div>
+    </body>
+</html>

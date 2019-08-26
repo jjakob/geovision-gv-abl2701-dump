@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <title></title>
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+        <link href="css/frame.css" type="text/css" rel="stylesheet">
+        <link href="css/frame_ex.css" type="text/css" rel="stylesheet">
+    </head>
+    <body id="body" onbeforeunload="release();">
+        <div id="confirmDiv" class="ieVersion">
+            <img alt="warning" src="images/icon-warning.gif">
+            <span id="changePwd"></span><a id="modifyPwd" class="download" data-lang="modifyPwd"></a>
+            <a id="cancelBar" class="download" data-lang="close"></a>
+        </div>
+        <div id="videoDiv">
+            <img id="waitingImg" src="images/waiting.gif" width="10%">
+            <div id="videoMsg" class="videoMsg hidden" data-lang-tip="tipPlayerDllLoading"></div>
+            <iframe name="video" id="video" frameborder="0" src="sdkviewer.htm" scrolling="no"
+            ></iframe>
+        </div>
+        <div id="homePage" class="mainDiv hidden">
+            <div align="left"></div>
+            <div id="container">
+                <div align="left"></div>
+                <div class="main-header" id="titleTR">
+                    <div class="main-logo">
+                        <img src="images/logo.png" />
+                    </div>
+                    <div class="nav">
+                        <ul class="nav-container">
+                            <li class="nav-items nav-selected" id="live" data-href="live_video.htm">
+                                <span class="icon nav-live" hidefocus="true"></span>
+                                <span class="nav-item strLimit" data-lang="indexName"></span>
+                            </li>
+                            <li class="nav-items hidden" id="playback" data-href="playback.htm">
+                                <span class="icon nav-playback" hidefocus="true"></span>
+                                <span class="nav-item strLimit" data-lang="playback"></span>
+                            </li>
+                            <li class="nav-items hidden" id="photo" data-href="storage_status.htm">
+                                <span class="icon nav-pictrue" hidefocus="true"></span>
+                                <span class="nav-item strLimit"  data-lang="photo"></span>
+                            </li>
+                            <li class="nav-items" id="config">
+                                <span class="icon nav-config" hidefocus="true"></span>
+                                <span class="nav-item strLimit" id="keyTip"  data-lang="configName"></span>
+                            </li>
+                            <li class="nav-items hidden" id="maintain" >
+                                <span class="icon nav-maintain" hidefocus="true"></span>
+                                <span class="nav-item strLimit"  data-lang="systemMaintenanceTitle"></lang></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav-right XZX_hidden">
+                        <label class="nav-item" id="devType"></label>
+                        <span class="span-logout" id="logout">
+                            <span class="icon nav-logout" hidefocus="true"></span>
+                            <label class="nav-item" data-lang="logoutName"></label>
+                        </span>
+                    </div>
+                </div>
+                <div id="bodyDiv" class="screen_full content">
+                    <div class="screen_full config-left hidden" id="menu">
+                        <script type="text/x-my-template" id="module-menu">
+                            <div class="menu-title-text {{hidden}}">
+                                <a id="{{linkId}}" class="strLimit" style="width:185px">{{name}}</a>
+                            </div>
+                            <div class="menu-br {{hidden}} "></div>
+                        </script>
+                        <script type="text/x-my-template" id="module-item">
+                            <div class="menu-title-text {{hidden}}">
+                                <a class="strLimit" style="width: 164px"><span class="{{className}}" id="{{idName}}"></span>{{moduleName}}</a>
+                            </div>
+                            <div class="bg-color menu-content hide" >
+                        </script>
+                        <script type="text/x-my-template" id="menu-item">
+                                <a id="{{linkId}}" class="{{hidden}} strLimit" style="width: 164px">{{name}}</a>
+                        </script>
+                        <script type="text/x-my-template" id="module-end">
+                            </div>
+                            <div class="menu-br"></div>
+                        </script>
+                        <div id="menuContent">
+                        </div>
+                        <div class="blockDiv" align="center" id="blockDiv2"></div>
+                    </div>
+                    <div id="contentDiv" class="screen_full content_center margin_0">
+                        <div class="config-title-bg clearfix" id="configTitle">
+                            <script type="text/x-my-template" id="tab-item">
+                                <a id="{{linkId}}" class="config-title left strLimit" onclick="menuTab_click(this.id)" href="{{url}}" target="mainIframe">{{name}}</a>
+                            </script>
+                        </div>
+                        <div id="main_iframed_div" class="screen_full">
+                            <iframe class="fullHeight_1" name="mainIframe" id="mainIframe" src="" frameborder="0" hideFocus="hideFocus"
+                            ></iframe>
+                        </div>
+                        <div class="blockDiv" align="center" id="blockDiv3"></div>
+                    </div>
+                </div>
+                <div id="RTStatus" class="RTStatusDiv hidden">
+                    <fieldset>
+                        <div style="width: 170px;" class="realStatusSection" id="realStatusDiv">
+                            <div class="contentLine" id="VmRegStatusDiv">
+                                <span class="labelSpan strLimit"><lang name="vmRegStatus"></lang></span>
+                                <span class="contentSpan" id="VmRegStatus"></span>
+                            </div>
+                            <div class="contentLine" id="TmsRegStatusDiv">
+                                <span class="labelSpan strLimit" id ="TmsReg"><lang name="tmsRegStatus"></lang></span>
+                                <span class="contentSpan" id="TmsRegStatus"></span>
+                            </div>
+                            <div class="contentLine hidden" id="TrafficDataServerStatusDiv">
+                                <span class="labelSpan strLimit"><lang name="trafficDataServerTitle"></lang></span>
+                                <span class="contentSpan" id="TrafficDataServerStatus"></span>
+                            </div>
+                            <div class="contentLine hidden" id="SDCardStatusID">
+                                <span class="labelSpan strLimit"><lang name="sdStatus"></lang></span>
+                                <span class="contentSpan" id="SDStatus"></span>
+                            </div>
+                             <div id="CoilStatusTbl" class="contentLine hidden">
+                                <span id="CoilLabelSpan" class="labelSpan strLimit"><lang name="coilStatusLbl"></lang></span>
+                                <span class="contentSpan" id="coilStatusSignTd"></span>
+                            </div>
+                            <div id="radarID" class="contentLine hidden">
+                                <span class="labelSpan strLimit"><lang name="radarStatus"></lang></span>
+                                <span class="contentSpan" id="RadarStatus"></span>
+                            </div>
+                        </div>
+                        <div style="width: 210px;" class="realStatusSection">
+                            <div id="polarizerID" class="contentLine hidden">
+                                <span class="labelSpan strLimit"><lang name="polarizerStatus"></lang></span>
+                                <span class="contentSpan" id="PolarizerStatus"></span>
+                            </div>
+                            <div id="ledStatusID" class="contentLine hidden">
+                                <span class="labelSpan strLimit"><lang name="ledStatus"></lang></span>
+                                <span class="contentSpan" id="LEDStatus"></span>
+                            </div>
+                            <div id="NDFilterStatusID" class="contentLine hidden">
+                                <span class="labelSpan strLimit"><lang name="NDFilterStatus"></lang></span>
+                                <span class="contentSpan" id="NDFilterStatus"></span>
+                            </div>
+                            <div id="openDetectID" class="contentLine hidden">
+                                <span class="labelSpan strLimit"><lang name="openDetect"></lang></span>
+                                <span class="contentSpan" id="OpenDetectStatus"></span>
+                            </div>
+                            <div id="trafficLightStatusID" class="contentLine hidden">
+                                <span class="labelSpan strLimit"><lang name="trafficLightStatus"></lang></span>
+                                <span class="contentSpan" id="TrafficLightStatus"></span>
+                            </div>
+                            <div class="contentLine hidden">
+                                <span class="labelSpan strLimit"><lang name="parkingInfo1"></lang></span>
+                                <span class="contentSpan" id="ParkingInfo1"></span>
+                                <span class="contentSpan" id="ParkingPlate1"></span>
+                            </div>
+                            <div class="contentLine hidden">
+                                <span class="labelSpan strLimit"><lang name="parkingInfo2"></lang></span>
+                                <span class="contentSpan" id="ParkingInfo2"></span>
+                                <span class="contentSpan" id="ParkingPlate2"></span>
+                            </div>
+                            <div class="contentLine hidden">
+                                <span class="labelSpan strLimit"><lang name="parkingInfo3"></lang></span>
+                                <span class="contentSpan" id="ParkingInfo3"></span>
+                                <span class="contentSpan" id="ParkingPlate3"></span>
+                            </div>
+                            <div class="contentLine hidden" id="CarportLEDCtrlStatusID">
+                                <span class="labelSpan strLimit"><lang name="carportLEDCtrlStatus"></lang></span>
+                                <span class="contentSpan" id="CarportLEDCtrlStatus"></span>
+                            </div>
+                            <div id="vehQueueLenStatusID" class="contentLine hidden"></div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="blockDiv" align="center" id="blockDiv"></div>
+            </div>
+        </div>
+        <div id="msgDiv" class="resultMsg hidden">
+            <a class="icon success"></a><div class="resultMsgSubDiv"><span id="msg"></span></div>
+        </div>
+        <div id="sketchMap" class="hidden">
+            <img alt="" src="images/ep_intel.png">
+        </div>
+        <div id="boxImg" style = "display:none">
+            <img id ="ImgBox" width='41px' src="images/waiting.gif">
+            <div id='statusInfo'></div>
+        </div>
+    </body>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.json.min.js"></script>
+    <script type="text/javascript" src="js/plugin_info.js"></script>
+    <script type="text/javascript" src="js/utils.js"></script>
+    <script type="text/javascript" src="js/ComScript.js"></script>
+    <script type="text/javascript" src="js/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="datepicker/WdatePicker.js"></script>
+    <script type="text/javascript" src="js/device_type.js"></script>
+    <script type="text/javascript" src="js/dev_capinfo.js"></script>
+    <script type="text/javascript" src="js/device_info.js"></script>
+    <script type="text/javascript" src="js/menu.js"></script>
+    <script type="text/javascript" src="js/demo_LDelay.js"></script>
+    <script type="text/javascript" src="js/frame.js"></script>
+</html>

@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta name="Copyright"
+            content="Copyright (c) 2011 *** Corporation. All Rights Reserved.">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+        <link href="css/validate.css" type="text/css" rel="stylesheet">
+        <link href="css/alarm_temperature.css" type="text/css" rel="stylesheet">
+        <link href="css/alarm_linkout.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/ComScript.js"></script>
+        <script type="text/javascript">
+            //加载语言文件
+            loadlanguageFile(top.language);
+        </script>
+        <script type="text/javascript" src="js/jquery.validate.js"></script>
+        <script type="text/javascript" src="js/alarm_temperature.js"></script>
+    </head>
+    <body class="body">
+        <div class="pageDiv">
+            <form name="frmSetup" id="frmSetup">
+            
+                <div class="contentLine">
+                    <span class="labelSpan strLimit"><lang name="hightAlarmValue"></lang>(℃)</span>
+                    <input name="HighTemp" id="HighTemp" value="0" style="width: 40px" maxlength="3">[50~100]
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit"><lang name="lowAlarmValue"></lang>(℃)</span>
+                    <input name="LowTemp" id="LowTemp" value="0" style="width: 40px" maxlength="4">[-100~49]
+                    <span id="submitBtnSpn" class="button hidden">
+                        <input type="submit" id="submitBtn" lang="confirm" class="lbuttonW" />
+                    </span>
+                </div>
+                
+                <table cellspacing="0" cellpadding="2" border="0">             
+                    <tr id="linkoutTR" class="textCell">
+                        <td colspan="4" align="left">
+                            <div id="linkOutIFrame"></div>
+                        </td>
+                    </tr>
+                </table>
+                <span class="button_green" onclick="submitF()" >
+                    <input type="button" class="submit_btn" lang="saveData"/>
+                </span>
+            </form>
+        </div>
+    </body>
+</html>

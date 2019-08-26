@@ -1,0 +1,88 @@
+#!/bin/sh
+#
+# Check ro file system and ....
+#
+
+ROOTFS_RO=`cat /proc/mounts | grep ubi0:program | awk '{print $4}'`
+PROGRAM_MTD_BLOCK=`cat /proc/mtd | grep program | sed 's/mtd/mtdblock/' | sed 's/:.*//'`
+CONFIG_MTD_BLOCK=`cat /proc/mtd | grep config | sed 's/mtd/mtdblock/' | sed 's/:.*//'`
+CALIBRATION_MTD_BLOCK=`cat /proc/mtd | grep calibration | sed 's/mtd/mtdblock/' | sed 's/:.*//'`
+
+CONFIG_MTD=`cat /proc/mtd | grep config | sed 's/:.*//'`
+PROGRAM_MTD=`cat /proc/mtd | grep program | sed 's/:.*//'`
+RUNTIME_MTD=`cat /proc/mtd | grep runtime | sed 's/:.*//'`
+CLIINFO_MTD=`cat /proc/mtd | grep cliinfo | sed 's/:.*//'`
+KERNEL_MTD=`cat /proc/mtd | grep kernel | sed 's/:.*//'`
+UBOOT_MTD=`cat /proc/mtd | grep boot | sed 's/:.*//'`
+UPDATEINFO_MTD=`cat /proc/mtd | grep update | sed 's/:.*//'`
+CALIBRATION_MTD=`cat /proc/mtd | grep calibration | sed 's/:.*//'`
+
+/sbin/mdev -s
+
+echo /sbin/mdev >/proc/sys/kernel/hotplug
+
+
+if [ -e"/dev/ttyAMA0" -a ! -e "/dev/ttyAMBA0" ]; then
+	ln -sf /dev/ttyAMA0 /dev/ttyAMBA0
+fi
+
+
+if [ -n "$CONFIG_MTD_BLOCK" ]; then
+    /bin/mount -t jffs2 /dev/$CONFIG_MTD_BLOCK /config
+    /bin/mount -t jffs2 /dev/$ /config
+fi
+
+if [ -n "$CALIBRATION_MTD_BLOCK" ]; then
+    /bin/mount -t jffs2 -oro /dev/$CALIBRATION_MTD_BLOCK /calibration
+fi
+
+
+if [ -e "/dev/$RUNTIME_MTD" -a ! -e "/dev/mtd_runtime" ]; then
+        ln -sf /dev/$RUNTIME_MTD /dev/mtd_runtime
+fi
+
+if [ -e "/dev/$CONFIG_MTD" -a ! -e "/dev/mtd_config" ]; then
+        ln -sf /dev/$CONFIG_MTD /dev/mtd_config
+fi
+
+if [ -e "/dev/$CLIINFO_MTD" -a ! -e "/dev/mtd_clinfo" ]; then
+        ln -sf /dev/$CLIINFO_MTD /dev/mtd_clinfo
+fi
+
+if [ -e "/dev/$KERNEL_MTD" -a ! -e "/dev/mtd_kernel" ]; then
+        ln -sf /dev/$KERNEL_MTD /dev/mtd_kernel
+fi
+
+if [ -e "/dev/$PROGRAM_MTD" -a ! -e "/dev/mtd_program" ]; then
+        ln -sf /dev/$PROGRAM_MTD /dev/mtd_program
+fi
+
+if [ -e "/dev/$UBOOT_MTD" -a ! -e "/dev/mtd_uboot" ]; then
+        ln -sf /dev/$UBOOT_MTD /dev/mtd_uboot
+fi
+
+
+#mkdir /tmp/.dev
+#cp -a /dev/* /tmp/.dev
+#mount --bind /tmp/.dev /dev
+#mkdir /dev/pts
+#mount -tdevpts none /dev/pts	
+
+mkdir /tmp/.tmp_root
+#cp -a /root/* /tmp/.tmp_root
+#mount --bind /tmp/.tmp_root /root
+
+mkdir -p /var/run	
+mkdir -p /var/lib
+mkdir -p /var/lock/iscsi
+
+mkdir -p /var/etc/
+cp -a /etc/* /var/etc/
+mount --bind /var/etc /etc
+
+#mount rootfs to read only 
+#mount -o remount,ro,sync /
+
+#mount program to read only 
+mount -o remount,ro,sync /program
+

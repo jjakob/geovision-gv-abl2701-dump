@@ -1,0 +1,31 @@
+﻿
+<fieldset id="linkOutFieldset">
+    <legend><lang name="linkOutSwitch" ></lang></legend>
+    <ul>
+        <li id="switchOutTR" class="hidden"></li>
+        <li id="LinkOutCaptureTR" class="hidden">
+            <input name="LinkOutCapture" id="LinkOutCapture" type="checkbox" value="1" />
+            <label for="LinkOutCapture"><lang name="linkOutCapture" ></lang></label>
+        </li>
+        <li id="presetTR" class="hidden">
+            <input name="LinkOutPreset" id="LinkOutPreset" type="checkbox" value="1"
+                    onclick="this.form.PresetNum.disabled = !(this.checked);" />
+                    <label for="LinkOutPreset"><lang name="gotoPreset" ></lang></label>
+            <select name="PresetNum" id="PresetNum"
+                    onchange="setComboxTitle('PresetNum');" style="width: 100px;"></select>
+        </li>
+        <li id="ftpTR" class="hidden">
+            <input name="LinkOutFTP" id="LinkOutFTP" type="checkbox" value="1"/>
+            <label for="LinkOutFTP" data-lang="linkFTP"></label>
+        </li>
+        <li id="storTR" class="hidden">
+            <input name="LinkOutUSBStor" id="LinkOutUSBStor" type="checkbox" value="1"/>
+            <label for="LinkOutUSBStor" data-lang="linkOutUSBStor"></label>
+        </li>
+        <li id="emailTR" class="hidden">
+            <input name="LinkOutEmail" id="LinkOutEmail" type="checkbox" value="1" />
+            <label for="LinkOutEmail" data-lang="linkEmail"></label>
+        </li>
+    </ul>
+</fieldset>
+<script type="text/javascript" src="js/alarm_linkout.js"></script>

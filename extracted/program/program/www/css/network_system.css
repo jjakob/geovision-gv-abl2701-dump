@@ -1,0 +1,27 @@
+﻿@charset "utf-8";
+/* CSS Document */
+fieldset.line {
+    border-left: 0px;
+    border-bottom: 0px;
+    border-right: 0px;
+    margin-bottom: 0px;
+}
+fieldset legend{
+    cursor: pointer;
+}
+fieldset legend span {
+    width: 12px;
+    height: 12px;
+    background: url(../images/t_down.gif) no-repeat 0px 0px;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+}
+fieldset.close legend span {
+    width: 12px;
+    height: 12px;
+    background: url(../images/t_up.gif) no-repeat 0px 0px;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+}

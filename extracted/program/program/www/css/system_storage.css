@@ -1,0 +1,8 @@
+@charset "utf-8";
+/* CSS Document */
+fieldset {margin-top: 10px;}
+p{padding: 4 0;}
+#object {height: 340px;}
+#object, .storage_btnDiv{width: 580px}
+.longBtn{width: 75px;}
+.shortBtn{width: 50px;}

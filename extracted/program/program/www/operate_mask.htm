@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta name="Copyright"
+            content="Copyright (c) 2011 *** Corporation. All Rights Reserved.">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+        <link href="css/validate.css" type="text/css" rel="stylesheet">
+        <link id="dataviewCss" href="css/dataview.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.json.min.js"></script>
+        <script type="text/javascript" src="js/jquery.blockUI.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/ComScript.js"></script>
+        <script type="text/javascript" src="js/charlib.js"></script>
+        <script type="text/javascript" src="js/dataview.js"></script>
+        <script type="text/javascript" src="js/operate_mask.js"></script>
+    </head>
+    <body class="body"  onbeforeunload="release();">
+        <div class="pageDiv">
+            <div class="left_Content">
+                <div id="recordManager_div_activeX">
+                </div>
+            </div>
+            <div class="right_Content">
+                <form name="frmSetup" id="frmSetup">
+                    <div class="sectionDiv">
+                        <span class="button">
+                            <button type="button" class="submit_btn" id="addCover" data-lang="add"></button>
+                        </span>
+                        <span class="button">
+                            <button type="button" class="submit_btn" id="delCover" data-lang="del"></button>
+                        </span>
+                        <span id="tipMsg" class="hidden" data-lang-tip="tipFishEyeMask"></span>
+                    </div>
+                    <div class="dataView" style="width: 520px;">
+                        <div class="dataViewThead">
+                        <table class="dataViewTbl textCell" cellspacing="0" width="500px">
+                            <col width="50">
+                            <col name="coverName" width="450">
+                            <col name="zoom" class="hidden" width="150">
+                            <col name="operateTD" class="hidden" width="160">
+                            <thead>
+                                <tr>
+                                    <td>
+                                        <lang name="sequenseNum"></lang>
+                                    </td>
+                                    <td>
+                                        <lang name="ruleName"></lang>
+                                    </td>
+                                    <td name="zoom" class="hidden">
+                                        <lang name="osdZoom"></lang>
+                                    </td>
+                                    <td name="operateTD" class="hidden">
+                                        <lang name="operate"></lang>
+                                    </td>
+                                </tr>
+                            </thead>
+                        </table>
+                        </div>
+                        <div class="dataViewTbody" style="max-height: 500px; min-height:240px;">
+                            <table class="dataViewTbl textCell" cellspacing="0">
+                                <col width="50">
+                                <col name="coverName" width="450">
+                                <col name="zoom" class="hidden" width="150">
+                                <col name="operateTD" class="hidden" width="160">
+                                <tbody id="dataview_tbody">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

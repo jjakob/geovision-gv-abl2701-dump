@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>dst_config.htm</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link href="css/globe.css" type="text/css" rel="stylesheet">
+    <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+    <link href="css/validate.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.json.min.js"></script>
+    <script type="text/javascript" src="js/utils.js"></script>
+    <script type="text/javascript" src="datepicker/WdatePicker.js"></script>
+    <script type="text/javascript" src="js/ComScript.js"></script>
+        <script type="text/javascript">
+            //加载语言文件
+            loadlanguageFile(top.language);
+        </script>
+        <script type="text/javascript" src="js/jquery.validate.js"></script>
+        <script type="text/javascript" src="js/dst_config.js"></script>
+  </head>
+  	 <body class="body">
+        <div class="pageDiv">
+            <form name="frmSetup" id="frmSetup">
+            <fieldset id="DSTFieldset">
+                      <legend id="DSTdiv">
+                        <span><lang name="DST"></lang></span>
+                      </legend>
+                   <table cellspacing="0" cellpadding="2" border="0" class="textCell" id="DSTTable" width="510px" style="table-layout: fixed">
+                   <col width="120px">
+                   <col width="20px">
+                   <col width="326px">
+                        <tr >
+                            <td>
+                                <lang name="DST"></lang>
+                            </td>
+                            <td rowspan="4"></td>
+                            <td id="DST_Enable">
+                                <input type="radio" name="EnableDST" id="dstOpen" value="1">
+                                <label for="dstOpen" data-lang="open"></label>
+                                <input type="radio" name="EnableDST" id="dstClose" value="0" checked="checked">
+                                <label for="dstClose" data-lang="close"></label>
+                            </td>
+                       </tr>
+                       <tr id=startTime_TR> 
+                            <td>
+                                <lang name="startTime"></lang>
+                            </td>
+
+                            <td>
+                                <select style="width: 75px" id="DSTMonth" name="DSTMonth" defaultValue="1">
+                                </select>
+                                <select style="width: 75px" id="DSTNum" name="DSTNum" defaultValue="1">
+                                    <option value="1" lang="First" ></option>
+                                    <option value="2" lang="Secondly" ></option>
+                                    <option value="3" lang="Third" ></option>
+                                    <option value="4" lang="Fourth" ></option>
+                                    <option value="5" lang="Last" ></option>
+                                </select>
+                                <select style="width:75px" id="DSTWeek" name="DSTWeek" defaultValue="1">
+                                </select>
+                                <select style="width:75px" id="DSTTime" name="DSTTime" defaultValue="1">
+                                </select>
+                                <span><lang name="Hour"></lang></span>
+                           </td>  
+                       </tr>
+                       <tr id=endTime_TR>
+                            <td>
+                                <lang name="endTime"></lang>
+                            </td>
+                            <td>
+                                <select style="width:75px" id="DSTMonth_end" name="DSTMonth_end" defaultValue="1">
+                                </select>
+                                 <select style="width:75px" id="DSTNum_end" name="DSTNum_end" defaultValue="1">
+                                    <option value="1" lang="First" ></option>
+                                    <option value="2" lang="Secondly" ></option>
+                                    <option value="3" lang="Third" ></option>
+                                    <option value="4" lang="Fourth" ></option>
+                                    <option value="5" lang="Last" ></option>
+                                </select>
+                                <select style="width:75px" id="DSTWeek_end" name="DSTWeek_end" defaultValue="1">
+                                </select>
+                                <select style="width:75px" id="DSTTime_end" name="DSTTime_end" defaultValue="1">
+                                </select>
+                                <span><lang name="Hour"></lang></span>
+                            </td>
+                       </tr>
+                       <tr id=DSTOffset_TR>
+                            <td>
+                                <lang name="DSTOffset">
+                            </td>
+                            <td>
+                             <select style="width:310px" id="DST_TimeOffset" name="DST_TimeOffset" defaultValue="60">
+                                <option value="30" lang="ThirtyMins"></option>
+                                <option value="60" lang="SixtyMins"></option>
+                                <option value="90" lang="NinetyMins"></option>
+                                <option value="120" lang="HundredTwentyMins"></option>
+                             </select>   
+                            </td>
+                       </tr>
+                    </table>
+                </fieldset>
+                <span class="button_green" onclick="submitF()" >
+                    <input type="button" class="submit_btn" lang="saveData"/>
+                </span>
+            </form>
+           </div>
+           </body>
+</html>

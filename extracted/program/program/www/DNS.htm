@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="Copyright" content="Copyright (c) 2013 *** Corporation. All Rights Reserved.">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title></title>
+    <link href="css/globe.css" type="text/css" rel="stylesheet">
+    <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+    <link href="css/validate.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.json.min.js"></script>
+    <script type="text/javascript" src="js/utils.js"></script>
+    <script type="text/javascript" src="js/ComScript.js"></script>
+    <script type="text/javascript">
+        //加载语言文件
+        loadlanguageFile(top.language);
+    </script>
+    <script type="text/javascript" src="js/jquery.validate.js"></script>
+    <script type="text/javascript" src="js/DNS.js"></script>
+</head>
+<body class="body">
+<div class="pageDiv">
+    <form name="frmSetup" id="frmSetup">
+        <div>
+                <div class="textCell contentLine">
+                                <span class="labelSpan strLimit">
+                                    <lang name="firstDNSServer"></lang>
+                                </span>
+                    <input name="PreferredDNSServer" id="PreferredDNSServer" type="text" size="22"
+                           style="width: 4.5cm" value="0.0.0.0"/>
+                </div>
+                <div class="textCell contentLine">
+                                <span class="labelSpan strLimit">
+                                    <lang name="secondDNSCfg"></lang>
+                                </span>
+                    <input name="AlternateDNSServer" id="AlternateDNSServer" type="text" size="22"
+                           style="width: 4.5cm" value="0.0.0.0"/>
+                </div>
+        </div>
+        <span class="button_green" onClick="submitF()" >
+          <input type="button" class="submit_btn" lang="saveData"/>
+       </span>
+    </form>
+</div>
+</body>
+</html>

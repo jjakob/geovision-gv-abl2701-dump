@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+        <link href="css/index.css" type="text/css" rel="stylesheet">
+        <link href="css/index_ex.css" type="text/css" rel="stylesheet">
+    </head>
+    <body id="login_body" onLoad="init();" onbeforeunload="release();">
+        <div id="ieVersion"  class="ieVersion">
+            <div class="activeXDiv">
+                <img alt="warning" src="images/icon-warning.gif">
+                <span data-lang="downloadTip3" class="downloadTip">&nbsp;</span>
+                <a id="download" class="download" href="ActiveX/Setup.exe" data-lang="download">&nbsp;</a>
+                <span data-lang="downloadTip2"></span>
+            </div>
+        </div>
+        <div id="activeX_obj"></div>
+        <div class="main_header_1">
+            <div class="main_logo_1">
+                <img src="images/logo.png"/>
+            </div>
+            <div class="nav_1"></div>
+            <div class="main_logo_2">
+                <img src="images/logo_1.png"/>
+            </div>
+        </div>
+        <div class="login_fullPage hidden" id="login_fullPage">
+            <div class="login_placeHolder">
+                <div class="login_minHeight"></div>
+            </div>
+            <div class="login_form">
+                <div class="login_logo">
+                    <div class="login_IpcDateDiv hidden">
+                        <label data-lang="ipcDate"></label>
+                        <label id="ipcDate"></label>
+                    </div>
+                    <div class="logo_info">
+                        <span id="deviceTypeName" class="hidden"></span>
+                    </div>
+                </div>
+                <form id="loginForm" name="loginForm" action="cgi-bin/main.cgi" method="post">
+                    <input type="hidden" name="cmd_type" value="0">
+                    <input type="hidden" name="web_id" value="1">
+                    <input type="hidden" name="loginCertEmpt" value="0">
+                    <input type="hidden" name="sdkPort" value="81">
+                    <input type="hidden" name="rtspPort" value="0">
+                    <div id="langinfoDiv" class="login_line hide">
+                        <select name="langinfo" id="langinfo">
+                            <option value="0">简体中文</option>
+                            <option value="1">English</option>
+                        </select>
+                    </div>
+                    <div id="doubleIpDIV" class="hidden">
+                            <a class="iptip" href="http://192.168.1.13/" data-lang="doubleIP" target="_top">
+                           </a>
+                    </div>
+                    <table class="login_table">
+                        <tr class="login_line">
+                            <td class="login_left">
+                                <div class="login_label_div">
+                                    <label class="login_label strLimit" for='userName' data-lang="usrName"></label>
+                                </div>
+                            </td>
+                            <td class="login_right">
+                                <input type="text" class="in_text"  id="userName" onKeyPress="check_username(this)" maxlength="32" />
+                            </td>
+                        </tr>
+                        <tr class="login_line">
+                            <td class="login_left">
+                                <div class="login_label_div">
+                                    <label class="login_label strLimit" for='password' data-lang="usrPwd"></label>
+                                </div>
+                            </td>
+                            <td class="login_right">
+                                <input type=password autocomplete="off"  class="in_text"  id="password" onKeyPress="check_passwd(this)" maxlength="32" />
+                                <label><a name="findpasswd" class="hidden strLimit" id="findpasswd" data-lang="findpassward"></a></label>
+                            </td>
+                        </tr>
+                        <tr class="login_line">
+                            <td class="login_left"></td>
+                            <td class="login_right">
+                                <div class="login_right_content_div">
+                                    <div class="left login_option_left" id="autoPlayDiv">
+                                        <input type="checkbox"  id="autoPlay" onClick="enableAutoPlay()"checked/>
+                                        <label for="autoPlay" data-lang="autoPlay"></label>
+                                    </div>
+                                    <div class="left">
+                                        <input type="checkbox" name="saveLoginCert" id="saveLoginCert" onClick="recordPassword()"/>
+                                        <label for="saveLoginCert" data-lang="recordPassword"></label>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="login_line">
+                            <td colspan="2">
+                                    <div class="left login_btn_left">
+                                        <a name="login" type="button" id="login" class="login-button">
+                                            <span class="custom-btn-left"></span><span class="custom-btn-center" data-lang="login">
+                                            </span><span class="custom-btn-right"></span>
+                                        </a>
+                                    </div>
+                                    <div class="left XZX_hidden login_btn_right">
+                                        <a name="reset" type="button" id="reset" class="login-button">
+                                            <span class="custom-btn-left"></span><span class="custom-btn-center" data-lang="reset">
+                                            </span><span class="custom-btn-right"></span>
+                                        </a>
+                                    </div>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/device_type.js"></script>
+        <script type="text/javascript">
+        var platform = window.navigator.platform.toLowerCase(),
+            isUN = true;
+            if (("undefined" != typeof showProductType) && (1 == showProductType)) {
+                isUN = false;
+            }
+		if (null === platform.match("mac")) {
+        }
+        </script>
+    </body>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.json.min.js"></script>
+    <script type="text/javascript" src="js/json2.js"></script>
+    <script type="text/javascript" src="js/ComScript.js"></script>
+    <script type="text/javascript" src="js/utils.js"></script>
+    <script type="text/javascript" src="js/device_info.js"></script>
+    <script type="text/javascript" src="js/plugin.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/device_port.js"></script>
+</html>

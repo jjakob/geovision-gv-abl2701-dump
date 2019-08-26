@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="Copyright" content="Copyright (c) 2011 *** Corporation. All Rights Reserved.">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <title></title>
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+        <link href="css/operate_video.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.json.min.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/ComScript.js"></script>
+        <script type="text/javascript" src="js/slider.js"></script>
+        <script type="text/javascript" src="js/device_type.js"></script>
+        <script type="text/javascript" src="js/operate_video.js"></script>
+    </head>
+    <body class="body">
+        <div class="pageDiv clearfix">
+            <div class="lineDiv">
+                <span  class="textCell VinModeTiltle strLimit"><lang name="picFmt"></lang></span>
+                <select name="VinMode" id="VinMode"></select>
+            </div>
+            <form id="MainStream">
+                <input type="hidden" name="StreamID" value="0" />
+                <input type="hidden" name="Width" id="MainStreamWidth" value="0" />
+                <input type="hidden" name="Hight" id="MainStreamHight" value="0" />
+                <input type="hidden" name="SmoothValue" id="MainStreamSmoothValue" />
+                <input type="hidden" name="Quality" id="MainStreamQuality" />
+                <fieldset>
+                    <legend class="textCell">
+                        <lang name="mainVideoStream"></lang>
+                    </legend>                  
+                    <div id="MainStreamTbl">
+                        <div class="contentLine">
+                            <span class="labelSpan strLimit"><lang name="encodeFmt"></lang></span>
+                            <span class="contentSpan">
+                                <select name="EncodeFmt" id="MainStreamEncodeFmt">
+                                    <option value="13" cap="13">
+                                        H.265
+                                    </option>
+                                    <option value="6" cap="6">
+                                        H.264
+                                    </option>
+                                    <option value="3" cap="3">
+                                        MJPEG
+                                    </option>
+                                </select>
+                            </span>
+                        </div>
+                        <div class="contentLine">
+                            <span class="labelSpan strLimit"><lang name="picSize"></lang></span>
+                            <span class="contentSpan">
+                                <select name="PictureSize" id="MainStreamPictureSize" defaultValue="">
+                                </select>
+                            </span>
+                        </div>
+                        <div class="contentLine">
+                            <span class="labelSpan strLimit"><lang name="frameRate"></lang></span>
+                            <span class="contentSpan">
+                                <select name="FrameRate" id="MainStreamFrameRate" defaultValue="">
+                                </select>
+                            </span>
+                        </div>
+                        <div class="contentLine">
+                            <span class="labelSpan strLimit"><lang name="bitrate"></lang></span>
+                            <span class="contentSpan">
+                                <input name="BitRate" value="2048" id="MainStreamBitRate" onChange="validateBitRate(this)" size="6"
+                                        maxlength="4"
+                                    >
+                                <span id="MainStreamBitRateUnit"> [512~4096]</span>
+                            </span>
+                        </div>
+                        <div class="contentLine">
+                            <span class="labelSpan strLimit"><lang name="encodeType"></lang></span>
+                            <span class="contentSpan">
+                                <select name="EncMode" id="MainStreamEncodeMode">
+                                    <option value="0" selected="selected" data-lang="cbr"></option>
+                                    <option value="1" data-lang="vbr"></option>
+                                </select>
+                            </span>
+                        </div>                                              
+                        <table  style="table-layout: fixed; width: 100%;">
+                            <col width="120px">
+                            <col width="148px">
+                            <col align="left" width="30px">
+                            <tr class="textCell" id="MainStreamQualityTR">
+                                <td>
+                                    <lang name="picQuality"></lang>
+                                </td>
+                                <td>
+                                    <table style="table-layout: fixed; width: 148px" >
+                                        <tr class="textCell">
+                                            <td align="left" style="width: 74px" >
+                                                <lang name="qualityFirst"></lang>
+                                            </td>
+                                            <td align="right" style="width: 74px" >
+                                                <lang name="bitrateFirst"></lang>
+                                            </td>
+                                        </tr>
+                                        <tr class="textCell">
+                                            <td colspan="2">
+                                                <div class="slider3" id="MainStreamQuaSlider">
+                                                    <div class="bar3" id="MainStreamQuaBar"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="contentLine" id="MainStreamIIntervalDiv">
+                            <span class="labelSpan strLimit"><lang name="iInterval"></lang></span>
+                            <span class="contentSpan">
+                                <input name="IInterval" id="MainStreamIInterval" value="25" onChange="ValidVideoIInterval(this)" size="6"
+                                        maxlength="3"
+                                    >
+                                    [5 ~ 250]
+                            </span>
+                        </div>
+                        <div class="contentLine" id="GopTypeDiv">
+                            <span class="labelSpan strLimit">GOP</span>
+                            <span class="contentSpan">
+                                <select name="GopType" disabled="disabled">
+                                        <option value="0" selected="selected">
+                                            IP
+                                        </option>
+                                </select>
+                            </span>
+                        </div>            
+                        <table  style="table-layout: fixed; width: 100%">
+                            <col width="120px">
+                            <col width="148px">
+                            <col align="left" width="30px">
+                            <tr class="textCell" id="MainStreamSmoothValueTR">
+                                <td>
+                                    <lang name="smoothValue"></lang>
+                                </td>
+                                <td>
+                                    <table style="table-layout: fixed; width: 148px">
+                                        <tr class="textCell">
+                                            <td align="left" style="width: 74px">
+                                                <lang name="clear"></lang>
+                                            </td>
+                                            <td align="right" style="width: 74px">
+                                                <lang name="smooth"></lang>
+                                            </td>
+                                        </tr>
+                                        <tr class="textCell">
+                                            <td colspan="2">
+                                                <div class="slider3" id="MainStreamSlider">
+                                                    <div class="bar3" id="MainStreamBar"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr class="textCell hidden" id="MainStreamSvcModeTR">
+                                <td>
+                                    SVC
+                                </td>
+                                <td>
+                                    <input type="radio" name="SvcMode" id="SvcOpen" value="1" >
+                                    <label for="SvcOpen" data-lang="open"></label>
+                                    <input type="radio" name="SvcMode" id="SvcsClose" value="0" checked="checked">
+                                    <label for="SvcsClose" data-lang="close"></label>
+                                </td>
+                            </tr>
+                            <tr class="textCell hidden" id="MainStreamUCCodeModeTR">
+                                <td>
+                                    <label data-lang="UCODE" class="Ucode"></label>
+                                </td>
+                                <td>
+                                    <select name="UCodeMode" id="MainStreamUCCodeMode" apiType="Encode">
+                                        <option data-lang="close" value="0" data-cap="0">
+                                        </option>
+                                        <option data-lang="baseMode" value="1" data-cap="1">
+                                        </option>
+                                        <option data-lang="advanceMode" value="2" data-cap="2">
+                                        </option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>                      
+                    </div>
+                </fieldset>
+            </form>
+            <form id="AuxStream" class="hidden">
+                <input type="hidden" name="StreamID" value="1">
+                <input type="hidden" name="Width" id="AuxStreamWidth" value="0" />
+                <input type="hidden" name="Hight" id="AuxStreamHight" value="0" />
+                <input type="hidden" name="SmoothValue" id="AuxStreamSmoothValue">
+                <input type="hidden" name="Quality" id="AuxStreamQuality">
+                <fieldset id="AuxStreamFieldset" class="closeFieldset">
+                    <legend class="textCell">
+                        <input type="checkbox" name="IsEnable" id="AuxStreamIsEnable" onClick="streamEnable(1)"/>
+                        <label for="AuxStreamIsEnable"><lang name="enable"></lang></label>
+                        <lang name="roleVideoStream"></lang>
+                    </legend>
+                    <div id="AuxStreamTbl" class="hidden">
+                    </div>
+                </fieldset>
+            </form>
+            <form id="ThirdStream" class="hidden">
+                <input type="hidden" name="StreamID" value="2">
+                <input type="hidden" name="Width" id="ThirdStreamWidth" value="0" />
+                <input type="hidden" name="Hight" id="ThirdStreamHight" value="0" />
+                <input type="hidden" name="SmoothValue" id="ThirdStreamSmoothValue">
+                <input type="hidden" name="Quality" id="ThirdStreamQuality">
+                <fieldset id="ThirdStreamFieldset" class="closeFieldset">
+                    <legend class="textCell">
+                        <input type="checkbox" name="IsEnable" id="ThirdStreamIsEnable" onClick="streamEnable(2)" disabled="disabled"/> 
+                        <label for="ThirdStreamIsEnable"><lang name="enable"></lang></label>
+                        <lang name="thirdVideoStream"></lang>
+                    </legend>
+                    <div id="ThirdStreamTbl" class="hidden">
+                    </div>
+                </fieldset>
+            </form>
+            <form id="JpegStream" class="hidden">
+                <input type="hidden" name="StreamID" value="">
+                <input type="hidden" name="Width" id="JpegStreamWidth" value="0" />
+                <input type="hidden" name="Hight" id="JpegStreamHight" value="0" />
+                <fieldset id="passRecord">
+                    <legend class="textCell">
+                        <lang name="vehiclePassPic"></lang>
+                    </legend>
+                    <table width="100%" class="textCell">
+                        <col width="120px">
+                        <col width="40px">
+                        <col align="left">
+                        <tr id="JpegStreamPicSizeTR" class="hidden">
+                            <td>
+                                <lang name="picSize"></lang>
+                            </td>
+                            <td></td>
+                            <td>
+                                <select name="PictureSize" id="JpegStreamPictureSize" defaultValue="">
+                                </select>
+                            </td>
+                        </tr>
+                        <tr id="JpegStreamQualityTR" class="hidden">
+                        </tr>
+                        <tr>
+                            <td>
+                                <lang name="imageSize"></lang>(Kb)
+                            </td>
+                            <td></td>
+                            <td>
+                                <input type="text" class="nomalTxt" name="JPEGSize" id="JPEGSize" 
+                                    onKeyPress="onPicKeyPress(this);" size="6" maxlength="4"/>[1-4000]
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <fieldset id="syntPassRecord" class="hidden">
+                    <legend class="textCell">
+                        <lang name="PassVehiclePic"></lang>
+                    </legend>
+                    <table width="100%" class="textCell">
+                        <col width="120px">
+                        <col width="40px">
+                        <col align="left">
+                        <tr>
+                            <td>
+                                <lang name="imageQuality"></lang>
+                            </td>
+                            <td></td>
+                            <td>
+                                <div class="slider3" id="passVehicleQuaSlider">
+                                    <div class="bar3" id="passVehicleQuaBar"></div>
+                                </div>
+                                <input type="text" id="TGSyntQuality" name="TGSyntQuality" class="shortTxt" maxlength="3" onKeyPress="onPicKeyPress(this);" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <lang name="imageSize"></lang>(Kb)
+                            </td>
+                            <td></td>
+                            <td>
+                                <input type="text" class="nomalTxt" name="TGSyntJPEGSize" id="TGSyntJPEGSize" 
+                                    onKeyPress="onPicKeyPress(this);" maxlength="4"/>[1-6000]
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <fieldset id="peccancyRecord" class="hidden">
+                    <legend class="textCell">
+                        <lang name="peccancyPic"></lang>
+                    </legend>
+                    <table width="100%" class="textCell">
+                        <col width="120px">
+                        <col width="40px">
+                        <col align="left">
+                        <tr>
+                            <td>
+                                <lang name="imageQuality"></lang>
+                            </td>
+                            <td></td>
+                            <td>
+                                <div class="slider3" id="procQuaSlider">
+                                    <div class="bar3" id="procQuaBar"></div>
+                                </div>
+                                <input type="text" id="ProcQuality" name="ProcQuality" class="shortTxt"
+                                     maxlength="3" onKeyPress="onPicKeyPress(this);" />
+                            </td>
+                        </tr>
+                        <tr id="ProcJPEGSizeID">
+                            <td>
+                                <lang name="imageSize"></lang>(Kb)
+                            </td>
+                            <td></td>
+                            <td>
+                                <input type="text" class="nomalTxt" name="ProcJPEGSize" id="ProcJPEGSize" 
+                                    onKeyPress="onPicKeyPress(this);" maxlength="4"/>[1-4000]
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <fieldset id="peccancySyntRecord" class="hidden">
+                    <legend class="textCell">
+                        <lang name="SyntPic"></lang>
+                    </legend>
+                    <table width="100%" class="textCell">
+                        <col width="120px">
+                        <col width="40px">
+                        <col align="left">
+                        <tr>
+                            <td>
+                                <lang name="imageQuality"></lang>
+                            </td>
+                            <td></td>
+                            <td>
+                                <div class="slider3" id="syntQuaSlider">
+                                    <div class="bar3" id="syntQuaBar"></div>
+                                </div>
+                                <input type="text" id="SyntQuality" name="SyntQuality" class="shortTxt" maxlength="3" onKeyPress="onPicKeyPress(this);" />
+                            </td>
+                        </tr>
+                        <tr id="SyntJPEGSizeID">
+                            <td>
+                                <lang name="imageSize"></lang>(Kb)
+                            </td>
+                            <td></td>
+                            <td>
+                                <input type="text" class="nomalTxt" name="SyntJPEGSize" id="SyntJPEGSize" 
+                                    onKeyPress="onPicKeyPress(this);" maxlength="5"/>[1-10000]
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <fieldset id="pictrueType_single_closeUp" class="hidden">
+                    <legend class="textCell">
+                        <lang name="pictrueType_single_closeUp"></lang>
+                    </legend>
+                    <table width="100%" class="textCell">
+                        <col width="120px">
+                        <col width="40px">
+                        <col align="left">
+                        <tr class="textCell">
+                            <td>
+                                <lang name="picSize"></lang>
+                            </td>
+                            <td>
+                                <select name="single_closeUp_picSize" id="single_closeUp_picSize" defaultValue="">
+                                </select>
+                                <input type="text" class="hidden" id="single_closeUp_width"/>
+                                <input type="text" class="hidden" id="single_closeUp_height"/>
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <fieldset id="OnlyEncodeQuality" class="hidden">
+                    <legend class="textCell"><lang name="imageQuality"></lang></legend>
+                    <table width="100%" class="textCell">
+                        <col width="120px">
+                        <col width="40px">
+                        <col align="left">
+                        <tr id="imageQualityTR">
+                        </tr>
+                    </table>
+                </fieldset>
+            </form>
+        </div>
+        <fieldset id="BNCfieldset" class="hidden clearfix">
+            <legend class="textCell"><lang name="BNC"></lang></legend>
+            <div class="contentLine">
+                <span class="labelSpan strLimit"><lang name="AnalogoutFormat"></lang></span>
+                <span class="contentSpan">
+                    <select name="AnalogoutFormat" id="AnalogoutFormat">
+                        <option value="0" data-lang="PAL"></option>
+                        <option value="1" data-lang="NTSC"></option>
+                    </select>
+                </span>
+            </div>
+        </fieldset>    
+        <span class="button_green" onClick="submitF()" >
+            <input type="button" class="submit_btn" lang="saveData"/>
+        </span>
+    </body>
+</html>

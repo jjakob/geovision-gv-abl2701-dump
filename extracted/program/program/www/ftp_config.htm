@@ -1,0 +1,270 @@
+ <!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta name="Copyright"
+            content="Copyright (c) 2011 *** Corporation. All Rights Reserved.">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+        <link href="css/validate.css" type="text/css" rel="stylesheet">
+        <link href="css/dataview.css" type="text/css" rel="stylesheet">
+		<link href="css/ftp_config.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.json.min.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/ComScript.js"></script>
+        <script type="text/javascript">
+            //加载语言文件
+            loadlanguageFile(top.language);
+        </script>
+        <script type="text/javascript" src="js/jquery.validate.js"></script>
+        <script type="text/javascript" src="js/ftp_config.js"></script>
+    </head>
+    <body class="body">
+        <div class="pageDiv">
+            <form name="frmSetup" id="frmSetup">
+                <fieldset style="">
+                    <legend><lang name="serverParams"></lang></legend>
+                        <div id="baseInfo">
+                            <div class="left_Content_param" style="float: left; ">
+                            <div class="contentLine">
+                                <span class="labelSpan strLimit"><lang name="serverAddress"></lang></span>
+                                <input type="text" id="ServerIP" name="ServerIP" onChange="saveParam(this.id)"/>
+                            </div>
+                            <div class="contentLine" >
+                                <span class="labelSpan strLimit"><lang name="portID"></lang></span>
+                                <input type="text" id="Port" name="Port" onChange="saveParam(this.id)" maxlength="5"/>
+                            </div>
+                            <div class="contentLine" >
+                                <span class="labelSpan strLimit"><lang name="username"></lang></span>
+                                <input type="text" id="Username" name="Username" onChange="saveParam(this.id)" maxlength="32"/>
+                            </div>
+                            <div class="contentLine" >
+                                <span class="labelSpan strLimit Password"><lang name="password"></lang></span>
+                                <input type="password" autocomplete="off"  id="Password" name="Password" onChange="saveParam(this.id)" maxlength="32"/>
+                            </div>
+                            <div id="deviceNameTR" class="contentLine hidden" >
+                                <span class="labelSpan strLimit"><lang name="deviceName"></lang></span>
+                                <input type="text" id="DeviceName" name="DeviceName" onChange="saveParam(this.id)" maxlength="32"/>
+                            </div>
+                            <div id="deviceIDTR" class="contentLine hidden" >
+                                <span class="labelSpan strLimit"><lang name="device"></lang></span>
+                                <input type="text" id="DeviceID" name="DeviceID" onChange="saveParam(this.id)" maxlength="32"/>
+                            </div>
+                            <div id="RoadIDTD" class="contentLine hidden" >
+                                <span class="labelSpan strLimit" id="RoadIDSpan"></span>
+                                <input type="text" id="RoadID" name="RoadID" onChange="saveParam(this.id)" maxlength="32"/>
+                            </div>
+                        </div>
+                        <div class="right_Content_param" style="float: left; margin-left: 80px;">
+                            <div id="PlateIDTD" class="contentLine hidden">
+                                <span class="labelSpan strLimit"><lang name="plateID"></lang></span>
+                                <input type="text" id="PlateID" name="PlateID" onChange="saveParam(this.id)" maxlength="7"/>
+                            </div>
+                            <div id="DirectionIDTD" class="contentLine hidden" >
+                                <span class="labelSpan strLimit"><lang name="directID"></lang></span>
+                                <input type="text" id="DirectID" name="DirectID" onChange="saveParam(this.id)" maxlength="32"/>
+                            </div>
+                            <div id="" class="contentLine hidden" >
+                                <span id="isUploadPic" class="labelSpan strLimit"><lang name="vehicleInfoOnly"></lang></span>
+                                <input type="checkbox" id="DataType" name="DataType" />
+                            </div>
+                            <div id="FormatStrTD" class="contentLine hidden" >
+                                <span class="labelSpan strLimit"><lang name="formatStrEnable"></lang></span>
+                                <input type="checkbox" id="FormatStrEnable" name="FormatStrEnable" />
+                            </div>
+                            <div id="PathUtf8FormatDIV" class="contentLine hidden">
+                                <span class="labelSpan strLimit" data-lang="PathUtf8Format"></span>
+                                <input type="checkbox" id="PathUtf8Format" name="PathUtf8Format" />
+                            </div>
+                            <div id="storModeTR" class="contentLine hidden" >
+                                <span class="labelSpan strLimit" data-lang="storMode"></span>
+                                <input type="checkbox" name="StorMode" id="StorMode" />
+                                <a id="fileNameTip" class="tip hidden"></a>
+                            </div>
+                            <div id="FullCoverNumTR" class="contentLine hidden" >
+                                <span class="labelSpan strLimit" data-lang="fullCoverNum"></span>
+                                <input type="text" id="FullCoverNum" onChange="saveParam(this.id)" name="FullCoverNum"  maxlength="6"/>
+                                <a id="FullCover" class="tip hidden"></a>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="tab_bar" id="Tab_bar">
+                    <button type="button" data-divID="passCarPic" class="sectionTab tab_selected hidden strLimit" style="width:180px" data-ipAddr="0"><lang name="passVehiclePath"></lang></button>
+                    <button type="button" data-divID="illegalCarPic" class="sectionTab hidden strLimit" style="width:180px" data-ipAddr="1"><lang name="illegalPicPath"></lang></button>
+
+                </div>
+
+                <div class="pathDiv tab_content sectionDiv section_padding hidden" id="passCarPic">
+                    <div id="PassVehicleDir" style="margin-left:5px;"></div>
+                    <div class="basePathname">
+                        <span><lang name="basePath"></lang></span>
+                    </div>
+                    <ul id="ul1">
+                        <li style="margin-left: -35px;margin-top: 15px;">
+                            <div class="lineDiv"></div>
+                            <span id="PassVehicleSpan0">
+                                <select id="PassVehiclePathType0" name="passVehicleDir1" >
+                                </select>
+                                <input type="text" name="PassVehiclePathName0" id="PassVehiclePathName0" class="hidden"  maxlength="10">
+                            </span>
+                        </li>
+                        <li style="margin:15px 10px;">\\</li>
+                        <li id="PassVehicleSpan1">
+                            <span>
+                                <select id="PassVehiclePathType1" >
+                                </select>
+                                <input type="text" name="PassVehiclePathName1" id="PassVehiclePathName1" class="hidden"  maxlength="10">
+                            </span>
+                        </li>
+                        <li style="margin:15px 10px;" >\\</li>
+                        <li id="PassVehicleSpan2" style="">
+                            <span>
+                                <select id="PassVehiclePathType2" >
+                                </select>
+                                <input type="text" name="PassVehiclePathName2" id="PassVehiclePathName2" class="hidden"  maxlength="10">
+                            </span>
+                        </li>
+                        <li style="margin:15px 10px;"  id = "PathType3" class ="hidden">\\</li>
+                        <li id="PassVehicleSpan3" class ="hidden">
+                            <span>
+                                <select id="PassVehiclePathType3" >
+                                </select>
+                                <input type="text" name="PassVehiclePathName3" id="PassVehiclePathName3" class="hidden"  maxlength="10">
+                            </span>
+                        </li>
+                    </ul>
+                    <ul id="ul2">
+                        <li style="clear:both;">
+                            <div id="flieName"></div>
+                        </li>
+                        <li id="fgSiganlLi"><lang name="breakSign"></lang>
+                           <input type="text" class="hidden" id="BreakSign"/>
+                           <select id="fgSignal" name="fgSignal">
+                            </select>
+                            <input type="text" id="BreakChar" class="hidden" name="BreakChar" style="margin-left:10px"   maxlength="1">
+                        </li>
+                        <li>
+                            <div class="dataView">
+                                <div class="dataViewThead">
+                                    <table class="dataViewTbl textCell" cellspacing="0" width="100%">
+                                        <col width="100px">
+                                        <col width="200px">
+                                        <col width="250px">
+                                        <thead>
+                                            <tr>
+                                                <td><lang name="rowNum"></lang></td>
+                                                <td><lang name="nameElement"></lang></td>
+                                                <td id="TgAdvancedNameRule"></td>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                                <div class="dataViewTbody">
+                                    <table class="dataViewTbl textCell" cellspacing="0">
+                                        <col width="100px">
+                                        <col width="200px">
+                                        <col width="250px">
+                                        <tbody id="picNameRule">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="pathDiv tab_content sectionDiv section_padding hidden" id="illegalCarPic">
+                    <div id="IllegalDir" style="margin-left:5px;"></div>
+                    <div class="basePathname">
+                        <span><lang name="basePath"></lang></span>
+                    </div>
+                    <ul id="ul3">
+                        <li style="margin-left: -35px;">
+                            <div class="lineDiv"></div>
+                            <span id="IllegalSpan0">
+                                <select id="IllegalPathType0"  onchange="optionChange(this.id)">
+                                </select>
+                                <input type="text" name="IllegalPathName0" id="IllegalPathName0" class="hidden" onChange="optionChange(this.id)" maxlength="10">
+                            </span>
+                        </li>
+                            <li style="margin:15px 10px;">\\</li>
+                            <li id="IllegalSpan1" style="">
+                            <span>
+                                <select id="IllegalPathType1" onChange="optionChange(this.id)">
+                                </select>
+                                <input type="text" name="IllegalPathName1" id="IllegalPathName1" class="hidden" onChange="optionChange(this.id)" maxlength="10">
+                            </span>
+                        </li>
+                            <li style="margin:15px 10px;">\\</li>
+                            <li id="IllegalSpan2" style="">
+                            <span>
+                                <select id="IllegalPathType2" onChange="optionChange(this.id)">
+                                </select>
+                                <input type="text" name="IllegalPathName2" id="IllegalPathName2" class="hidden" onChange="optionChange(this.id)" maxlength="10">
+                            </span>
+                        </li>
+                    </ul>
+                    <ul id="ul4">
+                        <li style="clear:both;">
+                            <div id="EpFlieName"></div>
+                        </li>
+                        <li id="fgSignalLi1"><lang name="breakSign"></lang>
+                            <input type="text" class="hidden" id="EpBreakSign"/>
+                            <select id="illfgSignal" name="illfgSignal">
+                            </select>
+                            <input type="text" class="hidden" id="EpBreakChar" name="EpBreakChar" style="margin-left:10px" onblur="showEpPicName();" onChange="saveParam(this.id);" maxlength="1">
+                        </li>
+                        <li>
+                        <div class="dataView">
+                            <div class="dataViewThead">
+                                <table class="dataViewTbl textCell" cellspacing="0" width="550px">
+                                    <col width="100px">
+                                    <col width="200px">
+                                    <col width="250px">
+                                    <thead>
+                                        <tr>
+                                            <td><lang name="rowNum"></lang></td>
+                                            <td><lang name="nameElement"></lang></td>
+                                            <td id="EpAdvancedNameRule"></td>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            <div class="dataViewTbody">
+                                <table class="dataViewTbl textCell" cellspacing="0">
+                                    <col width="100px">
+                                    <col width="200px">
+                                    <col width="250px">
+                                    <tbody id="epPicNameRule">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        </li>
+                    </ul>
+                </div>
+                <span class="button_green" onclick="submitF()" >
+                    <input type="button" class="submit_btn" lang="saveData"/>
+                </span>
+            </form>
+            <div id="pageCoverTip" class="contentLine bottomContent hidden">
+                <hr />
+                <ul>
+                    <li class="left">
+                        <b data-lang="noticeInfo"></b>
+                    </li>
+                    <li class="left">
+                        <p data-lang="coverTip"></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>

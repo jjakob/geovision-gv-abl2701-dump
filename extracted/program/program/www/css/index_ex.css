@@ -1,0 +1,53 @@
+div.login_fullPage {
+    background-color: #C4C7CC;
+	height: 93%;
+	top: 50px;
+}
+
+.login-button {
+    background-color: #014F99; 
+	background-image: none;
+	color: #FFFFFF;
+	
+}
+
+.custom-btn-left {
+    background-color: #014F99;
+	background-image: none;
+	color: #FFFFFF;
+}
+
+.custom-btn-center{
+    background-color: #014F99;
+	background-image:none;
+	color: #FFFFFF;
+}
+
+.custom-btn-right{
+    background-color: #014F99;
+	background-image:none;
+	color: #FFFFFF;
+}
+
+.login_logo{
+    height: 50px;
+}
+
+.main_header_1{
+    height: 50px;
+	background-color: #014F99;
+	width: 100%;
+	color: #FFFFFF;
+	top:-16px;
+}
+.main_logo_1{
+    float: left;
+	line-height: 46px;
+}
+.main_logo_2{
+    float: right;
+	line-height: 46px;
+}
+
+
+

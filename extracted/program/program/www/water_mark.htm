@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>https_config.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Pragma" content="no-cache">
+    <link href="css/globe.css" type="text/css" rel="stylesheet">
+    <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+    <link href="css/validate.css" type="text/css" rel="stylesheet">
+   <script type="text/javascript" src="js/jquery.min.js"></script>
+   <script type="text/javascript" src="js/jquery.json.min.js"></script>
+    <script type="text/javascript" src="js/utils.js"></script>
+    <script type="text/javascript" src="js/ComScript.js"></script>
+    <script type="text/javascript">
+            //加载语言文件
+            loadlanguageFile(top.language);
+        </script>
+    <script type="text/javascript" src="js/jquery.validate.js"></script>
+    <script type="text/javascript" src="js/water_mark.js"></script>
+  </head>
+  
+  <body class="body">
+    <div class="pageDiv">
+            <form name="frmSetup" id="frmSetup">
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" data-lang="waterMark"></span>
+                    <span>
+                        <input type="radio" name="Enabled" id="waterMarkOpen" value="1" >
+                        <label for="waterMarkOpen" data-lang="open"></label>
+                        <input type="radio" name="Enabled" id="waterMarkClose" value="0" checked="checked">
+                        <label for="waterMarkClose" data-lang="close"></label>
+                    </span>
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" data-lang="videoWaterMarkTxt"></span>
+                    <span>
+                        <input type="text" name="Info" id="Info" >
+                    </span>
+                </div>
+                <span class="button_green" onclick="submitF()" >
+                    <input type="button" class="submit_btn" lang="saveData"/>
+                </span>
+            </form>
+        </div>
+  </body>
+</html>

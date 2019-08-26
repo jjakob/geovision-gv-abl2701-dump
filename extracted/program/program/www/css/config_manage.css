@@ -1,0 +1,54 @@
+@charset "utf-8";
+/* CSS Document */
+ul {
+    list-style: none;
+    padding: 7px 0px;
+}
+
+li {
+    float: left;
+    height: 24px;
+}
+
+.longTxt {
+    width: 100%;
+}
+
+.firstCol {
+    width: 160px;
+}
+
+.secCol_1 {
+    width: 480px;
+}
+
+.secCol {
+    width: 470px;
+    padding-right: 5px;
+}
+
+li.secCol label{margin-right: 15px;}
+fieldset {
+    margin-bottom: 10px;
+}
+.buttonW{min-width: 60px}
+.lbuttonW{min-width: 132px;}
+.tipDiv{display: inline;}
+.Wdate{width: 100px;}
+select {
+    width: 170px;
+}
+.rebootBtnWidth{ width:130px;}
+.fileUpload {
+    position: absolute;
+    opacity: 0;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    width: 70px;
+    height: 23px;
+    cursor:pointer;
+}
+.hide{
+    position: absolute;
+    top: -999em;
+    visibility: hidden;
+}

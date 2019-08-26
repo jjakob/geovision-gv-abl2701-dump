@@ -1,0 +1,124 @@
+#! /bin/sh
+#
+# autotest     autotest自动测试
+#
+# description: 提供生产用于老化测试
+# 2013-6-19 y00738 mod V8R1 装备拷机需求 红外灯开启最大功率
+# 2015-9-11 q02361 mod V6R2 装备拷机需求 关闭红外灯
+
+CONF=/config/*
+AUTOTEST_CFG=/config/autotest.cfg
+CONFA=/config/config_a.xml
+
+case "$1" in
+  on)
+	if [ ! -e "${CONFA}" ]; then
+		echo error! ${CONFA} is not exist!
+		exit 1
+	fi
+	killall -9 daemon mwareserver
+        cd /tmp
+	cp ${CONFA} /tmp
+	SL0=`grep "<Scene>"  config_a.xml -n | awk -F ':' '{print $1}' | head -n 1`
+	EL0=`grep "</Scene>" config_a.xml -n | awk -F ':' '{print $1}' | head -n 1`
+	SN=`sed -n "$SL0,$EL0 p" config_a.xml | awk 'BEGIN{FS="<CurrentUsed>";RS="</"}$NF~/[0-9]/&&$NF!~/.*>.*/{print $NF}'`
+    if [ ! "$SN" ]; then                                                                                             
+            echo "<CurrentUsed> is not exist!"    
+            exit 1                                
+    fi 
+           
+    SceneBegin=`printf "%s%s" "<Scene" "$SN"`
+    SceneEnd=`printf "%s%s" "</Scene" "$SN"`	
+    SL0=`grep $SceneBegin  config_a.xml -n | awk -F ':' '{print $1}' | head -n 1`
+    EL0=`grep $SceneEnd  config_a.xml -n | awk -F ':' '{print $1}' | head -n 1`
+    SL=`sed -n "$SL0,$EL0 p" config_a.xml -n | grep \<IrCtrl -n | awk -F ':' '{print $1}' | head -n 1`
+    SL=$(expr "$SL" + "$SL0")
+    EL=`sed -n "$SL0,$EL0 p" config_a.xml -n | grep \</IrCtrl -n | awk -F ':' '{print $1}' | head -n 1`
+    EL=$(expr "$EL" + "$SL0")
+        sed -e $SL,$EL's/<Mode>.*<\/Mode>/<Mode>3<\/Mode>/g' config_a.xml > config_a.xml.1
+        sed -e $SL,$EL's/<NearLevel>.*<\/NearLevel>/<NearLevel>0<\/NearLevel>/g' config_a.xml.1 > config_a.xml.2
+        sed -e $SL,$EL's/<MiddleLevel>.*<\/MiddleLevel>/<MiddleLevel>0<\/MiddleLevel>/g' config_a.xml.2 > config_a.xml.3
+        sed -e $SL,$EL's/<FarLevel>.*<\/FarLevel>/<FarLevel>0<\/FarLevel>/g' config_a.xml.3 > config_a.xml.4
+        cp config_a.xml.4 config_a.xml
+        rm config_a.xml.*
+        cp config_a.xml /config/
+		case "$2" in
+		  1)
+		   echo 002 > $AUTOTEST_CFG
+		   sync
+		   echo "autotest splash screen start"
+		   ;;
+		  *)
+		   echo 001 > $AUTOTEST_CFG
+		   echo "autotest switch ON"
+		   if [ "$3" ] ; then                                                            
+		   	htime=$3  
+		   	timeset=$(echo | awk -v vars=$htime '{print vars*10}')
+		   	tmp=`echo $timeset | sed 's/[0-9]//g'`
+		   	if [ -n "${tmp}" ] ; then
+		   		echo "the Param3 input is invalid!"
+		   	else 
+		   		echo | awk -v alltime=$htime '{print "all:" alltime*60}' >> $AUTOTEST_CFG
+		   		echo | awk -v vars=$htime '{print "t:" vars*60}' >> $AUTOTEST_CFG
+		   		echo "autotest will switch off $htime hours later"
+		   	fi
+                   else if [ ! "$2" ] ; then
+                   	echo "Attention:If you want to set autotest stoptime in Param3, Param2 is required."
+                   fi
+                   fi
+		   sync
+		   ;;
+                 esac
+		;;
+  off)
+        var=$(grep "00" $AUTOTEST_CFG)
+        varr="001"                                                                                    
+        result=$(echo $var | grep "${varr}")                                                          
+        	if [[ "$result" != "" ]] ; then
+		echo "autotest switch OFF"
+		else
+		echo "autotest splash screen end"
+		fi
+		case "$2" in
+		  clean)
+		    rm -rf $CONF
+		    killall -9 daemon mwareserver
+			reboot
+			;;
+		  *)
+		    rm -f $AUTOTEST_CFG
+			;;
+		esac
+	  sync
+        ;;
+   result)
+         S=$(manuinfotool | grep "DEVICE_SERIAL_NUMBER" | awk -F ':' '{print $2}' | sed 's/[[:space:]]//g').result
+		 cd /config
+		 tftp -pl $S $2 -b 8192
+		 sync
+		 cat ./$S
+		 rm -f ./$S
+		 ;;
+  status)                                                                                             
+          if [ -f "$AUTOTEST_CFG" ] ; then
+          	echo "autotest is on"
+          	atime=`grep "all:" $AUTOTEST_CFG | awk -F ':' '{print $2}'`
+          	time=`grep "t:" $AUTOTEST_CFG | awk -F ':' '{print $2}'` 
+          	if [ "$time" ] ; then
+          		echo | awk -v varrs=$atime '{print "the total time is " varrs/60 " hours."}'
+          		echo | awk -v varrs=$time '{print "the remaining time is " varrs/60 " hours."}' 
+          	fi                                                               
+          else                                                                                          
+          	echo "autotest is off"                                                                
+          fi                                                                                            
+          ;;
+  *)
+        echo $"Usage: $0 {on|off|result|status}"
+        echo $"Param1[required]: on stand for open autotest, off stand for close autotest"            
+        echo $"Param2[required]: fill in any integer expect 1 to open autotest"                       
+        echo $"Param3[optional]: fill in a float to set autotest endtime"
+        exit 1
+esac
+
+exit 0
+

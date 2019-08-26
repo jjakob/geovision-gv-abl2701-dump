@@ -1,0 +1,228 @@
+@CHARSET "UTF-8";
+body, .content_center{
+    background-color: #f1f2f3;
+    background: url("images/body_bg.jpg");
+    color: #fff;
+}
+
+FIELDSET LEGEND
+{
+    color: #fff;
+}
+
+#osdSection UL, #synPicSection UL, #illegalOsdDiv UL
+{
+    background-color: transparent;
+}
+
+FIELDSET, .panel, .weekPlanContentDiv {
+    border: 1px solid #6B6B6B;
+}
+
+SPAN.button, span.button_large{
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+}
+SPAN.button button, SPAN.button input,  span.button_large button,  span.button_large input{
+    background: URL("images/btn.gif") repeat-x 0px -42px;
+    border: 0;
+    color: #fff;
+}        
+SPAN.button:HOVER button, SPAN.button:HOVER input, SPAN.button_large:HOVER button, SPAN.button_large:HOVER input{
+    background: URL("images/btn.gif") repeat-x 0px -105px;
+}        
+SPAN.button .btn_l, SPAN.button_large .btn_l_large{
+    background: URL("images/btn.gif") no-repeat 0px 0px;
+    width: 3px;
+}
+SPAN.button:HOVER .btn_l, SPAN.button_large:HOVER .btn_l_large{
+    background: URL("images/btn.gif") no-repeat 0px -63px;
+}
+SPAN.button .btn_r, SPAN.button_large .btn_r_large{
+    background: URL("images/btn.gif") no-repeat 0px -21px;
+    width: 3px;
+}
+SPAN.button:HOVER .btn_r, SPAN.button_large:HOVER .btn_r_large{
+    background: URL("images/btn.gif") no-repeat 0px -84px;
+}
+SPAN.button input, SPAN.button button, .btn_l, .btn_r, SPAN.button_large input, SPAN.button_large button, .btn_l_large, .btn_r_large{
+    height: 21px;
+    line-height: 21px;
+    float: left;
+    cursor: pointer;
+}
+input[type=text], .text {
+    background-image: URL("images/text-bg.gif");
+    color: #FFF;
+    border: #9698a2 1px solid;
+    padding-left: 5px;
+}
+input{
+    zoom: expression(function(ele){(ele.className)?ele.className+=" "+ele.type:ele.className=ele.type; ele.style.zoom = "1";}(this));
+}
+select {
+    background: #61636c;
+    color: #FFF;
+    border: #9698a2 1px solid;
+}
+
+select option:hover {
+    background: #FFF;
+    color: #000;
+}
+.panelTitle
+{
+    height: 25px;
+    line-height: 25px;
+    background: url(images/panel_title_bg.gif) repeat-x 50% bottom;
+    border-bottom: 0px;
+}
+/************alarm_motion*************/
+.sizeline{
+    color: gray;
+}
+#alarmView{
+    border-color: gray;
+}
+
+/************oprate_osd*************/
+#picOsdDiv ul, #mjpegOsdDiv ul{background-color: transparent;}
+
+/****************弹出窗口******************/
+.popwin_title {
+    background: url(images/top_bg.png) repeat-x;
+    padding: 5px;
+}
+.popwin_content{top:29px;}
+.popwin_btnbar, .popwin_body {
+    background: url(images/top-bottom.png) repeat;
+}
+/****************frame******************/
+#btnDiv{border: 0px;}
+/***************** 场景计划 *********************/
+.plan-dialog-tab{
+    background-color: transparent;
+}
+
+.plan-dialog-ul {
+    color: #000;
+    background: transparent;
+}
+
+.plan-dialog-ul LI {
+    width: 80px;
+    margin-right: 20px;
+    background:  url(images/week_tab_off.jpg) no-repeat;
+}
+
+.plan-dialog-ul LI.selected{
+    background:  url(images/week_tab_on.jpg) no-repeat;
+}
+
+.custom-thead {
+    background: gray;
+}
+
+
+/************************ PTZ ***************************/
+.control-body{
+    background: #444444;
+}
+.ptz-panel{
+    background: #373737;
+     border: 1px solid #6B6B6B;
+}
+.ptz-extend-item {
+    background: url(images/ptz_btn_black.png) no-repeat 0 0;
+}
+.focus-far {
+    background-position: 0px 0px;
+}
+
+.focus-near {
+    background-position: -48px 0px;
+}
+
+.assistant-focus {
+    background-position: -768px 0px;
+}
+.assistant-focus-back {
+    background-position: -816px 0px;
+}
+
+.zoom-in {
+    background-position: -96px 0;
+}
+
+.zoom-out {
+    background-position: -144px 0;
+}
+
+.aperture-more {
+    background-position: -192px 0;
+}
+
+.aperture-less {
+    background-position: -240px 0;
+}
+
+.illuminate-open {
+    background-position: -288px 0px;
+}
+
+.illuminate-close {
+    background-position: -337px 0px;
+}
+
+.infrae-open {
+    background-position: -384px 0px;
+}
+
+.infrae-close {
+    background-position: -433px 0px;
+}
+
+.heatup-open {
+    background-position: -480px 0px;
+}
+
+.heatup-close {
+    background-position: -529px 0px;
+}
+
+.rainbrush-open {
+    background-position: -576px 0px;
+}
+
+.rainbrush-close {
+    background-position: -625px 0px;
+}
+
+.clearsnow-open {
+    background-position: -672px 0px;
+}
+
+.clearsnow-close {
+    background-position: -721px 0px;
+}
+
+.backFocusStart {
+    background-position: -337px 3px;
+}
+
+.backFocusStart_disable {
+    background-position: -337px -17px;
+}
+
+.backFocusPosition {
+    background-position: -357px 3px;
+}
+
+.backFocusPosition_disable {
+    background-position: -357px -17px;
+}
+
+.ptz-panel-speed {
+    color:#6B6B6B;
+}

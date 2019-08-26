@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+        <meta http-equiv="description" content="this is my page">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+        <link href="css/live.css" type="text/css" rel="stylesheet">
+        <link href="css/live_ex.css" type="text/css" rel="stylesheet">
+        <link href="css/ptzpanel.css" type="text/css" rel="stylesheet">
+        <link href="css/ptzpanel_ex.css" type="text/css" rel="stylesheet">
+        <link href="css/sdkviewer.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.json.min.js"></script>
+        <script type="text/javascript" src="js/json2.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/ComScript.js"></script>
+        <script type="text/javascript" src="js/jQselect.js"></script>
+        <script type="text/javascript" src="js/slider.js"></script>
+        <script type="text/javascript" src="js/device_type.js"></script>
+        <script type="text/javascript" src="js/plugin.js"></script>
+        <script type="text/javascript" src="js/sdkviewer.js"></script>
+    </head>
+    <body class="body">
+        <!--在实况上方加入提示下载安装控件信息-->
+        <div id="ieVersion"  class="ieVersion">
+            <iframe class="activeXDiv_bg" frameborder='0'></iframe>
+            <div class="activeXDiv">
+                <img alt="warning" src="images/icon-warning.gif">
+                <span data-lang="downloadTip3" class="downloadTip">&nbsp;</span>
+                <a id="download" class="download" href="ActiveX/Setup.exe" data-lang="download">&nbsp;</a>
+                <span data-lang="downloadTip2"></span>
+            </div>
+        </div>
+        <div id="activeX_obj"></div>
+        <div id="ctrlTR" class="hidden">
+            <div id="ctrlBody" class="control-body">
+                <div class="ptz-panel left" id="derectionBtns">
+                    <span class="ptz-panel-control">
+                        <img id="ptz" src="images/ptz.png" class="ptz-map" alt="" useMap="#ptzMap" />
+                        <map name="ptzMap" id="ptzMap">
+                            <area id="goUp" shape="poly" coords="38,5,49,2,61,0,74,2,84,5,72,36,67,34,61,33,56,34,51,35" data-title="up">
+                            <area id="rightUp" shape="poly" coords="84,5,72,36,77,38,82,42,85,46,87,51,118,38,113,28,105,18,95,11" data-title="rightUp">
+                            <area id="goRight" shape="poly" coords="87,51,118,38,121,49,123,61,121,74,118,85,87,72,89,67,90,61,89,56" data-title="right">
+                            <area id="rightDown" shape="poly" coords="118,85,87,72,85,77,82,81,77,85,72,87,85,118,94,113,104,105,112,96" data-title="rightDown">
+                            <area id="goDown" shape="poly" coords="72,87,85,118,75,121,61,123,48,121,38,118,51,87,56,89,61,90,67,89" data-title="down">
+                            <area id="leftDown" shape="poly" coords="38,118,51,87,46,85,42,82,38,77,36,72,5,85,10,94,19,105,29,113" data-title="leftDown">
+                            <area id="goLeft" shape="poly" coords="36,72,5,85,2,74,0,61,2,49,5,38,36,51,34,55,33,61,34,68" data-title="left">
+                            <area id="leftUp" shape="poly" coords="5,38,36,51,38,46,41,42,46,38,51,35,38,5,28,10,,18,18,11,27" data-title="leftUp">
+                            <area id="centerBtn" shape="circle" coords="61,61,28" data-title="stop" id="ptzStop">
+                        </map>
+                    </span>
+                    <span class="ptz-panel-speed" id="ptzPanelSpeed">
+                        -
+                        <div class="slider3" id="rotateSpeedSld">
+                            <div class="bar3" id="rotateSpeedBar"></div>
+                        </div>
+                        +
+                    </span>
+                </div>
+                <div class="ptz-btn right">
+                    <div class="ptz-preset">
+                        <select name="position" id="position"></select>
+                        <button type="button" class="icon call-preset" id="gotoPreset" hidefocus="true" data-title="gotoPreset"></button>
+                        <button type="button" class="icon black-edit" id="addPreset" hidefocus="true" data-title="add"></button>
+                        <button type="button" class="icon black-del" id="removePreset" hidefocus="true" data-title="del"></button>
+                    </div>
+                    <div class="ptz-extend-len hidden" id="LENSDiv">
+                        <div class="ptz-extend-line hidden" id="becomeBtns">
+                            <button type="button" id="BecomeSub1" class="ptz-extend-item zoom-in" hidefocus="true"
+                             data-title="zoomTele"></button><button type="button" id="BecomeAdd1" class="ptz-extend-item zoom-out"
+                             hidefocus="true" data-title="zoomWide"></button>
+                        </div>
+                        <div class="ptz-extend-line hidden" id="focusBtns">
+                            <button type="button" id="FocusSub1" class="ptz-extend-item focus-far" hidefocus="true"
+                            data-title="focusFar"></button><button type="button" id="FocusAdd1" class="ptz-extend-item focus-near"
+                            hidefocus="true" data-title="focusNear"></button>
+                        </div>
+                        <div class="ptz-extend-line hidden" id="apertureBtns">
+                            <button type="button" id="ApertureSub1" class="ptz-extend-item aperture-more" data-title="apertureMore"
+                            ></button><button type="button" id="ApertureAdd1" class="ptz-extend-item aperture-less"
+                             data-title="apertureLess"></button>
+                        </div>
+                        <div class="ptz-extend-line hidden" id="manualbackfocusBtns">
+                            <button type="button" id="manualbackfocusNear" class="ptz-extend-item focus-far" hidefocus="true"
+                            data-title="MBFFar"></button><button type="button" id="manualbackfocusFar" class="ptz-extend-item focus-near" 
+                            hidefocus="true" data-title="MBFNear"></button>
+                        </div>
+                        <div class="ptz-extend-line hidden" id="autobackfocusBtns">
+                            <button type="button" id="autobackfocusStart" class="ptz-extend-item assistant-focus" hidefocus="true"
+                            data-title="ABFStart"></button><button type="button" id="autobackfocusPosition" class="ptz-extend-item assistant-focus-back" 
+                            hidefocus="true" data-title="ABFPosition"></button>
+                        </div>
+                    </div>
+                    <div class="ptz-extend lastSection" id="ptzExtend">
+                        <div class="ptz-extend-block hidden" id="infrareBtns">
+                            <button class="ptz-extend-item infrae-open btn-up" hidefocus="true" data-cmd="0x0D01" data-title="infrareOn"></button>
+                            <button class="ptz-extend-item infrae-close" hidefocus="true" data-cmd="0x0D02" data-title="infrareOff"></button>
+                        </div>
+                        <div class="ptz-extend-block hidden" id="heatupBtns">
+                            <button class="ptz-extend-item heatup-open btn-up" hidefocus="true" data-cmd="0x0C01" data-title="heatupOn"></button>
+                            <button class="ptz-extend-item heatup-close" hidefocus="true" data-cmd="0x0C02" data-title="heatupOff"></button>
+                        </div>
+                        <div class="ptz-extend-block hidden" id="rainbrushBtns">
+                            <button class="ptz-extend-item rainbrush-open btn-up" hidefocus="true" data-cmd="0x0A01" data-title="rainbrushOn"></button>
+                            <button class="ptz-extend-item rainbrush-close" hidefocus="true" data-cmd="0x0A02" data-title="rainbrushOff"></button>
+                        </div>
+                        <div class="ptz-extend-block hidden" id="illuminateBtns">
+                            <button class="ptz-extend-item illuminate-open btn-up" hidefocus="true" data-cmd="0x0B01" data-title="illuminateOn"></button>
+                            <button class="ptz-extend-item illuminate-close" hidefocus="true" data-cmd="0x0B02" data-title="illuminateOff"></button>
+                        </div>
+                    </div>
+                    <div class="ptz-extend">
+                        <div class="ptz-extend-block hidden" id="clearsnowBtns">
+                            <button class="ptz-extend-item clearsnow-open btn-up" id="clearsnowOpen" hidefocus="true" onClick="sweepSnow(0x1301, varRotateSpeed, varRotateSpeed);"></button>
+                            <button class="ptz-extend-item clearsnow-close" id="clearsnowClose" hidefocus="true" onClick="sweepSnow(0x1302, varRotateSpeed, varRotateSpeed);"></button>
+                        </div>
+                    </div>
+                    <div class="ptz-extend lastSection hidden" id="ivaBtn">
+                        <div id="stopLiveStreamDiv" class="hidden">
+                            <button id="stopLiveStream" hidefocus="true" data-lang="stopLiveStream" onclick="startstopLivePlay()"></button>
+                        </div>
+                        <div class="ptz-extend-block">
+                            <span class="button_large">
+                                <span class="btn_l_large"></span><button id="gotoScenePreset" hidefocus="true" 
+                                data-lang="gotoScenePreset"></button><span class="btn_r_large"></span>
+                            </span>
+                        </div>
+                        <div class="ptz-extend-block">
+                            <span class="button_large">
+                                <span class="btn_l_large"></span><button id="addScenePreset" hidefocus="true" 
+                                data-lang="setScenePreset"></button><span class="btn_r_large"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="blockDiv" class="blockDiv"></div>
+        </div>
+    </body>
+    <script type="text/javascript" for= "recordManager_activeX" event="eventChangeRenderScale(fullscreen, scale, wndType)">
+        parent.video.dealEventChangeRenderScale(fullscreen, scale, wndType);
+    </script>
+    <script type="text/javascript" for="recordManager_activeX" event="EventExportDebugInfo(lResult)">
+        parent.video.dealEventExportDebugInfo(lResult);
+    </script>
+    <!--状态上报-->
+    <script type="text/javascript" for= "recordManager_activeX" event="eventStatusReport (lReportType, pcParam)">
+        parent.video.dealEventStatusReport(lReportType, pcParam);
+    </script>
+    <!-- 切换抓拍流  -->
+    <script type="text/javascript" for= "recordManager_activeX" event="eventRecvGrabStreamData()">
+        parent.video.dealEventRecvGrabStreamData();
+    </script>
+    <!-- 启停实况 -->
+    <script type="text/javascript" for= "recordManager_activeX" event="eventStopLive()">
+        parent.video.dealEventStopLive();
+    </script>
+    <!-- 启停语音对讲 -->
+    <script type="text/javascript" for= "recordManager_activeX" event="eventTalkCtrl(ulPort,lTalkCtrl)">
+        parent.video.dealEventTalkCtrl(ulPort,lTalkCtrl);
+    </script>
+    <!-- 实况流启停录像 -->
+    <script type="text/javascript" for= "recordManager_activeX" event="eventStorageCtrl(ulPort, lStorageCtrl)">
+        parent.video.dealEventStorageCtrl(ulPort, lStorageCtrl);
+    </script>
+    <!-- 锁屏/解锁 -->
+    <script type="text/javascript" for= "recordManager_activeX" event="eventSetLockWnd(lLockWnd)">
+        parent.video.dealEventSetLockWnd(lLockWnd);
+    </script>
+    <!-- 抓拍流启停录像-->
+    <script type="text/javascript" for= "recordManager_activeX" event="eventSetAutoSaveImg(bAutoSave)">
+        parent.video.dealEventSetAutoSaveImg(bAutoSave);
+    </script>
+    <!-- 运动告警坐标上报 -->
+    <script type="text/javascript" for= "recordManager_activeX" event="eventRgnPos(ulRectNum,pcPosInfo)">
+        parent.video.dealEventRgnPos(ulRectNum,pcPosInfo);
+    </script>
+    <!--智能设置坐标上报-->
+    <script type="text/javascript" for="recordManager_activeX" event="eventIntelAreaPos(lAreaType, lAreaID, pcPos)">
+        parent.video.dealEventIntelAreaPos(lAreaType, lAreaID, pcPos);
+    </script>
+    <!--智能分析坐标上报-->
+    <script type="text/javascript" for="recordManager_activeX" event="eventDrawObjParam(type, num, strParam)">
+        parent.video.dealEventDrawObjParam(type, num, strParam);
+    </script>
+    <!--智能分析选中上报-->
+    <script type="text/javascript" for="recordManager_activeX" event="eventSelDrawObj(type, num)">
+        parent.video.dealEventSelDrawObj(type, num);
+    </script>
+    <!--操作SD卡文件上报事件-->
+    <script type="text/javascript" for= "recordManager_activeX" event="eventOperSdFileRst(cmdType,operRst)">
+        parent.video.dealEventOperSdFileRst(cmdType,operRst);
+    </script>
+    <!-- 线框选中上报-->
+    <script type="text/javascript" for= "recordManager_activeX" event="eventSelectRim(rimNum)">
+        parent.video.dealEventSelectRim(rimNum);
+    </script>
+</html>

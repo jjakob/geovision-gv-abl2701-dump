@@ -1,0 +1,7 @@
+@charset "utf-8";
+/* CSS Document */
+ dt{clear: left;float: left;width: 70px;margin-right: 30px;}
+
+ select,.longText{width: 155px;}
+
+.errinfo{color: red;}

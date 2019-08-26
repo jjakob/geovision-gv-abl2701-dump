@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="Copyright"
+            content="Copyright (c) 2011 *** Corporation. All Rights Reserved.">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <title></title>
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.json.min.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/ComScript.js"></script>
+        <script type="text/javascript" src="js/4G_config.js"></script>
+    </head>
+    <body class="body">
+        <div class="pageDiv">
+            <form name="frmSetup" id="frmSetup">
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" data-lang="cardMode"></span>
+                    <select class="textLabel" name="CardMode" id="CardMode">
+                        <option value="0" data-lang="card_main"></option>
+                        <option value="1" data-lang="card_bak"></option>
+                    </select>
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" data-lang="APN"></span>
+                    <input type="text" class="textLabel" name="Apn" id="Apn" maxlength="64"/>
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" data-lang="userName"></span>
+                    <input type="text" class="textLabel" name="Username" id="Username" maxlength="64" />
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" data-lang="password"></span>
+                    <input type="password" autocomplete="off"  class="textLabel" name="Pwd" id="Pwd" maxlength="64" />
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" data-lang="authMethod"></span>
+                    <select class="textLabel" name="AuthMode" id="AuthMode">
+                        <option value="0" data-lang="none"></option>
+                        <option value="1">PAP</option>
+                        <option value="2">CHAP</option>
+                        <option value="3" data-lang="automatic"></option>
+                    </select>
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" data-lang="MCC"></span>
+                    <input type="text" class="textLabel" name="MCC" id="MCC" maxlength="3" />
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" data-lang="MNC"></span>
+                    <input type="text" class="textLabel" name="MNC" id="MNC" maxlength="3" />
+                </div>
+                <fieldset>
+                    <legend data-lang="statusInfo"></legend>
+                    <div class="contentLine">
+                        <span class="labelSpan strLimit" data-lang="roam"></span>
+                        <label id="Roam"></label>
+                    </div>
+                    <div class="contentLine">
+                        <span class="labelSpan strLimit" data-lang="netStatus"></span>
+                        <label id="NetStatus"></label>
+                    </div>
+                    <div class="contentLine">
+                        <span class="labelSpan strLimit" data-lang="sp"></span>
+                        <label id="SP"></label>
+                    </div>
+                    <div class="contentLine">
+                        <span class="labelSpan strLimit" data-lang="mcmode"></span>
+                        <label id="MCMode"></label>
+                    </div>
+                    <div class="contentLine">
+                        <span class="labelSpan strLimit" data-lang="rssi"></span>
+                        <label id="Rxlevel"></label>dBm
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <label id="Rssi"></label>asu
+                    </div>
+                </fieldset>
+                <span class="button_green" onclick="submitF()" >
+                    <input type="button" class="submit_btn" lang="saveData"/>
+                </span>
+            </form>
+        </div>
+    </body>
+</html>

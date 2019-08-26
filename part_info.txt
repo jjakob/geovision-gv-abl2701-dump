@@ -1,0 +1,9 @@
+$ file mtdparts/*
+mtdparts/boot:        data
+mtdparts/calibration: Linux jffs2 filesystem data little endian
+mtdparts/cliinfo:     MacBinary, comment length 50, char. code 0x32, more flags 0x2d, Mon Feb  6 07:28:16 2040 INVALID date, modified Mon Feb  6 07:28:16 2040, type ' :37' "\342\372*\364\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377"
+mtdparts/config:      Linux jffs2 filesystem data little endian
+mtdparts/kernel:      u-boot legacy uImage, Linux-3.18.20, Linux/ARM, OS Kernel Image (Not compressed), 1746881 bytes, Fri Dec 15 07:17:27 2017, Load Address: 0x80008000, Entry Point: 0x80008000, Header CRC: 0xD9E7BD49, Data CRC: 0x4BFA8C99
+mtdparts/mtd_runtime: data
+mtdparts/program:     Squashfs filesystem, little endian, version 4.0, 11860946 bytes, 922 inodes, blocksize: 65536 bytes, created: Fri Dec 15 07:23:01 2017
+

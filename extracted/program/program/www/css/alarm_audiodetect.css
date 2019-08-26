@@ -1,0 +1,24 @@
+/* CSS Document */
+     
+dt,dd {line-height: 1.5em;}
+dt {width: 110px; float: left;clear: left;}
+select, .normalTxt {width: 90px;}
+#alarmView{
+height: 400px;
+width: 426px;
+margin-left: 23px;
+overflow: hidden;
+border: 1px solid #B8B8B8;
+border-left: none;
+background: url("../images/staff_guage.png") no-repeat left -1px;
+}
+#thresholdHR_label{position: absolute;margin-top: 194px;}
+#thresholdHR_staff{position: absolute;left: 450px;margin-top: 194px;cursor: n-resize; background: url("../images/arrow.png") no-repeat;width: 8px;height: 13px;}
+.left_Content{width: 450px;}
+.left_Content label{width: 24px;text-align: right;}
+.left_Content span.button{margin-top: 10px;}
+.right_Content{margin-left: 470px;}
+.sizeline{width: 426px;position: absolute;margin-top: 200px;border: 0px;border-bottom: 1px solid #000;cursor: n-resize; left: 24px;}
+.activity{width: 1px;float: left;border: 0px;font-size: 0px; margin-left: 1px;}
+.blockDiv{filter:Alpha(Opacity=0);opacity:0; cursor: n-resize;}
+.shortBtn{min-width: 75px;}

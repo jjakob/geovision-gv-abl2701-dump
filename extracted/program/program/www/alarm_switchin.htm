@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta name="Copyright"
+            content="Copyright (c) 2011 *** Corporation. All Rights Reserved.">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+        <link href="css/validate.css" type="text/css" rel="stylesheet">
+        <link href="css/jquery.tooltip.css" type="text/css" rel="stylesheet">
+        <link href="css/alarm_linkout.css" type="text/css" rel="stylesheet">
+        <link href="css/plan.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.json.min.js"></script>        
+        <script type="text/javascript" src="js/jquery.tooltip.js"></script>
+        <script type="text/javascript" src="js/excanvas.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/ComScript.js"></script>
+        <script type="text/javascript" src="js/charlib.js"></script>
+        <script type="text/javascript" src="datepicker/WdatePicker.js"></script>
+        <script type="text/javascript" src="js/plan.js"></script>
+         <script type="text/javascript">
+            //加载语言文件
+            loadlanguageFile(top.language);
+        </script>
+        <script type="text/javascript" src="js/jquery.validate.js"></script>
+        <script type="text/javascript" src="js/alarm_switchin.js"></script>
+    </head>
+    <body class="body">
+        <div class="pageDiv">
+            <form name="frmSetup" id="frmSetup">
+                <div class="contentLine">
+                    <span class="labelSpan strLimit"><lang name="switchSelect"></lang></span>
+                    <span class="contentSpan">
+                        <select name="SwitchInId" id="SwitchInId"
+                            onChange="init(this.form)" style="width: 4.2cm">
+                        </select>
+                    </span>
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit"><lang name="switchNameDesc"></lang></span>
+                    <span id="SwitchNameDescTitle" class="contentSpan">
+                        <input name="SwitchNameDesc" id="SwitchNameDesc"
+                            onblur="showSwitchNameDesc(this.form)" value=""
+                            style="width: 4.2cm" maxlength="20">
+                    </span>
+                </div>
+                <div class="contentLine" id="switchInTR">
+                    <span class="labelSpan strLimit"><lang name="switchID"></lang></span>
+                    <span id="SwitchNameDescTitle" class="contentSpan">
+                        <input name="SwitchID" id="SwitchID"  value=""                                
+                                style="width: 4.2cm" maxlength="20">
+                    </span>
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit"><lang name="switchRunMode"></lang></span>
+                    <span class="contentSpan">
+                        <select name="RunMode" style="width: 4.2cm">
+                            <option lang="longOpen" value="1"></option>
+                            <option lang="longClose" value="2"></option>
+                        </select>
+                    </span>
+                </div>
+                <div id="portMapDiv" class="contentLine">
+                    <span class="labelSpan strLimit" ><lang name="openSwitchSelect"></lang></span>
+                    <span class="contentSpan">
+                        <input type="radio" name="IsEnable" id="openSwitchSelectYes" value="1" checked="checked">
+                        <label for="openSwitchSelectYes"><lang name="open"></lang></label>
+                    </span>
+                    <span class="contentSpan">
+                        <input type="radio" name="IsEnable" id="openSwitchSelectNo" value="0">
+                        <label for="openSwitchSelectNo"><lang name="close"></lang></label>
+                    </span>
+                </div>              
+                <div id="linkOutIFrame"></div>
+                <div id="planDiv"></div>
+                <span class="button_green" onclick="submitF()" >
+                    <input type="button" class="submit_btn" lang="saveData"/>
+                </span>
+            </form>
+        </div>
+    </body>
+</html>

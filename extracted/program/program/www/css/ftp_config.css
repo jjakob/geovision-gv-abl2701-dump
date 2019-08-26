@@ -1,0 +1,28 @@
+@charset "utf-8";
+/* CSS Document */
+ul li{margin:5px;}
+select{width:120px;}
+#baseInfo input[type='text'], #baseInfo input[type='password']{width:150px;}
+td{width:100px;}
+.lineDiv{border-bottom: 1px solid grey; border-left:1px solid grey; float:left;width:30px;height:10px;margin-left:10px;}
+.dataViewTbody{height:150px; position:relative;}
+#epPicNameRule div{position:relative;}
+#picNameRule div{position:relative;}
+.absoluteDiv{width:100px;position:absolute;}
+.dataView{width: 567px;}
+.shortTxt{width:80px;}
+.middleTxt{width:130px;margin:0px 5px 0px 0px;}
+fieldset{margin-left: 5px;}
+.basePathname {float: left;margin-left: 5px;}
+#ul1{margin-top: 15px;display: inline;}
+#ul1 li{float:left;margin-top: 15px;}
+#ul3{margin-top: 15px;display: inline;}
+#ul3 li{float:left;margin-top: 15px;}
+.labelSpan{width:180px;}
+.tab_bar button {
+    font-size:12px;
+    font-family: "Microsoft YaHei", \5FAE\8F6F\96C5\9ED1, Arial, Helvetica, sans-serif;
+}
+.bottomContent{
+    margin-top:10px;
+}

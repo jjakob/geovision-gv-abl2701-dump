@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta name="Copyright"
+            content="Copyright (c) 2011 *** Corporation. All Rights Reserved.">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+        <link href="css/config.css" type="text/css" rel="stylesheet">
+        <link href="css/config_ex.css" type="text/css" rel="stylesheet">
+        <link href="css/dataview.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/ComScript.js"></script>
+        <script type="text/javascript" src="datepicker/WdatePicker.js"></script>
+        <script type="text/javascript" src="js/week_plan.js"></script>
+    </head>
+    <body class="body auto_height">
+        <form name="frmSetup" id="frmSetup">
+            <div class="plan-dialog-tab">
+                <ul class="plan-dialog-ul">
+                    <li onclick="toggle(this, 0)" class="plan-dialog-li selected strLimit">
+                        <lang name="Monday"></lang>
+                    </li>
+                    <li onclick="toggle(this, 1)" class="plan-dialog-li strLimit">
+                        <lang name="Tuesday"></lang>
+                    </li>
+                    <li onclick="toggle(this, 2)" class="plan-dialog-li strLimit">
+                        <lang name="Wednesday"></lang>
+                    </li>
+                    <li onclick="toggle(this, 3)" class="plan-dialog-li strLimit">
+                        <lang name="Thursday"></lang>
+                    </li>
+                    <li onclick="toggle(this, 4)" class="plan-dialog-li strLimit">
+                        <lang name="Friday"></lang>
+                    </li>
+                    <li onclick="toggle(this, 5)" class="plan-dialog-li plan-dialog-red strLimit">
+                        <lang name="Saturday"></lang>
+                    </li>
+                    <li onclick="toggle(this, 6)" class="plan-dialog-red strLimit">
+                        <lang name="Sunday"></lang>
+                    </li>
+                </ul>
+                <div class="plan-dialog-content dataView" style="width:434px">
+                    <div class="dataViewThead">
+                        <table cellpadding="2" cellspacing="0" class="dataViewTbl textCell" width="100%">
+                            <col width="90px">
+                            <col width="170px">
+                            <col width="170px">
+                            <thead>
+                                <tr>
+                                    <td>
+                                        <lang name="rowNum"></lang>
+                                    </td>
+                                    <td>
+                                        <lang name="startTime"></lang>
+                                    </td>
+                                    <td>
+                                        <lang name="endTime"></lang>
+                                    </td>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="dataViewTbody">
+                        <table cellpadding="2" cellspacing="0" class="dataViewTbl textCell" >
+                            <col width="90px">
+                            <col width="170px">
+                            <col width="170px">
+                            <tbody id="dataview_tbody">
+                                <tr>
+                                    <td>1</td>
+                                    <td><input name="StartTime1" id="StartTime1" type="text" value="" class="Wdate" /></td>
+                                    <td><input name="EndTime1" id="EndTime1" type="text" value="" class="Wdate"/></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td><input name="StartTime2" id="StartTime2" type="text" value="" class="Wdate"/></td>
+                                    <td><input name="EndTime2" id="EndTime2" type="text" value="" class="Wdate"/></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td><input name="StartTime3" id="StartTime3" type="text" value="" class="Wdate" /></td>
+                                    <td><input name="EndTime3" id="EndTime3" type="text" value="" class="Wdate"/></td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td><input name="StartTime4" id="StartTime4" type="text" value="" class="Wdate" /></td>
+                                    <td><input name="EndTime4" id="EndTime4" type="text" value="" class="Wdate"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="plan-copy-div clearfix">
+                    <ul>
+                        <li class="line">
+                            <label class="weekTip strLimit" data-lang="copyTo"></label>
+                            <input id="selectAll" type='checkbox'/>
+                            <label for="selectAll"><lang name="selectAll"></lang></label>
+                        </li>
+                        <li>
+                            <input id="checkbox0" type='checkbox' value='0' checked="checked" disabled="disabled"/>
+                            <label for="checkbox0"><lang name="Monday"></lang></label>
+                        </li>
+                        <li>
+                            <input id="checkbox1" type='checkbox' value='1'/>
+                            <label for="checkbox1"><lang name="Tuesday"></lang></label>
+                        </li>
+                        <li>
+                            <input id="checkbox2" type='checkbox' value='2'/>
+                            <label for="checkbox2"><lang name="Wednesday"></lang></label>
+                        </li>
+                        <li>
+                            <input id="checkbox3" type='checkbox' value='3'/>
+                            <label for="checkbox3"><lang name="Thursday"></lang></label>
+                        </li>
+                        <li>
+                            <input id="checkbox4" type='checkbox' value='4'/>
+                            <label for="checkbox4"><lang name="Friday"></lang></label>
+                        </li>
+                        <li>
+                            <input id="checkbox5" type='checkbox' value='5'/>
+                            <label for="checkbox5"><lang name="Saturday"></lang></label>
+                        </li>
+                        <li>
+                            <input id="checkbox6" type='checkbox' value='6'/>
+                            <label for="checkbox6"><lang name="Sunday"></lang></label>
+                        </li>
+                        <li class="line">
+                            <span class="button right" id="copy">
+                                <input type="button" lang="copy" class="submit_btn"/>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </form>
+    </body>
+</html>
+

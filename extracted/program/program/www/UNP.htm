@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="Copyright" content="Copyright (c) 2013 *** Corporation. All Rights Reserved.">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title></title>
+    <link href="css/globe.css" type="text/css" rel="stylesheet">
+    <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+    <link href="css/validate.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.json.min.js"></script>
+    <script type="text/javascript" src="js/utils.js"></script>
+    <script type="text/javascript" src="js/ComScript.js"></script>
+    <script type="text/javascript">
+        //加载语言文件
+        loadlanguageFile(top.language);
+    </script>
+    <script type="text/javascript" src="js/jquery.validate.js"></script>
+    <script type="text/javascript" src="js/UNP.js"></script>
+</head>
+<body class="body">
+<div class="pageDiv">
+    <form name="frmSetup" id="frmSetup">
+        <div id="UNPTbl" >
+                <div class="textCell contentLine">
+                            <span class="labelSpan strLimit">
+                                <lang name="UNP"></lang>
+                            </span>
+                    <input type="radio" name="UNPEnable" id="UNPOpen" value="1" checked="checked">
+                    <label for="UNPOpen" data-lang="open"></label>
+                    <input type="radio" name="UNPEnable" id="UNPClose" value="0" >
+                    <label for="UNPClose" data-lang="close"></label>
+                </div>
+                <div class="textCell contentLine">
+                            <span class="labelSpan strLimit">
+                                <lang name="networkType"></lang>
+                            </span>
+                    <select class="textLabel" name="Interface" id="Interface">
+                        <option value= '0' data-lang="wired"></option>
+                    </select>
+                </div>
+                <div class="textCell contentLine">
+                            <span class="labelSpan strLimit">
+                                <lang name="UNPSvr"></lang>
+                            </span>
+                    <input name="UNPAddress" id="UNPAddress" style="width: 170px;" value="0.0.0.0" maxlength="15">
+                </div>
+                <div class="textCell contentLine">
+                            <span class="labelSpan strLimit">
+                                <lang name="UNPIdentify"></lang>
+                            </span>
+                    <input type="radio" name="UNPIdentify" id="UNPIdentifyYes" value="1">
+                    <label for="UNPIdentifyYes"><lang name="yes"></lang></label>
+                    <input type="radio" name="UNPIdentify" id="UNPIdentifyNo" value="0">
+                    <label for="UNPIdentifyNo"><lang name="no"></lang></label>
+                </div>
+                <div class="textCell contentLine">
+                    <span class="labelSpan strLimit"><lang name="usrName"></lang> </span>
+                    <input name="UNPUserName" id="UNPUserName" type="text" value=""
+                           style="width: 4.5cm" size="22" maxlength="32">
+
+                </div>
+                <div class="textCell contentLine">
+                    <span class="labelSpan strLimit"><lang name="usrPwd"></lang> </span>
+                    <input name="UNPPassword" id="UNPPassword" type="password" autocomplete="off"  size="22"
+                           style="width: 4.5cm" maxlength="32" value=""
+                           onFocus="initUNPPwdChanged(this.form)">
+                </div>
+        </div>
+        <span class="button_green" onClick="submitF()" >
+          <input type="button" class="submit_btn" lang="saveData"/>
+       </span>
+    </form>
+</div>
+</body>
+</html>

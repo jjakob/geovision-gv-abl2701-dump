@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="Copyright" content="Copyright (c) 2011 *** Corporation. All Rights Reserved.">
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title></title>
+  <link href="css/globe.css" type="text/css" rel="stylesheet">
+  <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+  <link href="css/validate.css" type="text/css" rel="stylesheet">
+  <link href="css/https_config.css" type="text/css" rel="stylesheet">
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.json.min.js"></script>
+  <script type="text/javascript" src="js/ajaxfileupload.js"></script>
+  <script type="text/javascript" src="js/utils.js"></script>
+  <script type="text/javascript" src="js/ComScript.js"></script>
+  <script type="text/javascript" src="datepicker/WdatePicker.js"></script>
+  <script type="text/javascript">
+            //加载语言文件
+            loadlanguageFile(top.language);
+  </script>
+  <script type="text/javascript" src="js/jquery.validate.js"></script>
+  <script type="text/javascript" src="js/jquery.blockUI.js"></script>
+  <script type="text/javascript" src="js/https_config.js"></script>
+  </head>
+  
+  <body class="body">
+    <div class="pageDiv">
+            <form name="frmSetup" id="frmSetup">
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" data-lang="Https"></span>
+                    <span class="contentSpan">
+                        <input type="radio" name="EnableHTTPS" id="HTTPSOpen" value="1">
+                        <label for="HTTPSOpen" data-lang="open"></label>
+                        <input type="radio" name="EnableHTTPS" id="HTTPSClose" value="0" checked="checked">
+                        <label for="HTTPSClose" data-lang="close"></label>
+                    </span>
+                </div>
+                <div class="contentLine hidden">
+                    <span class="labelSpan strLimit" data-lang="SSLCertificate"></span>
+                    <span class="contentSpan">
+                        <input type="text" name="FileNameTxt" id="FileNameTxt" maxlength="200" onKeyDown="this.readOnly=1"
+                               onpaste="return false" onMouseDown="this.readOnly=1" class="longText">
+                    </span>
+                    <span style="display: inline-block;position: relative">
+                        <input type="file" name="FileName"  id="FileName" class="fileUpload" accept=".pem" onchange="chooseFileText(this.id)">
+                        <span class="button">
+                            <input type="button" name="browse" id="browse" class="buttonW" lang="browser">
+                        </span>
+                        <span class="button">
+                            <input type="button" name="importBtn" id="importBtn" class="buttonW"
+                                    disabled="disabled" lang="upload">
+                        </span>
+                    </span>
+                </div>
+                <span class="button_green" onClick="submitF()" >
+                    <input type="button" class="submit_btn" lang="saveData"/>
+                </span>
+            </form>
+        </div>
+  </body>
+</html>

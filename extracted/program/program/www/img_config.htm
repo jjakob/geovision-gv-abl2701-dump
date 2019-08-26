@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="pragma" content="no-cache">
+        <meta http-equiv="cache-control" content="no-cache">
+        <meta http-equiv="expires" content="0">
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+        <link href="css/validate.css" type="text/css" rel="stylesheet">
+        <link href="css/dataview.css" type="text/css" rel="stylesheet">
+        <link href="css/img_config.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.json.min.js"></script>
+        <script type="text/javascript" src="js/jquery.dimensions.js"></script>
+        <script type="text/javascript" src="js/jquery.blockUI.js"></script>
+        <script type="text/javascript" src="js/ComScript.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/slider.js"></script>
+        <script type="text/javascript" src="js/jQselect.js"></script>
+        <script type="text/javascript" src="js/dataview.js"></script>
+        <script type="text/javascript" src="datepicker/WdatePicker.js"></script>
+        <script type="text/javascript" src="js/img_config.js"></script>
+    </head>
+    <body class="body" onbeforeunload="release();">
+        <div class="pageDiv">
+        <div id="blockDiv" class="blockDiv"></div>
+            <div class="left_Content">
+                <div id="recordManager_div_activeX">
+                </div>
+            </div>
+            <div class="right_Content">
+                <div id="sceneTbl" class="hidden">
+                <form name="sceneForm" id="sceneForm" class="hidden">
+                <input type="hidden" name="DefaultSceneID" id="DefaultSceneID">
+                <fieldset class="close">
+                    <legend><span></span><lang name="sceneConfigTitle"></lang></legend>
+                    <div id="sceneDiv" class="hidden" apiType="scene" flag="0">
+                    <div class="sceneDiv">
+                    <div id="sceneInfoDiv" class="dataView">
+                        <div class="dataViewThead">
+                            <table cellpadding="2" cellspacing="0" class="dataViewTbl textCell">
+                                <col width="45px">
+                                <col width="50px">
+                                <col width="160px">
+                                <col class="autoChangeCol" width="95px">
+                                <col>
+                                <thead>
+                                    <tr>
+                                        <td>
+                                            <lang name="rowNum"></lang>
+                                        </td>
+                                        <td>
+                                            <lang name="currentSence"></lang>
+                                        </td>
+                                        <td>
+                                            <lang name="sceneName"></lang>
+                                        </td>
+                                        <td>
+                                            <lang name="addToAuto"></lang>
+                                        </td>
+                                        <td>
+                                            <lang name="configName"></lang>
+                                        </td>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        <div class="dataViewTbody">
+                            <table cellpadding="2" cellspacing="0" class="dataViewTbl textCell" >
+                                <col width="45px">
+                                <col width="50px">
+                                <col width="160px">
+                                <col class="autoChangeCol" width="95px">
+                                <col>
+                                <tbody id="sceneInfo">
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="blockDiv2" class="blockDiv"></div>
+                    </div>
+                    <div id="conditionInfoDiv">
+                        <span style="margin: 10px 0px; font-weight: bold;"><lang name="sceneNameTitle"></lang><label id="sceneNameLabel"></label></span>
+                        <div class="dataView">
+                            <div class="dataViewThead">
+                                <table cellpadding="2" cellspacing="0" class="dataViewTbl textCell">
+                                    <col id="planTimeCol" width="200px">
+                                    <col class="planIlluminationCol">
+                                    <col class="plumbAngleCol" width="1px">
+                                    <thead>
+                                        <tr>
+                                            <td>
+                                                <lang name="planTime"></lang>
+                                            </td>
+                                            <td>
+                                                <lang name="planIllumination"></lang>
+                                            </td>
+                                            <td class="hidden_td hidden">
+                                                <lang name="plumbAngle"></lang>
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            <div class="dataViewTbody">
+                                <table cellpadding="2" cellspacing="0" class="dataViewTbl textCell" >
+                                    <col id="planTimeCol2" width="200px">
+                                    <col class="planIlluminationCol">
+                                    <col class="plumbAngleCol" width="1px">
+                                    <tbody id="conditionInfo">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div style="text-align: center;margin: 10px 0px">
+                            <span class="button">
+                                <input type="button" id="okBtn" lang="confirm"/>
+                            </span>
+                            <span class="button">
+                                <input type="button" id="cancelBtn" lang="cancel">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                        <div id="illuminationDiv" class="left">
+                            <lang name="currentLight"></lang>
+                            <span id="illumination">0</span>
+                            <button type="button" id="freshBtn1" class="icon refresh" onClick="getCurrentValue('illumination', sceneConditionType.ILLUMINATION, $.lang.tip['tipGetIlluminationFailded'])"></button>
+                        </div>
+                        <div id="plumbAngleDiv" class="left hidden">
+                            <lang name="currentPlumbAngle"></lang>
+                            <span id="plumbAngle">0</span>
+                            <button type="button" id="freshBtn2" class="icon refresh" onClick="getCurrentValue('plumbAngle', sceneConditionType.CONDITION_TILT, $.lang.tip['tipGetPlumbAngleFailded'])"></button>
+                        </div>
+                    </div>
+                </fieldset>
+                </form>
+                </div>
+                <form name="frmSetup" id="frmSetup">
+                    <div id="SimpleSceneDiv" class="hidden">
+                        <span class="leftSpan"><lang name="scene"></lang></span>
+                        <select id="SimpleScene" name="SimpleScene">
+                            <option value="0" lang="whiteStandoff7"></option>
+                            <option value="1" lang="whiteStandoff8"></option>
+                        </select>
+                    </div>
+                    <div id="MeteringAreaDiv" class="hidden">
+                        <input type='hidden' name="TopLeftX" id="TopLeftX" value=0 />
+                        <input type='hidden' name="TopLeftY" id="TopLeftY" value=0 />
+                        <input type='hidden' name="BotRightX" id="BotRightX" value=0 />
+                        <input type='hidden' name="BotRightY" id="BotRightY" value=0 />
+                    </div>
+                    <div class="clearfix sectionDiv hidden" id="enableAutoChange">
+                            <input type="checkbox" name="PlanEnable" id="PlanEnable" style="z-index: 102; position: relative;">
+                            <label for="PlanEnable"><lang name="enableAutoChange"></lang></label>
+                   </div>
+                    <div class="clearfix">
+                         <div id="ImageTypeItem" class="left">
+                                <input type="radio" name="ImageType" id="ImageTypeLive" value="0" cap="0" checked="checked" />
+                                    <label for="ImageTypeLive"><lang name="live"></lang></label>
+                                <input type="radio" name="ImageType" id="ImageTypePhoto" value="1" cap="1" />
+                                    <label for="ImageTypePhoto"><lang name="photo"></lang></label>
+                        </div>
+                        <div id="resetDiv" class="right">
+                            <span class="button">
+                                <input name="restoreallparams" style="width: auto"onClick="restoreDefaultParam()" type="button" lang="restoredefaultparam" />
+                            </span>
+                        </div>
+                    </div>
+                    <fieldset id="EnhanceFields">
+                        <legend id="EnhanceLeg">
+                            <span></span><lang name="enhanceFields"></lang>
+                        </legend>
+                        <div class="div_content" id="div_content_enhance" apiType="Enhance" flag="0">
+                            <div class="unit">
+                                <ul class="hidden" id="BrightnessItem">
+                                    <li class="firstCol strLimit">
+                                        <lang name="brightness"></lang>
+                                    </li>
+                                    <li>
+                                        <div class="slider3" id="BrightnessSld">
+                                            <div class="bar3" id="BrightnessBar"></div>
+                                        </div>
+                                        <input name="Brightness" id="Brightness" value="128" apiType="Enhance" style="width: 0.8cm" size="6"
+                                            maxlength="3" onChange="onSliderChanged(this);" onKeyPress="onPicKeyPress(this);"
+                                        >
+                                    </li>
+                                </ul>
+                                <ul class="hidden" id="SaturationtItem">
+                                    <li class="firstCol strLimit">
+                                        <lang name="saturation"></lang>
+                                    </li>
+                                    <li>
+                                        <div class="slider3" id="SaturationSld">
+                                            <div class="bar3" id="SaturationBar"></div>
+                                        </div>
+                                        <input name="Saturation" id="Saturation" value="128" apiType="Enhance" style="width: 0.8cm" size="6"
+                                            maxlength="3" onChange="onSliderChanged(this);" onKeyPress="onPicKeyPress(this);"
+                                        >
+                                    </li>
+                                </ul>
+                                <ul class="hidden" id="ContrastItem">
+                                    <li class="firstCol strLimit">
+                                        <lang name="contrast"></lang>
+                                    </li>
+                                    <li>
+                                        <div class="slider3" id="ContrastSld">
+                                            <div class="bar3" id="ContrastBar"></div>
+                                        </div>
+                                        <input name="Contrast" id="Contrast" value="128" apiType="Enhance" style="width: 0.8cm" size="6" maxlength="3"
+                                            onchange="onSliderChanged(this);" onKeyPress="onPicKeyPress(this);"
+                                        >
+                                    </li>
+                                </ul>
+                                <ul class="hidden" id="HueItem">
+                                    <li class="firstCol strLimit">
+                                        <lang name="tone"></lang>
+                                    </li>
+                                    <li>
+                                        <div class="slider3" id="HueSld">
+                                            <div class="bar3" id="HueBar"></div>
+                                        </div>
+                                        <input name="Hue" id="Hue" value="128" apiType="Enhance" style="width: 0.8cm" size="6" maxlength="3"
+                                            onchange="onSliderChanged(this);" onKeyPress="onPicKeyPress(this);"
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="hidden unit" id="SharpnessModeItem">
+                                <ul id="SharpnessModeUL">
+                                    <li class="firstCol strLimit">
+                                        <lang name="sharpnessMode"></lang>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="SharpnessMode" id="modeAutomatic" value="0" apiType="Enhance" cap="1" checked="checked" />
+                                        <label for="modeAutomatic"><lang name="automatic"></lang></label>
+                                        <input type="radio" name="SharpnessMode" id="modeManual" value="1" apiType="Enhance" cap="2" />
+                                        <label for="modeManual"><lang name="manual"></lang></label>
+                                    </li>
+                                </ul>
+                                <ul class="hidden" id="sharpnessSlider">
+                                    <li class="firstCol strLimit">
+                                        <lang name="sharpness"></lang>
+                                    </li>
+                                    <li>
+                                        <div class="slider3" id="SharpnessSld">
+                                            <div class="bar3" id="SharpnessBar"></div>
+                                        </div>
+                                        <input name="Sharpness" id="Sharpness" value="0" apiType="Enhance" style="width: 0.8cm" size="6" maxlength="3"
+                                            onchange="onSliderChanged(this);" onKeyPress="onPicKeyPress(this);"
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="unit">
+                                <ul class="hidden" id="Denoise2DItem">
+                                    <li class="firstCol strLimit">
+                                        <lang name="denoise2D"></lang>
+                                    </li>
+                                    <li>
+                                        <div class="slider3" id="Denoise2DSld">
+                                            <div class="bar3" id="Denoise2DBar"></div>
+                                        </div>
+                                        <input type="text" name="Denoise2D" id="Denoise2D" apiType="Enhance" value="128" style="width: 0.8cm" size="6"
+                                            maxlength="3" onChange="onSliderChanged(this);" onKeyPress="onPicKeyPress(this);"
+                                        />
+                                    </li>
+                                </ul>
+                                <ul class="hidden" id="Denoise3DItem">
+                                    <li class="firstCol strLimit">
+                                        <lang name="denoise3D"></lang>
+                                    </li>
+                                    <li>
+                                        <div class="slider3" id="Denoise3DSld">
+                                            <div class="bar3" id="Denoise3DBar"></div>
+                                        </div>
+                                        <input type="text" name="Denoise3D" id="Denoise3D" apiType="Enhance" value="128" style="width: 0.8cm" size="6"
+                                            maxlength="3" onChange="onSliderChanged(this);" onKeyPress="onPicKeyPress(this);"
+                                        />
+                                    </li>
+                                </ul>
+                                <div id="denoise3DInfo" class="hidden">
+                                    <span><lang name="denoise3DTip"></lang></span>
+                                </div>
+                                
+                            </div>
+                            <ul class="hidden" id="MirrorModeItem">
+                                <li class="firstCol strLimit">
+                                    <lang name="rotation"></lang>
+                                </li>
+                                <li>
+                                    <select name="MirrorMode" id="MirrorMode" apiType="Enhance">
+                                        <option lang="rotation0" value="0" cap="0" selected="selected">
+                                        </option>
+                                        <option lang="rotation1" value="1" cap="1">
+                                        </option>
+                                        <option lang="rotation2" value="2" cap="2">
+                                        </option>
+                                        <option lang="rotation3" value="3" cap="3">
+                                        </option>
+                                        <option lang="rotation4" value="4" cap="4">
+                                        </option>
+                                        <option lang="rotation5" value="5" cap="5">
+                                        </option>
+                                    </select>
+                                </li>
+                            </ul>
+                        </div>
+                    </fieldset>
+                    <fieldset class="close" id="ExposureFields">
+                        <legend id="ExposureLeg">
+                            <span></span><lang name="exposureFields"></lang>
+                        </legend>
+                        <div class="div_content hidden" id="div_content_exposure" apiType="Exposure" flag="0">
+                            <ul class="hidden" id="ExposureModeItem">
+                                <li class="firstCol strLimit">
+                                    <lang name="exposureMode"></lang>
+                                </li>
+                                <li>
+                                    <select name="ExposureMode" id="ExposureMode" apiType="Exposure">
+                                        <option lang="autoExposure" value="0" cap="1">
+                                        </option>
+                                        <option lang="customExposure" value="1" cap="3">
+                                        </option>
+                                        <option lang="shutterFirst" value="2" cap="4">
+                                        </option>
+                                        <option lang="apertureFirst" value="3" cap="5">
+                                        </option>
+                                        <option lang="gainFirst" value="4" cap="6">
+                                        </option>
+                                        <option lang="indoor50" value="5" cap="7">
+                                        </option>
+                                        <option lang="indoor60" value="6" cap="8">
+                                        </option>
+                                        <option lang="manualExposure" value="7" cap="2">
+                                        </option>
+                                        <option lang="lowMotionBlur" value="8" cap="9">
+                                        </option>
+                                    </select>
+                                </li>
+                            </ul>
+                            <ul class="hidden" id="ExposureShutterItem">
+                                <li id="shutTimeLi" class="firstCol strLimit">
+                                    <lang name="shutTimeSecs"></lang><label id="usUnit"></label><label id="sUnit"></label>
+                                </li>
+                                <li>
+                                    <div id="usDiv" name="usDiv">
+                                        <input type="text" name="ExposureShutter" id="ExposureShutter" apiType="Exposure" class="nomalTxt"
+                                             onchange="setInputValue(this)" onKeyPress="onPicKeyPress(this);"/>
+                                        <div id="rangeShutter" class="hidden">
+                                        <input type="text" name="ExposureFastShutter" id="ExposureFastShutter" apiType="Exposure" class="shortText2 hidden"
+                                             onchange="setInputValue(this)" onKeyPress="onPicKeyPress(this);"/>
+                                        <label id="shutterLabel">~</label>
+                                        <input type="text" name="ExposureSlowShutter" id="ExposureSlowShutter" apiType="Exposure" class="shortText2 hidden"
+                                             onchange="setInputValue(this)" onKeyPress="onPicKeyPress(this);"/>
+                                        </div>
+                                    </div>
+                                    <div id="sDiv" name="sDiv">
+                                        <select name="ExposureShutter" id="ExposureShutter" apiType="Exposure" onChange="submitF($(this).attr('apiType'))">
+                                            <option value="1" cap="1">
+                                                1
+                                            </option>
+                                            <option value="2" cap="2">
+                                                1/2
+                                            </option>
+                                            <option value="3" cap="3">
+                                                1/3
+                                            </option>
+                                            <option value="4" cap="4">
+                                                1/4
+                                            </option>
+                                            <option value="6" cap="6">
+                                                1/6
+                                            </option>
+                                            <option value="8" cap="8">
+                                                1/8
+                                            </option>
+                                            <option value="10" cap="10">
+                                                1/10
+                                            </option>
+                                            <option value="12" cap="12">
+                                                1/12
+                                            </option>
+                                            <option value="15" cap="15">
+                                                1/15
+                                            </option>
+                                            <option value="20" cap="20">
+                                                1/20
+                                            </option>
+                                            <option value="25" cap="25">
+                                                1/25
+                                            </option>
+                                            <option value="30" cap="30" selected="selected">
+                                                1/30
+                                            </option>
+                                            <option value="50" cap="50">
+                                                1/50
+                                            </option>
+                                            <option value="60" cap="60">
+                                                1/60
+                                            </option>
+                                            <option value="100" cap="100">
+                                                1/100
+                                            </option>
+                                            <option value="120" cap="120">
+                                                1/120
+                                            </option>
+                                            <option value="150" cap="150">
+                                                1/150
+                                            </option>
+                                            <option value="180" cap="180">
+                                                1/180
+                                            </option>
+                                            <option value="200" cap="200">
+                                                1/200
+                                            </option>
+                                            <option value="250" cap="250">
+                                                1/250
+                                            </option>
+                                            <option value="500" cap="500">
+                                                1/500
+                                            </option>
+                                            <option value="1000" cap="1000">
+                                                1/1000
+                                            </option>
+                                            <option value="2000" cap="2000">
+                                                1/2000
+                                            </option>
+                                            <option value="4000" cap="4000">
+                                                1/4000
+                                            </option>
+                                            <option value="8000" cap="8000">
+                                                1/8000
+                                            </option>
+                                            <option value="50000" cap="50000">
+                                                1/50000
+                                            </option>
+                                            <option value="100000" cap="100000">
+                                                1/100000
+                                            </option>
+                                        </select>
+                                        <div id="rangeShutter" class="hidden">
+                                            <select name="ExposureFastShutter" id="ExposureFastShutter" apiType="Exposure" class="shortText2 hidden" onChange="if(validateRange(this.id,'shutter')){submitF($(this).attr('apiType'));}">
+                                                <option value="1" cap="1">
+                                                    1
+                                                </option>
+                                                <option value="2" cap="2">
+                                                    1/2
+                                                </option>
+                                                <option value="3" cap="3">
+                                                    1/3
+                                                </option>
+                                                <option value="4" cap="4">
+                                                    1/4
+                                                </option>
+                                                <option value="6" cap="6">
+                                                    1/6
+                                                </option>
+                                                <option value="8" cap="8">
+                                                    1/8
+                                                </option>
+                                                <option value="10" cap="10">
+                                                    1/10
+                                                </option>
+                                                <option value="12" cap="12">
+                                                    1/12
+                                                </option>
+                                                <option value="15" cap="15">
+                                                    1/15
+                                                </option>
+                                                <option value="20" cap="20">
+                                                    1/20
+                                                </option>
+                                                <option value="25" cap="25">
+                                                    1/25
+                                                </option>
+                                                <option value="30" cap="30" selected="selected">
+                                                    1/30
+                                                </option>
+                                                <option value="50" cap="50">
+                                                    1/50
+                                                </option>
+                                                <option value="60" cap="60">
+                                                    1/60
+                                                </option>
+                                                <option value="100" cap="100">
+                                                    1/100
+                                                </option>
+                                                <option value="120" cap="120">
+                                                    1/120
+                                                </option>
+                                                <option value="150" cap="150">
+                                                    1/150
+                                                </option>
+                                                <option value="180" cap="180">
+                                                    1/180
+                                                </option>
+                                                <option value="200" cap="200">
+                                                    1/200
+                                                </option>
+                                                <option value="250" cap="250">
+                                                    1/250
+                                                </option>
+                                                <option value="500" cap="500">
+                                                    1/500
+                                                </option>
+                                                <option value="1000" cap="1000">
+                                                    1/1000
+                                                </option>
+                                                <option value="2000" cap="2000">
+                                                    1/2000
+                                                </option>
+                                                <option value="4000" cap="4000">
+                                                    1/4000
+                                                </option>
+                                                <option value="8000" cap="8000">
+                                                    1/8000
+                                                </option>
+                                                <option value="50000" cap="50000">
+                                                    1/50000
+                                                </option>
+                                                <option value="100000" cap="100000">
+                                                    1/100000
+                                                </option>
+                                            </select>
+                                            <label id="shutterLabel">~</label>
+                                            <select name="ExposureSlowShutter" id="ExposureSlowShutter" apiType="Exposure" class="shortText2 hidden" onChange="if(validateRange(this.id,'shutter')){submitF($(this).attr('apiType'));}">
+                                                <option value="1" cap="1">
+                                                1
+                                                </option>
+                                                <option value="2" cap="2">
+                                                    1/2
+                                                </option>
+                                                <option value="3" cap="3">
+                                                    1/3
+                                                </option>
+                                                <option value="4" cap="4">
+                                                    1/4
+                                                </option>
+                                                <option value="6" cap="6">
+                                                    1/6
+                                                </option>
+                                                <option value="8" cap="8">
+                                                    1/8
+                                                </option>
+                                                <option value="10" cap="10">
+                                                    1/10
+                                                </option>
+                                                <option value="12" cap="12">
+                                                    1/12
+                                                </option>
+                                                <option value="15" cap="15">
+                                                    1/15
+                                                </option>
+                                                <option value="20" cap="20">
+                                                    1/20
+                                                </option>
+                                                <option value="25" cap="25">
+                                                    1/25
+                                                </option>
+                                                <option value="30" cap="30" selected="selected">
+                                                    1/30
+                                                </option>
+                                                <option value="50" cap="50">
+                                                    1/50
+                                                </option>
+                                                <option value="60" cap="60">
+                                                    1/60
+                                                </option>
+                                                <option value="100" cap="100">
+                                                    1/100
+                                                </option>
+                                                <option value="120" cap="120">
+                                                    1/120
+                                                </option>
+                                                <option value="150" cap="150">
+                                                    1/150
+                                                </option>
+                                                <option value="180" cap="180">
+                                                    1/180
+                                                </option>
+                                                <option value="200" cap="200">
+                                                    1/200
+                                                </option>
+                                                <option value="250" cap="250">
+                                                    1/250
+                                                </option>
+                                                <option value="500" cap="500">
+                                                    1/500
+                                                </option>
+                                                <option value="1000" cap="1000">
+                                                    1/1000
+                                                </option>
+                                                <option value="2000" cap="2000">
+                                                    1/2000
+                                                </option>
+                                                <option value="4000" cap="4000">
+                                                    1/4000
+                                                </option>
+                                                <option value="8000" cap="8000">
+                                                    1/8000
+                                                </option>
+                                                <option value="50000" cap="50000">
+                                                    1/50000
+                                                </option>
+                                                <option value="100000" cap="100000">
+                                                    1/100000
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="hidden" id="ExposureGainItem">
+                                <li class="firstCol strLimit">
+                                    <lang name="gain"></lang><label id="db" class="hidden">(dB)</label>
+                                </li>
+                                <li>
+                                    <input name="ExposureGain" id="ExposureGain" apiType="Exposure" class="nomalTxt" size="6"
+                                        maxlength="4" onChange="setInputValue(this)" onKeyPress="onPicKeyPress(this);"
+                                    >
+                                    <div id="rangeGain" class="hidden">
+                                        <input type="text" name="ExposureMinGain" id="ExposureMinGain" apiType="Exposure" class="shortText2 hidden"
+                                            maxlength="4" onChange="setInputValue(this)" onKeyPress="onPicKeyPress(this);"
+                                        >
+                                        <label id="gainLabel">~</label>
+                                        <input type="text" name="ExposureMaxGain" id="ExposureMaxGain" apiType="Exposure" class="shortText2 hidden"
+                                            maxlength="4" onChange="setInputValue(this)" onKeyPress="onPicKeyPress(this);"
+                                        >
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="hidden" id="ExposureIrisItem">
+                                <li class="firstCol strLimit">
+                                    <lang name="aperture"></lang>
+                                </li>
+                                <li>
+                                    <select name="ExposureIris" id="ExposureIris" apiType="Exposure">
+                                    </select>
+                                    <div id="rangeIris" class="hidden">
+                                        <select name="ExposureMinIris" id="ExposureMinIris" apiType="Exposure" class="shortText2 hidden">
+                                        </select>
+                                        <label id="irisLabel">~</label>
+                                        <select name="ExposureMaxIris" id="ExposureMaxIris" apiType="Exposure" class="shortText2 hidden">
+                                        </select>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="hidden unit" id="EnableSlowShutterItem">
+                                <ul>
+                                    <li class="firstCol strLimit">
+                                        <lang name="slowShutter"></lang>
+                                    </li>
+                                    <li>
+                                        <input name="EnableSlowShutter" id="EnableSlowShutterOpen" apiType="Exposure" type="radio" value="1">
+                                        <label for="EnableSlowShutterOpen"><lang name="open"></lang></label>
+                                        <input name="EnableSlowShutter" id="EnableSlowShutterClose" apiType="Exposure" type="radio" value="0"/>
+                                        <label for="EnableSlowShutterClose"><lang name="close"></lang></label>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li class="firstCol strLimit">
+                                        <lang name="maxSlowShutter"></lang>
+                                    </li>
+                                    <li>
+                                        <div id="sMaxSlowDiv">
+                                            <select name="MaxSlowShutter" apiType="Exposure" id="MaxSlowShutter" onChange="MaxSlowShutter_change();submitF($(this).attr('apiType'));">
+                                                <option value="1" cap="1">
+                                                    1
+                                                </option>
+                                                <option value="2" cap="2">
+                                                    1/2
+                                                </option>
+                                                <option value="3" cap="3">
+                                                    1/3
+                                                </option>
+                                                <option value="4" cap="4">
+                                                    1/4
+                                                </option>
+                                                <option value="6" cap="6">
+                                                    1/6
+                                                </option>
+                                                <option value="8" cap="8">
+                                                    1/8
+                                                </option>
+                                                <option value="10" cap="10">
+                                                    1/10
+                                                </option>
+                                                <option value="12" cap="12">
+                                                    1/12
+                                                </option>
+                                                <option value="15" cap="15">
+                                                    1/15
+                                                </option>
+                                                <option value="20" cap="20">
+                                                    1/20
+                                                </option>
+                                                <option value="25" cap="25">
+                                                    1/25
+                                                </option>
+                                                <option value="30" cap="30" selected="selected">
+                                                    1/30
+                                                </option>
+                                                <option value="50" cap="50">
+                                                    1/50
+                                                </option>
+                                                <option value="60" cap="60">
+                                                    1/60
+                                                </option>
+                                                <option value="100" cap="100">
+                                                    1/100
+                                                </option>
+                                                <option value="120" cap="120">
+                                                    1/120
+                                                </option>
+                                                <option value="150" cap="150">
+                                                    1/150
+                                                </option>
+                                                <option value="180" cap="180">
+                                                    1/180
+                                                </option>
+                                                <option value="200" cap="200">
+                                                    1/200
+                                                </option>
+                                                <option value="250" cap="250">
+                                                    1/250
+                                                </option>
+                                                <option value="500" cap="500">
+                                                    1/500
+                                                </option>
+                                                <option value="1000" cap="1000">
+                                                    1/1000
+                                                </option>
+                                                <option value="2000" cap="2000">
+                                                    1/2000
+                                                </option>
+                                                <option value="4000" cap="4000">
+                                                    1/4000
+                                                </option>
+                                                <option value="8000" cap="4000">
+                                                    1/8000
+                                                </option>
+                                                <option value="10000" cap="10000">
+                                                    1/10000
+                                                </option>
+                                                <option value="20000" cap="20000">
+                                                    1/20000
+                                                </option>
+                                                <option value="30000" cap="30000">
+                                                    1/30000
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div id="usMaxSlowDiv">
+                                            <input type="text" class="nomalTxt" id="MaxSlowShutter" name="MaxSlowShutter"
+                                            onchange="if(setInputValue(this))MaxSlowShutter_change();" onKeyPress="onPicKeyPress(this);">
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <ul class="hidden" id="ExposureCompensateItem">
+                                <li class="firstCol strLimit" id="exposalCompensationText">
+                                    <lang name="exposalCompensation"></lang>
+                                </li>
+                                <li>
+                                    <div class="slider3" id="ExposureCompensateSld">
+                                        <div class="bar3" id="ExposureCompensateBar"></div>
+                                    </div>
+                                    <input type="text" name="ExposureCompensate" id="ExposureCompensate" value="0" apiType="Exposure"
+                                        style="width: 0.8cm" size="6" maxlength="4" onChange="onSliderChanged(this);"
+                                        onKeyPress="onPicKeyPress(this);"
+                                    >
+                                </li>
+                            </ul>
+                            <ul class="hidden" id="MeteringModeItem">
+                                <li class="firstCol strLimit">
+                                    <lang name="backLight"></lang>
+                                </li>
+                                <li>
+                                    <div id="tpMetering">
+                                        <select name="MeteringModeSel" id="MeteringModeSel" apiType="Exposure">
+                                            <option lang="aeMetering1" value="0" cap="1" selected="selected">
+                                            </option>
+                                            <option lang="aeMetering3" value="1" cap="2">
+                                            </option>
+                                            <option lang="aeMetering4" value="2" cap="3">
+                                            </option>
+                                            <option lang="aeMetering5" value="3" cap="4">
+                                            </option>
+                                            <option lang="aeMetering6" value="4" cap="5">
+                                            </option>
+                                            <option lang="aeMetering7" value="5" cap="6">
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <input type="hidden"  name="MeteringMode" id="MeteringMode" value="0"/>
+                                </li>
+                            </ul>
+                            <div class="unit hidden" id="DayNightModeItem">
+                                <input type="hidden" name="DayNightSense" id="DayNightSense" value="1"/>
+                                <ul id="DayNightModeUL">
+                                    <li class="firstCol strLimit">
+                                        <lang name="blackWhiteMode"></lang>
+                                    </li>
+                                    <li>
+                                        <input name="DayNightMode" type="radio" value="0" apiType="Exposure" cap="1" checked="checked" id="BlackWhiteMode_Auto">
+                                        <label for="BlackWhiteMode_Auto"><lang name="automatic"></lang></label>
+                                        <input name="DayNightMode" type="radio" value="1" apiType="Exposure" cap="2" id="BlackWhiteMode_Color">
+                                        <label for="BlackWhiteMode_Color"><lang name="multicolor"></lang></label>
+                                        <input name="DayNightMode" type="radio" value="2" apiType="Exposure" cap="2" id="BlackWhiteMode_BW">
+                                        <label for="BlackWhiteMode_BW"><lang name="blackWhite"></lang></label>
+                                        <input name="DayNightMode" type="radio" value="3" apiType="Exposure" cap="3" id="BlackWhiteMode_switch">
+                                        <label for="BlackWhiteMode_switch"><lang name="switchControl"></lang></label>
+                                    </li>
+                                </ul>
+                                <ul class="hidden" id="DayNightSenseSlider">
+                                    <li class="firstCol strLimit">
+                                        <lang name="dayNightSense"></lang>
+                                    </li>
+                                    <li>
+                                        <select name="DayNightSenseValue" id="DayNightSenseValue" apiType="Exposure">
+                                            <option value="0" lang="sup-low"></option>
+                                            <option value="1" lang="low"></option>
+                                            <option value="5" lang="middle"></option>
+                                            <option value="9" lang="high"></option>
+                                        </select>
+                                    </li>
+                                </ul>
+                                <ul class="hidden" id="DayNightSwitchTimeItem">
+                                    <li class="firstCol strLimit">
+                                        <lang name="dayNightSwitchTime"></lang>
+                                    </li>
+                                    <li>
+                                        <input type="text" class="nomalTxt" name="DayNightSwitchTime" id="DayNightSwitchTime" apiType="Exposure"
+                                         maxlength="3" onChange="setInputValue(this)" onKeyPress="onPicKeyPress(this);"/>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="unit hidden" id="ExposureWDRModeItem">
+                                <input type="hidden" name="ExposureRatio" id="ExposureRatio" value="5"/>
+                                <ul id="ExposureWDRModeUL">
+                                    <li class="firstCol strLimit">
+                                        <lang name="wideDynamic"></lang>
+                                    </li>
+                                    <li>
+                                        <select name="ExposureWDRMode" id="ExposureWDRMode" apiType="Exposure">
+                                            <option lang="close" value="0" cap="0" selected="selected">
+                                            </option>
+                                            <option lang="open" value="1" cap="2">
+                                            </option>
+                                            <option lang="automatic" value="2" cap="1">
+                                            </option>
+                                        </select>
+                                    </li>
+                                </ul>
+                                <ul class="hidden" id="ExposureRatioSlider">
+                                    <li class="firstCol strLimit">
+                                        <lang name="exposureRatio"></lang>
+                                    </li>
+                                    <li>
+                                        <div class="slider3" id="ExposureRatioSld">
+                                            <div class="bar3" id="ExposureRatioBar"></div>
+                                        </div>
+                                        <input name="ExposureRatioValue" id="ExposureRatioValue" apiType="Exposure" value="0" style="width: 0.8cm" size="6"
+                                            maxlength="1" onChange="onSliderChanged(this);" onKeyPress="onPicKeyPress(this);"
+                                        >
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li class="firstCol strLimit">
+                                        <lang name="exposureWDRFlickerSuppression"></lang>
+                                    </li>
+                                    <li>
+                                        <input name="FlickerSuppression" id="FlickerSuppressionOff" apiType="Exposure" type="radio" value="0"/>
+                                        <label for="FlickerSuppressionOff" data-lang="close"></label>
+                                        <input name="FlickerSuppression" id="FlickerSuppressionOn" apiType="Exposure" type="radio" value="1"/>
+                                        <label for="FlickerSuppressionOn" data-lang="open"></label>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="unit hidden" id="ExposureWDRSensibilityItem">
+                                <ul>
+                                    <li class="firstCol strLimit">
+                                        <lang name="exposureWDROpenSensity"></lang>
+                                    </li>
+                                    <li>
+                                        <div class="slider3" id="OnSenseSld">
+                                            <div class="bar3" id="OnSenseBar"></div>
+                                        </div>
+                                        <input name="OnSense" id="OnSense" apiType="Exposure" value="0" style="width: 0.8cm" size="6"
+                                               maxlength="1" onChange="onSliderChanged(this);" onKeyPress="onPicKeyPress(this);"
+                                                >
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li class="firstCol strLimit">
+                                        <lang name="exposureWDRCloseSensity"></lang>
+                                    </li>
+                                    <li>
+                                        <div class="slider3" id="OffSenseSld">
+                                            <div class="bar3" id="OffSenseBar"></div>
+                                        </div>
+                                        <input name="OffSense" id="OffSense" apiType="Exposure" value="0" style="width: 0.8cm" size="6"
+                                               maxlength="1" onChange="onSliderChanged(this);" onKeyPress="onPicKeyPress(this);"
+                                                >
+                                    </li>
+                                </ul>
+                            </div>
+                            <ul class="hidden" id="HLCRatioSlider">
+                                <li class="firstCol strLimit" id= "HLCRatio_temp">
+                                    <lang name="HLCRatio"></lang>
+                                </li>
+                                <li>
+                                    <div class="slider3" id="HLCRatioSld">
+                                        <div class="bar3" id="HLCRatioBar"></div>
+                                    </div>
+                                    <input name="HLCRatio" id="HLCRatio" apiType="Exposure" value="0" style="width: 0.8cm" size="6"
+                                        maxlength="1" onChange="onSliderChanged(this);" onKeyPress="onPicKeyPress(this);"
+                                    >
+                                </li>
+                            </ul>
+                        </div>
+                    </fieldset>
+                    <fieldset class="close" id="smartIR">
+                        <legend id="smartIRLeg">
+                            <span></span><lang name="smartIR"></lang>
+                        </legend>
+                        <div class="div_content hidden" id="div_content_smartir" apiType="SmartIR" flag="0">
+                            <ul class="hidden" id="IrCtrlEnableItem">
+                                <li class="firstCol strLimit">
+                                    <lang name="smartIR"></lang>
+                                </li>
+                                <li>
+                                    <input type="radio" name="IrCtrlEnable" id="IrCtrlEnable_enable" value="1" apiType="SmartIR"/>
+                                    <label for="IrCtrlEnable_enable" data-lang="open"></label>
+                                    <input type="radio" name="IrCtrlEnable" id="IrCtrlEnable_close" value="0" apiType="SmartIR"/>
+                                    <label for="IrCtrlEnable_close" data-lang="close"></label>
+                                </li>
+                            </ul>
+                            <ul class="hidden" id="LightModeItem">
+                                <li class="firstCol strLimit">
+                                    <lang name="lightMode"></lang>
+                                </li>
+                                <li>
+                                    <select name="LightMode" id="LightMode" apiType="LightMode">
+                                        <option value="0" cap="1" lang="none"></option>
+                                        <option value="1" cap="2" lang="lightMode_white"></option>
+                                        <option value="2" cap="3" lang="lightMode_ir"></option>
+                                        <option value="100" cap="4" lang="lightMode_ptz"></option>
+                                        <option value="3" cap="5" lang="lightMode_laser"></option>                                        
+                                    </select>
+                                </li>
+                            </ul>
+                            <ul class="hidden" id="IrCtrlModeItem">
+                                <li class="firstCol strLimit">
+                                    <lang name="irCtrlMode"></lang>
+                                </li>
+                                <li>
+                                    <select name="IrCtrlMode" id="IrCtrlMode" apiType="SmartIR">
+                                        <option value="0" lang="irCtrlMode_general" data-cap="1" cap="1">
+                                        </option>
+                                        <option value="1" lang="irCtrlMode_restrain" data-cap="2" cap="2">
+                                        </option>
+                                        <option value="2" lang="irCtrlMode_road" data-cap="3" cap="3">
+                                        </option>
+                                        <option value="4" lang="irCtrlMode_yard" data-cap="5" cap="5">
+                                        </option>
+                                        <option value="3" lang="irCtrlMode_manual" data-cap="4" cap="4">
+                                        </option>
+                                        <option value="5" lang="irCtrlMode_photosensitiveAuto" data-cap="6" cap="6">
+                                        </option>
+                                        <option value="6" lang="scene_indoor" data-cap="7" cap="7">
+                                        </option>
+                                        <option value="7" lang="irCtrlMode_manualAlwaysOn" data-cap="8" cap="8">
+                                        </option>
+                                    </select>
+                                </li>
+                            </ul>
+                            <ul class="hidden" id="NearIrLedItem">
+                                <li class="firstCol strLimit">
+                                    <lang name="nearIrLed"></lang>
+                                </li>
+                                <li>
+                                    <input type="text" class="nomalTxt" name="NearIrLed" id="NearIrLed" apiType="SmartIR"
+                                             onchange="setInputValue(this)" onKeyPress="onPicKeyPress(this);">
+                                </li>
+                            </ul>
+                            <ul class="hidden" id="MiddleIrLedItem">
+                                <li class="firstCol strLimit">
+                                    <lang name="middleIrLed"></lang>
+                                </li>
+                                <li>
+                                    <input type="text" class="nomalTxt" name="MiddleIrLed" id="MiddleIrLed" apiType="SmartIR"
+                                             onchange="setInputValue(this)" onKeyPress="onPicKeyPress(this);">
+                                </li>
+                            </ul>
+                            <ul class="hidden" id="FarIrLedItem">
+                                <li class="firstCol strLimit" id="farIrLedLI">
+                                    <lang name="farIrLed"></lang>
+                                </li>
+                                <li>
+                                    <input type="text" class="nomalTxt" name="FarIrLed" id="FarIrLed" apiType="SmartIR"
+                                             onchange="setInputValue(this)" onKeyPress="onPicKeyPress(this);">
+                                </li>
+                            </ul>
+                            <ul class="hidden" id="Far2IrLedItem">
+                                <li class="firstCol strLimit" id="far2IrLedLI">
+                                    <lang name="far2IrLed"></lang>
+                                </li>
+                                <li>
+                                    <input type="text" class="nomalTxt" name="Far2IrLed" id="Far2IrLed" apiType="SmartIR"
+                                             onchange="setInputValue(this)" onKeyPress="onPicKeyPress(this);">
+                                </li>
+                            </ul>
+                            <ul class="hidden" id="LaserAngleItem">
+                                <li class="firstCol strLimit">
+                                    <lang name="laserAngle"></lang>
+                                </li>
+                                <li>
+                                    <div class="slider3" id="LaserAngleSld">
+                                            <div class="bar3" id="LaserAngleBar"></div>
+                                    </div>
+                                    <input name="LaserAngleText" id="LaserAngleText" apiType="SmartIR" value="0" style="width: 0.8cm" size="6"
+                                        maxlength="4" onChange="onSliderChanged(this);" onKeyPress="onPicKeyPress(this);"
+                                    >
+                                </li>
+                                <li class="hidden"><input type="text" id="LaserAngle"></li>
+                            </ul>
+                        </div>
+                    </fieldset>
+                    <fieldset class="close" id="FocusFields">
+                        <legend id="FocusLeg">
+                            <span></span><lang name="focusFields"></lang>
+                        </legend>
+                        <div class="div_content hidden" id="div_content_focus" apiType="Focus" flag="0">
+                            <ul class="hidden" id="FocusModeItem">
+                                <li class="firstCol strLimit">
+                                    <lang name="focusMode"></lang>
+                                </li>
+                                <li>
+                                    <select name="FocusMode" id="FocusMode" apiType="Focus">
+                                        <option lang="autoFocus" value="0" cap="1">
+                                        </option>
+                                        <option lang="manualFocus" value="1" cap="2">
+                                        </option>
+                                        <option lang="onePushFocus" value="2" cap="3">
+                                        </option>
+                                        <option lang="onePushFocus_infrare" value="3" cap="4">
+                                        </option>
+                                        <option lang="onePushFocus_lock" value="4" cap="5">
+                                        </option>
+                                    </select>
+                                </li>                                
+                            </ul>                            
+                            <ul class="hidden" id="FocusSceneItem">
+                                <li class="firstCol strLimit">
+                                    <lang name="focusScene"></lang>
+                                </li>
+                                <li>
+                                    <select name="FocusScene" id="FocusScene" apiType="Focus">
+                                        <option data-lang="focusNormal" value="0" cap="1">
+                                        </option>
+                                        <option data-lang="focusDistance" value="10" cap="2">
+                                        </option>
+                                        <option data-lang="scene_indoor" value="3" cap="3"></option>
+                                    </select>
+                                </li>                                
+                            </ul>                            
+                        </div>
+                    </fieldset>
+                    <fieldset class="close" id="WhiteBalanceFields">
+                        <legend id="WhiteBalanceLeg">
+                            <span></span><lang name="whiteBalanceFields"></lang>
+                        </legend>
+                        <div class="div_content hidden" id="div_content_whitebalance" apiType="WhiteBalance" flag="0">
+                            <div class="unit hidden" id="WhiteBalanceModeItem">
+                                <ul id="WhiteBalanceModeUL">
+                                    <li class="firstCol strLimit">
+                                        <lang name="whiteStandoff"></lang>
+                                    </li>
+                                    <li>
+                                        <select name="WhiteBalanceMode" id="WhiteBalanceMode" apiType="WhiteBalance">
+                                            <option lang="auto_bw" value="0" cap="1">
+                                            </option>
+                                            <option lang="whiteStandoff8" value="3" cap="4">
+                                            </option>
+                                            <option lang="whiteStandoff7" value="2" cap="3">
+                                            </option>
+                                            <option lang="inching_bw" value="1" cap="2">
+                                            </option>
+                                            <option lang="mercury" value="4" cap="5">
+                                            </option>
+                                            <option lang="finetune_night" value="5" cap="6">
+                                            </option>
+                                            <option lang="whiteStandoff11" value="6" cap="7">
+                                            </option>
+                                            <option lang="wbLock" value="7" cap="8">
+                                            </option>
+                                            <option lang="whiteStandoff_nightauto" value="8" cap="9">
+                                            </option>
+                                            <option lang="auto2" value="9" cap="10">
+                                            </option>
+                                        </select>
+                                    </li>
+                                </ul>
+                                <ul class="hidden" id="rSlider">
+                                    <li class="firstCol strLimit">
+                                        <lang name="redOffset"></lang>
+                                    </li>
+                                    <li>
+                                        <div class="slider3" id="ROffsetSld">
+                                            <div class="bar3" id="ROffsetBar"></div>
+                                        </div>
+                                        <input name="WhiteBalanceRedOffset" id="WhiteBalanceRedOffset" apiType="WhiteBalance" style="width: 0.8cm"
+                                            size="6" maxlength="4" onChange="onSliderChanged(this);" onKeyPress="onPicKeyPress(this);"
+                                        >
+                                    </li>
+                                </ul>
+                                <ul class="hidden" id="bSlider">
+                                    <li class="firstCol strLimit">
+                                        <lang name="blueOffset"></lang>
+                                    </li>
+                                    <li>
+                                        <div class="slider3" id="BOffsetSld">
+                                            <div class="bar3" id="BOffsetBar"></div>
+                                        </div>
+                                        <input name="WhiteBalanceBlueOffset" id="WhiteBalanceBlueOffset" apiType="WhiteBalance" value="0"
+                                            style="width: 0.8cm" size="6" maxlength="4" onChange="onSliderChanged(this);"
+                                            onKeyPress="onPicKeyPress(this);"
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset class="close" id="MiscFields">
+                        <legend id="MiscLeg">
+                            <span></span><lang name="miscFields"></lang>
+                        </legend>
+                        <div class="div_content hidden" id="div_content_misc" apiType="Misc" flag="0">
+                            <ul class="hidden" id="ImageFreezeItem">
+                                <li class="firstCol strLimit">
+                                    <lang name="imageFreeze"></lang>
+                                </li>
+                                <li>
+                                    <select name="ImageFreeze" id="ImageFreeze" apiType="Misc">
+                                        <option lang="close" value="0">
+                                        </option>
+                                        <option lang="open" value="1">
+                                        </option>
+                                    </select>
+                                </li>
+                            </ul>
+                            <div class="unit hidden" id="DeFogItem">
+                                <input type="hidden" name="DeFog" id="DeFog">
+                                <ul id="DeFogUL">
+                                    <li class="firstCol strLimit">
+                                        <lang name="DeFog"></lang>
+                                    </li>
+                                    <li>
+                                        <select name="DeFogMode" id="DeFogMode" apiType="DeFog">
+                                            <option lang="close" value="0" cap="0">
+                                            </option>
+                                            <option lang="open" value="1" cap="2">
+                                            </option>
+                                            <option lang="automatic" value="2" cap="1">
+                                            </option>
+                                        </select>
+                                    </li>
+                                </ul>
+                                <ul id="DeFogLevelUL" class="hidden">
+                                    <li class="firstCol strLimit">
+                                        <lang name="deFogLevel"></lang>
+                                    </li>
+                                    <li>
+                                        <div class="slider3" id="DeFogLevelSld">
+                                            <div class="bar3" id="DeFogLevelBar"></div>
+                                        </div>
+                                        <input name="DeFogLevel" id="DeFogLevel" apiType="DeFog" value="0"
+                                            style="width: 0.8cm" size="6" maxlength="1" onChange="onSliderChanged(this);"
+                                            onKeyPress="onPicKeyPress(this);"
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="unit hidden" id="ImageAdjustItem">
+                                <input type="hidden" name="ImageAdjust" id="ImageAdjust">
+                                <ul id="ImageAdjustUL">
+                                    <li class="firstCol strLimit">
+                                        <lang name="imageAdjust"></lang>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="ImageAdjustEnable" id="ImageAdjust_enable" value="1" apiType="ImageAdjust"/>
+                                        <label for="ImageAdjust_enable"><lang name="open"></lang></label>
+                                        <input type="radio" name="ImageAdjustEnable" id="ImageAdjust_close" value="0" apiType="ImageAdjust"/>
+                                        <label for="ImageAdjust_close"><lang name="close"></lang></label>
+                                    </li>
+                                </ul>
+                                <ul id="ImageAdjustLevelUL" class="">
+                                    <li class="firstCol strLimit">
+                                        <lang name="imageAdjustLevel"></lang>
+                                    </li>
+                                    <li>
+                                        <div class="slider3" id="ImageAdjustLevelSld">
+                                            <div class="bar3" id="ImageAdjustLevelBar"></div>
+                                        </div>
+                                        <input name="ImageAdjustLevel" id="ImageAdjustLevel" apiType="ImageAdjust" value="0"
+                                            style="width: 0.8cm" size="6" maxlength="4" onChange="onSliderChanged(this);"
+                                            onKeyPress="onPicKeyPress(this);"
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="unit hidden" id="StableModeItem">
+                                <ul id="EISUL">
+                                    <li class="firstCol strLimit" data-lang="imageStable"></li>
+                                    <li>
+                                        <select name="StableMode" id="StableMode" apiType="EIS">
+                                            <option value="0" lang="close" cap="0"></option>
+                                            <option value="1" lang="EnableEis" cap="1"></option>
+                                            <option value="2" lang="DIS" cap="2"></option>
+                                        </select>
+                                    </li>
+                                </ul>
+                                <ul id="EisFrequency" class="hidden">
+                                    <li class="firstCol strLimit">
+                                        <div id="EisFrequencyText">
+                                        <lang name="EisFrequency"></lang>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <select name="Rate" id="Rate" apiType="EIS">
+                                            <option value="5">5</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                    </li>
+                                </ul>
+                            </div>
+                            <ul id="lensModeUL" class="hidden">
+                                <li class="firstCol strLimit">
+                                    <lang name="lensIfMode"></lang>
+                                </li>
+                                <li>
+                                    <select name="LensIfMode" id="LensIfMode" apiType="IRIS">
+                                        <option value="1" data-cap="1">Z/F</option>
+                                        <option value="0" data-cap="0">P-IRIS</option>
+                                         <option id="LensIfMode_dciris" value="2" data-cap="2">DC-IRIS</option>
+                                    </select>                                
+                                </li>
+                            </ul>
+                            <div class="unit hidden" id="PIRISItem">
+                                <ul>
+                                    <li class="firstCol strLimit">
+                                        <lang name="IrisMode"></lang>
+                                    </li>
+                                    <li>
+                                        <select name="IrisMode" id="IrisMode" apiType="IRIS">
+                                            <option value="0" data-lang="automatic" data-cap="0"></option>
+                                            <option value="1" data-lang="manual" data-cap="1"></option>
+                                            <option value="2" data-lang="custom" data-cap="2"></option>
+                                        </select>
+                                        <input name ="IrisValue" id ="IrisValue" class="hidden">
+                                    </li>
+                                </ul>
+                                <ul id="ManualIrisValue" class="hidden">
+                                    <li class="firstCol strLimit">
+                                        <lang name="IrisValue"></lang>
+                                    </li>
+                                    <li>
+                                         <div class="slider3" id="IrisValueSld">
+                                            <div class="bar3" id="IrisValueBar"></div>
+                                        </div>
+                                        <input name="IrisValueAutoManual" id="IrisValueAutoManual" apiType="IRIS" value="0"
+                                            style="width: 0.8cm" size="6" maxlength="4" onChange="onSliderChanged(this);"
+                                            onKeyPress="onPicKeyPress(this);" >
+                                    </li>
+                                </ul>
+                                <ul id="ManualDefaultValue" class="hidden">
+                                    <li class="firstCol"></li>
+                                    <li>
+                                         <span class="button">
+                                            <input id="IrisDefaultValueBtn" name="IrisDefaultValueBtn" style="min-width: 100px" onClick="setIrisDefaultValue()" type="button" lang="IrisDefaultValue" />
+                                        </span>
+                                    </li>
+                                </ul>
+                                <ul id="rangeIRIS" class="hidden contentLine">
+                                    <li class="firstCol strLimit">
+                                        <lang name="IrisValue"></lang>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <input type="text" name="SmallestIRIS" id="SmallestIRIS" apiType="IRIS" class="shortText2"
+                                                   minValue="0" maxValue="100" onKeyPress="onPicKeyPress(this);" onchange="setInputValue(this)"/>
+                                            <label id="IRISLabel">~</label>
+                                            <input type="text" name="BiggestIRIS" id="BiggestIRIS" apiType="IRIS" class="shortText2"
+                                                   minValue="1" maxValue="100" onKeyPress="onPicKeyPress(this);" onchange="setInputValue(this)"/>
+                                        </div>
+                                    </li>
+                                </ul>     
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+                </div>
+            </div>
+    </body>
+</html>

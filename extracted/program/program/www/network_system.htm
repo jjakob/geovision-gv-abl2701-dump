@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="Copyright"
+            content="Copyright (c) 2013 *** Corporation. All Rights Reserved.">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title></title>
+<link href="css/globe.css" type="text/css" rel="stylesheet">
+<link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+<link href="css/validate.css" type="text/css" rel="stylesheet">
+<link href="css/dataview.css" type="text/css" rel="stylesheet">
+<link href="css/network_system.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.json.min.js"></script>
+<script type="text/javascript" src="js/jquery.blockUI.js"></script>
+<script type="text/javascript" src="js/dataview.js"></script>
+<script type="text/javascript" src="js/utils.js"></script>
+<script type="text/javascript" src="js/ComScript.js"></script>
+<script type="text/javascript" src="js/slider.js"></script>
+<script type="text/javascript">
+//加载语言文件
+loadlanguageFile(top.language);
+</script>
+<script type="text/javascript" src="js/jquery.validate.js"></script>
+<script type="text/javascript" src="js/network_system.js"></script>
+</head>
+<body class="body">
+<div class="pageDiv">
+    <form method="post" name="frmSetup" id="frmSetup">
+      <div class="contentLine">
+        <span class="labelSpan strLimit"><lang name="getIPType"></lang></span>
+        <select name="IPGetType" id="IPGetType" onChange="selectIPMode(this.form)" style="width: 170px;">
+        </select>
+      </div>
+      <div class="textCell contentLine hidden" id="doubleIsolationEnableDiv">
+          <span class="labelSpan strLimit"><label data-lang="doubleIsolation"></label></span>
+          <input type="radio" name="doubleIsolationEnable" id="doubleIsolationOpen" value="1" checked="checked">
+          <label for="doubleIsolationOpen" data-lang="open"></label>
+          <input type="radio" name="doubleIsolationEnable" id="doubleIsolationClose" value="0" >
+          <label for="doubleIsolationClose" data-lang="close"></label>
+      </div>
+      <div class="tab_bar hidden" id="Tab_bar">
+          <button type="button" data-divID="smallIPAddrDiv1" class="sectionTab tab_selected strLimit" data-ipAddr="0" data-lang="ipAddr">1</button>
+          <button type="button" data-divID="smallIPAddrDiv2" class="sectionTab strLimit" data-ipAddr="1" data-lang="ipAddr">2</button>
+      </div>
+      <div class="sectionDiv" id="IPAddrDiv">
+      <div class="smallSecDiv" id="smallIPAddrDiv1">
+      <div class="contentLine" id="IPSet">
+        <span class="labelSpan strLimit"><lang name="ipAddr"></lang></span>
+        <input name="IpAddress" id="IpAddress" style="width: 170px;" maxlength="15" >
+        <span id="divPPPoeIpAddress" class = "hidden">
+          <input name="PPPoeIpAddress" style="width: 170px;" maxlength="15" value="0.0.0.0">
+        </span>
+      </div>
+      <div class="contentLine" id="MaskSet">
+        <span class="labelSpan strLimit"><lang name="subNetMask"></lang></span>
+        <input name="IpNetmask" id="IpNetmask" style="width: 170px;" maxlength="15">
+        <div id="divPPPoeIpNetmask" class = "hidden">
+          <input name="PPPoeIpNetmask" style="width: 170px;" maxlength="15" value="0.0.0.0">
+        </div>
+
+      </div>
+      <div class="contentLine" id="GWSet">
+          <span class="labelSpan strLimit"><lang name="defaultGW"></lang></span>
+          <input name="IpGateway" id="IpGateway" style="width: 170px;" maxlength="15">
+          <span id="divPPPoeIpGateway" class = "hidden">
+              <input name="PPPoeIpGateway" style="width: 170px;" maxlength="15" value="0.0.0.0">
+          </span>
+      </div>
+      </div>
+      </div>
+      <div class="contentLine hidden" id="UserNameSet">
+          <span class="labelSpan strLimit"><lang name="usrName"></lang></span>
+          <input name="UserName" id="UserName" type="text" style="width: 4.5cm" size="22" maxlength="32">
+      </div>
+      <div class="contentLine hidden" id="UserPwdSet">
+          <span class="labelSpan strLimit"><lang name="usrPwd"></lang></span>
+          <input name="Password" id="Password" type="password" autocomplete="off"  size="22"
+                   style="width: 4.5cm" maxlength="32" onFocus="initPwdChanged(this.form)">
+       </div>
+	   <div id="IPv6">
+            <fieldset>
+                <legend class="textCell">
+                    <lang name="IPv6Set"></lang>
+                </legend>
+                <div class="contentLine" id="ipv6Mode">
+                    <span class="labelSpan strLimit"><lang name="ipv6Mode"></lang> </span>
+                    <select name="v6Mode" id="v6Mode" style="width: 170px">
+                        <option value="0" data-lang="manual"></option>
+                    </select>
+                </div>
+                <div class="contentLine" id="ipv6Addr">
+                    <span class="labelSpan strLimit"><lang name="Ipv6Address"></lang></span>
+                    <input name="Ipv6Address" id="Ipv6Address" style="width: 170px;" maxlength="64">
+                </div>
+                <div class="contentLine" id="prefix">
+                    <span class="labelSpan strLimit"><lang name="PrefixLenth"></lang></span>
+                    <input name="PrefixLenth" id="PrefixLenth" style="width: 170px;" maxlength="3">
+                </div>
+                <div class="contentLine" id="GWSet2">
+                    <span class="labelSpan strLimit"><lang name="defaultGW"></lang></span>
+                    <input name="Ipv6Gateway" id="Ipv6Gateway" style="width: 170px;" maxlength="64">
+                </div>
+            </fieldset>
+        </div>
+        <div class="contentLine" id="MTU">
+            <span class="labelSpan strLimit">MTU</span>
+            <input name="MTULen" id="MTULen" style="width: 40px;" maxlength="4">
+        </div>
+        <div class="contentLine">
+            <span class="labelSpan strLimit"><lang name="networkType"></lang> </span>
+            <select id="networkType" name="networkType" style="width:170px" disabled="disabled">
+                <option value="0" lang="FEPort" selected="selected"></option>
+                <option value="1" lang="SFPPort"></option>
+                <option value="2" lang="EPONPort"></option>
+                <option value="3" lang="EPONPort"></option>
+            </select>
+        </div>
+        <div id="workModeTR" class="contentLine">
+            <span class="labelSpan strLimit"><lang name="networkMode"></lang> </span>
+            <select name="WorkMode" id="WorkMode" style="width: 170px">
+            </select>
+        </div>
+      <span class="button_green" onClick="submitF()">
+          <input type="button" class="submit_btn" lang="saveData"/>
+      </span>
+    </form>
+</div>
+</body>
+</html>

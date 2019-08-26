@@ -1,0 +1,117 @@
+@charset "utf-8";
+/* CSS Document */
+ul li{padding: 4px 0px; line-height: 24px;height: 24px;float: left;}
+
+ul, .unit{width: 490px;display: inline-block;*display: inline;zoom: 1;}
+.firstCol {
+    width: 208px;
+    margin-right: 10px;
+}
+
+fieldset {
+    clear: left;
+}
+
+.div_content{max-width: 1000px;}
+
+.nomalTxt, select {
+    width: 240px;
+    *position: relative;
+}
+
+.Wdate {
+    width: 80px
+}
+
+.slider3,.slider4 {
+    width: 200px;
+}
+
+.shortText{
+    width: 45px;
+}
+.shortText_25{
+    width: 20px;
+}
+.shortText_70{
+    width: 65px;
+}
+
+.shortText2{
+    width: 110px;
+}
+
+#ImageTypeItem {
+    margin-bottom: 10px;
+}
+.panel {
+    border: 1px solid #B8B8B8;
+}
+
+.freshBtn{
+    background: url(../images/refresh.png) no-repeat; 
+    border: 0px; 
+    width: 16px; 
+    height: 16px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.sceneDiv{
+    position: relative;
+    z-index: 102;
+    overflow: hidden;
+    height: 200px;
+}
+fieldset.close{
+    border-left: 0px;
+    border-bottom: 0px;
+    border-right: 0px;
+}
+
+#sceneInfoDiv, #conditionInfoDiv{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    margin: 5px;
+    display: inline;
+    min-width: 470px; 
+}
+#conditionInfoDiv{left: 100%}
+fieldset legend{
+    cursor: pointer;
+}
+
+#sceneForm{
+    margin-bottom: 15px;
+}
+
+.fixedRow{
+    z-index: 102;
+}
+fieldset legend span {
+    width: 12px;
+    height: 12px;
+    background: url(../images/t_down.gif) no-repeat 0px 0px;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+}
+fieldset.close legend span {
+    width: 12px;
+    height: 12px;
+    background: url(../images/t_up.gif) no-repeat 0px 0px;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+}
+.newLine{clear: left; float: left;}
+#illuminationDiv, #plumbAngle{margin-right: 15px;}
+#okBtn,#cancelBtn{width: 60px;}
+.smallLine{line-height: 12px;}
+.SceneNameClass{width: 133px;position: absolute;z-index: 10}
+.SceneTypeClass{width: 155px;}
+.hidden2{visibility: hidden;}
+table.dataViewTbl{width: 100%;}
+table.dataViewTbl A{width: auto; text-decoration: underline;}

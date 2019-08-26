@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MWare>
+    <!--  设备名称  -->
+    <DeviceName>UNIPC-C</DeviceName>
+    <!--  设备运行类型  -->
+    <DeviceType>1</DeviceType>
+    <!--  产品类型(MW_PRODUCT_TYPE_E)  -->
+    <ProductType>0</ProductType>
+    <!--  设备支持的兼容类型数目  -->
+    <Compatibility>1</Compatibility>
+    <!--  MIB相关信息  -->
+    <System>
+        <ObjectID>1,3,6,1,4,1,25506,1,703</ObjectID>
+        <ObjectIDLen>9</ObjectIDLen>
+    </System>
+    <!--  是否支持系统时钟  -->
+    <SetRTCTime>1</SetRTCTime>
+	<Serial>
+        <Channel>0</Channel>
+        <Serial0>
+            <Type>RS232</Type>
+        </Serial0>
+    </Serial>
+
+    <!--  网口  -->
+    <Network>
+        <IPType>
+            <Mode>0,1,2</Mode>
+        </IPType>
+        <!-- 是否支持UNP -->
+        <UNP>1</UNP>
+        <NetNum>1</NetNum>
+        <Net0>
+            <NetName>eth0</NetName>
+            <ElecPort>0</ElecPort>
+            <RayPort>0</RayPort>
+        </Net0>
+    </Network>
+
+    <!--  编码能力  -->
+    <Encode>
+        <!-- 支持的最大流的个数  -->
+        <MaxStream>2</MaxStream>
+        <!--   Windth*Hight*Framerate  -->
+        <VinMode>1280*720*30,1280*720*25,720*576*25</VinMode>
+        <!--  Windth*Hight  -->
+        <Resolution>1280*720,720*576,704*288,352*288</Resolution>
+        <!--  3: MJPEG  -->
+        <!--  6: H.264  -->
+        <EncodeFormat>3,6</EncodeFormat>
+        <Block16x16>
+            <!--  H.264的编码能力  -->
+            <EncodeCap6>
+                <ALONE>148500</ALONE>
+            </EncodeCap6>
+            <EncodeCap3>
+                <CONV>1:1</CONV>
+            </EncodeCap3>
+        </Block16x16>
+    </Encode>
+
+    <!--  硬件  -->
+    <Hardware>
+    </Hardware>
+
+    <!--  软件功能  -->
+    <Function>
+        <!--  是否支持区域增强  -->
+        <ROI>1</ROI>
+        <!-- 是否支持媒体流 -->
+        <MediaStream>1</MediaStream>
+        <!-- 是否支持演示功能 -->
+        <Demo>
+            <!-- 是否支持低延时 -->
+            <LowDelay>1</LowDelay>
+        </Demo>
+        <Scene>0,1,2,3,5,6</Scene>
+        <LowDelay>1</LowDelay>
+        <MaskDetect>1</MaskDetect>
+    </Function>
+
+    <!--  osd  -->
+    <OSD>
+        <InfoOSDType>1,2</InfoOSDType>
+        <!--  支持叠加  -->
+        <InfoOSD>
+            <Number>3</Number>
+            <!--  类型  -->
+            <!--  1 自定义 -->
+            <!--  2 时间 -->
+            <!--  4 云台坐标 -->
+            <!--  6 变倍 -->
+            <!--  7 预置位 -->
+            <!--  8 报警 -->
+            <!--  10 串口信息 -->
+            <!--  11 方位信息 -->
+            <Mode>1,2,16,17</Mode>
+        </InfoOSD>
+        <!--  支持遮盖  -->
+        <CoverOSD>
+            <Number>8</Number>
+        </CoverOSD>
+        <!--  支持OSD字体效果 -->
+        <!--  0 背景 -->
+        <!--  1 描边 -->
+        <!--  2 空心 -->
+        <!--  3 正常 -->
+        <FontStyle>
+            <Mode>0,1,2,3</Mode>
+        </FontStyle>
+    </OSD>
+
+    <!--  音频  -->
+    <Audio>
+        <AudioOut>
+            <!--  使用语音对讲的音频输出通道  -->
+            <VoiceIntercomOut>4</VoiceIntercomOut>
+        </AudioOut>
+    </Audio>
+
+    <!--  流  -->
+    <Video>
+        <MediaStream>
+            <!--  设备支持的流的数目  -->
+            <StreamNum>4</StreamNum>
+            <!--  设备支持的每通道单播流数目  -->
+            <UniCastPerChannel>4</UniCastPerChannel>
+            <!--  设备支持的每通道多播流数目  -->
+            <MultiCastPerChannel>1</MultiCastPerChannel>
+            <!--  通过sdk可创建的每通道单播流数目  -->
+            <SdkUniCastPerChannel>2</SdkUniCastPerChannel>
+            <!--  通过sdk可创建的每通道多播流数目  -->
+            <SdkMultiCastPerChannel>1</SdkMultiCastPerChannel>
+        </MediaStream>
+        <!--  获取一个I帧组所需缓冲的最大buffer size  -->
+        <FrameBuffer>4096</FrameBuffer>
+        <VideoLostSampling>
+            <!--  切换到视频丢失状态前，视频丢失状态稳定的持续时间间隔，单位为秒  -->
+            <LostStableInterval>0</LostStableInterval>
+            <!--  切换到视频丢失恢复状态前，视频丢失状态恢复稳定的持续时间间隔，单位为秒  -->
+            <ResumeStableInterval>300</ResumeStableInterval>
+        </VideoLostSampling>
+    </Video>
+
+    <!--  告警  -->
+    <Alarm>
+        <!--  遮挡检测支持区域数目  -->
+        <MaskDetection>
+            <Num>1</Num>
+        </MaskDetection>
+         <!--  运动检测支持区域数目  -->
+        <MotionDetection>
+            <Num>4</Num>
+        </MotionDetection>
+        <!--  警前录像时间  -->
+        <Pre-RecordingBeforeAlarm>8192</Pre-RecordingBeforeAlarm>
+    </Alarm>
+
+    <!--  储存  -->
+    <Stor>
+        <!--  设备支持的单通道上的存储流数  -->
+        <StorStreamNum>5</StorStreamNum>
+        <!--  单张图片共享内存最大值，单位为KB  -->
+        <PicMaxMemory>0</PicMaxMemory>
+        <!--  缓存的最大图片数  -->
+        <BufferMaxPicNum>0</BufferMaxPicNum>
+        <!--  间隔多少个二级索引与磁盘同步一次  -->
+        <StorIpsanFlushNum>16</StorIpsanFlushNum>
+        <!--  上传至BM的缓存补录文件格式 对应值: MP_STORAGE_TYPE_E  -->
+        <StorBMFileType>1</StorBMFileType>
+    </Stor>
+
+    <!--  服务器  -->
+    <Server>
+        <!--  是否支持NTP服务器  -->
+        <NTP>1</NTP>
+        <!--  是否支持VM服务器  -->
+        <VMServer>1</VMServer>
+        <!--  是否支持BM服务器  -->
+        <BMServer>1</BMServer>
+    </Server>
+
+    <!-- 图像能力 -->
+    <Image>
+        <!--  图像设置页面中支持的场景名 -->
+        <!--  0 自定义 -->
+        <!--  1 室内  -->
+        <!--  2 室外 -->
+        <!--  3 道路 -->
+        <!--  4 星光  -->
+        <!--  5 客观 -->
+        <!--  6 园区  -->
+        <!--  50 普通  -->
+        <!--  51 弱逆光  -->
+        <!--  52 强逆光 -->
+        <!--  53 弱顺光  -->
+        <!--  54 强顺光  -->
+        <!--  55 客观  -->
+        <Scene>
+            <Mode>0,1,2,3,5,6</Mode>
+        </Scene>
+        <ImageType>0</ImageType>
+        <Video>
+        <Exposure>
+                <!--  1 auto  -->
+                <!--  2 manual  -->
+                <!--  3 custom  -->
+                <!--  4 shutter priority  -->
+                <!--  5 iris priority  -->
+                <!--  6 gain priority  -->
+                <!--  7 indoor 50HZ  -->
+                <!--  8 indoor 60HZ  -->
+                <Mode>1,2,3,4,7,8</Mode>
+                <Shutter>
+                    <!--  0: us, 1: 1/s  -->
+                    <Unit>1</Unit>
+                    <SlowShutter>1</SlowShutter>
+                    <!--  shutter range (us)  -->
+                    <Range>8000,5</Range>
+                    <FastRange>8000,25</FastRange>
+                    <SlowRange>8000,25</SlowRange>
+                </Shutter>
+                <Gain>
+                    <!--  gain range (db)  -->
+                    <Range>0,36</Range>
+                    <MinRange>0,36</MinRange>
+                    <MaxRange>0,36</MaxRange>
+                </Gain>
+                <DayNight>
+                    <!--  1 auto  -->
+                    <!--  2 manual(color, B&W)  -->
+                    <Mode>1,2</Mode>
+                    <Time>
+                        <!--  Switch time (s)  -->
+                        <Range>3,120</Range>
+                </Time>
+                </DayNight>
+                <Metering>
+                    <!--  1 center metering  -->
+                    <!--  2 area metering  -->
+                    <Mode>1,2</Mode>
+                </Metering>
+                <!--  1 exposure compensation  -->
+                <Compensate>1</Compensate>
+                <WDR>
+                    <!--  1 auto  -->
+                    <!--  2 manual  -->
+                    <Mode>1,2</Mode>
+                </WDR>
+            </Exposure>
+
+            <WhiteBalance>
+                <!--  1 auto  -->
+                <!--  2 fine tune(manual)  -->
+                <!--  3 indoor  -->
+                <!--  4 outdoor  -->
+                <!--  5 auto mercury  -->
+                <Mode>1,2,3,4,5</Mode>
+            </WhiteBalance>
+
+            <Enhance>
+                <Brightness>1</Brightness>
+                <Contrast>1</Contrast>
+                <Saturation>1</Saturation>
+                <Sharpness>
+                    <!--  1 auto  -->
+                    <!--  2 manual  -->
+                    <Mode>2</Mode>
+                </Sharpness>
+                <Denoise>
+                    <_2D>1</_2D>
+                    <_3D>1</_3D>
+                </Denoise>
+                <Mirror>
+                    <!--  1 flip  -->
+                    <!--  2 mirror  -->
+                    <!--  3 flip and mirror  -->
+                    <!--  4 rotate clockwise  -->
+                    <Mode>1,2,3,4</Mode>
+                </Mirror>
+                </Enhance>
+
+                <Defog>
+                                    <!--  1 auto defog  -->
+                                    <!--  2 manual defog  -->
+                                    <Mode>2</Mode>
+                                </Defog>
+
+                <EIS>
+                    <!--   1 image EIS  -->
+                    <ImageEIS>1</ImageEIS>
+                </EIS>
+
+        </Video>
+    </Image>
+</MWare>

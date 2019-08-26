@@ -1,0 +1,16 @@
+kernel/fs/configfs/configfs.ko:
+kernel/net/ipv4/tunnel4.ko:
+kernel/net/ipv6/xfrm6_mode_transport.ko:
+kernel/net/ipv6/xfrm6_mode_tunnel.ko:
+kernel/net/ipv6/xfrm6_mode_beet.ko:
+kernel/net/ipv6/sit.ko: kernel/net/ipv4/tunnel4.ko
+extra/kgpio.ko:
+extra/hi_uart.ko:
+extra/kmotorcm.ko: extra/kgpio.ko
+extra/kruntime.ko:
+extra/kmotor.ko: extra/kgpio.ko
+extra/kmotorpt.ko:
+extra/NetUserDrv.ko:
+extra/kecompass.ko: extra/kgpio.ko
+extra/NetDbgDrv.ko: extra/NetUserDrv.ko
+extra/kmultisend.ko:

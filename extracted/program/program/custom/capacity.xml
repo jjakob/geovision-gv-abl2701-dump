@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomerCap>
+		<DeviceCap1>
+			<Path>/MWare/Custom/CustomEncryption</Path>  
+			<Value>1</Value>
+		</DeviceCap1>
+</CustomerCap>
+

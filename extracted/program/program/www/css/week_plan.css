@@ -1,0 +1,7 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+    height: auto;
+}
+.Wdate{margin: 3px 0px;}
+input[type=button]{width: 55px;}

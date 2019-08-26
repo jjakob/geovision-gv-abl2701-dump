@@ -1,0 +1,13 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+height: auto;
+}
+#linkOutFieldset li{
+height: 30px;
+float: left;
+margin-right: 100px;
+*margin-right: 98px;
+white-space: nowrap;
+}

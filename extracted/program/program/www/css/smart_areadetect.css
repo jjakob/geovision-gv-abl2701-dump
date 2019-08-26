@@ -1,0 +1,17 @@
+@charset "utf-8";
+/* CSS Document */
+#linkOutIFrame li {
+height: 30px;
+float: left;
+margin-right: 100px;
+}
+
+.labelSpan_short {
+width: 120px;
+}
+.pageDiv{
+    padding-top: 0px;
+}
+.custom-thead{
+    margin-bottom: 6px;
+}

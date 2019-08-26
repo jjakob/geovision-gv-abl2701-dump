@@ -1,0 +1,31 @@
+#! /bin/sh
+
+if [ "$#" != "1" ];then
+    echo "Usage: loadlensdata <serverip>"
+    exit
+fi
+
+#--------------check serverip-------------------
+ping=`ping -c 1 -w 1 $1|awk 'NR==2 {print $5}'`
+if [ "$ping" != "seq=0" ] ; then
+    echo "server ip not alive"
+    exit
+fi
+
+cd /tmp
+tftp -gr lens33.dat $1 -b 8192
+tftp -gr KeyPoint.txt $1 -b 8192
+
+if [ -e /tmp/lens33.dat ] && [ -e /tmp/KeyPoint.txt ] ; then
+    mount -oremount,rw /calibration/
+    mv /tmp/lens33.dat /calibration/
+    mv /tmp/KeyPoint.txt /calibration/
+    mount -oremount,ro /calibration/
+    echo "load success, please reboot"
+else
+    echo "file not exist"
+fi
+
+
+
+

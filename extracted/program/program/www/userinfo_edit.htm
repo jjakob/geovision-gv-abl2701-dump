@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <META NAME="Copyright"
+            CONTENT="Copyright (c) **** Corporation. All Rights Reserved.">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+        <link href="css/validate.css" type="text/css" rel="stylesheet">
+        <link href="css/userinfo_edit.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.json.min.js"></script>
+        <script type="text/javascript" src="js/ComScript.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript">
+            // 加载语言文件
+            loadlanguageFile(top.language);
+        </script>
+        <script type="text/javascript" src="js/jquery.validate.js"></script>
+        <script type="text/javascript" src="js/userinfo_edit.js"></script>
+    </head>
+    <body class="body">
+         <div class="pageDiv">
+            <form name="frmSetup" id="frmSetup">
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" data-lang="username"></span>
+                    <span class="contentSpan">
+                        <input name="Name" id="Name" type="text" size="32" maxlength="32" class="defaultWidth" />
+                    </span>
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" data-lang="userType"></span>
+                    <span class="contentSpan" id="registState">
+                        <select name="Level" id="Level" class="defaultWidth" disabled="disabled">
+                            <option value="0" data-lang="admin"></option>
+                            <option value="1" data-lang="operator"></option>
+                            <option value="2" data-lang="commonUser" selected="selected"></option>
+                            <option value="3" data-lang="anonymousUser"></option>
+                        </select>
+                    </span>
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" data-lang="password"></span>
+                    <span class="contentSpan" id="registState">
+                        <input name="userPwd" id="userPwd" type="password" autocomplete="off"  size="25" maxlength="32"
+                                     class="defaultWidth" />
+                    </span>
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit"></span>
+                    <div class="contentSpan inlineBlock defaultWidth">
+                        <div class="levelPic level0" id="pwdLevelPic_1"> </div>
+                        <div class="levelPic level0" id="pwdLevelPic_2"> </div>
+                        <div class="levelPic level0" id="pwdLevelPic_3"> </div>
+                        <div class="levelText levelT0 strLimit" id="pwdLevelText_1" data-lang="week"></div>
+                        <div class="levelText levelT0 strLimit" id="pwdLevelText_2" data-lang="middle"></div>
+                        <div class="levelText levelT0 strLimit" id="pwdLevelText_3" data-lang="strong"></div>
+                    </div>
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" data-lang="cfmUserPwd"></span>
+                    <span class="contentSpan">
+                        <input name="userConfirmPwd" id="userConfirmPwd" type="password" autocomplete="off"  size="32" maxlength="32" 
+                                     class="defaultWidth" />
+                    </span>
+                </div>
+                <div class="tipPwdDiv hidden" id="tipDiv">
+                    <div class="contentLine" data-lang-tip="tipChangePwd"></div>
+                    <div class="contentLine" data-lang-tip="tipChangePwd2"></div>
+                </div>
+            </form>
+             <hr id="noticeHR" class="hidden"/>
+             <span id="notice" class="hidden"><b><lang name="noticeInfo"></lang></b><lang name="ChangePassword"></lang></span>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>https_config.html</title>
+    
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Pragma" content="no-cache">
+    <link href="css/globe.css" type="text/css" rel="stylesheet">
+    <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+   <script type="text/javascript" src="js/jquery.min.js"></script>
+   <script type="text/javascript" src="js/jquery.json.min.js"></script>
+    <script type="text/javascript" src="js/utils.js"></script>
+    <script type="text/javascript" src="js/ComScript.js"></script>
+    <script type="text/javascript" src="js/telnet_config.js"></script>
+  </head>
+  
+  <body class="body">
+    <div class="pageDiv">
+            <form name="frmSetup" id="frmSetup">
+                <div id="TelnetEnableDiv" class="contentLine hidden">
+                    <span class="labelSpan strLimit" data-lang="TelnetEnable"></span>
+
+                    <input type="radio" name="TelnetEnable" id="telnetOpen" value="1" checked="checked">
+                    <label for="telnetOpen" data-lang="open"></label>
+                    <input type="radio" name="TelnetEnable" id="telnetClose" value="0">
+                    <label for="telnetClose" data-lang="close"></label>
+
+
+                </div>
+                <div id="FriendPwdEnableDiv" class="contentLine">
+                    <label class="labelSpan strLimit"><lang name="friendPassword"></lang></label>
+                    <input type="radio" name="friendPasswordEnable" id="friendPassword_enable" value="1" />
+                    <label for="friendPassword_enable" data-lang="enable"></label>
+                    <input type="radio" name="friendPasswordEnable" id="friendPassword_close" value="0" />
+                    <label for="friendPassword_close" data-lang="close"></label>
+                </div>
+                <span class="button_green" onClick="submitF()" >
+                    <input type="button" class="submit_btn" lang="saveData"/>
+                </span>
+            </form>
+        </div>
+  </body>
+</html>

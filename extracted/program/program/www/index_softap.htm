@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta name="Copyright" content="Copyright (c) 2012 *** Corporation. All Rights Reserved.">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/index_softap.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.json.min.js"></script>
+        <script type="text/javascript" src="js/ComScript.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/index_softap.js"></script>
+    </head>
+    <body class="body">
+        <div class="login_form">
+            <form name="frmSetup" id="frmSetup">
+                <fieldset>
+                    <legend>
+                        <span>Wi-Fi</span>
+                    </legend>
+                    <div class="login_line">
+                        <label class="login_label" for='userName'>SSID:</label>
+                        <input type="text" class="in_text" name="userName" id="SSID"/>   
+                    </div>
+                    <div class="login_line">
+                        <label class="login_label" for='szUserPasswd'>&nbsp&nbspKey:</label> 
+                        <input type="password" autocomplete="off"  class="in_text" name="loginPwd" id="Key"/>   
+                    </div>
+                </fieldset>
+                <span onclick="submitF()" >
+                    <button type="button">Set</button>
+                </span>
+            </form>
+        </div>
+    </body>
+    
+</html>

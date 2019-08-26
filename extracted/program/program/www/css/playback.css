@@ -1,0 +1,126 @@
+.plugin-container {
+    height: 100%;
+}
+
+.control-container {
+    width: 220px;
+    float: right;
+    height: 100%;
+    overflow: hidden;
+    display: block;
+}
+
+.control-body {
+    position: relative;
+    overflow: hidden;
+    color: #3f4447;
+    height: 100%;
+    border: 1px solid #a5acb1;
+    border-left: 0px;
+}
+
+.ptz-accordion {
+    margin: 0px 10px 10px 10px;
+}
+
+.ptz-acc-header {
+    height: 22px;
+    border: 1px solid #9da2a6;
+    background: url(../images/black-acc-title.png) repeat-x left center;
+    line-height: 22px;
+}
+
+.ptz-acc-body {
+    padding: 4px;
+    height: auto;
+    border-right: 1px solid #9da2a6;
+    border-left: 1px solid #9da2a6;
+    background: #e0e3e6;
+    overflow-y: auto;
+    height: 20px;
+}
+
+.live-plugins {
+    background: #333;
+    border: 1px solid #111;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 220px;
+    bottom: 38px;
+}
+
+.plugin-bar {
+    height: 40px;
+    border: 1px solid #111;
+    border-top: 1px solid #414141;
+    background: #333;
+    line-height: 40px;
+    color: #fff;
+    position: absolute;
+    left: 0px;
+    right: 220px;
+    bottom: 0px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.live_linkBtn {
+    text-align: center;
+}
+
+.live_linkBtn input {
+    width: 190px;
+    color: #3f4447;
+}
+
+#sliderPlay {
+    width: 100%;
+    vertical-align: top;
+    display: block;
+}
+
+#pluginBar, #audioBar {
+    line-height: 30px;
+}
+
+.section_first {
+    margin-top: 10px;
+}
+
+.section_first,.section {
+    margin-bottom: 10px;
+}
+
+.center {
+    text-align: center;
+}
+
+.dataViewTbl {
+    width: 100%;
+}
+
+.playing {
+    color: blue;
+}
+
+.playing .pucker {
+    display: block !important;
+}
+
+.ptz-acc-body {
+    border-bottom: 1px solid #9da2a6;
+}
+
+#audioBar ul li {
+    float: left;
+}
+
+#audioBar .slider3, #audioBar .slider4{
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    width: 100px;
+    margin-top: 5px;
+    vertical-align: middle;
+}

@@ -1,0 +1,9 @@
+input.error {
+    border: 1px solid red;
+}
+.msg {
+    padding: 0px 5px; 
+    color: black;
+    background-color: #F2F2BA;
+    border: 1px solid gray;
+}

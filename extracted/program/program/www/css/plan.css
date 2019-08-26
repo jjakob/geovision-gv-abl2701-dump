@@ -1,0 +1,44 @@
+@charset "utf-8";
+/* CSS Document */
+.planContent {
+    height: 200px;
+    background: #fff;
+    border: 1px solid #c9ced5;
+    padding: 5px;
+    margin: 10px 0px 0px 10px;
+}
+.editBtnDiv {
+    margin-left: 10px;
+}
+.btnContentDiv {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+}
+.btnDiv {
+    padding-top: 60px;
+}
+.plan_colorDiv {
+    width: 12px;
+    height: 12px;
+    border: 1px solid #959595;
+    vertical-align: middle;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    margin: 4px 10px 0px 6px;
+    float: left;
+}
+
+.plan_colorDiv_selected {
+    border-color: red;
+}
+
+.defence {
+    background-color: #58C8EA;
+}
+
+.disarm {
+    background-color: #fff;
+}
+

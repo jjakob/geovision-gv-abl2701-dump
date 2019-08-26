@@ -1,0 +1,10 @@
+@charset "utf-8";
+/* CSS Document */
+
+.contentLine, .contentLine span{line-height: 26px;}
+.contentLine span{display: inline-block;*display: inline;zoom: 1;}
+.labelSpan{width: 150px;}
+.longTxt{width: 300px;}
+a{text-decoration: underline; color:#0000FF;}
+.button{background:none;vertical-align:middle;}
+#testDomainDiv{display: inline-block;*display: inline;zoom: 1;}

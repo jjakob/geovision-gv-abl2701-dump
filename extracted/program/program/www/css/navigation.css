@@ -1,0 +1,89 @@
+.cotent_fixleft {
+    width: 700px;
+    height: 100%;
+    float: left;
+}
+
+.cotent_right {
+    height: 100%;
+    margin-left: 710px;
+}
+
+.panelDiv {
+    border: 1px #D6DADE solid;
+    margin-top: 3px;
+    padding: 15px;
+}
+
+.config-form {
+    border-left: 1px #D6DADE solid;
+    border-right: 1px #D6DADE solid;
+    margin: 3px 0px 15px 0px;
+}
+
+.custom-tr {
+    border-top: 1px #FFF solid;
+    border-bottom: 1px #D6DADE solid;
+    height: 30px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 30px;
+    vertical-align: middle;
+}
+
+.custom-tr-top-border {
+    border-top: 1px #D6DADE solid;
+}
+
+.config-label {
+    display: inline-block;
+    *display: inline;
+    background-color: #EAECEE;
+    width: 145px;
+    padding: 0 10px 0 10px;
+    height: 100%;
+    zoom: 1;
+}
+
+.menu-item {
+    height: 70px;
+    max-width: 300px;
+    min-width: 180px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.menu-item:hover {
+    background: #fff;
+}
+
+.menu-item-img {
+    width: 48px;
+    height: 48px;
+    background: url(../images/shortcut_menu.png) no-repeat center center;
+    margin: 5px 20px 5px 15px;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: middle;
+}
+
+.tcpip {
+    background-position: 0px 0px;
+}
+
+.time {
+    background-position: -48px 0px;
+}
+
+.server {
+    background-position: -96px 0px;
+}
+
+.osd {
+    background-position: -144px 0px;
+}
+
+.user {
+    background-position: -192px 0px;
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="Copyright"
+            content="Copyright (c) 2013 *** Corporation. All Rights Reserved.">
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+	<link href="css/globe.css" type="text/css" rel="stylesheet">
+	<link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+	<link href="css/dataview.css" type="text/css" rel="stylesheet">
+	<link href="css/validate.css" type="text/css" rel="stylesheet">
+	<link href="css/ip_filter_config.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="js/jquery.json.min.js"></script>
+	<script type="text/javascript" src="js/dataview.js"></script>
+	<script type="text/javascript" src="js/ComScript.js"></script>
+	<script type="text/javascript" src="js/utils.js"></script>
+	<script type="text/javascript" src="js/slider.js"></script>
+	<script type="text/javascript">
+            //加载语言文件
+            loadlanguageFile(top.language);
+        </script>
+	<script type="text/javascript" src="js/jquery.validate.js"></script>
+	<script type="text/javascript" src="js/ip_filter_config.js"></script>
+</head>
+<body class="body">
+	<div class="pageDiv">
+		<form name="frmSetup" id="frmSetup">
+			<div class="left_Content_cfg">
+				<div class="contentLine">					
+					<span class="labelSpan strLimit">
+						<lang name="ipFilter"></lang>
+					</span>
+					<input type="radio" name="Enable" id="ipFilterOpen" value="1" >
+					<label for="ipFilterOpen" data-lang="open"></label>
+					<input type="radio" name="Enable" id="ipFilterClose" value="0" checked="checked">
+					<label for="ipFilterClose" data-lang="close"></label>
+				</div>
+				<div class="contentLine ipFilterType">
+					<span class="labelSpan strLimit">
+						<lang name="ipFilterType"></lang>
+					</span>
+					<select name="IPFilterType" id="IPFilterType">
+						<option value="0" data-lang="whiteList"></option>
+						<option value="1" data-lang="blackList"></option>
+					</select>
+				</div>
+				<div id="ipDiv" class="dataView sectionDiv">
+					<div class="dataViewThead">
+						<table class="dataViewTbl textCell" cellspacing="0" width="480px">
+							<col width="50">
+							<col width="380">
+							<col width="50">
+							<thead>
+								<tr>
+									<td>
+										<lang name="ipFilterNum"></lang>
+									</td>
+									<td>
+										<lang name="ipFilterAddr"></lang>
+									</td>
+									<td>
+										<a id="add" class="icon add" data-title="add"></a>
+									</td>
+								</tr>
+							</thead>
+						</table>
+					</div>
+					<div class="dataViewTbody" >
+						<table class="dataViewTbl textCell" cellspacing="0">
+							<col width="50">
+							<col width="380">
+							<col width="50">
+							<tbody id="dataview_tbody"></tbody>
+						</table>
+					</div>
+				</div>
+				 <span class="button_green" onClick="submitF()" >
+                    <input type="button" class="submit_btn" lang="saveData"/>
+                </span>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

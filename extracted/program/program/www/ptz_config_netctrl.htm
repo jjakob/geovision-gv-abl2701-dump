@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="pragma" content="no-cache">
+        <meta http-equiv="cache-control" content="no-cache">
+        <meta http-equiv="expires" content="0">    
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/validate.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.json.min.js"></script>        
+        <script type="text/javascript" src="js/ComScript.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript">
+            //加载语言文件
+            loadlanguageFile(top.language);
+        </script>
+        <script type="text/javascript" src="js/jquery.validate.js"></script>
+        <script type="text/javascript" src="js/ptz_config_netctrl.js"></script>
+    </head>
+    <body class="body">
+        <div class="pageDiv">
+            <form name="frmSetup" id="frmSetup">
+                <div class="contentLine">
+                    <span class="labelSpan strLimit"><lang name="netCtrlPtz"></lang></span>
+                    <span class="contentSpan">
+                        <input type="radio" name="Enable" id="ptzConfigOpen" value="1" >
+                        <label for="ptzConfigOpen" data-lang="open"></label>
+                        <input type="radio" name="Enable" id="ptzConfigClose" value="0" checked="checked">
+                        <label for="ptzConfigClose" data-lang="close"></label>
+                    </span>
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit"><lang name="listenerPort"></lang></span>
+                    <span class="contentSpan"><input type="text" class="shortText" name="Port" id="Port" maxlength="5"/></span>
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit"><lang name="addressCode"></lang></span>
+                    <span class="contentSpan"><input type="text" class="shortText" name="PtzAddressCode" id="PtzAddressCode" maxlength="3"/></span>
+                </div>
+                <span class="button_green" onclick="submitF()" >
+                    <input type="button" class="submit_btn" lang="saveData"/>
+                </span>
+            </form>
+        </div>
+    </body>
+</html>

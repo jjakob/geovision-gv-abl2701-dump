@@ -1,0 +1,948 @@
+body {
+    background: #e0e3e6
+}
+
+#LiveStreamType,#position {
+    width: 200px;
+    height: 27px;
+    margin: 10px 10px 0px 10px;
+}
+
+#dvPreviewModeTitle {
+    width: 100%;
+    height:34px;
+    margin-bottom: 10px;
+    background-color: rgb(231, 231, 231);
+}
+
+#dvPreviewModeTitle span {
+    line-height: 34px;
+    font-size:14px;
+    font-weight:bolder;
+    margin-left: 20px;
+}
+
+#dvPreviewChannelTitle {
+    width: 100%;
+    height:34px;
+    margin-bottom: 5px;
+    background-color: rgb(231, 231, 231);
+}
+
+#dvPreviewChannelTitle span {
+    line-height: 34px;
+    font-size:14px;
+    font-weight:bolder;
+    margin-left: 20px;
+}
+
+#fishEyeStreamType {
+    width: 194px;
+    height: 130px;
+    overflow: hidden;
+}
+
+#fishEyeStreamType li {
+    height: 30px;
+    line_height: 30px;
+    padding-top :2px;
+    padding-right: 0px;
+    padding-bottom: 2px;
+    padding-left: 15px;
+    margin-top: 0px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: auto;
+}
+
+#dvPreviewChannel {
+    width: 194px;
+    height: 250px;
+    overflow: hidden;
+}
+
+#dvPreviewChannel li {
+    height: 30px;
+    line_height: 30px;
+    padding-top :2px;
+    padding-right: 0px;
+    padding-bottom: 2px;
+    padding-left: 15px;
+    margin-top: 0px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: auto;
+}
+
+.bg-color{
+    background: #f9f9f9;
+}
+
+.menu-content {
+    border:#B2B6B9 solid 1px;
+    border-top:none;
+    padding-top: 10px;
+}
+
+.menu-content li {
+    margin: 2px 0px;
+    padding-left: 70px;
+}
+
+.menu-active {
+    background: #e5e5e5;
+    color: #186cca;
+}
+
+.menu-content {
+    border:#B2B6B9 solid 1px;
+    border-top:none;
+    padding-top: 10px;
+}
+
+.menu-content a{
+    margin: 2px 0px;
+    padding-left: 70px;
+}
+
+#displaynone {
+    display:none;
+}
+
+.mousepointer{
+    cursor: pointer;
+}
+
+#fishEyeStreamType span {
+    height: 30px;
+    padding-left: 30px;
+    font-size: 14px;
+    display: inline-block;
+}
+
+.textOverLengthHide {
+    overflow: hidden;
+    vertical-align: top;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.plugin-container {
+    height: 100%;
+}
+
+.control-container {
+    width: 220px;
+    float: right;
+    height: 100%;
+    background: #c3c9cf;
+    overflow: hidden;
+    position: relative;
+    z-index: 102;
+}
+
+.control-head {
+    height: 30px;
+    border: 1px solid #a5acb1;
+    background: #3f4447;
+    color: #3f4447;
+    background: url(../images/black-tab-title.png) repeat-x left center;
+    font-size: 14px;
+    min-width: 220px;
+}
+
+.controlhead{
+    margin-left: 220px;
+    *margin-left: 0px;
+}
+
+.control-head-tab {
+    width: 100px;
+    display: inline-block; 
+    *display: inline;
+    zoom: 1;
+    height: 31px;
+    line-height: 31px;
+    vertical-align: middle;
+    border-right: #a5acb1 solid 1px;
+    text-align: center;
+    background: #c3c9cf;
+}
+
+.control-body {
+    position: relative;
+    overflow: hidden;
+    color: #3f4447;
+    border-right: 1px solid #a5acb1;
+    min-width: 119px;
+}
+
+.first-section-margintop {
+    margin-top: 15px !important;
+}
+
+.ptz-extend-len {
+    padding: 10px 7px 5px 10px;
+}
+
+.ptz-extend {
+    padding: 0px 10px;
+}
+
+.ptz-extend-len .ptz-extend-line {
+    overflow: hidden;
+    margin-right: 3px;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+}
+
+.ptz-extend-block {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    overflow: hidden;
+}
+
+.ptz-extend-block .ptz-extend-item {
+    display: block;
+    width: 47px;
+    margin: 5px 0px;
+}
+
+.ptz-extend-item {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    background: url("../images/ptz_btn.png") repeat-x 0 0;
+    width: 48px;
+    height: 27px;
+    border: 0px;
+    padding: 0;
+    cursor: pointer;
+    text-align: center;
+    line-height: 27px;
+    vertical-align: middle;
+}
+
+.focus-far {
+    background-position: 0px 0px;
+}
+
+.focus-far:hover {
+    background-position: 0px -27px;
+}
+
+.focus-far:active {
+    background-position: 0px -54px;
+}
+
+.focus-near {
+    background-position: -48px 0px;
+}
+
+.focus-near:hover {
+    background-position: -48px -27px;
+}
+
+.focus-near:active {
+    background-position: -48px -54px;
+}
+
+.assistant-focus {
+    background-position: -768px 0px;
+}
+
+.assistant-focus:hover {
+    background-position: -768px -27px;
+}
+
+.assistant-focus:active {
+    background-position: -768px -54px;
+}
+.assistant-focus-back {
+    background-position: -816px 0px;
+}
+
+.assistant-focus-back:hover {
+    background-position: -816px -27px;
+}
+
+.assistant-focus-back:active {
+    background-position: -816px -54px;
+}
+
+.zoom-in {
+    background-position: -96px 0;
+}
+
+.zoom-in:hover {
+    background-position: -96px -27px;
+}
+
+.zoom-in:active {
+    background-position: -96px -54px;
+}
+
+.zoom-out {
+    background-position: -144px 0;
+}
+
+.zoom-out:hover {
+    background-position: -144px -27px;
+}
+
+.zoom-out:active {
+    background-position: -144px -54px;
+}
+
+.aperture-more {
+    background-position: -192px 0;
+}
+
+.aperture-more:hover {
+    background-position: -192px -27px;
+}
+
+.aperture-more:active {
+    background-position: -192px -54px;
+}
+
+.aperture-less {
+    background-position: -240px 0;
+}
+
+.aperture-less:hover {
+    background-position: -240px -27px;
+}
+
+.aperture-less:active {
+    background-position: -240px -54px;
+}
+
+.illuminate-open {
+    background-position: -288px 0px;
+}
+
+.illuminate-open:hover {
+    background-position: -288px -27px;
+}
+
+.illuminate-open:active {
+    background-position: -288px -54px;
+}
+
+.illuminate-close {
+    background-position: -337px 0px;
+}
+
+.illuminate-close:hover {
+    background-position: -337px -27px;
+}
+
+.illuminate-close:active {
+    background-position: -337px -54px;
+}
+
+.infrae-open {
+    background-position: -384px 0px;
+}
+
+.infrae-open:hover {
+    background-position: -384px -27px;
+}
+
+.infrae-open:active {
+    background-position: -384px -54px;
+}
+
+.infrae-close {
+    background-position: -433px 0px;
+}
+
+.infrae-close:hover {
+    background-position: -433px -27px;
+}
+
+.infrae-close:active {
+    background-position: -433px -54px;
+}
+
+.heatup-open {
+    background-position: -480px 0px;
+}
+
+.heatup-open:hover {
+    background-position: -480px -27px;
+}
+
+.heatup-open:active {
+    background-position: -480px -54px;
+}
+
+.heatup-close {
+    background-position: -529px 0px;
+}
+
+.heatup-close:hover {
+    background-position: -529px -27px;
+}
+
+.heatup-close:active {
+    background-position: -529px -54px;
+}
+
+.rainbrush-open {
+    background-position: -576px 0px;
+}
+
+.rainbrush-open:hover {
+    background-position: -576px -27px;
+}
+
+.rainbrush-open:active {
+    background-position: -576px -54px;
+}
+
+.rainbrush-close {
+    background-position: -625px 0px;
+}
+
+.rainbrush-close:hover {
+    background-position: -625px -27px;
+}
+
+.rainbrush-close:active {
+    background-position: -625px -54px;
+}
+
+.clearsnow-open {
+    background-position: -672px 0px;
+}
+
+.clearsnow-open:hover {
+    background-position: -672px -27px;
+}
+
+.clearsnow-open:active {
+    background-position: -672px -54px;
+}
+
+.clearsnowOpen_disable{
+    background-position: -672px -54px;
+}
+.clearsnow-close {
+    background-position: -721px 0px;
+}
+
+.clearsnow-close:hover {
+    background-position: -721px -27px;
+}
+
+.clearsnow-close:active {
+    background-position: -721px -54px;
+}
+.clearsnowClose_disable {
+    background-position: -721px -54px;
+}
+.clearfog-open {
+    background-position: -960px 0px;
+}
+.clearfog-open:hover {
+    background-position: -960px -27px;
+}
+
+.clearfog-open:active {
+    background-position: -960px -54px;
+}
+.clearfogOpen_disable{
+    background-position: -960px -54px;
+}
+.clearfog-close {
+    background-position: -1009px 0px;
+}
+
+.clearfog-close:hover {
+    background-position: -1009px -27px;
+}
+
+.clearfog-close:active {
+    background-position: -1009px -54px;
+}
+.clearfogClose_disable {
+    background-position: -1009px -54px;
+}
+.backFocusStart {
+    background-position: -337px 3px;
+}
+
+.backFocusStart_disable {
+    background-position: -337px -17px;
+}
+
+.backFocusPosition {
+    background-position: -357px 3px;
+}
+
+.backFocusPosition_disable {
+    background-position: -357px -17px;
+}
+
+.ptz-panel {
+    margin: 0px 10px 5px 10px;
+    height: 150px;
+    border: 1px solid #b2b6b9;
+    border-radius: 4px;
+    background: #e0e3e6;
+    position: relative;
+    z-index: 9999;
+}
+
+.ptz-panel-control {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    padding: 10px;
+    vertical-align: middle;
+}
+
+.ptz-map {
+    margin-left: 4px;
+    width: 122px;
+    height: 122px;
+}
+
+area {
+    cursor: pointer;
+}
+
+.ptz-panel-speed {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    padding: 10px 0px 10px 15px;
+    vertical-align: middle;
+}
+
+.ptz-speed {
+    height: 95px !important;
+    margin: 0px 9px;
+    text-align: center;
+}
+
+.ptz-accordion {
+    margin: 0px 10px 10px 10px;
+}
+
+.ptz-acc-header {
+    height: 22px;
+    border: 1px solid #9da2a6;
+    background: url(../images/black-acc-title.png) repeat-x left center;
+    line-height: 22px;
+}
+
+.ptz-acc-header-tab {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    height: 23px;
+    line-height: 23px;
+    vertical-align: middle;
+    border-right: #B2B6B9 solid 1px;
+    text-align: center;
+}
+
+.ptz-acc-header-tab2 {
+    width: 65px;
+}
+
+.ptz-acc-header-tab-selected {
+    background: #e0e3e6
+}
+
+.ptz-acc-header-tab-last {
+    border-right: 0px;
+}
+
+.ptz-acc-body {
+    padding: 4px;
+    height: auto;
+    border-right: 1px solid #9da2a6;
+    border-left: 1px solid #9da2a6;
+    background: #e0e3e6;
+    overflow-y: auto;
+    height: 20px;
+}
+
+.ptz-acc-foot {
+    height: 22px;
+    border: 1px solid #9da2a6;
+    line-height: 22px;
+    padding-top: 3px;
+    padding-right: 5px;
+}
+
+.ptz-acc-foot span.icon {
+    margin-left: 5px;
+}
+
+.ptz-acc-item {
+    padding-left: 10px;
+    height: 30px;
+    border-top: 0 none;
+    border-bottom: 1px solid #b2b6b9;
+    background: #fff;
+    color: #000;
+    line-height: 30px;
+    /* cursor: pointer; */
+}
+
+.ptz-acc-item:hover {
+    background: #cde4eb;
+}
+
+.ptz-acc-desc {
+    width: 30px;
+}
+
+.ptz-acc-span {
+    max-width: 80px;
+    overflow: hidden;
+}
+
+.ptz-acc-desc, .ptz-acc-span {
+    vertical-align: top;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    height: 30px;
+    line-height: 30px;
+}
+
+.ptz-acc-item button {
+    visibility: hidden;
+    margin-right: 5px;
+}
+
+.ptz-acc-item:hover button {
+    visibility: visible;
+}
+
+.live-plugins {
+    background: #333;
+    border: 1px solid #111;
+    position: absolute;
+    top: 32px;
+    left: 0px;
+    right: 220px;
+    bottom: 38px;
+}
+
+.live-plugins-traffic {
+    position: static;
+    height: 453px;
+}
+
+.plugin-bar {
+    height: 40px;
+    border: 1px solid #111;
+    border-top: 1px solid #414141;
+    background: #333;
+    line-height: 40px;
+    color: #fff;
+    position: absolute;
+    left: 0px;
+    right: 220px;
+    bottom: 0px;
+    overflow: hidden;
+    background-image: none;
+    background-attachment: scroll;
+    background-repeat: repeat;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-size: auto;
+    background-origin: padding-box;
+    background-clip: border-box;
+}
+
+.margin_15{
+    margin: 0px 15px;
+}
+
+.plugin-bar-traffic {
+    position: static;
+}
+
+.realStatusPanel{
+    position: absolute;
+    top: 528px;
+    left: 0px;
+    bottom: 1px;
+    border: 1px solid #9f9f9f;
+    border-top: none;
+}
+
+.liveBtnBar, .realStatusPanel {
+    width: 400px;
+}
+
+.photoBtnBar, .dataView {
+    margin-left: 401px;
+}
+
+.live_linkBtn {
+    text-align: center;
+}
+
+.live_linkBtn input {
+    width: 190px;
+    color: #3f4447;
+}
+
+.plugin-bar-head {
+    height: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+}
+
+.plugin-bar-head div {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+}
+
+.button-combined {
+    background: url(../images/btn-skin.png) repeat-x scroll 0 -100px rgba(0, 0, 0, 0);
+    border: medium none;
+    display: inline-block;
+    *display: inline;
+    cursor: pointer;
+    border-radius: 4px;
+    height: 21px;
+    min-height: 21px;
+    width: auto;
+    zoom: 1;
+    margin: 0px 3px;
+    font-size: 0px;
+}
+
+.button-combined button {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    height: 100%;
+    background: url(../images/btn-skin.png) repeat-x 0 -100px;
+    vertical-align: top;
+    text-align: center;
+    line-height: 21px;
+    border: 0px;
+    cursor: pointer;
+}
+
+#pluginBar {
+    *margin-top: 6px;
+}
+
+.plugin-bar div { 
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+}
+
+.jpegVideoType {
+    display: none;
+}
+
+#videoTypeDiv {
+    line-height: 20px;
+}
+
+#videoTypeDiv span {
+    vertical-align: top;
+}
+
+#videoTypeDiv div {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+}
+
+form {
+    height: 100%
+}
+
+.shortText_30 {
+    width: 30px;
+}
+
+#streamIDDiv button {
+    padding:0 15px;
+    box-sizing: content-box;
+    min-width: 75px;
+    *min-width:auto;
+    *width:expression(this.offsetWidth<75?"75px":"auto");
+}
+
+
+
+#streamIDDiv .line{
+    border-right: 1px solid #9da2a6;
+    border-left:0px none;
+    border-bottom:0px none ;
+    border-top:0px none;
+    width: 0px;
+    height: 100%;
+    vertical-align: top;
+}
+
+#streamIDDiv button.selected {
+    background-position: 0px -150px;
+}
+
+#streamIDDiv div.btn_l.selected {
+    background-position: 0px -50px;
+}
+
+#streamIDDiv div.btn_r.selected {
+    background-position: 0px -250px;
+}
+
+#becomeBtns,#record {
+    position: relative;
+    z-index: 9999;
+}
+.video_full_w {
+    right: 0px;
+}
+
+.dataViewTbl {
+    table-layout: auto;
+    width: 100%;
+}
+.traffic_light {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    outline: none;
+    border: 0;
+    background: transparent url(../images/traffic_light.png) no-repeat center center;
+    vertical-align: middle;
+}
+
+.straight_red {
+    background-position: 0px 0px;
+}
+.straight_green {
+    background-position: 0px -32px;
+}
+.straight_yellow {
+    background-position: 0px -64px;
+}
+.straight_black {
+    background-position: 0px -96px;
+}
+.right_red {
+    background-position: -32px 0px;
+}
+.right_green {
+    background-position: -32px -32px;
+}
+.right_yellow {
+    background-position: -32px -64px;
+}
+.right_black {
+    background-position: -32px -96px;
+}
+.left_red {
+    background-position: -64px 0px;
+}
+.left_green {
+    background-position: -64px -32px;
+}
+.left_yellow {
+    background-position: -64px -64px;
+}
+.left_black {
+    background-position: -64px -96px;
+}
+.lineDiv_traffic {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    width: 32%;
+    text-align: center;
+}
+.traffic_light_div{
+    margin: 1px 0px;
+    height: 40px;
+    line-height: 40px;
+    background: #D4DADE;
+}
+.btn_l_black{
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    width: 3px;
+    height: 100%;
+    background: url("../skin/black/images/btn.gif") no-repeat 0px 0px;
+    vertical-align: top;
+}
+.button_black input, .button_black button,.button_black a{
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    height: 100%;
+    background: url("../skin/black/images/btn.gif") repeat-x 0px -42px;
+    text-align: center;
+    line-height: 21px;
+    border: 0px;
+    cursor: pointer;
+    vertical-align: top;
+    width: 180px;
+    color: #fff;
+}
+.btn_r_black{
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    width: 3px;
+    height: 100%;
+    background:  url("../skin/black/images/btn.gif") no-repeat 0px -21px;
+    vertical-align: top;
+}
+.padding_left_10{
+    padding-left: 10px;
+}
+.dataViewTbody{
+    height: 170px;
+    overflow-y: scroll;
+}
+.longBtn{
+    min-width: 80px;
+}
+
+.realStatusPanelTrafficFlow{
+    position: absolute;
+    top: 528px;
+    left: 0px;
+    bottom: 1px;
+    border: 1px solid #9f9f9f;
+    border-top: none;
+}
+
+.realStatusPanelTrafficFlow {
+    width: 183px;
+}
+
+.liveBtnBarTrafficFlow {
+    width: 221px;
+}
+
+.photoBtnBarTrafficFlow, .dataViewTrafficFlow {
+    margin-left: 184px;
+}

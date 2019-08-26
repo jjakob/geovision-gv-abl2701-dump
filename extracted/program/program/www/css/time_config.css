@@ -1,0 +1,5 @@
+select {width: 90px;}          
+.longText{width: 240px;}
+.autoWidth{width: auto;}
+#NowTime{margin-right: 5px;}
+#NTPSyncInterval{width: 100px;}

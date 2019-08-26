@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="pragma" content="no-cache">
+        <meta http-equiv="cache-control" content="no-cache">
+        <meta http-equiv="expires" content="0">    
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/validate.css" type="text/css" rel="stylesheet">
+        <link href="css/operate_multicast.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.json.min.js"></script>
+        <script type="text/javascript" src="js/ComScript.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript">
+            //加载语言文件
+            loadlanguageFile(top.language);
+        </script>
+        <script type="text/javascript" src="js/jquery.validate.js"></script>
+        <script type="text/javascript" src="js/jquery.metadata.js"></script>
+        <script type="text/javascript" src="js/operate_multicast.js"></script>
+    </head>
+    <body class="body">
+        <div class="pageDiv">
+            <form name="frmSetup" id="frmSetup" class="frmSetup" >
+                 <fieldset class="hidden">
+                        <legend>
+                            <span id="streamId0"></span>
+                        </legend>
+                        <div class="contentLine">
+                            <span class="labelSpan strLimit"><lang name="multiCastAddr"></lang></span>
+                            <input class="ipAddre" type="text" name="IPAddr0" id="IPAddr0" />  
+                        </div>
+                        <div class="contentLine">
+                            <span class="labelSpan strLimit"><lang name="PortCfgTitle"></lang></span>
+                            <input class="port" type="text" name="Port0" id="Port0"/>  
+                        </div>
+                 </fieldset>
+                 <fieldset class="hidden">
+                        <legend>
+                            <span id="streamId1"></span>
+                        </legend>
+                        <div class="contentLine">
+                            <span class="labelSpan strLimit"><lang name="multiCastAddr"></lang></span>
+                            <input class="ipAddre" type="text" name="IPAddr1" id="IPAddr1" /> 
+                        </div>
+                        <div class="contentLine">
+                            <span class="labelSpan strLimit"><lang name="PortCfgTitle"></lang></span>
+                            <input class="port" type="text" name="Port1" id="Port1"/>     
+                        </div>
+                 </fieldset>
+                 <fieldset class="hidden">
+                        <legend>
+                            <span id="streamId2"></span>
+                        </legend>
+                        <div class="contentLine">
+                            <span class="labelSpan strLimit"><lang name="multiCastAddr"></lang></span>
+                            <input class="ipAddre" type="text" name="IPAddr2" id="IPAddr2" />   
+                        </div>
+                        <div class="contentLine">
+                            <span class="labelSpan strLimit"><lang name="PortCfgTitle"></lang></span>
+                            <input class="port" type="text" name="Port2" id="Port2"/>     
+                        </div>
+                 </fieldset>
+                 <fieldset class="hidden">
+                        <legend>
+                            <span id="streamId3"></span>
+                        </legend>
+                        <div class="contentLine">
+                            <span class="labelSpan strLimit"><lang name="multiCastAddr"></lang></span>
+                            <input class="ipAddre" type="text" name="IPAddr3" id="IPAddr3" />   
+                        </div>
+                        <div class="contentLine">
+                            <span class="labelSpan strLimit"><lang name="PortCfgTitle"></lang></span>
+                            <input class="port" type="text" name="Port3" id="Port3"/>     
+                        </div>
+                 </fieldset> 
+                 <fieldset class="hidden">
+                        <legend>
+                            <span id="streamId4"></span>
+                        </legend>
+                        <div class="contentLine">
+                            <span class="labelSpan strLimit"><lang name="multiCastAddr"></lang></span>
+                            <input class="ipAddre" type="text" name="IPAddr4" id="IPAddr4" />   
+                        </div>
+                        <div class="contentLine">
+                            <span class="labelSpan strLimit"><lang name="PortCfgTitle"></lang></span>
+                            <input class="port" type="text" name="Port4" id="Port4"/>     
+                        </div>
+                 </fieldset>         
+                 <fieldset class="hidden">
+                        <legend>
+                            <span id="streamId5"></span>
+                        </legend>
+                        <div class="contentLine">
+                            <span class="labelSpan strLimit"><lang name="multiCastAddr"></lang></span>
+                            <input class="ipAddre" type="text" name="IPAddr5" id="IPAddr5" />   
+                        </div>
+                        <div class="contentLine">
+                            <span class="labelSpan strLimit"><lang name="PortCfgTitle"></lang></span>
+                            <input class="port" type="text" name="Port5" id="Port5"/>     
+                        </div>
+                 </fieldset>                                                                                                                         
+                <span class="button" onclick="submitF()" >
+                    <input type="button" class="submit_btn" lang="saveData"/>
+                </span>
+            </form>
+        </div>
+    </body>
+</html>

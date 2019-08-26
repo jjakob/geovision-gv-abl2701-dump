@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>https_config.html</title>
+    
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Pragma" content="no-cache">
+    <link href="css/globe.css" type="text/css" rel="stylesheet">
+    <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+    <link href="css/validate.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.json.min.js"></script>
+    <script type="text/javascript" src="js/utils.js"></script>
+    <script type="text/javascript" src="js/ComScript.js"></script>
+    <script type="text/javascript">
+            var channelId = 0;
+            var dataMap = {};
+            //加载语言文件
+            loadlanguageFile(top.language);
+        </script>
+    <script type="text/javascript" src="js/jquery.validate.js"></script>
+    <script type="text/javascript" src="js/static_arp.js"></script>
+  </head>
+  
+  <body class="body">
+    <div class="pageDiv">
+            <form name="frmSetup" id="frmSetup">
+                <div id="DSTTable">
+                    <div class="contentLine">
+                        <span class="labelSpan strLimit"><lang name="staticARP"></lang></span>
+                        <span class="contentSpan">
+                            <input type="radio" name="Enable" id="arpOpen" value="1" >
+                            <label for="arpOpen" data-lang="open"></label>
+                            <input type="radio" name="Enable" id="arpClose" value="0" checked="checked">
+                            <label for="arpClose" data-lang="close"></label>
+                        </span>
+                    </div>
+                    <div class="contentLine">
+                        <span class="labelSpan strLimit"><lang name="arpIP"></lang></span>
+                        <input type="text" name="IPAddress" id="IPAddress" value="0" disabled="disabled">
+                    </div>
+                    <div class="contentLine">
+                        <span class="labelSpan strLimit"><lang name="arpMAC"></lang></span>
+                        <input type="text" name="MACAddress" id="MACAddress">
+                    </div>
+                </div>
+                <span></span>
+                  <span class="button_green" onClick="submitF()" >
+                    <input type="button" class="submit_btn" lang="saveData"/>
+                </span>
+            </form>
+        </div>
+  </body>
+</html>

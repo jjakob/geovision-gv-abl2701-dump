@@ -1,0 +1,15 @@
+@charset "utf-8";
+/* CSS Document */
+.shortText {
+width: 50px;
+}
+        
+body {
+font-size: smaller;
+}
+        
+li {
+width: 60px;
+float: left;
+margin: 10px 10px;
+}

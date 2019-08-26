@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta name="Copyright"
+            content="Copyright (c) 2011 *** Corporation. All Rights Reserved.">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+        <link href="css/validate.css" type="text/css" rel="stylesheet">
+        <link id="dataviewCss" href="css/dataview.css" type="text/css" rel="stylesheet">
+        <link href="css/operate_osd.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.json.min.js"></script>
+        <script type="text/javascript" src="js/jquery.blockUI.js"></script>
+        <script type="text/javascript" src="js/ajaxfileupload.js"></script>
+        <script type="text/javascript" src="js/iColorPicker.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/ComScript.js"></script>
+        <script type="text/javascript" src="js/charlib.js"></script>
+        <script type="text/javascript" src="js/operate_osd.js"></script>
+        <style type="text/css">
+         .longText{
+            width: 180px;
+         }
+         .fileUpload {
+             position: absolute;
+             opacity: 0;
+             filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+             width: 60px;
+             height: 21px;
+             margin-left: 2px;
+         }
+         #importFile{
+             width:254px;
+         }
+         .tipDiv{
+             display: inline;
+         }
+        </style>
+    </head>
+    <body class="body"  onbeforeunload="release();">
+        <div class="pageDiv">
+            <div class="left_Content">
+                <div id="recordManager_div_activeX">
+                </div>
+            </div>
+            <div class="right_Content">
+                <form name="frmSetup" id="frmSetup">
+                    <div class="lineDiv hidden" id="FishEyeVideoModeDiv">
+                        <span class="textCell VinModeTiltle"><lang name="fishEyeMode"></lang></span>
+                        <select name="FishEyeVideoMode" id="FishEyeVideoMode">
+                            <option value="10" lang="channelID1"></option>
+                            <option value="11" lang="channelID2"></option>
+                            <option value="12" lang="channelID3"></option>
+                            <option value="13" lang="channelID4"></option>
+                            <option value="14" lang="channelID5"></option>
+                            <option value="15" lang="channelID6"></option>
+                        </select>
+                    </div>
+                    <div id="leftDiv">
+                        <div class="btnDiv right hidden" id="moveBtnDiv">
+                            <span class="button">
+                                <button type="button" id="moveUp" onClick="toUp('osdInfoTable');" style="width: 34px">
+                                    <div class="moveBtn moveUp"></div>
+                                </button>
+                            </span>
+                            <span class="button">
+                                <button type="button" id="moveDown" onClick="toDown('osdInfoTable');" style="width: 34px">
+                                    <div class="moveBtn moveDown"></div>
+                                </button>
+                            </span>
+                        </div>
+                        <div class="dataView hidden" id="infoOsd_3">
+                            <div class="dataViewThead">
+                                <table class="dataViewTbl textCell" cellspacing="0">
+                                    <col align="center" width="30px">
+                                    <col width="65px">
+                                    <col width="">
+                                    <col width="45px">
+                                    <thead>
+                                        <tr>
+                                            <td>
+                                                <label></label>
+                                            </td>
+                                            <td><lang name="osdPlace"></lang></td>
+                                            <td><lang name="osdInfo"></lang></td>
+                                            <td><lang name="osdStatus"></lang></td>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            <div class="dataViewTbody">
+                                <table class="dataViewTbl textCell" cellspacing="0">
+                                    <col align="center" width="30px">
+                                    <col width="65px">
+                                    <col width="">
+                                    <col width="45px">
+                                    <tbody id="osdInfoTable">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="dataView hidden" id="infoOsd_8">
+                            <div class="dataViewThead">
+                                <table class="dataViewTbl textCell" cellspacing="0">
+                                    <col align="center" width="50px">
+                                    <col width="50px">
+                                    <col width="">
+                                    <col width="55px">
+                                    <col width="55px">
+                                    <thead>
+                                        <tr>
+                                            <td>
+                                                <lang name="enable"></lang>
+                                            </td>
+                                            <td>
+                                                <lang name="rowNum"></lang>
+                                            </td>
+                                            <td><lang name="osdInfo"></lang></td>
+                                            <td><lang name="xPos"></lang></td>
+                                            <td><lang name="yPos"></lang></td>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            <div class="dataViewTbody">
+                                <table class="dataViewTbl textCell" cellspacing="0">
+                                    <col align="center" width="50px">
+                                    <col width="50px">
+                                    <col width="">
+                                    <col width="55px">
+                                    <col width="55px">
+                                    <tbody id="osdInfoTable">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <fieldset id="areaPosField" class="hidden">
+                        <legend id="areaPos" data-lang="areaPos"></legend>
+                        <div id="areaPosPoint" class="hidden">
+                            <span class="labelTxt">X</span><input type="text" name="InfoLeft" id="InfoLeft" class="shortText" maxlength="2"
+                             onKeyPress="onPicKeyPress(this);"/>
+                            <br/>
+                            <span class="labelTxt">Y</span><input type="text" name="InfoTop" id="InfoTop" class="shortText" maxlength="2"
+                            onKeyPress="onPicKeyPress(this);"/>
+                            <br/>
+                            <span class="labelTxt strLimit"><lang name="alignment"></lang>:</span><select name="FontAlign" id="FontAlign">
+                                <option value="0" lang="alignLeft"></option>
+                                <option value="1" lang="alignRight"></option>
+                            </select>
+                        </div>
+						<div id="MarqueeContent" class="hidden">
+                            <div class="inputMarquee"><span class="labelTxt strLimit"><lang name="marqueeset"></lang></span></div>
+                            <div class="inputMarquee1">
+                                <textarea type="text" id="MarqueeTxt" name="MarqueeTxt" value="" maxlength="200"></textarea>
+                                <span class="labelTxt auto_width remarkInfo strLimit" ><lang name="marqueetip"></lang></span>
+                            </div>
+                        </div>
+                        <div id="importLogoDiv" class="hidden">
+                            <span class="labelTxt strLimit"><lang name="importLogo"></lang></span><input type="text" name="importFile" id="importFile"
+                            onKeyDown="this.readOnly=1" onpaste="return false" onMouseDown="this.readOnly=1"/>
+                            <span style="display:inline-block;position:relative;">
+                                <input type="file" name="importFileName"  id="importFileName" class="fileUpload" accept=".bmp,.png">
+                                <span class="button">
+                                    <input type="button" lang="browser" name="browse" class="buttonW" id="updateBrowser"/>
+                                </span>
+                                <span class="button">
+                                    <input name="importBtn" type="button" id="importBtn" class="buttonW"
+                                           disabled="disabled" lang="upload"/>
+                                </span>
+                                <div id="exportStatusDiv" class="tipDiv hidden">
+                                    <a class="icon success"></a><span></span>
+                                </div>
+                            </span>
+                            <span class="labelTxt auto_width remarkInfo"><lang name="tipImportLogoNote"></lang></span>
+                        </div>
+                    </fieldset>
+    
+                    <fieldset id="contentStyleField">
+                        <legend><lang name="contentStyle"></lang></legend>
+                        <div class="clearfix">
+                            <div class="contentLine hidden" id="FontStyleLI">
+                                <span class="labelSpan strLimit"><lang name="effect"></lang></span>
+                                <select name="FontStyle" id="FontStyle" class="longText">
+                                    <option value="0" data-cap="0" lang="background"></option>
+                                    <option value="1" data-cap="1" lang="side"></option>
+                                    <option value="2" data-cap="2" lang="hollow"></option>
+                                    <option value="3" data-cap="3" lang="normal"></option>
+                                </select>
+                            </div>
+                            <div class="contentLine">
+                                <span class="labelSpan strLimit"><lang name="fontSize"></lang></span>
+                                <select name="FontSize" id="FontSize" class="longText">
+                                    <option value="3" data-cap="3" lang="xlarge"></option>
+                                    <option value="0" data-cap="0" lang="large"></option>
+                                    <option value="1" data-cap="1" lang="middle"></option>
+                                    <option value="2" data-cap="2" lang="small"></option>
+                                </select>
+                            </div>
+                            <div class="contentLine">
+                                <span class="labelSpan strLimit"><lang name="fontColor"></lang></span>
+                                <input type="text" name="FontColor" id="FontColor" readonly="readonly" class="longText iColorPicker" />
+                                <input type="hidden" name="Color" id="Color" />
+                            </div>
+                            <div id="MarginLI" class="contentLine hidden">
+                                <span class="labelSpan strLimit"><lang name="minMargin"></lang></span>
+                                <select name="Margin" id="Margin" class="longText">
+                                    <option value="0" data-cap="0" lang="none"></option>
+                                    <option value="1" data-cap="1" lang="oneChar"></option>
+                                    <option value="2" data-cap="2" lang="twoChar"></option>
+                                </select>
+                            </div>
+                            <div class="contentLine lineWidth">
+                                <span class="labelSpan strLimit"><lang name="dateFormat"></lang></span>
+                                <select name="DateFormat" id="DateFormat">
+                                </select>
+                                <span class="labelTxt auto_width remarkInfo"><lang name="dateFormatInfo"></lang></span>
+                            </div>
+                            <div class="contentLine lineWidth">
+                                <span class="labelSpan strLimit"><lang name="timeFormat"></lang></span>
+                                <select name="TimeFormat" id="TimeFormat" class="longText">
+                                    <option value="0" lang="timeFormat0"></option>
+                                    <option value="2" lang="timeFormat2"></option>
+                                </select>
+                                <span class="labelTxt auto_width remarkInfo"><lang name="timeFormatInfo"></lang></span>
+                            </div>
+                        </div>   
+                    </fieldset>
+                    <fieldset id="orientationField" class="hidden">
+                        <legend><lang name="orientation"></lang></legend>
+                        <label class="label_txt"><lang name="ptzDirection"></lang></label>
+                        <select name="ptzDirection" id="ptzDirection">
+                        </select>
+                        <span class="button">
+                            <input type="button" name="orient" id="orient" value="" lang="orient" />
+                        </span>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

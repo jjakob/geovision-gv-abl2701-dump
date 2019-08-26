@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="pragma" content="no-cache">
+        <meta http-equiv="cache-control" content="no-cache">
+        <meta http-equiv="expires" content="0">    
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+        <link href="css/dataview.css" type="text/css" rel="stylesheet">
+		<link href="css/wifi_config.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/ComScript.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/dataview.js"></script>
+        <script type="text/javascript" src="js/wifi_config.js"></script>
+    </head>
+    <body class="body">
+        <div class="pageDiv">
+            <form name="frmSetup" id="frmSetup">
+                <input type="hidden" name="SSID" id="SSID" value="">
+                <input type="hidden" name="Key" id="Key" value="">
+                <input type="hidden" name="EncrypType" id="EncrypType" value="0">
+                <input type="hidden" name="AuthMode" id="AuthMode" value="0">
+                <input type="hidden" name="BSSID" id="BSSID" value="">
+                <dl class="clearfix">
+                    <dt>Wi-Fi</dt>
+                    <dd>
+                        <input type="radio" name="Enable" id="wifiOpen" value="1" >
+                        <label for="wifiOpen" data-lang="open"></label>
+                        <input type="radio" name="Enable" id="wifiClose" value="0" checked="checked">
+                        <label for="wifiClose" data-lang="close"></label>
+                    </dd>
+                    <dt><lang name="BNCStatus"></lang></dt>
+                    <dd><span id="WifiLinkStatus"><lang name="unConnect"></lang></span><span id="SSIDText"></span></dd>
+                    <dt><lang name="ipAddr"></lang></dt>
+                    <dd id="IpAddress">0.0.0.0</dd>
+                    <dt><lang name="subNetMask"></lang></dt>
+                    <dd id="NetMask">0.0.0.0</dd>
+                    <dt><lang name="defaultGW"></lang></dt>
+                    <dd id="GateWay">0.0.0.0</dd>
+                </dl>
+                <div class="clearfix">
+                    <span class="button">
+                        <button type="button" id="fresh" data-lang="refreshWifiList"></button>
+                    </span>
+                    <span class="button">
+                        <button type="button" id="add" data-lang="addWifi"></button>
+                    </span>
+                </div>
+                <div class="dataView" style="position: absolute;">
+                <div class="dataViewThead">
+                    <table cellpadding="2" cellspacing="0" class="dataViewTbl textCell" width="810px">
+                        <col width="200px">
+                        <col width="60px">
+                        <col width="170px">
+                        <col width="200px">
+                        <col width="90px">
+                        <col width="90px">
+                        <col>
+                        <thead>
+                            <tr>
+                                <td>
+                                    <lang name="SSID"></lang>
+                                </td>
+                                <td>
+                                    <lang name="channel" ></lang>
+                                </td>
+                                <td>
+                                    <lang name="NetworkType"></lang>
+                                </td>
+                                <td>
+                                    <lang name="SafeType"></lang>
+                                </td>
+                                <td>
+                                    <lang name="Signal"></lang>
+                                </td>
+                                <td>
+                                    <lang name="wifiOperation"></lang>
+                                </td>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="dataViewTbody">
+                    <table cellpadding="2" cellspacing="0" class="dataViewTbl textCell" >
+                        <col width="200px">
+                        <col width="60px" align="center">
+                        <col width="170px">
+                        <col width="200px">
+                        <col width="90px">
+                        <col width="90px">
+                        <tbody id="dataview_tbody"></tbody>
+                    </table>
+                </div>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

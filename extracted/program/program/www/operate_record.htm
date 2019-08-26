@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta name="Copyright" content="Copyright (c) 2013 UNIVIEW Corporation. All Rights Reserved.">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+		 <link href="css/dataview.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/ComScript.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/dataview.js"></script>
+        <script type="text/javascript" src="js/jquery.blockUI.js"></script>
+        <script type="text/javascript" src="js/operate_record.js"></script>
+        <script type="text/javascript" src="datepicker/WdatePicker.js"></script>
+        <style type="text/css">
+            html{
+                overflow-x:hidden;
+                overflow-y:hidden;
+            }
+            span.button input{
+                min-width: 70px;
+            }
+            .btnDiv{
+                padding: 5px;
+                width: 100%;
+            }
+            .dataView{width: 580px;}
+            .pageDiv{
+                margin-left: 12px;
+            }
+        </style>
+    </head>
+
+    <body class="body">
+        <div class="pageDiv">
+        <form id="frmSetup" name="frmSetup">
+            <input type="hidden" name="StartYear" id="StartYear" value="2015"/>
+            <input type="hidden" name="StartMonth" id="StartMonth" value="1"/>
+            <input type="hidden" name="StartDay" id="StartDay" value="1"/>
+            <input type="hidden" name="StartHour" id="StartHour" value="0">
+            <input type="hidden" name="StartMinute" id="StartMinute" value="0">
+            <input type="hidden" name="StartSecond" id="StartSecond" value="0">
+            <input type="hidden" name="EndYear" id="EndYear" value="2015"/>
+            <input type="hidden" name="EndMonth" id="EndMonth" value="12"/>
+            <input type="hidden" name="EndDay" id="EndDay" value="31"/>
+            <input type="hidden" name="EndHour" id="EndHour" value="23">
+            <input type="hidden" name="EndMinute" id="EndMinute" value="59">
+            <input type="hidden" name="EndSecond" id="EndSecond" value="59">
+            <div class="contentLine">
+                <span class="strLimit labelSpan"><lang name="recordTime"></lang></span>
+                <input type="text" class="Wdate textLabel"  name="StartTime" id="StartTime" onclick="pickerTime()"/>
+                <span>~</span>
+                <input type="text" class="Wdate textLabel" name="EndTime" id="EndTime" onclick="pickerTime()"/>
+                            <span class="button">
+                               <input type="button" lang="recordSearch" id="recordSearch" />
+                            </span>
+                             <span class="button">
+                               <input type="button" lang="openFolder" id="openFolder" />
+                            </span>
+            </div>
+            <div class="btnDiv">
+                <span class="button hidden">
+                   <input type="button" lang="download" id="download">
+                </span>
+            </div>
+            <div class="dataView" style="margin-top: 5px;">
+                <div class="dataViewThead">
+                    <table cellpadding="2" cellspacing="0" class="dataViewTbl textCell" width="580px">
+                        <col width="40px">
+                        <col width="60px">
+                        <col width="240px">
+                        <col width="240px">
+                        <thead>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                    <lang name="rowNum"></lang>
+                                </td>
+                                <td>
+                                    <lang name="startTime"></lang>
+                                </td>
+                                <td>
+                                    <lang name="endTime"></lang>
+                                </td>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="dataViewTbody" style="height: 390px;width: 100%">
+                    <table cellpadding="2" cellspacing="0" class="dataViewTbl textCell">
+                        <col width="40px">
+                        <col width="60px">
+                        <col width="240px">
+                        <col width="240px">
+                        <tbody id="dataview_tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </form>
+        </div>
+    </body>
+</html>

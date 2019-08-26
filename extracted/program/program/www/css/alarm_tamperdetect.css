@@ -1,0 +1,4 @@
+@charset "utf-8";
+/* CSS Document */
+dt {width: 110px; float: left;clear: left;}
+select, .normalTxt {width: 90px;}

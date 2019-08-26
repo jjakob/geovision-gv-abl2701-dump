@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="Copyright"
+            content="Copyright (c) 2011 Uniview Corporation. All Rights Reserved.">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <title></title>
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+        <link href="css/validate.css" type="text/css" rel="stylesheet">
+        <link href="css/dataview.css" type="text/css" rel="stylesheet">
+        <link href="css/demo_osd.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.json.min.js"></script>
+        <script type="text/javascript" src="js/slider.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/ComScript.js"></script>
+        <script type="text/javascript" src="js/charlib.js"></script>
+        <script type="text/javascript">
+            //加载语言文件
+            loadlanguageFile(top.language);
+        </script>
+    <script type="text/javascript" src="js/jquery.validate.js"></script>
+    <script type="text/javascript" src="js/demo_osd.js"></script>
+    </head>
+    <body class="body">
+        <div class="pageDiv">
+            <form method="post" name="frmSetup" id="frmSetup">
+            <div id="inverseOSDDL" class="contentLine">
+                <label class="textLabel strLimit"><lang name="inverseOSD"></lang></label>
+                <input type="radio" name="InverseOSDEnable" id="InverseOSD_enable" value="1" checked/>
+                <label for="InverseOSD_enable"><lang name="open"></lang></label>
+                <input type="radio" name="InverseOSDEnable" id="InverseOSD_close" value="0" />
+                <label for="InverseOSD_close"><lang name="close"></lang></label>
+            </div>
+            <fieldset>
+            <legend><lang name="osdFontSize"></lang></legend>
+            <div class="lineContent">
+                 <span id= "resetSpan" class="button" onClick="resetData()">
+                    <input type="button" class="submit_btn" lang="resetFontsizeParam"/>
+                </span>
+            </div>
+            <div class="dataView">
+                <div class="dataViewThead">
+                    <table class="dataViewTbl textCell" cellspacing="0" width="500px">
+                        <col width="100px">
+                        <col width="100px">
+                        <col width="100px">
+                        <col width="100px">
+                        <col width="100px">
+                        <thead>
+                            <tr>
+                                <td><lang name="resolutionLevel"></lang></td>
+                                <td><lang name="xlarge"></lang></td>
+                                <td><lang name="large"></lang></td>
+                                <td><lang name="middle"></lang></td>
+                                <td><lang name="small"></lang></td>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="dataViewTbody">
+                    <table class="dataViewTbl textCell" cellspacing="0">
+                        <col width="100px">
+                        <col width="100px">
+                        <col width="100px">
+                        <col width="100px">
+                        <col width="100px">
+                        <tbody id="osdTable">
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+                </fieldset>
+                <span class="button" id="submitOSD">
+                    <input type="button" class="submit_btn" lang="saveData"/>
+                </span>
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+@CHARSET "UTF-8";
+body{
+	background-color: #f1f2f3 !important;
+}
+/*SPAN.button{
+	display: inline-block;
+	*display: inline;
+    zoom: 1;
+}
+SPAN.button input{
+	background: URL(../images/btn_m.gif) repeat-x center;
+	border: 0;
+}		
+.btn_l{
+	background: URL(../images/btn_l.gif) no-repeat center;
+	width: 2px;
+}
+.btn_r{
+	background: URL(../images/btn_r.gif) no-repeat center;
+	width: 3px;
+}
+SPAN.button input, .btn_l, .btn_r{
+	height: 19px;
+	float: left;
+	cursor: pointer;
+}*/
+/************alarm_motion*************/
+.sizeline{
+	color: gray;
+}
+#alarmView{
+	border-color: black;
+}

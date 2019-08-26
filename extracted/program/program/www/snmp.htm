@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="Copyright" content="Copyright (c) 2013 *** Corporation. All Rights Reserved.">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title></title>
+<link href="css/globe.css" type="text/css" rel="stylesheet">
+<link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+<link href="css/validate.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.json.min.js"></script>
+<script type="text/javascript" src="js/utils.js"></script>
+<script type="text/javascript" src="js/ComScript.js"></script>
+<script type="text/javascript">
+//加载语言文件
+loadlanguageFile(top.language);
+</script>
+<script type="text/javascript" src="js/jquery.validate.js"></script>
+<script type="text/javascript" src="js/snmp.js"></script>
+<style type="text/css">
+.tabTd{width:10px;}
+</style>
+</head>
+<body class="body">
+<div class="pageDiv">
+    <form method="post" name="frmSNMP" id="frmSNMP">
+        <div class="contentLine">
+            <span class="labelSpan strLimit"><lang name="SNMPEnable"></lang></span>
+            <span class="contentSpan">
+                <input type="radio" name="SNMPV3Enable" id="SNMPOpen" value="1" >
+                <label for="SNMPOpen" data-lang="open"></label>
+                <input type="radio" name="SNMPV3Enable" id="SNMPClose" value="0" checked="checked">
+                <label for="SNMPClose" data-lang="close"></label>
+            </span>
+        </div>
+        <div class="contentLine">
+            <span class="labelSpan strLimit"><lang name="UserName"></lang></span>
+            <span class="contentSpan">
+                <input type="text" value="admin" name="SNMPV3UserName" id="SNMPV3UserName" class="comWidth" disabled="disabled"/>
+            </span>
+        </div>
+        <div class="contentLine">
+            <span class="labelSpan strLimit"><lang name="AuthName"></lang></span>
+            <span class="contentSpan">
+               <select name="SNMPV3AuthName" id="SNMPV3AuthName" class="comWidth" disabled="disabled">
+                    <option value="MD5" lang="MD5" selected="selected"></option>
+               </select>
+            </span>
+        </div>
+        <div class="contentLine">
+            <span class="labelSpan strLimit"><lang name="AuthKey"></lang></span>
+            <span class="contentSpan">
+               <input type="password" autocomplete="off"  value="Snmp@123" name="SNMPV3AuthKey" id="SNMPV3AuthKey" class="comWidth"/>
+            </span>
+        </div>
+        <div class="contentLine">
+            <span class="labelSpan strLimit"><lang name="cfgAuthKey"></lang></span>
+            <span class="contentSpan">
+              <input type="password" autocomplete="off"  value="Snmp@123" name="cfgAuthKey" id="cfgAuthKey" class="comWidth"/>
+            </span>
+        </div>
+        <div class="contentLine">
+            <span class="labelSpan strLimit"><lang name="PrivName"></lang></span>
+            <span class="contentSpan">
+                 <select name="SNMPV3PrivName" id="SNMPV3PrivName" class="comWidth" disabled="disabled"/>
+                    <option value="DES" lang="DES56" selected="selected"></option>
+                </select>   
+            </span>
+        </div>
+        <div class="contentLine">
+            <span class="labelSpan strLimit"><lang name="PrivKey"></lang></span>
+            <span class="contentSpan">
+                <input type="password" autocomplete="off"  value="Snmp@123" name="SNMPV3PrivKey" id="SNMPV3PrivKey" class="comWidth"/>
+            </span>
+        </div>
+        <div class="contentLine">
+            <span class="labelSpan strLimit"><lang name="cfgPrivKey"></lang></span>
+            <span class="contentSpan">
+                <input type="password" autocomplete="off"  value="Snmp@123" name="cfgPrivKey" id="cfgPrivKey" class="comWidth"/>
+            </span>
+        </div>
+            
+        <input type="hidden" value="0" name="SNMPV3ulLevel" id="SNMPV3ulLevel"/></td>
+        <span class="button_green" onClick="submitF()" >
+            <input type="button" class="submit_btn" lang="saveData"/>
+        </span>
+    </form>
+</div>
+</body>
+</html>

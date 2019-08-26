@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta name="Copyright"
+            content="Copyright (c) 2013 *** Corporation. All Rights Reserved.">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+        <link href="css/validate.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.json.min.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/ComScript.js"></script>
+        <style type="text/css">
+            select {
+                width: 90px;
+            }
+            .longText{width: 240px;}
+        </style>
+        <script type="text/javascript">
+            //加载语言文件
+            loadlanguageFile(top.language);
+        </script>
+        <script type="text/javascript" src="js/jquery.validate.js"></script>
+        <script type="text/javascript" src="js/management_server.js"></script>
+    </head>
+    <body class="body">
+        <div class="pageDiv">
+            <form name="frmSetup" id="frmSetup">
+                <input type="hidden" name="VMProtocol" id="VMProtocol" value="0"/>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit">
+                        <lang name="deviceId"></lang>
+                    </span>
+                    <input name="DeviceID" id="DeviceID" class="longText" maxlength="32">
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit">
+                        <lang name="VMProtocol"></lang>
+                    </span>
+                    <select name="VMProtocol_pub" id="VMProtocol_pub">
+                    </select>
+                    <select class="hidden" name="VMProtocol_private" id="VMProtocol_private">
+                            <option value="3">VISS</option>
+                    </select>
+                </div>
+                <div class="textCell hidden" id="vmTbl">
+                    <div class="contentLine" id="VMPasswordTR">
+                        <span class="labelSpan strLimit">
+                            <lang name="VMPassword"></lang>
+                        </span>
+                        <input type="password" autocomplete="off"  name="VMPassword" id="VMPassword" onfocus="initPwdChanged(this.id)" class="longText" maxlength="16">
+                    </div>
+                    <div class="contentLine" id="VideoChlIDTR">
+                        <span class="labelSpan strLimit">
+                            <lang name="videoChlID"></lang>
+                        </span>
+                        <input name="VideoChlID" id="VideoChlID" class="longText" maxlength="32">
+                    </div>
+                    <div class="contentLine" id="AudioChlIDTR">
+                        <span class="labelSpan strLimit">
+                            <lang name="AudioChlID"></lang>
+                        </span>
+                        <input name="AudioChlID" id="AudioChlID" class="longText" maxlength="32">
+                    </div>
+                    <div class="contentLine" id="DeviceNameTR">
+                        <span class="labelSpan strLimit">
+                            <lang name="deviceName"></lang>
+                        </span>
+                        <input name="DeviceName" id="DeviceName" class="longText" maxlength="20">
+                    </div>
+                    <div class="contentLine" id="ServerIDTR">
+                            <span class="labelSpan strLimit">
+                                <lang name="ServerID"></lang>
+                            </span>
+                            <input name="ServerID" id="ServerID" class="longText" maxlength="32">
+
+                    </div>
+                    <div class="contentLine">
+                            <span class="labelSpan strLimit">
+                                <lang name="VMServerAddr"></lang>
+                            </span>
+                            <input name="VMIPAddr" id="VMIPAddr" class="longText" maxlength="15">
+                    </div>
+                    <div class="contentLine">
+                            <span class="labelSpan strLimit">
+                                <lang name="VMServerPort"></lang>
+                            </span>
+                            <input name="VMPort" id="VMPort" type="text" value="6060" style="width: 45px;" maxlength="5">
+                    </div>
+                    <div id="regExpireTimeTR" class="hidden contentLine">
+                            <span class="labelSpan strLimit">
+                                <lang name="serverExpireTime"></lang>
+                            </span>
+                            <input name="ExpireTime" id="ExpireTime" class="longText" maxlength="5" value="3600">
+                    </div>
+                    <div id="recordBackupTR" class="hidden contentLine">
+                            <span class="labelSpan strLimit">
+                                <lang name="recordBackup"></lang>
+                            </span>
+                            <input type="radio" id="BMOpen" name="IsUploadEnable" value="1" checked="checked"
+                                    onclick="BMAddressEnable();">
+                            <label for="BMOpen">
+                                    <lang name="open"></lang>
+                            </label>
+                            <input type="radio" id="BMClose" name="IsUploadEnable" value="0"
+                                    onclick="BMAddressEnable();">
+                            <label for="BMClose">
+                                    <lang name="close"></lang>
+                            </label>
+                    </div>
+                    <div id="bmAddrTR" class="hidden contentLine">
+                            <span class="labelSpan strLimit">
+                                <lang name="BMServerAddr"></lang>
+                            </span>
+                            <input name="BMIPAddr" id="BMIPAddr" class="longText" maxlength="15" value="0.0.0.0">
+                    </div>
+
+                    <div id="onvifStorDiv" class="textCell hidden">
+                        <div id="OnvifrecordBackupTR" class="contentLine">
+                            <span class="labelSpan strLimit">
+                                <lang name="OnvifrecordBackup"></lang>
+                            </span>
+                            <input type="radio" id="OnvifOpen" name="OnvifStorEnable" value="1" checked="checked"
+                                onclick="OnvifAddressEnable();">
+                            <label for="OnvifOpen">
+                                <lang name="open"></lang>
+                            </label>
+                            <input type="radio" id="OnvifClose" name="OnvifStorEnable" value="0"
+                                onclick="OnvifAddressEnable();">
+                            <label for="OnvifClose">
+                                <lang name="close"></lang>
+                            </label>
+                        </div>
+                        <div id="OnvifAddrTR" class="contentLine">
+                            <span class="labelSpan strLimit">
+                                <lang name="OnvifServerAddr"></lang>
+                            </span>
+                            <input name="OnvifStorIpAddr" id="OnvifStorIpAddr" class="longText" maxlength="15" value="0.0.0.0">
+                        </div>
+                    </div>
+                </div>
+                <hr id="noticeHR" class="hidden"/>
+                <table border="0" width="100%" id="notice" class="hidden">
+                    <tr class="textCell">
+                        <td width="40">
+                            <b><lang name="noticeInfo"></lang></b>
+                        </td>
+                        <td>
+                            <lang name="sysCfgNoticeInfo1"></lang>
+                        </td>
+                    </tr>
+                </table>
+                <span class="button_green" onclick="submitF()" >
+                    <input type="button" class="submit_btn" lang="saveData"/>
+                </span>
+            </form>
+        </div>
+    </body>
+</html>

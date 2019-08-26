@@ -1,0 +1,22 @@
+#! /bin/sh
+#factorymode on :create file factory.txt
+#factorymode off :rm file factory.txt
+
+if [ "$1" != "on" ] && [ "$1" != "off" ] || [ "$#" != "1" ];then
+    echo "para invalid,only support factorymode on/off"
+    exit
+fi
+
+mount -oremount,rw /calibration/
+
+if [ "$1" == "on" ] && [ ! -e /calibration/factory.txt ] ; then
+    touch /calibration/factory.txt
+elif [ "$1" == "off" ] && [ -e /calibration/factory.txt ] ; then
+    rm /calibration/factory.txt
+fi
+
+echo "@"
+echo "test result:pass"
+echo "\$\$"
+
+mount -oremount,ro /calibration/

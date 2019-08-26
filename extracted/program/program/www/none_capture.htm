@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="Copyright"
+            content="Copyright (c) 2013 *** Corporation. All Rights Reserved.">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title></title>
+<link href="css/globe.css" type="text/css" rel="stylesheet">
+<link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.json.min.js"></script>
+<script type="text/javascript" src="js/utils.js"></script>
+<script type="text/javascript" src="js/ComScript.js"></script>
+<script type="text/javascript">
+    //加载语言文件
+    loadlanguageFile(top.language);
+</script>
+<script type="text/javascript" src="js/none_capture.js"></script>
+</head>
+<body class="body">
+    <div class="pageDiv">
+        <form name="frmSetup" id="frmSetup">
+            <fieldset>
+                <legend>
+                    <span data-lang="passcapture"></span>
+                </legend>
+                <div class="contentLine">
+                    <span data-lang="passcapture" class="labelSpan strLimit">
+                    </span>
+                    <span>
+                        <input type="checkbox" name="PassCapture" id="PassCapture" />
+                        <label for="PassCapture"><lang name="enable"></lang></label>
+                    </span>
+                </div>
+                <div class="contentLine">
+                    <input id="PassMins" class="hidden">
+                    <span class="labelSpan strLimit" data-lang="SnapTimeInterval">
+                    </span>
+                    <select name="PassCaptureDays" id="PassCaptureDays" style="width: 40px">
+                    </select>
+                    <span data-lang="days">
+                    </span>
+                    <select name="PassCaptureHours" id="PassCaptureHours" style="width: 40px">
+                    </select>
+                    <span data-lang="hours">
+                    </span>
+                    <select name="PassCaptureMins" id="PassCaptureMins" style="width: 40px">
+                    </select>
+                    <span data-lang="mins">
+                    </span>
+                </div>
+            </fieldset>
+            <fieldset id="peccancycapturefieldset" class="hidden">
+                <legend>
+                    <span data-lang="peccancycapture"></span>
+                </legend>
+                <div class="contentLine">
+                    <span data-lang="peccancycapture" class="labelSpan strLimit">
+                    </span>
+                    <span>
+                        <input type="checkbox" name="PeccancyCapture" id="PeccancyCapture" />
+                        <label for="PeccancyCapture"><lang name="enable"></lang></label>
+                    </span>
+                </div>
+                <div class="contentLine">
+                    <input id="PeccancyMins" class="hidden">
+                    <span class="labelSpan strLimit" data-lang="SnapTimeInterval">
+                    </span>
+                    <select name="PeccancyCaptureDays" id="PeccancyCaptureDays" style="width: 40px">
+                    </select>
+                    <span data-lang="days">
+                    </span>
+                    <select name="PeccancyCaptureHours" id="PeccancyCaptureHours" style="width: 40px">
+                    </select>
+                    <span data-lang="hours">
+                    </span>
+                    <select name="PeccancyCaptureMins" id="PeccancyCaptureMins" style="width: 40px">
+                    </select>
+                    <span data-lang="mins">
+                    </span>
+                </div>
+                <div class="contentLine">
+                    <span class="labelSpan strLimit" data-lang="peccancy">
+                    </span>
+                    <input class="hidden" id="Peccancy">
+                    <select name="PeccancyType" id="PeccancyType" style="width: 100px">
+                    </select>
+                    <span id="manualcapture" onClick="manualcapture()" >
+                        <input type="button" class="submit_btn" lang="manualcapture"/>
+                    </span>
+                </div>
+            </fieldset>
+            <span class="button_green" onClick="submitF()" >
+                <input type="button" class="submit_btn" lang="saveData"/>
+            </span>
+        </form>
+    </div>
+</body>
+</html>

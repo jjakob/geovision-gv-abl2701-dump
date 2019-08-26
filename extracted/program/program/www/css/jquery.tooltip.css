@@ -1,0 +1,25 @@
+#tooltip {
+	position: absolute;
+	z-index: 3000;
+	border: 1px solid #111;
+	background-color: #eee;
+	padding: 5px;
+	opacity: 0.85;
+}
+
+
+#tooltip.pretty {
+	font-family: "Microsoft YaHei", \5FAE\8F6F\96C5\9ED1, Arial, Helvetica, sans-serif;;
+	border: none;
+	width: 250px;
+	padding:20px;
+	height: 175px;
+	opacity: 0.8;
+	background: url('../images/shadow.png');
+}
+
+#tooltip .fnt{
+	font-family: "Microsoft YaHei", \5FAE\8F6F\96C5\9ED1, Arial, Helvetica, sans-serif;;
+	font-size: 12px;
+}
+#tooltip.pretty div { width: 220px; text-align: left; }

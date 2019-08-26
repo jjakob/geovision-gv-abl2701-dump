@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta name="Copyright"
+            content="Copyright (c) 2013 *** Corporation. All Rights Reserved.">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <link href="css/globe.css" type="text/css" rel="stylesheet">
+        <link href="css/globe_ex.css" type="text/css" rel="stylesheet">
+        <link href="css/validate.css" type="text/css" rel="stylesheet">
+        <link href="css/operate_ptz_rs.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.json.min.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/ComScript.js"></script>
+        <script type="text/javascript">
+            var dataMap = {};
+            var channelId = 0;
+            var titleDeviceType = top.banner.titleDeviceType;
+            //加载语言文件
+            loadlanguageFile(top.language);
+        </script>
+        <script type="text/javascript" src="js/jquery.validate.js"></script>
+        <script type="text/javascript" src="js/operate_ptz.js"></script>
+    </head>
+    <body class="body">
+        <div id="pageDiv" class="pageDiv clearfix">
+            <form name="frmSetup" id="frmSetup">
+                <fieldset id="Serial1Fieldset">
+                    <legend class="textCell"><lang name="COM1"></lang></legend>
+                    <input type="hidden" name="DeviceType" value="1">
+                    <input type="hidden" id="Serial1SerialType" name="Serial1SerialType" value="1"/>
+
+                    <div class="contentLine">
+                        <span class="labelSpan strLimit"><lang name="COMMode"></lang></span>
+                        <span class="contentSpan">
+                            <select name="Serial1SerialMode" id="Serial1SerialMode" style="width: 4.2cm">
+                            </select>
+                        </span>
+                    </div>
+                    <div class="contentLine hidden">
+                        <span class="labelSpan" ></span>
+                        <span class="contentSpan">
+                            <input type="checkbox" id="Serial1OSDReport" name="Serial1OSDReport" >
+                            <label for="Serial1OSDReport"><lang name="serialOSDReport"></lang></label>
+                        </span>
+                    </div>
+                    <div class="contentLine">
+                        <span class="labelSpan strLimit"><lang name="COMBaudRate"></lang></span>
+                        <span class="contentSpan">
+                            <select id="Serial1BaudRate" name="Serial1BaudRate" style="width: 4.2cm">
+                                <option value="1200">
+                                    1200
+                                </option>
+                                <option value="2400">
+                                    2400
+                                </option>
+                                <option value="4800">
+                                    4800
+                                </option>
+                                <option value="9600" selected="selected">
+                                    9600
+                                </option>
+                                <option value="19200">
+                                    19200
+                                </option>
+                                <option value="38400">
+                                    38400
+                                </option>
+                                <option value="57600">
+                                    57600
+                                </option>
+                                <option value="115200">
+                                    115200
+                                </option>
+                            </select>
+                        </span>
+                    </div>
+                    <div class="contentLine">
+                        <span class="labelSpan strLimit"><lang name="dataBits"></lang></span>
+                        <span class="contentSpan">
+                            <select name="Serial1DataBit" id="Serial1DataBit" style="width: 4.2cm">
+                                <option value="5">
+                                    5
+                                </option>
+                                    <option value="6">
+                                    6
+                                </option>
+                                <option value="7">
+                                    7
+                                </option>
+                                <option value="8" selected="selected">
+                                    8
+                                </option>
+                            </select>
+                        </span>
+                    </div>
+                    <div class="contentLine">
+                        <span class="labelSpan strLimit"><lang name="stopBits"></lang></span>
+                        <span class="contentSpan">
+                            <select name="Serial1StopBit" id="Serial1StopBit" style="width: 4.2cm">
+                                <option value="1" selected="selected">
+                                    1
+                                </option>
+                                <option value="2">
+                                    2
+                                </option>
+                            </select>
+                        </span>
+                    </div>
+                    <div class="contentLine">
+                        <span class="labelSpan strLimit"><lang name="CRCBits"></lang></span>
+                        <span class="contentSpan">
+                            <select name="Serial1Parity" id="Serial1Parity" style="width: 4.2cm">
+                                <option value="0" lang="none" selected="selected">
+                                </option>
+                                <option value="1" lang="oddCRC">
+                                </option>
+                                <option value="2" lang="evenCRC">
+                                </option>
+                            </select>
+                        </span>
+                    </div>
+                    <div class="contentLine">
+                        <span class="labelSpan strLimit"><lang name="flowControl"></lang></span>
+                        <span class="contentSpan">
+                            <select name="Serial1Flowcontrol" id="Serial1Flowcontrol" style="width: 4.2cm">
+                                <option value="0" lang="none" selected="selected">
+                                </option>
+                                <option value="1" lang="softwareControl">
+                                </option>
+                            </select>
+                        </span>
+                    </div>
+                    <div id="Serial1protocolName" class="contentLine">
+                        <span class="labelSpan strLimit"><lang name="PTZProtocol"></lang></span>
+                        <span class="contentSpan">
+                            <select name="Serial1PtzFactoryName" id="Serial1PtzFactoryName"
+                                    onChange="changePtzProtocol('Serial1');" style="width: 4.2cm">
+                                    <option value="INTERNAL-PTZ">
+                                        INTERNAL-PTZ
+                                    </option>
+                                    <option value="PELCO-D" selected="selected">
+                                        PELCO-D
+                                    </option>
+                                    <option value="PELCO-P">
+                                        PELCO-P
+                                    </option>
+                                    <option value="ALEC">
+                                        ALEC
+                                    </option>
+                                    <option value="VISCA">
+                                        VISCA
+                                    </option>
+                                    <option value="ALEC_PELCO-D">
+                                        ALEC_PELCO-D
+                                    </option>
+                                    <option value="ALEC_PELCO-P">
+                                        ALEC_PELCO-P
+                                    </option>
+                                    <option value="MINKING_PELCO-D">
+                                        MINKING_PELCO-D
+                                    </option>
+                                    <option value="MINKING_PELCO-P">
+                                        MINKING_PELCO-P
+                                    </option>
+                                    <option value="YAAN">
+                                           YAAN
+                                    </option>
+                                    <option value='Private-KR'>Private-KR</option>
+                                </select>
+                        </span>
+                    </div>
+                    <div id="Serial1ptzModeTR" class="contentLine">
+                        <span class="labelSpan strLimit"><lang name="PTZMode"></lang></span>
+                        <span class="contentSpan">
+                            <select name="Serial1PtzMode" id="Serial1PtzMode" style="width: 4.2cm">
+                                    <option value="0" lang="PTZInnerMode" selected="selected">
+                                    </option>
+                                    <option value="1" lang="PTZOutterMode">
+                                    </option>
+                            </select>
+                        </span>
+                    </div>
+                    <div id="Serial1protocolAddr" class="contentLine">
+                        <span class="labelSpan strLimit"><lang name="addressCode"></lang></span>
+                        <input name="Serial1PtzAddressCode" id="Serial1PtzAddressCode" style="width: 30px;" maxlength="3" value="0">
+                    </div>
+                    <div class="custom-thead">
+                        <input type="checkbox" id="Serial1Enable" name="Serial1Enable" onclick="enableTransPort(this.id)">
+                        <label for="Serial1Enable"><lang name="tansPortEnable"></lang></label>
+                    </div>
+
+                    <input type="hidden" name="pageType" />
+                    <div id="Serial1Table" class="hidden">
+                        <div class="contentLine">
+                            <span class="labelSpan strLimit"><lang name="targetAddr"></lang></span>
+                            <input name="Serial1LocalAddr" id="Serial1LocalAddr" style="width: 4.2cm;" maxlength="15" value="0.0.0.0">
+                        </div>
+                        <div class="contentLine" >
+                            <span class="labelSpan strLimit"><lang name="targetPort"></lang></span>
+                            <input name="Serial1LocalPort" id="Serial1LocalPort" style="width: 45px;" maxlength="5" value="2000">
+                        </div>
+                        <div class="contentLine">
+                            <span class="labelSpan strLimit"><lang name="dstAddr"></lang></span>
+                            <input name="Serial1PeerAddr" id="Serial1PeerAddr" style="width: 4.2cm;" maxlength="15"
+                            disabled="disabled" value="0.0.0.0">
+                        </div>
+                        <div class="contentLine" id="dstPortTR">
+                            <span class="labelSpan strLimit"><lang name="dstPort"></lang></span>
+                            <input name="Serial1PeerPort" id="Serial1PeerPort" style="width: 45px;" maxlength="5" value="2000">
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <span class="button_green" onClick="submitF()" >
+            <input type="button" class="submit_btn" lang="saveData"/>
+        </span>
+    </body>
+</html>

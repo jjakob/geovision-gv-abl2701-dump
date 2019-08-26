@@ -1,0 +1,46 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+    height: auto;
+    min-width: 702px;
+}
+ul {
+    list-style: none;
+    margin-left: 30px;
+}
+ul li{
+    width: 33%;
+    float: left;
+}
+ul li input{
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.sectionTab {
+    width: 110px;
+    height: 32px;
+    border: 1px solid #9f9f9f;
+    cursor: pointer;
+    *margin-right:5px;
+}
+.contentLine span input{
+    *margin-left: 3px;
+}
+.ColorWidth {
+    display: inline-block;
+    width:101px;
+    margin-right:5px !important;
+}
+.ColorSpan {
+    margin:5px 10px 10px 5px;
+}
+.CommonSpan {
+    margin:5px 95px 10px 5px;
+}
+.lineWidth{width: 100%;}
+#DateFormat{width: 180px;}
+#DateFormat, #TimeFormat{margin-right: 24px;}
+#picOsdDiv fieldset, #mjpegOsdDiv fieldset, #illegalOsdDiv fieldset, #TGSyntOsdDiv fieldset, #pictrueTypecloseUpDiv fieldset{background-color: white;border: 1px gray inset;margin: 5px 5px; padding: 5px; overflow: hidden;}
+#picOsdDiv ul, #mjpegOsdDiv ul, #illegalOsdDiv ul, #TGSyntOsdDiv ul, #pictrueTypecloseUpDiv ul{background-color: white;border: 1px gray inset;margin: 5px 5px; padding: 5px; overflow: hidden;}
+#picOsdDiv li, #mjpegOsdDiv li, #illegalOsdDiv li, #TGSyntOsdDiv li, #pictrueTypecloseUpDiv li{padding: 4px 0px}
+#mjpegOsdDiv span,#picOsdDiv span,#illegalOsdDiv span, #TGSyntOsdDiv span{margin:5px 35px 10px 5px;line-height:25px;}

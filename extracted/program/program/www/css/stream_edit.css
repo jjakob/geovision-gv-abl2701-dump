@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* CSS Document */
+.pageDiv{margin-left: 12px;}
+.shortText {
+    width: 50px;
+}
+
+body {
+    font-size: smaller;
+}
+
+dt {
+    width: 160px;
+    float: left;
+}
+
+select, .nomarText {
+    width: 120px;
+}
